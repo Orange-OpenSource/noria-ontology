@@ -1,0 +1,109 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+@prefix voc: <https://w3id.org/noria/kos/> .
+@prefix voc-alarm-objects: <https://w3id.org/noria/kos/alarm/> .
+@prefix voc-alarm-severity-objects: <https://w3id.org/noria/kos/alarm/severity/> .
+
+voc:alarm
+  a skos:ConceptScheme;
+  skos:definition "A message event, related to some Facility and with a Severity value.";
+  skos:notation "alarm" ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+  dcterms:issued "2022-01-01"^^xsd:date ;
+  dc:publisher "Orange - EURECOM" ;
+  dcterms:title "The NORIA Alarm vocabulary" ;
+  dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+.
+
+# =============================================================================
+
+voc-alarm-objects:severity
+  a skos:ConceptScheme;
+  skos:definition "Severity of alarm events";
+  skos:inScheme voc:alarm ;
+  skos:notation "alarm-severity" ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+voc-alarm-severity-objects:critical
+  a skos:Concept;
+  skos:definition "A CRITICAL event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "critical";
+  skos:prefLabel "Critical"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+voc-alarm-severity-objects:info
+  a skos:Concept;
+  skos:definition "An INFORMATION event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "info";
+  skos:prefLabel "Info"@en ;
+  skos:altLabel "Informational"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+voc-alarm-severity-objects:major
+  a skos:Concept;
+  skos:definition "An MAJOR event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "major";
+  skos:prefLabel "Major"@en ;
+  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
+.
+
+voc-alarm-severity-objects:minor
+  a skos:Concept;
+  skos:definition "An MINOR event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "minor";
+  skos:prefLabel "Minor"@en ;
+  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
+.
+
+voc-alarm-severity-objects:ok
+  a skos:Concept;
+  skos:definition "An OK state event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "ok";
+  skos:prefLabel "OK"@en ;
+  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
+.
+
+voc-alarm-severity-objects:unknown
+  a skos:Concept;
+  skos:definition "An UNKNOWN state.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "unknown";
+  skos:prefLabel "Unknown"@en ;
+  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
+.
+
+voc-alarm-severity-objects:warning
+  a skos:Concept;
+  skos:definition "An WARNING event.";
+  skos:inScheme voc-alarm-objects:severity;
+  skos:notation "warning";
+  skos:prefLabel "Warning"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.

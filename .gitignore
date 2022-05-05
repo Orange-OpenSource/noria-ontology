@@ -1,0 +1,15 @@
+# Default ignored files and directories
+/venv
+*.log
+*.~*
+
+# Python
+__pycache__/
+
+# node.js
+node_modules/
+package.json
+package-lock.json
+
+# IDE
+/.idea
