@@ -6,8 +6,8 @@ The model has been developed in collaboration with operational teams, and in con
 
 Cite:
 ```bibtex
-@inproceedings{noria2022,
-  title = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in the Context of ICT Systems},
+@inproceedings{noria-o-2022,
+  title = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems},
   author = {{Lionel Tailhardat} and {Yoan Chabot} and {Rapha\"el Troncy}},
   year = {2022}
 }
