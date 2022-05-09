@@ -2,6 +2,15 @@
 
 This folder contains the **NORIA ontology documents**.
 
+We provide a direct access to the NORIA-O resources with the **noria** [w3id.org](https://w3id.org/) identifier: [https://w3id.org/noria/](https://w3id.org/noria/).  
+Based on this identifier, the [https://w3id.org/noria/ontology/](https://w3id.org/noria/ontology/) refers to the ontology itself.  
+Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
+For example, the v0.1 main ontology file is available at: [https://w3id.org/noria/noria-0.1](https://w3id.org/noria/noria-0.1).
+
+Details below provide directions for the ontology implementation.
+
+## Naming convention
+
 Every ontology document must be a Turtle document, and be named as follows:
 
 ```
