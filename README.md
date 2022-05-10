@@ -36,16 +36,17 @@ For example, the v0.1 main ontology file is available at:
 See also the *Repository Structure* for navigating into this repository:
 ```
 noria-ontology
-├───evaluation <noria ontology evaluation tool set> (e.g. Authoring Tests)
-├───kos <noria controlled vocabulary> (e.g. codelists)
-├───ontology <the noria ontology implementation>
-└───ORSD <Ontology Requirements and Specification> (e.g. Competency Questions)
+├───cqs <Ontology Requirements and Specification> (e.g. Competency Questions)
+├───dataset <toy example for examplification of the NORIA-O model>
+├───evaluation <NORIA-O evaluation tool set> (e.g. Authoring Tests)
+├───kos <NORIA-O controlled vocabulary> (e.g. codelists)
+└───ontology <the NORIA-O implementation>
 ```
 
 ## Contribute
 
 In the general case, please
-* *fork and create merge request* OR
+* *fork and create merge request*, or
 * *raise an issue* into the project's space.
 
 ## Copyright
