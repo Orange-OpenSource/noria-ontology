@@ -28,10 +28,15 @@ voc:alarm
   skos:definition "A message event, related to some Facility and with a Severity value.";
   skos:notation "alarm" ;
   rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
-  dcterms:issued "2022-01-01"^^xsd:date ;
-  dc:publisher "Orange - EURECOM" ;
+  # --- Vocab metadata ---
+  dcterms:issued "2022-05-10"^^xsd:date ;
+  dcterms:publisher <https://www.orange.com/> ;
+  dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+  dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+  dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+  dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
   dcterms:title "The NORIA Alarm vocabulary" ;
-  dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+  dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
 .
 
 # =============================================================================
@@ -69,7 +74,6 @@ voc-alarm-severity-objects:major
   skos:inScheme voc-alarm-objects:severity;
   skos:notation "major";
   skos:prefLabel "Major"@en ;
-  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
 .
 
 voc-alarm-severity-objects:minor
@@ -78,7 +82,6 @@ voc-alarm-severity-objects:minor
   skos:inScheme voc-alarm-objects:severity;
   skos:notation "minor";
   skos:prefLabel "Minor"@en ;
-  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
 .
 
 voc-alarm-severity-objects:ok
@@ -87,7 +90,6 @@ voc-alarm-severity-objects:ok
   skos:inScheme voc-alarm-objects:severity;
   skos:notation "ok";
   skos:prefLabel "OK"@en ;
-  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
 .
 
 voc-alarm-severity-objects:unknown
@@ -96,7 +98,6 @@ voc-alarm-severity-objects:unknown
   skos:inScheme voc-alarm-objects:severity;
   skos:notation "unknown";
   skos:prefLabel "Unknown"@en ;
-  rdfs:isDefinedBy <http://orangecarto.sso.infra.ftgroup/bincarto/Pages/Components/Component.aspx?id=27723> ;
 .
 
 voc-alarm-severity-objects:warning
