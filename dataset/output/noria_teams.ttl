@@ -1,0 +1,27 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.org/noria/agent/TM_Mgmt01> a noria:Team;
+  noria:teamId "Mgmt01";
+  noria:teamManager "LName09 FName09";
+  noria:teamName "Mgmt01";
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/TM_Support01> a noria:Team;
+  noria:teamId "Support01";
+  noria:teamManager "LName09 FName09";
+  noria:teamName "Support01";
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/TM_Support02> a noria:Team;
+  noria:teamId "Support02";
+  noria:teamManager "LName09 FName09";
+  noria:teamName "Support02";
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/TM_Support03> a noria:Team;
+  noria:teamId "Support03";
+  noria:teamManager "LName09 FName09";
+  noria:teamName "Support03";
+  prov:wasDerivedFrom "noria-ontology-toy-example" .

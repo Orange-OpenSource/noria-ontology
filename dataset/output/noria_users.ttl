@@ -1,0 +1,75 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.org/noria/agent/CU_LF001> a noria:Employee;
+  noria:employeeFirstName "FName01";
+  noria:employeeId "LF001";
+  noria:employeeLastName "LName01";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support01>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF002> a noria:Employee;
+  noria:employeeFirstName "FName02";
+  noria:employeeId "LF002";
+  noria:employeeLastName "LName02";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support01>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF003> a noria:Employee;
+  noria:employeeFirstName "FName03";
+  noria:employeeId "LF003";
+  noria:employeeLastName "LName03";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support02>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF004> a noria:Employee;
+  noria:employeeFirstName "FName04";
+  noria:employeeId "LF004";
+  noria:employeeLastName "LName04";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support02>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF005> a noria:Employee;
+  noria:employeeFirstName "FName05";
+  noria:employeeId "LF005";
+  noria:employeeLastName "LName05";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support03>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF006> a noria:Employee;
+  noria:employeeFirstName "FName06";
+  noria:employeeId "LF006";
+  noria:employeeLastName "LName06";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support03>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF007> a noria:Employee;
+  noria:employeeFirstName "FName07";
+  noria:employeeId "LF007";
+  noria:employeeLastName "LName07";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support03>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF008> a noria:Employee;
+  noria:employeeFirstName "FName08";
+  noria:employeeId "LF008";
+  noria:employeeLastName "LName08";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Support03>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/agent/CU_LF009> a noria:Employee;
+  noria:employeeFirstName "FName09";
+  noria:employeeId "LF009";
+  noria:employeeLastName "LName09";
+  noria:employeeMailBox "lname.fname@example.org";
+  noria:employeeOrgMemberOf <http://example.org/noria/agent/TM_Mgmt01>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .

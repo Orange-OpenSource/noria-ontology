@@ -1,0 +1,198 @@
+prefixes:
+  folio: "http://IBCNServices.github.io/Folio-Ontology/Folio.owl#"
+  dyversify: "http://example.com/idlab/functions/dyversify/"
+
+mappings:
+  component:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "https://w3id.org/noria/ontology/"]
+         - [dyversify:str, $(Component)]
+    po:
+      - [a, owl:Class]
+      - [rdfs:comment, $(Component)]
+  failure_mode:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "http://example.org/noria/RCA/FM_"]
+         - [dyversify:str, $(Failure Mode)]
+    po:
+      - [a, owl:Class]
+      - [rdfs:comment, $(Failure Mode)]
+      - p: rdfs:subClassOf
+        o:
+         - folio:FailureMode~iri
+         - mapping: [component_restriction, rpn_restriction]
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  failure_cause:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "http://example.org/noria/RCA/FM_"]
+         - [dyversify:str, $(Failure Cause)]
+    po:
+      - [a, owl:Class]
+      - [rdfs:comment, $(Failure Cause)]
+      - p: rdfs:subClassOf
+        o:
+         - folio:FailureCause~iri
+         - mapping: [component_restriction, end_effect_restriction, lower_effect_restriction]
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  failure_effect:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "http://example.org/noria/RCA/FM_"]
+         - [dyversify:str, $(Failure Effect)]
+    po:
+      - [a, owl:Class]
+      - p: rdfs:subClassOf
+        o:
+         - folio:FailureEffect~iri
+         - mapping: [failure_mode_restriction, local_effect_restriction, component_restriction, next_effect_restriction, control_method_restriction]
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  control_method:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "http://example.org/noria/RCA/CM_"]
+         - [dyversify:str, $(Control Method)]
+    po:
+      - [a, owl:Class]
+      - [rdfs:comment, $(Control Method)]
+      - [rdfs:subClassOf, folio:ControlMethod~iri]
+  rpn:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    s:
+     - function: dyversify:generateIRI
+       parameters:
+         - [dyversify:prefix, "http://example.org/noria/RPN/"]
+         - [dyversify:str, $(RPN)]
+    po:
+      - [a, owl:Class]
+      - [rdfs:comment, $(RPN)]
+      - [rdfs:subClassOf, folio:RPN~iri]
+  rpn_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:hasRPN~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: rpn
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  component_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:happenedAt~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: component
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  control_method_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:hasControlMethod~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: control_method
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  end_effect_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:isEndEffect~iri]
+      - [owl:someValuesFrom, folio:FailureCause~iri]
+  local_effect_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:isLocalEffect~iri]
+      - [owl:someValuesFrom, folio:FailureEffect~iri]
+  lower_effect_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:hasLowerFailureEffect~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: failure_effect
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  next_effect_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:hasNextFailureEffect~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: failure_cause
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]
+  failure_mode_restriction:
+    sources:
+      - ['datasource/noria_FMEA.csv~csv']
+
+    po:
+      - [a, owl:Restriction]
+      - [owl:onProperty, folio:hasFailureMode~iri]
+      - p: owl:someValuesFrom
+        o:
+         - mapping: failure_mode
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id)]
+              - [str2, $(id)]

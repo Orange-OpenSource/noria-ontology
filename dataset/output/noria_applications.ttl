@@ -1,0 +1,39 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.org/noria/resource/APPM_APP01_M01> a noria:ApplicationModule;
+  noria:applicationModuleIdentifier "APP01_M01";
+  noria:applicationModuleName "APP01_M01";
+  noria:applicationModuleOf <http://example.org/noria/resource/APP_APP01>;
+  noria:applicationModuleSupportTeam <http://example.org/noria/agent/TM_Support03>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/APPM_INF01_M01> a noria:ApplicationModule;
+  noria:applicationModuleIdentifier "INF01_M01";
+  noria:applicationModuleName "INF01_M01";
+  noria:applicationModuleOf <http://example.org/noria/resource/APP_INF01>;
+  noria:applicationModuleSupportTeam <http://example.org/noria/agent/TM_Support02>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/APPM_PFS01_M01> a noria:ApplicationModule;
+  noria:applicationModuleIdentifier "PFS01_M01";
+  noria:applicationModuleName "PFS01_M01";
+  noria:applicationModuleOf <http://example.org/noria/resource/APP_PFS01>;
+  noria:applicationModuleSupportTeam <http://example.org/noria/agent/TM_Support01>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/APP_APP01> a noria:Application;
+  noria:applicationShortIdentifier "APP01";
+  noria:applicationType <http://example.org/noria/kos/application/type/application>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/APP_INF01> a noria:Application;
+  noria:applicationShortIdentifier "INF01";
+  noria:applicationType <http://example.org/noria/kos/application/type/infrastructure>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/APP_PFS01> a noria:Application;
+  noria:applicationShortIdentifier "PFS01";
+  noria:applicationType <http://example.org/noria/kos/application/type/service-platform>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .

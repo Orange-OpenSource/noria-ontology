@@ -1,0 +1,163 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix crml: <http://semweb.mmlab.be/ns/crml#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix formats: <https://www.w3.org/ns/formats/> .
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Hand-crafted data for the noria-ontology fictious case.
+
+# === TroubleTicket ===========================================================
+
+<http://example.org/noria/event/TT_TOY2022TT>
+  a noria:TroubleTicket;
+  noria:troubleTicketCreationDateTime "2022-04-26T12:00:00Z";
+  noria:troubleTicketDescription """Toy example: service access failure from term1. Probable cause: network issue.""";
+  noria:troubleTicketDetectionDateTime "2022-04-26T11:58:00Z";
+  noria:troubleTicketId "TOY2022TT";
+  noria:troubleTicketLastUpdate "2022-04-26T12:07:00Z";
+  noria:troubleTicketRelatedResource <http://example.org/noria/resource/term1> ;
+  noria:troubleTicketStatusCurrent "InProgress" ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/TTN_TOY2022TT_2022-04-26T12:05:00Z_CU_LF001>
+  a noria:TroubleTicketNote ;
+  noria:troubleTicketNoteAuthor <http://example.org/noria/agent/CU_LF001> ;
+  noria:troubleTicketNoteAuthorGroupId <http://example.org/noria/agent/TM_Support01> ;
+  noria:troubleTicketNoteDate "2022-04-26T12:05:00Z" ;
+  noria:troubleTicketNoteForTicket <http://example.org/noria/event/TT_TOY2022TT> ;
+  noria:troubleTicketNoteOperationType "Comment" ;
+  noria:troubleTicketNoteText """Service access diagnosis: no route to srv1. Please check MAN connectivity.""" ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/TTN_TOY2022TT_2022-04-26T12:07:00Z_CU_LF004>
+  a noria:TroubleTicketNote ;
+  noria:troubleTicketNoteAuthor <http://example.org/noria/agent/CU_LF004> ;
+  noria:troubleTicketNoteAuthorGroupId <http://example.org/noria/agent/TM_Support02> ;
+  noria:troubleTicketNoteDate "2022-04-26T12:07:00Z" ;
+  noria:troubleTicketNoteForTicket <http://example.org/noria/event/TT_TOY2022TT> ;
+  noria:troubleTicketNoteOperationType "Comment" ;
+  noria:troubleTicketNoteText """Repair action: reset interface card on as2. Please check service is restored.""" ;
+  noria:troubleTicketCorrelatedNotifications
+          <http://example.org/noria/event/LOG_as2_2022-04-26%2011%3A57%3A00.000> ,
+          <http://example.org/noria/event/LOG_term1_2022-04-26%2011%3A58%3A00.000> ,
+          <http://example.org/noria/event/LOG_srv1_2022-04-26%2011%3A58%3A00.000> ,
+          <http://example.org/noria/event/LOG_srv1_2022-04-26%2012%3A06%3A00.000> ,
+          <http://example.org/noria/event/LOG_srv1_2022-04-26%2012%3A06%3A30.000> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === Logs ====================================================================
+
+<http://example.org/noria/event/LOG_as2_2022-04-26%2011%3A57%3A00.000>
+  a noria:Alarm ;
+  noria:eventLogLoggingTime "2022-04-26T11:57:00Z";
+  noria:eventLogOriginatingManagedObject <http://example.org/noria/resource/as2> ;
+  noria:eventLogText "SYS_ERROR: L2 table overflow." ;
+  noria:eventLogType <http://example.org/noria/kos/Notification/EventType/equipmentAlarm> ;
+  noria:alarmPerceivedSeverity <http://example.org/noria/kos/Notification/PerceivedSeverity/major> ;
+  noria:alarmProbableCause <http://example.org/noria/kos/Notification/ProbableCause/communicationsSubsystemFailure> ;
+  noria:alarmOwner <http://example.org/noria/agent/CU_LF004> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/LOG_term1_2022-04-26%2011%3A58%3A00.000>
+  a noria:EventLog;
+  noria:eventLogLoggingTime "2022-04-26T11:58:00Z";
+  noria:eventLogOriginatingManagedObject <http://example.org/noria/resource/term1> ;
+  noria:eventLogText "CNX_LOSS: heartbeat timeout with <SRV1>." ;
+  noria:eventLogType <http://example.org/noria/kos/Notification/EventType/communicationsAlarm> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/LOG_srv1_2022-04-26%2011%3A58%3A00.000>
+  a noria:EventLog;
+  noria:eventLogLoggingTime "2022-04-26T11:58:00Z";
+  noria:eventLogOriginatingManagedObject <http://example.org/noria/resource/srv1> ;
+  noria:eventLogText "IF_STATE_CHANGE: ge-1/1 to DOWN." ;
+  noria:eventLogType <http://example.org/noria/kos/Notification/EventType/stateChange> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/LOG_as2_2022-04-26%2012%3A06%3A00.000>
+  a noria:EventLog;
+  noria:eventLogLoggingTime "2022-04-26T12:06:00Z";
+  noria:eventLogOriginatingManagedObject <http://example.org/noria/resource/as2> ;
+  noria:eventLogText "CLI_CMD: ifCard 2 RESET." ;
+  noria:eventLogType <http://example.org/noria/kos/Notification/EventType/attributeValueChange> ;
+  noria:eventLogOriginatingAgent <http://example.org/noria/agent/CU_LF004> ;
+  noria:actionCorrelatedOperationPlan <http://example.org/noria/procedure/OP_NetCardReset> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/event/LOG_srv1_2022-04-26%2012%3A06%3A30.000>
+  a noria:EventLog;
+  noria:eventLogLoggingTime "2022-04-26T12:06:30Z";
+  noria:eventLogOriginatingManagedObject <http://example.org/noria/resource/srv1> ;
+  noria:eventLogText "IF_STATE_CHANGE: ge-1/1 to UP." ;
+  noria:eventLogType <http://example.org/noria/kos/Notification/EventType/stateChange> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === Interfaces ==============================================================
+
+<http://example.org/noria/resource/NI_srv1_ge-1-1>
+  a noria:NetworkInterface;
+  noria:networkInterfaceConnects <http://example.org/noria/resource/NL_Topology_as2_srv1>;
+  noria:networkInterfaceName "ge-1/1";
+  noria:networkInterfaceOf <http://example.org/noria/resource/srv1> ;
+  noria:networkInterfaceOperationalStatus <http://example.org/noria/kos/Resource/OperationalState/enabled> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/resource/NI_as2_ge-2-1>
+  a noria:NetworkInterface;
+  noria:networkInterfaceConnects <http://example.org/noria/resource/NL_Topology_as2_srv1>;
+  noria:networkInterfaceName "ge-2/1";
+  noria:networkInterfaceOf <http://example.org/noria/resource/as2> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === RCA =====================================================================
+
+<http://example.org/noria/procedure/OP_NetCardReset>
+  a noria:OperationPlan ;
+  rdfs:comment "L2 card reset procedure."@en ;
+  noria:operationPlanPreCondition <http://example.org/noria/procedure/OP-PREC_L2Alarm> ;
+  noria:operationPlanPostCondition <http://example.org/noria/procedure/OP-POST_ServRestored> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/procedure/OP-PREC_L2Alarm>
+  a noria:ActionPreCondition ;
+  rdfs:comment "A 'SYS_ERROR: L2 table overflow' alarm is raised."@en ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<http://example.org/noria/procedure/OP-POST_ServRestored>
+  a noria:operationPlanPostCondition ;
+  rdfs:comment "L2 interface throughput above 5 Mbps."@en ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.

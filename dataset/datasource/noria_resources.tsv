@@ -1,0 +1,13 @@
+Code	Hostname	Manufacturer	Model	Nature	SupportTeam	ApplicationCode
+term1	term1	ACME Inc.	LapX60	Terminal	Support01	APP01
+srv1	srv1	ACME Inc.	SrvX80	Server	Support02	PFS01
+as1	as1	ACME Inc.	SwC200	Switch	Support01	APP01
+as2	as2	ACME Inc.	SwC200	Switch	Support02	PFS01
+pe_1_1	pe_1_1	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_1_2	pe_1_2	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_2_1	pe_2_1	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_2_2	pe_2_2	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_3_1	pe_3_1	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_3_2	pe_3_2	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_4_1	pe_4_1	ACME Inc.	RtrZ60	Router	Support03	INF01
+pe_4_2	pe_4_2	ACME Inc.	RtrZ60	Router	Support03	INF01

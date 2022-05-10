@@ -1,0 +1,111 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://example.org/noria/resource/NL_Topology_as1_pe_1_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_as1_pe_1_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as1>,
+    <http://example.org/noria/resource/pe_1_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_as1_pe_2_1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_as1_pe_2_1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as1>,
+    <http://example.org/noria/resource/pe_2_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_as2_srv1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_as2_srv1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as2>,
+    <http://example.org/noria/resource/srv1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_1_1_pe_1_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_1_1_pe_1_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_1_1>,
+    <http://example.org/noria/resource/pe_1_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_1_1_pe_2_1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_1_1_pe_2_1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_1_1>,
+    <http://example.org/noria/resource/pe_2_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_1_1_pe_3_1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_1_1_pe_3_1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_1_1>,
+    <http://example.org/noria/resource/pe_3_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_1_2_pe_2_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_1_2_pe_2_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_1_2>,
+    <http://example.org/noria/resource/pe_2_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_1_2_pe_3_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_1_2_pe_3_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_1_2>,
+    <http://example.org/noria/resource/pe_3_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_2_1_pe_2_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_2_1_pe_2_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_2_1>,
+    <http://example.org/noria/resource/pe_2_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_2_1_pe_4_1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_2_1_pe_4_1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_2_1>,
+    <http://example.org/noria/resource/pe_4_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_2_2_pe_4_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_2_2_pe_4_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_2_2>,
+    <http://example.org/noria/resource/pe_4_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_3_1_as2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_3_1_as2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as2>,
+    <http://example.org/noria/resource/pe_3_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_3_1_pe_3_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_3_1_pe_3_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_3_1>,
+    <http://example.org/noria/resource/pe_3_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_3_1_pe_4_1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_3_1_pe_4_1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_3_1>,
+    <http://example.org/noria/resource/pe_4_1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_3_2_pe_4_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_3_2_pe_4_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_3_2>,
+    <http://example.org/noria/resource/pe_4_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_4_1_pe_4_2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_4_1_pe_4_2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/pe_4_1>,
+    <http://example.org/noria/resource/pe_4_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_pe_4_2_as2> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_pe_4_2_as2";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as2>,
+    <http://example.org/noria/resource/pe_4_2>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<http://example.org/noria/resource/NL_Topology_term1_as1> a noria:NetworkLink;
+  noria:networkLinkId "NL_Topology_term1_as1";
+  noria:networkLinkTerminationResource <http://example.org/noria/resource/as1>,
+    <http://example.org/noria/resource/term1>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .

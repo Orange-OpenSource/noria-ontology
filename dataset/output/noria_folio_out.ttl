@@ -1,0 +1,145 @@
+@prefix : <http://mapping.example.com/> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dyversify: <http://example.com/idlab/functions/dyversify/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+
+<http://example.org/noria/RCA/CM_CheckNetworkConnectivity> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "Check network connectivity";
+  rdfs:subClassOf folio:ControlMethod .
+
+<http://example.org/noria/RCA/CM_CheckTxRxOpticalPowerOnBothTerminationPointsOTDRMeasurement>
+  a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "Check Tx/Rx optical power on both termination points + OTDR measurement.";
+  rdfs:subClassOf folio:ControlMethod .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "EndpointLostConnection";
+  rdfs:subClassOf folio:FailureEffect, folio:FailureMode, _:0 .
+
+_:0 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:happenedAt;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/noria/ontology/NetworkLink>,
+    <https://w3id.org/noria/ontology/Resource> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:1 .
+
+_:1 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:happenedAt;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/noria/ontology/NetworkLink>,
+    <https://w3id.org/noria/ontology/Resource> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:10 .
+
+_:10 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:isLocalEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> folio:FailureEffect .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:11 .
+
+_:11 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:isLocalEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> folio:FailureEffect .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:12 .
+
+_:12 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasNextFailureEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss>,
+    <http://example.org/noria/RCA/FM_OpticalLinkCutOrUnpluggedOrDirty> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:13 .
+
+_:13 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasNextFailureEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss>,
+    <http://example.org/noria/RCA/FM_OpticalLinkCutOrUnpluggedOrDirty> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:14 .
+
+_:14 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasControlMethod;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/CM_CheckNetworkConnectivity>,
+    <http://example.org/noria/RCA/CM_CheckTxRxOpticalPowerOnBothTerminationPointsOTDRMeasurement> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:15 .
+
+_:15 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasControlMethod;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/CM_CheckNetworkConnectivity>,
+    <http://example.org/noria/RCA/CM_CheckTxRxOpticalPowerOnBothTerminationPointsOTDRMeasurement> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:2 .
+
+_:2 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasRPN .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:3 .
+
+_:3 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasRPN .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:8 .
+
+_:8 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasFailureMode;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_EndpointLostConnection>,
+    <http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> .
+
+<http://example.org/noria/RCA/FM_EndpointLostConnection> rdfs:subClassOf _:9 .
+
+_:9 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasFailureMode;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_EndpointLostConnection>,
+    <http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> .
+
+<http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "OpticalLinkContinuityLoss";
+  rdfs:subClassOf folio:FailureCause, folio:FailureMode, _:0, _:1, _:2, _:3, _:4 .
+
+_:4 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:isEndEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> folio:FailureCause .
+
+<http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> rdfs:subClassOf _:5 .
+
+_:5 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:isEndEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> folio:FailureCause .
+
+<http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> rdfs:subClassOf _:6 .
+
+_:6 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasLowerFailureEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_EndpointLostConnection>,
+    <http://example.org/noria/RCA/FM_ServiceImpairement> .
+
+<http://example.org/noria/RCA/FM_OpticalLinkContinuityLoss> rdfs:subClassOf _:7 .
+
+_:7 a <http://www.w3.org/2002/07/owl#Restriction>;
+  <http://www.w3.org/2002/07/owl#onProperty> folio:hasLowerFailureEffect;
+  <http://www.w3.org/2002/07/owl#someValuesFrom> <http://example.org/noria/RCA/FM_EndpointLostConnection>,
+    <http://example.org/noria/RCA/FM_ServiceImpairement> .
+
+<http://example.org/noria/RCA/FM_OpticalLinkCutOrUnpluggedOrDirty> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "OpticalLinkCutOrUnpluggedOrDirty";
+  rdfs:subClassOf folio:FailureCause, _:0, _:1, _:4, _:5, _:6, _:7 .
+
+<http://example.org/noria/RCA/FM_ServiceImpairement> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:subClassOf folio:FailureEffect, _:0, _:1, _:10, _:11, _:12, _:13, _:14, _:15,
+    _:8, _:9 .
+
+<https://w3id.org/noria/ontology/NetworkLink> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "NetworkLink" .
+
+<https://w3id.org/noria/ontology/Resource> a <http://www.w3.org/2002/07/owl#Class>;
+  rdfs:comment "Resource" .
