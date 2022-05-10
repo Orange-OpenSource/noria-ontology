@@ -25,7 +25,7 @@ Based on this identifier, the following links apply for direct access to the NOR
 | Ontologies | https://w3id.org/noria/ontology/ |
 | Documentation | https://w3id.org/noria/doc/ |
 | Vocabularies | https://w3id.org/noria/kos/ |
-| Competency Questions | https://w3id.org/noria/ORSD/ |
+| Competency Questions | https://w3id.org/noria/cqs/ |
 | Authoring Tests | https://w3id.org/noria/evaluation/ |
 
 Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
