@@ -5,7 +5,7 @@ This folder contains the **NORIA ontology documents**.
 We provide a direct access to the NORIA-O resources with the **noria** [w3id.org](https://w3id.org/) identifier: [https://w3id.org/noria/](https://w3id.org/noria/).  
 Based on this identifier, the [https://w3id.org/noria/ontology/](https://w3id.org/noria/ontology/) refers to the ontology itself.  
 Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
-For example, the v0.1 main ontology file is available at: [https://w3id.org/noria/noria-0.1](https://w3id.org/noria/noria-0.1).
+For example, the v0.1 main ontology file is available at: [https://w3id.org/noria/ontology/noria-0.1](https://w3id.org/noria/ontology/noria-0.1).
 
 Details below provide directions for the ontology implementation.
 
@@ -30,13 +30,14 @@ When a new release of the core ontology is released, please update the `noria-la
 ln -s -f noria-<MAJOR.MINOR>.ttl noria-latest.ttl
 # e.g. ln -s -f noria-0.1.ttl noria-latest.ttl
 ```
+
 ## Ontology metadata
 
 NORIA ontologies are modularized and versioned.
 An ontology instance uses the following metadata:
 
 - type `owl:Ontology`;
-- a `owl:versionIRI` equal to `<https://w3id.org/noria/NAME-MAJOR.MINOR>`;
+- a `owl:versionIRI` equal to `<https://w3id.org/noria/ontology/NAME-MAJOR.MINOR>`;
 - a `owl:versionInfo` that starts with `"vMAJOR.MINOR"`;
 - potentially, a `owl:priorVersion`;
 - zero or more `owl:import`s that point to other ontologies (potentially ontology version IRIs) to be imported.

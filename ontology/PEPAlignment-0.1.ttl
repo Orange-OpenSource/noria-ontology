@@ -1,0 +1,102 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix pep: <https://w3id.org/pep/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+noria:PEPAlignment
+    a owl:Ontology,
+      voaf:Vocabulary ;
+    dcterms:title "PEP to NORIA alignment."@en ;
+    dcterms:description """This ontology defines correspondences with the PEP ontology. Alignment holds for PEP 1.1 and NORIA v.0.1"""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/PEPAlignement-0.1> ;
+    owl:versionInfo "v0.1" ;
+    owl:imports <https://w3id.org/pep/pep-1.1.ttl> ;
+    rdfs:seeAlso <https://ci.mines-stetienne.fr/pep/> ;
+.
+
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+#################################################################
+#    Alignment
+#################################################################
+
+# --- noria:NotificationOntology related --------------------------------------
+
+noria:eventLogOriginatingAgent owl:equivalentProperty pep:madeBy .
+
+# --- noria:TroubleTicketOntology related -------------------------------------
+
+noria:TroubleTicket
+    rdfs:subClassOf pep:ProcedureExecutionContainer ;
+    rdfs:comment "PEP alignment: a TroubleTicket is a context for (potentially) many CorrectiveMaintenanceAction to occur; hence it relates to a pep:ProcedureExecutionContainer."@en ;
+.
+
+# --- noria:ChangeRequestOntology related -------------------------------------
+
+# A ChangeRequest is a context for (potentially) many ChangeAction to occur
+noria:ChangeRequest
+    rdfs:subClassOf pep:ProcedureExecutionContainer ;
+    rdfs:comment "PEP alignment: a ChangeRequest is a context for (potentially) many ChangeAction to occur; hence it relates to a pep:ProcedureExecutionContainer."@en ;
+.
+
+# --- noria:RCAOntology related -----------------------------------------------
+
+noria:OperationPlan owl:equivalentClass pep:Procedure .
+
+noria:CorrectiveMaintenanceAction
+    rdfs:subClassOf pep:ProcedureExecution ;
+    rdfs:comment "PEP alignment: the concrete execution of a CorrectiveMaintenanceAction in the digital world may be described by following artefacts/traces: execution agent, command, result, reference procedure; hence it corresponds to a pep:ProcedureExecution."@en ;
+.
+
+noria:ChangeAction
+    rdfs:subClassOf pep:ProcedureExecution ;
+    rdfs:comment "PEP alignment: the concrete execution of a ChangeAction in the digital world may be described by following artefacts/traces: execution agent, command, result, reference procedure; hence it corresponds to a pep:ProcedureExecution."@en ;
+.
+
+noria:actionCorrelatedOperationPlan rdfs:subPropertyOf pep:usedProcedure .

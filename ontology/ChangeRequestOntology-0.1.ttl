@@ -1,0 +1,394 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix wsg84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix log: <https://w3id.org/sepses/ns/log#> .
+@prefix folio: <https://raw.githubusercontent.com/IBCNServices/Folio-Ontology/master/Folio.owl#> .
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.
+@prefix seas: <https://w3id.org/seas/>.
+@prefix saref: <http://ontology.tno.nl/saref#>. #SAREF smart building appliances ontology
+@prefix pep: <https://w3id.org/pep/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:ChangeRequestOntology
+    a voaf:Vocabulary , owl:Ontology ;
+    dcterms:title "The NORIA Change Request Ontology"@en ;
+    dcterms:description """The Change Request Ontology defines the ChangeRequest object, a data resource (i.e. the result of a process) for efficient change management."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/ChangeRequestOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# === CHANGE REQUEST related ==================================================
+
+noria:ChangeRequest
+    a owl:Class ;
+    rdfs:label "ChangeRequest" ;
+    vs:term_status "unstable" ;
+    skos:definition "A Change Request represents a record used for reporting and managing change activities on services and resources. It is a key artefact to the Change Management process. Change Management process is to respond to the customer’s changing business requirements while maximizing value and reducing incidents, disruption and network."@en ;
+    rdfs:subClassOf noria:DynamicObject ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:changeRequestId
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestId" ;
+    rdfs:comment "Identifier of the Change Request"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestHRef
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestHRef" ;
+    rdfs:comment "Hyperlink to the Change Request entity in the originating information system."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestDescription
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestDescription" ;
+    rdfs:comment "Extended description of the Change to be made"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestCreationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestCreationDateTime" ;
+    rdfs:comment "The Date on which the Change Request was created in the system."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestPlannedStartTime
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+    rdfs:label "changeRequestPlannedStartDateTime" ;
+    rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestPlannedEndTime
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+    rdfs:label "changeRequestPlannedEndTime" ;
+    rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestActualStartTime
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+    rdfs:label "changeRequestActualStartTime" ;
+    rdfs:comment "Date and time on which the Change Request implementation has started. It is displayed only after the Change Request implementation has started actually."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestActualEndTime
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+    rdfs:label "changeRequestActualEndTime" ;
+    rdfs:comment "Date and time on which the Change Request implementation has been completed. It is displayed only after the Change Request implementation has been completed actually."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestCategory
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestCategory" ;
+    rdfs:comment "Nature of the Change Request (e.g. Internal intervention, Third party intervention, Customer intervention, Change requested by customer)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestExternalId
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestExternalId" ;
+    rdfs:comment "ID given by the requestor to facilitate the relationship set up and searches afterwards. For example it can be the customer reference or an identifier coming from an external system."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestImpact
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestImpact" ;
+    rdfs:comment "A list of services or resources impacted by the Change Request (RelatedService [*] RelatedResource [*])"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestType
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestType" ;
+    rdfs:comment "The type of the request describes the a priori impact and risk level of the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <https://w3id.org/noria/kos/ChangeRequest/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ] ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestStatus
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestStatus" ;
+    rdfs:comment "A list of status changes (Status [*]). The status change history of the change ticket"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestStatusCurrent
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestStatuschangeRequestStatusCurrent" ;
+    rdfs:comment "The current status of the Change Request"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <https://w3id.org/noria/kos/ChangeRequest/status>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestCharacteristic
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestCharacteristic" ;
+    rdfs:comment "Complementary fields."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestSpecification
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestSpecification" ;
+    rdfs:comment "A link to the Catalog item of framed operations."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestNote
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestNote"@en ;
+    rdfs:comment "A list of Customer or internal comments."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestAttachment
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestAttachment" ;
+    rdfs:comment "A list of attachment ref or values (Attachment [*]). File(s) attached to the Change Request. e.g. network diagram, operation plan, location map."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestRelatedParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:eventRelatedParty ;
+    rdfs:label "changeRequestRelatedParty" ;
+    rdfs:comment "Party playing a role in the Change Request"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range noria:Employee,
+               noria:Team,
+               noria:Organization ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestInitiatorParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestInitiatorParty" ;
+    rdfs:comment "The ID of the initiator of the Change Request."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestPilotParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestPilotParty" ;
+    rdfs:comment "The ID of the Pilot of the Change Request."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestActorParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestActorParty" ;
+    rdfs:comment "The ID of the Actor of the Change Request."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestRelatedService
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:label "changeRequestRelatedService" ;
+    rdfs:comment "Service or Product on which the Change Request is done"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range noria:Application,
+        noria:Service ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestRelatedResource
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:label "changeRequestRelatedResource" ;
+    rdfs:comment "The Resource entity on which the Change Request is done"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestIsRegulated
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestIsRegulated" ;
+    rdfs:comment "If true, the Change Request is subject to special regulations"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestChangeCause
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestChangeCause" ;
+    rdfs:comment "Cause if the Change Request (e.g. Configuration, Preventative maintenance, Software upgrade, Network extension)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestCreationDate
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTime ;
+    rdfs:label "changeRequestCreationDate" ;
+    rdfs:comment "Date and time on which the Change Request was created in the ticketing system"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestLastUpdate
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:inXSDDateTime ;
+    rdfs:label "changeRequestLastUpdate" ;
+    rdfs:comment "A date time (DateTime). Date and time on which the Change Request was updated"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.
+
+noria:changeRequestOutageDuration
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf time:numericDuration ;
+    rdfs:label "changeRequestOutageDuration" ;
+    rdfs:comment "Duration of the outage, if any."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:isDefinedBy noria:ChangeRequestOntology ;
+.

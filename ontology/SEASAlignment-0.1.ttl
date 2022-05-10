@@ -1,0 +1,120 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix seas: <https://w3id.org/seas/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+noria:SEASAlignment
+    a owl:Ontology,
+      voaf:Vocabulary ;
+    dcterms:title "SEAS to NORIA alignment."@en ;
+    dcterms:description """This ontology defines correspondences with the SEAS ontology. Alignment holds for SEAS 1.1 and NORIA v.0.1"""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/SEASAlignement-0.1> ;
+    owl:versionInfo "v0.1" ;
+    owl:imports <https://w3id.org/seas/seas-1.1> ;
+    rdfs:seeAlso <https://ci.mines-stetienne.fr/seas/> ;
+.
+
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+#################################################################
+#    Alignment
+#################################################################
+
+# --- noria:CoreOntology related ----------------------------------------------
+
+noria:Object rdfs:subClassOf seas:FeatureOfInterest .
+noria:Property rdfs:subClassOf seas:Property .
+noria:objectProperty rdfs:subPropertyOf seas:hasProperty .
+
+noria:StructuralObject rdfs:subClassOf seas:System .
+
+# --- noria:ResourceOntology related ------------------------------------------
+
+noria:Resource rdfs:subClassOf seas:System .
+noria:Resource rdfs:subClassOf seas:CommunicationDevice .
+
+noria:NetworkInterface rdfs:subClassOf seas:CommunicationConnectionPoint .
+noria:NetworkLink rdfs:subClassOf seas:CommunicationConnection .
+
+noria:resourceForApplication rdfs:subPropertyOf seas:subSystemOf .
+noria:resourceForInfrastructure rdfs:subPropertyOf seas:subSystemOf .
+noria:resourceForService rdfs:subPropertyOf seas:subSystemOf .
+noria:resourceSubPartOf rdfs:subPropertyOf seas:subSystemOf .
+
+noria:networkInterfaceOf rdfs:subPropertyOf seas:connectionPointOf .
+noria:networkInterfaceConnects rdfs:subPropertyOf seas:connectsSystemAt .
+
+noria:networkLinkTerminationResource rdfs:subPropertyOf seas:connectsSystem .
+
+noria:locatedInSite rdfs:subPropertyOf seas:subSystemOf .
+noria:locatedInPremises rdfs:subPropertyOf seas:subSystemOf .
+noria:locatedInFloor rdfs:subPropertyOf seas:subSystemOf .
+noria:locatedInRoom rdfs:subPropertyOf seas:subSystemOf .
+
+# --- noria:ApplicationOntology related ------------------------------------------
+
+noria:Application rdfs:subClassOf seas:System .
+noria:ApplicationModule rdfs:subClassOf seas:System .
+noria:applicationModuleOf rdfs:subPropertyOf seas:subSystemOf .
+
+noria:Service rdfs:subClassOf seas:System .
+noria:Infrastructure rdfs:subClassOf seas:System .
+
+# --- noria:NotificationOntology related --------------------------------------
+
+noria:EventLog rdfs:subClassOf seas:Observation .
+
+# --- noria:LocationOntology related --------------------------------------
+
+noria:Site rdfs:subClassOf seas:System .
+noria:Premises rdfs:subClassOf seas:System .
+noria:Floor rdfs:subClassOf seas:System .
+noria:Room rdfs:subClassOf seas:System .
+noria:Locus rdfs:subClassOf seas:System .
+

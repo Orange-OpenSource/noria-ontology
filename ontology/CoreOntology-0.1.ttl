@@ -1,0 +1,224 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:CoreOntology
+    a voaf:Vocabulary , owl:Ontology ;
+    dcterms:title "The NORIA Core Ontology"@en ;
+    dcterms:description """The Core Ontology defines high level objects and properties for the NORIA ontology framework."""@en ;
+	bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/CoreOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# =============================================================================
+# CORE specs
+# =============================================================================
+
+noria:Object
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "Object"@en ;
+    rdfs:comment "A NORIA Object is an abstract representation of Cyber/Physical concepts for describing, managing and analyzing ITC systems."@en ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+    sh:targetClass noria:Object ;
+.
+
+noria:Property
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "Property"@en ;
+    rdfs:comment "A NORIA Property is an abstract representation of qualifiable, quantifiable, observable or operable qualities of some Object."@en ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+    sh:targetClass noria:Property ;
+.
+
+noria:objectProperty
+    a owl:ObjectProperty ;
+    rdfs:label "objectProperty"@en ;
+    rdfs:comment "A NORIA objectProperty is an abstract representation of a relationship between some Object instance and some Property instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:objectDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:label "objectDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Object Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:StructuralObject
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "StructuralObject"@en ;
+    rdfs:comment "Structural Objects describe physical/logical ICT systems's assets (e.g. router xxx, virtual machine yyy, link zzz) and relations (e.g. is_a, connected_to or part_of properties)."@en ;
+    rdfs:subClassOf noria:Object ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+    sh:targetClass noria:StructuralObject ;
+.
+
+noria:StructuralObservable
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "StructuralObservable"@en ;
+    rdfs:comment "Structural Observable is an abstract classe for ICT systems's properties that should be defined as classes for extended description capability (e.g. time context of the observable value)."@en ;
+    rdfs:subClassOf noria:Property ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+    sh:targetClass noria:StructuralProperty ;
+.
+
+noria:structuralObjectObservable
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:objectProperty ;
+    rdfs:label "structuralObjectObservable"@en ;
+    rdfs:comment "A structuralObjectObservable is an abstract representation of a relationship between some StructuralObject instance and some StructuralObservable instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralObservableOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:structuralObjectProperty ;
+    rdfs:label "structuralObservableOf"@en ;
+    rdfs:comment "A structuralObservableOf relates some StructuralObservable instance to some StructuralObject instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralObjectDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:objectDistinguishedName;
+    rdfs:label "structuralObjectDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Structural Object Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:FunctionalObject
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "FunctionalObject"@en ;
+    rdfs:comment "Functional Objects describe services and broadcasting zones above the 'Structural' facet."@en ;
+    rdfs:subClassOf noria:Object ;
+    vs:term_status "stable" ;
+    sh:targetClass noria:FunctionalObject ;
+.
+
+noria:functionalObjectDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:objectDistinguishedName ;
+    rdfs:label "functionalObjectDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Functional Object Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:DynamicObject
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "DynamicObject"@en ;
+    rdfs:comment "Dynamic Objects describe events and their potential chaining (e.g. an alarm with happens_on or followed_by properties)."@en ;
+    rdfs:subClassOf noria:Object ;
+    vs:term_status "stable" ;
+    sh:targetClass noria:DynamicObject ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:eventRelatedObject
+    a owl:ObjectProperty ;
+    rdfs:label "eventRelatedObject" ;
+    rdfs:comment "The structural or functional object instance some event is related with."@en ;
+    rdfs:domain noria:DynamicObject ;
+    rdfs:range noria:StructuralObject ,
+               noria:FunctionalObject ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:eventRelatedParty
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "eventRelatedParty" ;
+    rdfs:comment "Party playing a role (stakeholders) in the life cycle of a given event instance."@en ;
+    rdfs:domain noria:DynamicObject ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:ProceduralObject
+    a owl:Class ,
+      sh:NodeShape ;
+    rdfs:label "ProceduralObject"@en ;
+    rdfs:comment "Procedural Objects describe (predeﬁned/computed) operational process (e.g. incident diagnosis procedure, cyber attack scenario, network route fail-over algorithm)."@en ;
+    rdfs:subClassOf noria:Object ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+    sh:targetClass noria:ProceduralObject ;
+.

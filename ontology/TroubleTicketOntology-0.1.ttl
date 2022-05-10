@@ -1,0 +1,510 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:TroubleTicketOntology
+    a voaf:Vocabulary , owl:Ontology ;
+    dcterms:title "The NORIA Trouble Ticket Ontology"@en ;
+    dcterms:description """The Trouble Ticket Ontology defines the TroubleTicket object, a data resource (i.e. the result of a process) for efficient incident management."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/TroubleTicketOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# === TROUBLE TICKET ==========================================================
+
+noria:TroubleTicket
+    a owl:Class ;
+    rdfs:label "TroubleTicket" ;
+    skos:definition "A trouble ticket represents a record used for reporting and managing the resolution of resource problems. Main trouble ticket attributes are its description, severity, type, priority, related dates (created, target resolution, resolution, etc.), state and related information (change reason, change date), related parties (originator, owner, pilot), notes, trouble causes and impacts."@en ;
+    rdfs:subClassOf noria:DynamicObject ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:TroubleTicketNote
+    a owl:Class ;
+    rdfs:label "TroubleTicketNote" ;
+    skos:definition "A trouble ticket note represents a record used for reporting and information sharing during the incident management process for a given Trouble Ticket."@en ;
+    rdfs:subClassOf noria:DynamicObject ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+# --- TroubleTicket related ---------------------------------------------------
+
+noria:troubleTicketId
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketId" ;
+    rdfs:comment "Identifier of the trouble ticket"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketHRef
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketHRef" ;
+    rdfs:comment "Hyperlink to the trouble ticket entity in the originating information system."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketExternalId
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketExternalId" ;
+    rdfs:comment "Additional identifier coming from an external system"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCustomerTicketId
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketCustomerTicketId" ;
+    rdfs:comment "Additional identifier coming from the customer system"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketDescription
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketDescription" ;
+    rdfs:comment "Extended description of the trouble or issue."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketName
+    a owl:DatatypeProperty  ;
+    rdfs:label "troubleTicketName" ;
+    rdfs:comment "Name of the trouble ticket, typically a short description provided by the user that create the ticket or complementary data"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketSeverity
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketSeverity" ;
+    rdfs:comment "The criticity of the incident (e.g. Minor, Major, Blocking, etc.)"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketType
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketType" ;
+    rdfs:comment "The ticket type (e.g. Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc.)"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCriticity
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCriticity"@en ;
+    rdfs:comment "The ticket criticity from the customer impact perspective (e.g. Interrupted service, Corrupted service, Working backup, etc.)"@en ;
+    rdfs:domain noria:TroubleTicket ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketPriority
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketPriority"@en ;
+    rdfs:comment "The processing Priority (e.g. P1, P2, P3, P4, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/priority>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ];
+.
+
+noria:troubleTicketOrigin
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketOrigin" ;
+    rdfs:comment "The ticket origin (e.g. Customer, Supervision, Internal, Carrier, User, Partners, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketUrgency
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketUrgency"@en ;
+    rdfs:comment "The priority level of the incident (e.g. Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketSupervisionTool
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketSupervisionTool" ;
+    rdfs:comment "Supervision tool which detected the problem"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCategory
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCategory"@en ;
+    rdfs:comment "The initial nature (for Product ticket class) or technical impact (for resource ticket class) of the incident (e.g. Isolated customer site, Total breakdown, Working backup, Downgrading, equipment, Inaccessible destination, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCreationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketCreationDateTime" ;
+    rdfs:comment "The Date on which the trouble ticket was created in the ticketing system."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketDetectionDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketDetectionDateTime" ;
+    rdfs:comment "The date on which the trouble was discovered."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketLastUpdate
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketLastUpdate" ;
+    rdfs:comment "The date and time that the trouble ticked was last updated"@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketTargetRestorationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketTargetRestorationDateTime" ;
+    rdfs:comment "The Customer initial restoration date Estimated Time to Restore (ETR)"@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketPlannedRestorationDateTime
+    a owl:ObjectProperty ;
+    rdfs:label " troubleTicketPlannedRestorationDateTime" ;
+    rdfs:comment "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCommittedRestorationDateTime
+    a owl:ObjectProperty ;
+    rdfs:label "committedRestorationDateTime" ;
+    rdfs:comment "The Customer Commitment Deadline Date (calculated on product information)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketIsNotificationEnable
+    a owl:ObjectProperty ;
+    rdfs:label "isNotificationEnable" ;
+    rdfs:comment "The Enable or Disable external notification on trouble ticket events"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketStatus
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketStatus" ;
+    rdfs:comment "The status change history of the trouble ticket"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketStatusCurrent
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketStatusCurrent" ;
+    rdfs:comment "The current activity status of the trouble ticket"@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/status>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketRelatedParty
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketRelatedParty" ;
+    rdfs:comment "The related party(ies) that are associated to the ticket"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketPartyIntervention
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketPartyIntervention"@en ;
+    rdfs:comment "The History of groups activation and responsibility transfer"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNote
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNote" ;
+    rdfs:comment "The note(s) that are associated to the ticket"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketRelatedService
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:label "troubleTicketRelatedService" ;
+    rdfs:comment "The Service entity on which trouble ticket has been created"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range noria:Application,
+               noria:Service;
+.
+
+noria:troubleTicketRelatedResource
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:label "troubleTicketRelatedResource" ;
+    rdfs:comment "The Resource entity on which the trouble ticket has been created"@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range noria:Resource ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketCharacteristic
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCharacteristic" ;
+    rdfs:comment "A list of Characteristics of the ticket (TroubleTicketCharacteristic [*]). The Trouble ticket specific characteristics"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketAttachment
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketAttachment" ;
+    rdfs:comment "A list of attachment ref or values (Attachment [*]). File(s) attached to the trouble ticket. e.g. picture of broken device, scanning of a bill or charge. Complementary fields for ticketing system GUI customization"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketTroubleCause
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketTroubleCause"@en ;
+    rdfs:comment "A list of attachment ref or values (Cause [*]). Cause(s) defined for the trouble."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketImpacts
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketImpacts"@en ;
+    rdfs:comment "A list of services or resources impacted by the trouble (RelatedService [*] RelatedResource [*])"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketFreezeItem
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketFreezeItem"@en ;
+    rdfs:comment "A list of freeze period item (FreezeItem [*]). The ticket freeze period history."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketRelationshipChildOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:troubleTicketRelationshipParentOf ;
+    rdfs:label "troubleTicketRelationshipChildOf" ;
+    rdfs:comment "Ticket child of (TicketRelationship), describes the relationship and its type between the current ticket and other tickets."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketRelationshipParentOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:troubleTicketRelationshipChildOf ;
+    rdfs:label "troubleTicketRelationshipParentOf" ;
+    rdfs:comment "Ticket parent of (TicketRelationship), describes the relationship and its type between the current ticket and other tickets."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+# --- TroubleTicketNote related -----------------------------------------------
+
+noria:troubleTicketNoteForTicket
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteForTicket" ;
+    rdfs:comment "The Trouble Ticket this note is part of"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteAuthor
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteAuthor" ;
+    rdfs:comment "The Author of the note"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range noria:Employee ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteAuthorGroupId
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteAuthorGroupId" ;
+    rdfs:comment "The Team/Group of the note author"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range noria:Team ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteText
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketNoteText" ;
+    rdfs:comment "The content of the note"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteCommentType
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketNoteCommentType" ;
+    rdfs:comment "The comment provenance type and/or disclosure rules family (e.g. Customer, Group, Internal, System, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteDate
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketNoteDate" ;
+    rdfs:comment "The recording date of the note"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range xsd:dateTime ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.
+
+noria:troubleTicketNoteOperationType
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteOperationType" ;
+    rdfs:comment "The Operation type of the note (e.g. Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc.)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:isDefinedBy noria:TroubleTicketOntology ;
+.

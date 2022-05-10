@@ -1,0 +1,342 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:OrganizationOntology
+    a voaf:Vocabulary,
+      owl:Ontology ;
+    dcterms:title "The NORIA Organization Ontology"@en ;
+    dcterms:description """The Organization Ontology defines Agents, Groups and Organizations relating to Resources and Operations management."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/OrganizationOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# === AAA related =============================================================
+
+noria:AAATechnicalGroup
+    a owl:Class ;
+    rdfs:label "AAATechnicalGroup" ;
+    rdfs:comment "An abstract group representing usage and/or administration access rights for Applications and Resources Resource."@en ;
+    vs:term_status "unstable" ;
+    rdfs:subClassOf foaf:Group ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+# === Staff related =====================================================
+
+noria:Organization
+    a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization, such as a company or a company's department."@en ;
+    vs:term_status "stable" ;
+    rdfs:comment """This concept is generated as a specialisation of the concept Organization from the FOAF ontology.
+    It stands for any type of organization or department inside an organisation that may be responsible for specific resource, scopes, tenants, etc.
+    It is both a foaf:Organization and foaf:Group for taking advantage of the 'member' property for foaf:Group while indicating that it is an Organization."""@en ;
+    rdfs:subClassOf foaf:Organization ;
+    rdfs:subClassOf foaf:Group ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:Team
+    a owl:Class ;
+    rdfs:label "Team" ;
+    rdfs:comment "A group of employees with specific skills or devoted to some specific task/work/project w.r.t. IT Service and Resource management."@en ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+    rdfs:subClassOf foaf:Group ;
+.
+
+noria:teamId
+    a owl:ObjectProperty ;
+    rdfs:label "teamId" ;
+    rdfs:comment "The ID of the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamRole
+    a owl:ObjectProperty ;
+    rdfs:label "teamRole" ;
+    rdfs:comment "The main Role of the Team within the Organization / the Type of Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/imp/groups/>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ];
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamName
+    a owl:ObjectProperty ;
+    rdfs:label "teamName" ;
+    rdfs:comment "The Name of the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:name ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamPartOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:teamSubGroups ;
+    rdfs:label "teamPartOf" ;
+    rdfs:comment "The upper level of organization for the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range noria:Team ;
+    rdfs:range noria:Organization ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamSubGroups
+    a owl:ObjectProperty ;
+    rdfs:label "teamSubGroups" ;
+    rdfs:comment "The lower level of organization for the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range noria:Team ;
+    rdfs:subPropertyOf foaf:member ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamMailBox
+    a owl:ObjectProperty ;
+    rdfs:label "teamMailBox" ;
+    rdfs:comment "The e-mail box of the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:mbox ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamPhone
+    a owl:ObjectProperty ;
+    rdfs:label "teamPhone" ;
+    rdfs:comment "The Phone Number of the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:phone ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamManager
+    a owl:ObjectProperty ;
+    rdfs:label "teamManager" ;
+    rdfs:comment "The Manager of the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range noria:Employee ;
+    rdfs:subPropertyOf foaf:knows ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamWorkingHours
+    a owl:ObjectProperty ;
+    rdfs:label "teamWorkingHours" ;
+    rdfs:comment "The Working Hours for reaching the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamInstructions
+    a owl:ObjectProperty ;
+    rdfs:label "teamInstructions" ;
+    rdfs:comment "Instructions for involving the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamManagesResource
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:resourceManagedBy ;
+    rdfs:label "teamManagesResource" ;
+    rdfs:comment "The IT Resource the Team is responsible of (supervises)."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range noria:Resource ;
+    rdfs:subPropertyOf foaf:topic_interest ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:teamMember
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:employeeOrgMemberOf ;
+    rdfs:label "teamMember" ;
+    rdfs:comment "Person (Employee) that is member the Team."@en ;
+    rdfs:domain noria:Team ;
+    rdfs:range noria:Employee ;
+    rdfs:subPropertyOf foaf:member ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:Employee
+    a owl:Class ;
+    rdfs:label "Employee";
+    rdfs:comment "A person participating to IT Service and Resource management within the organization."@en ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+    rdfs:subClassOf foaf:Person ;
+.
+
+noria:employeeId
+    a owl:DatatypeProperty ;
+    rdfs:label "employeeId" ;
+    rdfs:comment "The ID or main account of the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    rdfs:subPropertyOf foaf:accountName ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeeLastName
+    a owl:DatatypeProperty ;
+    rdfs:label "employeeLastName" ;
+    rdfs:comment "The Last Name of the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:lastName ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeeFirstName
+    a owl:DatatypeProperty ;
+    rdfs:label "employeeFirstName" ;
+    rdfs:comment "The First Name of the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:firstName ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeeOrgMemberOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:teamMember ;
+    rdfs:label "employeeOrgMemberOf" ;
+    rdfs:comment "Team membership of the Employee Team from the Organization perspective."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range noria:Team ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeeMailBox
+    a owl:DatatypeProperty ;
+    rdfs:label "employeeMailBox" ;
+    rdfs:comment "The e-mail box of the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:mbox ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeePhone
+    a owl:DatatypeProperty ;
+    rdfs:label "employeePhone" ;
+    rdfs:comment "The Phone Number of the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:phone ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+noria:employeePreferredContactMethod
+    a owl:DatatypeProperty ;
+    rdfs:label "employeePreferredContactMethod" ;
+    rdfs:comment "The preferred contact method to reach the Employee."@en ;
+    rdfs:domain noria:Employee ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.
+
+# === IT Resource related =====================================================
+
+noria:Manufacturer
+    a owl:Class ;
+    rdfs:subClassOf noria:Organization ;
+    rdfs:label "Manufacturer" ;
+    rdfs:comment "An organization, such as companies, responsible for the manufacturing of some Resource."@en ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:OrganizationOntology ;
+.

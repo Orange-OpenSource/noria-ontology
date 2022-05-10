@@ -1,0 +1,412 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix wsg84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix log: <https://w3id.org/sepses/ns/log#> .
+@prefix folio: <https://raw.githubusercontent.com/IBCNServices/Folio-Ontology/master/Folio.owl#> .
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.
+@prefix seas: <https://w3id.org/seas/>.
+@prefix saref: <http://ontology.tno.nl/saref#>. #SAREF smart building appliances ontology
+@prefix pep: <https://w3id.org/pep/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:NotificationOntology
+    a voaf:Vocabulary,
+      owl:Ontology ;
+    dcterms:title "The NORIA Notification Ontology"@en ;
+    dcterms:description """The Notification Ontology defines concepts and properties related to Alarm Reporting, such as Alarms and Logs.
+
+    Instances of these concepts are time related artefacts.
+    Some of these definitions are derived from the CCITT Rec. X.721 and CCITT Rec. X.733 document for best match with Open Systems Interconnection (OSI) compliant devices and systems."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/NotificationOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+    rdfs:seeAlso <https://www.itu.int/rec/T-REC-X.733-199202-I/>,
+        <https://www.itu.int/rec/T-REC-X.721-199202-I> ;
+.
+
+# === General Event definitions ===============================================
+
+noria:EventLog
+    a owl:Class ;
+    rdfs:label "EventLog" ;
+    skos:definition """This managed object represents the information stored in the log as a result of receiving notifications or incoming event reports.
+    In that sense it is an abstract object with basic properties (e.g. event type, logging time, provenance system, message) and can be further refined by direct instantiation to subclasses."""@en ;
+    rdfs:subClassOf noria:DynamicObject ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogId
+    a owl:DatatypeProperty ;
+    rdfs:label "eventLogId" ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-logRecordId> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogLoggingTime
+    a owl:DatatypeProperty ;
+    rdfs:label "eventLogLoggingTime" ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogType
+    a owl:ObjectProperty ;
+    rdfs:label "eventLogType" ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Notification/EventType>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogText
+    a owl:DatatypeProperty ;
+    rdfs:label "eventLogText" ;
+    rdfs:comment "Textual information describing the logged event." ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogInformation
+    a owl:DatatypeProperty ;
+    rdfs:label "eventLogInformation" ;
+    rdfs:comment "Additional information describing the logged event." ;
+    rdfs:domain noria:EventLog ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalInformation> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogOriginatingManagedObject
+    a owl:ObjectProperty ;
+    rdfs:label "eventLogOriginatingManagedObject" ;
+    rdfs:comment "The Managed Object (e.g. Resource, Application, etc.) at the origin of the Log record."@en ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range noria:Resource,
+               noria:Application,
+               noria:Service;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-managedObjectInstance> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogOriginatingManagementSystem
+    a owl:ObjectProperty ;
+    rdfs:label "eventLogOriginatingManagementSystem" ;
+    rdfs:comment "The Management System (e.g. Network Management System, Security Information and Event Monitoring system, etc.) that receive, process and forward the Log record."@en ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range noria:Application ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:eventLogOriginatingAgent
+    a owl:ObjectProperty ;
+    rdfs:label "eventLogOriginatingAgent" ;
+    rdfs:comment "The Agent (e.g. Employee, bot) at the origin of the Log record whenever it represents some action (e.g. change, corrective maintenance) carried out on the ICT system."@en ;
+    rdfs:subPropertyOf noria:eventRelatedObject ;
+    rdfs:domain noria:EventLog ;
+    rdfs:range noria:Employee ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# === ALARM definitions =======================================================
+
+noria:Alarm
+    a owl:Class ;
+    rdfs:label "Alarm" ;
+    rdfs:subClassOf noria:EventLog,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty noria:eventLogType ;
+                      owl:allValuesFrom [ owl:intersectionOf ( skos:Concept
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty skos:inScheme ;
+                                                                 owl:hasValue <kos/Notification/EventTypeGroup/GeneralOperationAlarm>
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                               ]
+                    ] ;
+	rdfs:comment "This managed object is used to represent logged information that resulted from alarm notifications or event reports." ;
+    owl:disjointWith noria:SecurityAlarm ;
+    vs:term_status "stable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-alarmRecord> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:SecurityAlarm
+    a owl:Class ;
+    rdfs:label "SecurityAlarm" ;
+    rdfs:subClassOf noria:EventLog,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty noria:eventLogType ;
+                      owl:allValuesFrom [ owl:intersectionOf ( skos:Concept
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty skos:inScheme ;
+                                                                 owl:hasValue <kos/Notification/EventTypeGroup/SecurityAlarm>
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                               ]
+                    ] ;
+	rdfs:comment "This managed object is used to represent logged information that resulted from alarm notifications or event reports." ;
+    owl:disjointWith noria:Alarm ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmReportRecord> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:alarmProbableCause
+    a owl:ObjectProperty ;
+    rdfs:label "alarmProbableCause" ;
+    rdfs:comment """The asserted or inferred cause of the Alarm.
+    Asserting the Alarm cause is equivalent to directly connecting the Alarm, as a fault (issue, incident) artefact, to some phenomenon interpretation.
+    Inferring the Alarm cause is equivalent to guessing the phenomenon origin through Root Cause Analysis or some probabilistic approach."""@en ;
+    rdfs:domain noria:Alarm ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Notification/ProbableCause> ;
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-probableCause> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmPerceivedSeverity
+    a owl:ObjectProperty ;
+    rdfs:label "alarmPerceivedSeverity" ;
+    rdfs:domain noria:Alarm ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Notification/PerceivedSeverity>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ] ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-perceivedSeverity> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmMonitoredAttribute
+    a owl:ObjectProperty ;
+    rdfs:label "alarmMonitoredAttribute" ;
+    rdfs:domain noria:Alarm ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-monitoredAttributes> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmProposedRepairAction
+    a owl:ObjectProperty ;
+    rdfs:label "alarmProposedRepairAction" ;
+    rdfs:domain noria:Alarm ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-proposedRepairActions> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmCorrelatedNotifications
+    a owl:ObjectProperty ;
+    rdfs:label "alarmCorrelatedNotifications" ;
+    rdfs:comment "Notification instances or identifiers that are considered to be correlated to this notification."@en ;
+    rdfs:domain noria:Alarm ;
+    rdfs:range noria:EventLog ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-correlatedNotifications> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmOwner
+    a owl:ObjectProperty ;
+    rdfs:label "alarmOwner"@en ;
+    rdfs:comment "Alarm acknowledge by a Support team member."@en ;
+    rdfs:subPropertyOf noria:eventRelatedParty ;
+    rdfs:domain noria:Alarm ;
+    rdfs:range noria:Employee ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:securityAlarmCause
+    a owl:ObjectProperty ;
+    rdfs:label "securityAlarmCause" ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Notification/SecurityAlarmCause> ;
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:securityAlarmSeverity
+    a owl:DatatypeProperty ;
+    rdfs:label "securityAlarmSeverity" ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmSeverity> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:SecurityAlarmDetector
+    a owl:DatatypeProperty ;
+    rdfs:label "SecurityAlarmDetector" ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range noria:Resource ,
+        noria:Application ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-SecurityAlarmDetector> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:securityAlarmCause
+    a owl:DatatypeProperty ;
+    rdfs:label "securityAlarmCause" ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:serviceUser
+    a owl:DatatypeProperty ;
+    rdfs:label "serviceUser" ;
+    rdfs:comment "Information about the service user associated with the service request that caused the security alarm"@en ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:serviceProvider
+    a owl:DatatypeProperty ;
+    rdfs:label "serviceProvider" ;
+    rdfs:comment "Information about the service provider associated with the service request that caused the security alarm"@en ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceProvider> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:securityAlarmOwner
+    a owl:ObjectProperty ;
+    rdfs:label "securityAlarmOwner"@en ;
+    rdfs:comment "Security Alarm acknowledge by a Support team member."@en ;
+    rdfs:subPropertyOf noria:eventRelatedParty ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range noria:Employee ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:securityAlarmCorrelatedNotifications
+    a owl:ObjectProperty ;
+    rdfs:label "securityAlarmCorrelatedNotifications" ;
+    rdfs:comment "Notification instances or identifiers that are considered to be correlated to this notification."@en ;
+    rdfs:domain noria:SecurityAlarm ;
+    rdfs:range noria:EventLog ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.

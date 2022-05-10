@@ -1,0 +1,265 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix wsg84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix log: <https://w3id.org/sepses/ns/log#> .
+@prefix folio: <https://raw.githubusercontent.com/IBCNServices/Folio-Ontology/master/Folio.owl#> .
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.
+@prefix seas: <https://w3id.org/seas/>.
+@prefix saref: <http://ontology.tno.nl/saref#>. #SAREF smart building appliances ontology
+@prefix pep: <https://w3id.org/pep/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:LocationOntology
+    a voaf:Vocabulary , owl:Ontology ;
+    dcterms:title "The NORIA Location Ontology"@en ;
+    dcterms:description """The Location Ontology defines locations where ICT systems entities are physically installed and running (e.g. in a Data Center)."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/LocationOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# === Location ================================================================
+
+noria:Site
+    rdf:type owl:Class ;
+    rdfs:label "Site" ;
+    vs:term_status "unstable" ;
+    skos:definition "A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. It is intended to contain or contains one or more buildings."@en ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+    rdfs:seeAlso <https://w3id.org/bot#Site> ;
+.
+
+noria:Premises
+    rdf:type owl:Class ;
+    rdfs:label "Premises" ;
+    vs:term_status "unstable" ;
+    skos:definition "An independent unit of the built environment with a characteristic spatial structure, intended to serve at least one function or user activity [ISO-12006]."@en ;
+    skos:example "BATIMENT A"@fr ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+    rdfs:seeAlso <https://w3id.org/bot#Building>,
+            <https://www.iso.org/standard/61753.html>;
+.
+
+noria:Floor
+    rdf:type owl:Class ;
+    rdfs:label "Floor" ;
+    vs:term_status "unstable" ;
+    skos:definition "A Floor is contained in one or more buildings, and is intended to contain one or more spaces that are horizontally connected."@en ;
+    skos:example "'Ground floor', 'ETG1'" ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+    rdfs:seeAlso <https://w3id.org/bot#Storey> ;
+.
+
+noria:Room
+    rdf:type owl:Class ;
+    rdfs:label "Room" ;
+    vs:term_status "unstable" ;
+    skos:definition "A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in."@en ;
+    skos:example "Server room 314"@en ;
+    skos:example "SALLE STOCKAGE RESEAU 314"@fr ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+    rdfs:seeAlso <https://w3id.org/bot#Space> ;
+.
+
+noria:Locus
+    rdf:type owl:Class ;
+    rdfs:label "Locus" ;
+    vs:term_status "unstable" ;
+    skos:definition "Line / Column location of the Resource within the Room."@en ;
+    skos:definition "Position en Ligne / Colonne de la Ressource dans la pièce."@fr ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:siteId
+    a owl:DatatypeProperty ;
+    rdfs:label "siteId" ;
+    rdfs:comment "A unique identifier of a Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    rdfs:label "siteName" ;
+    rdfs:comment "The Name of a Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteType
+    a owl:DatatypeProperty ;
+    rdfs:label "siteType" ;
+    rdfs:comment "The Type of a Site (e.g. building, data center, rack)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteGeographicCoords
+    a owl:DatatypeProperty ;
+    rdfs:label "siteGeographicCoords" ;
+    rdfs:comment "Geographic Coordinates of Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteGeoCodeX
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:siteGeographicCoords ;
+    rdfs:label "siteGeoCodeX" ;
+    rdfs:comment "Geographic Coordinates"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteGeoCodeY
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:siteGeographicCoords ;
+    rdfs:label "siteGeoCodeY" ;
+    rdfs:comment "Geographic Coordinates"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteGeoCodeZ
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:siteGeographicCoords ;
+    rdfs:label "siteGeoCodeZ" ;
+    rdfs:comment "Geographic Coordinates"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:siteGeoSystem
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:siteGeographicCoords ;
+    rdfs:label "siteGeoSystem" ;
+    rdfs:comment "Geographic Coordinate System (e.g. WGS84)"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:sitePrincipalAddress
+    a owl:DatatypeProperty ;
+    rdfs:label "sitePrincipalAddress" ;
+    rdfs:comment "Address of Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:sitePrincipalAddressPostalCode
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:sitePrincipalAddress ;
+    rdfs:subPropertyOf gn:postalCode ;
+    rdfs:label "sitePrincipalAddressPostalCode" ;
+    rdfs:comment "Postal Code for Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:sitePrincipalAddressCityName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:sitePrincipalAddress ;
+    rdfs:label "sitePrincipalAddressCityName" ;
+    rdfs:comment "City Name for Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:sitePrincipalAddressCountry
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:sitePrincipalAddress ;
+    rdfs:subPropertyOf gn:countryCode ;
+    rdfs:label "sitePrincipalAddressCountry" ;
+    rdfs:comment "Country for Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+
+noria:sitePrincipalAddressStreet
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:sitePrincipalAddress ;
+    rdfs:label "sitePrincipalAddressStreet" ;
+    rdfs:comment "Street for Site"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:Site ;
+    rdfs:isDefinedBy noria:LocationOntology ;
+.
+

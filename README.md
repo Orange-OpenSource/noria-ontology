@@ -30,7 +30,7 @@ Based on this identifier, the following links apply for direct access to the NOR
 
 Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
 For example, the v0.1 main ontology file is available at:
-* [https://w3id.org/noria/noria-0.1](https://w3id.org/noria/noria-0.1)
+* [https://w3id.org/noria/ontology/noria-0.1](https://w3id.org/noria/ontology/noria-0.1)
 
 
 See also the *Repository Structure* for navigating into this repository:

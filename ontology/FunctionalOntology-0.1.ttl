@@ -23,11 +23,21 @@
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix schema: <https://schema.org/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix wsg84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix seas: <https://w3id.org/seas/>.
 
 @prefix noria: <https://w3id.org/noria/ontology/> .
-@base <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
 
 # =============================================================================
 
@@ -47,44 +57,32 @@ foaf:name a owl:DatatypeProperty .
 
 # =============================================================================
 
-<https://w3id.org/noria/ontology/>
+noria:FunctionalOntology
     a owl:Ontology,
       voaf:Vocabulary ;
-    dcterms:title "The NORIA Ontology"@en ;
-    dcterms:description """The NORIA-O project is a data model for IT networks, events and operations information.
-     The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-     The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies."""@en ;
+    dcterms:title "The NORIA Functional Ontology"@en ;
+    dcterms:description """The Functional Ontology defines ICT systems entities living above the Structural facet."""@en ;
     bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
 	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
 	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
 	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
-    dcterms:publisher <https://www.orange.com/> ;
-    dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
-    vann:preferredNamespacePrefix "noria" ;
-    vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
-    dcterms:issued "2022-05-10"^^xsd:date ;
-    owl:versionIRI <ontology/noria-0.1> ;
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/FunctionalOntology-0.1> ;
     owl:versionInfo "v0.1" ;
-    rdfs:seeAlso <https://w3id.org/noria/doc/> ;
-    owl:imports
-            # --- Foundations -----------------------------
-            noria:CoreOntology-0.1 ,
-            noria:ApplicationOntology-0.1 ,
-            noria:ChangeRequestOntology-0.1 ,
-            noria:FunctionalOntology-0.1 ,
-            noria:LocationOntology-0.1 ,
-            noria:NotificationOntology-0.1 ,
-            noria:ObservableOntology-0.1 ,
-            noria:OrganizationOntology-0.1 ,
-            noria:RCAOntology-0.1 ,
-            noria:ResourceOntology-0.1 ,
-            noria:TroubleTicketOntology-0.1 ,
-            # --- Alignments ------------------------------
-            noria:BBOAlignment-0.1 ,
-            noria:BOTAlignment-0.1 ,
-            noria:DevOpsInfraAlignment-0.1 ,
-            noria:PEPAlignment-0.1 ,
-            noria:SEASAlignment-0.1 ,
-            noria:SLOGERTAlignment-0.1 ,
-            noria:UCOAlignment-0.1 ;
 .
+
+# === Structural objects ======================================================
+
+noria:Service
+    rdf:type owl:Class ;
+    rdfs:label "Service"@en ;
+    skos:definition "A group of elementary Systems providing a single kind of service (e.g. DNS, Authentication, end-to-end data path for some specific customer)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:subClassOf noria:FunctionalObject ;
+    rdfs:isDefinedBy noria:FunctionalOntology ;
+.
+
