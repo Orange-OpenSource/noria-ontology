@@ -27,7 +27,7 @@
 @prefix schema: <https://schema.org/> .
 
 @prefix noria: <https://w3id.org/noria/ontology/> .
-@base <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
 
 # =============================================================================
 
