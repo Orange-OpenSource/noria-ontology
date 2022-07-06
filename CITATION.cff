@@ -1,0 +1,46 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  NORIA-O: an Ontology for Anomaly Detection and
+  Incident Management in ICT Systems
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - orcid: 'https://orcid.org/0000-0001-5887-899X'
+    affiliation: Orange
+    given-names: Lionel
+    family-names: Tailhardat
+  - orcid: 'https://orcid.org/0000-0001-5639-1504'
+    given-names: Yoan
+    family-names: Chabot
+    affiliation: Orange
+  - orcid: 'https://orcid.org/0000-0003-0457-1436'
+    affiliation: EURECOM
+    given-names: Raphaël
+    family-names: Troncy
+repository-code: 'https://github.com/Orange-OpenSource/noria-ontology'
+url: 'https://w3id.org/noria'
+abstract: >-
+  The NORIA-O project is a data model for IT
+  networks, events and operations information.
+
+  The ontology is developed using web technologies
+  (e.g. RDF, OWL, SKOS) and is intended as a
+  structure for realizing an IT Service Management
+  (ITSM) Knowledge Graph (KG) for Anomaly Detection
+  (AD) and Risk Management applications.
+
+  The model has been developed in collaboration with
+  operational teams, and in connection with third
+  parties linked vocabularies.
+keywords:
+  - ontology
+  - networks
+  - incident-management
+license: BSD-4-Clause
+version: v0.1
+date-released: '2022-03-25'
