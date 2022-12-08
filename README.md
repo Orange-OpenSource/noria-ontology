@@ -38,6 +38,7 @@ See also the *Repository Structure* for navigating into this repository:
 noria-ontology
 ├───cqs <Ontology Requirements and Specification> (e.g. Competency Questions)
 ├───dataset <toy example for examplification of the NORIA-O model>
+├───docs <documentation, diagrams and figures>
 ├───evaluation <NORIA-O evaluation tool set> (e.g. Authoring Tests)
 ├───kos <NORIA-O controlled vocabulary> (e.g. codelists)
 └───ontology <the NORIA-O implementation>
