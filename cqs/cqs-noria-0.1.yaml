@@ -27,7 +27,7 @@
       result : OK
     - type : AT
       query : at_troubleTicket_relatedParty.sparql
-      result : OK 
+      result : OK
     - type : AT
       query : at_troubleTicket_relatedAuthor.sparql
       result : OK
@@ -57,7 +57,7 @@
     - id: 1
       pattern: Which [CE1] [OPE] [CE2]
       components:
-        CE1: set of logs 
+        CE1: set of logs
         OPE: are associated with
         CE2: asset
   Evaluation:
@@ -67,7 +67,7 @@
     - type : AT
       query : at_alarm_from_resource.sparql
       result : OK
-        
+
 - Question: Which metrics are coming from a specified resource ?
   Archetypes:
     - id: 1
@@ -93,7 +93,7 @@
   Evaluation:
     - type : AT
       query : at_event_type.sparql
-      result : OK 
+      result : OK
 
 - Question: What events are associated with a given event?
   Archetypes:
@@ -101,19 +101,19 @@
       pattern: Which [CE1] [OPE] [CE2]
       components:
         CE1: event
-        OPE: associated with 
+        OPE: associated with
         CE2: event
   Evaluation:
     - type : AT
       query : at_event_associatedEvent.sparql
-      result : OK 
+      result : OK
 
 - Question: Which agents/activity/resource caused the event under analysis?
   Archetypes:
     - id: 1
       pattern: Which [CE1] [OPE] [CE2]
       components:
-        CE1: agent 
+        CE1: agent
         OPE: originate
         CE2: event
     - id: 1
@@ -122,19 +122,19 @@
         CE1: activity
         OPE: originate
         CE2: event
-   Evaluation:
-    - type : AT
-      query : at_alarm_correlatedEvent.sparql
-      result : OK
-    - type : AT
-      query : at_event_correlatedResource.sparql
-      result : OK
-    - type : AT
-      query : at_event_relatedObject.sparql
-      result: OK
-    - type : AT
-      query : at_event_relatedParty.sparql
-      result : OK
+    Evaluation:
+      - type : AT
+        query : at_alarm_correlatedEvent.sparql
+        result : OK
+      - type : AT
+        query : at_event_correlatedResource.sparql
+        result : OK
+      - type : AT
+        query : at_event_relatedObject.sparql
+        result: OK
+      - type : AT
+        query : at_event_relatedParty.sparql
+        result : OK
 
 - Question: What are the fields of the log?
   Remarks:
@@ -152,7 +152,7 @@
         OPE: correspond to
         CE2: log attribute
   Evaluation:
-    - type : AT 
+    - type : AT
       query : at_field_log.sparql
       result : OK
 
@@ -333,12 +333,12 @@
         OPE: concerned by
         CE2: action
       Remarks:
-        - corresponds to "where". 
+        - corresponds to "where".
   Evaluation:
     - type : AT
       query : at_correctiveAction_incident.sparql
       result : OK
-      
+
 - Question: What is the list of actions taken that led to the resolution of the incident?
   Archetypes:
     - id: 1
@@ -412,7 +412,7 @@
   Evaluation:
     - type : AT
       query : at_event_associatedEvent.sparql
-      result : AI (to summarize the incident from a set of events) 
+      result : AI (to summarize the incident from a set of events)
 
 - Question: Which agents were involved in the resolution of the incident?
   Archetypes:

@@ -1,6 +1,10 @@
 # noria-ontology / CQs
 
-This folder contains the **NORIA Competency Questions** (CQs) in relation to the Ontology Requirement Specification Design (ORSD): see the [cqs.yaml](cqs.yaml) file.
+This folder contains the **NORIA Competency Questions** (CQs) in relation to the Ontology Requirement Specification Design (ORSD).
+See the `cqs-noria-<major>.<minor>.yaml` file in relation to the target NORIA-O release:
+
+* [NORIA-O v0.1](cqs-noria-0.1.yaml)
+* [NORIA-O v0.2](cqs-noria-0.2.yaml)
 
 Competency Questions follows this template:
 ```yaml
