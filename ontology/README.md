@@ -22,7 +22,7 @@ where:
 - MAJOR matches `^[0-9]+$`
 - MINOR matches `^[0-9]+$`
 
-see http://semver.org/ for semantic versioning specification.
+... see http://semver.org/ for semantic versioning specification.
 
 When a new release of the core ontology is released, please update the `noria-latest.ttl` symbolic link for targeting the latest core file version:
 ```shell
@@ -30,6 +30,8 @@ When a new release of the core ontology is released, please update the `noria-la
 ln -s -f noria-<MAJOR.MINOR>.ttl noria-latest.ttl
 # e.g. ln -s -f noria-0.1.ttl noria-latest.ttl
 ```
+
+... and move the previous ontology release into a sub-folder with the `noria-<major>.<minor>/` pattern.
 
 ## Ontology metadata
 
@@ -73,4 +75,4 @@ Alignment to other schemas should be defined in independent files, and be named 
 <SCHEMA>Alignement-MAJOR.MINOR.ttl
 ```
 
-If precise vocabulary/concept alignment is not defined, Concepts should at least have an "*alignment reference*" in its `rdfs:comment` metadata (e.g. "*this concept is partially in line with the semantics of `bot:Site`*"). 
+If precise vocabulary/concept alignment is not defined, Concepts should at least have an "*alignment reference*" in its `rdfs:comment` metadata (e.g. "*this concept is partially in line with the semantics of `bot:Site`*").
