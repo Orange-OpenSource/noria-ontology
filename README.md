@@ -28,11 +28,6 @@ Based on this identifier, the following links apply for direct access to the NOR
 | Competency Questions | https://w3id.org/noria/cqs/ |
 | Authoring Tests | https://w3id.org/noria/evaluation/ |
 
-Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
-For example, the v0.1 main ontology file is available at:
-* [https://w3id.org/noria/ontology/noria-0.1](https://w3id.org/noria/ontology/noria-0.1)
-
-
 See also the *Repository Structure* for navigating into this repository:
 ```
 noria-ontology
@@ -43,12 +38,6 @@ noria-ontology
 ├───kos <NORIA-O controlled vocabulary> (e.g. codelists)
 └───ontology <the NORIA-O implementation>
 ```
-
-## Contribute
-
-In the general case, please
-* *fork and create merge request*, or
-* *raise an issue* into the project's space.
 
 ## Copyright
 
