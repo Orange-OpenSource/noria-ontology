@@ -7,7 +7,7 @@ General approach:
 * Transform raw data into RDF with the RML mapping rules of the [engine/](engine/) directory,
 * Load the RDF data of the [output/](output/) directory into a graph datastore for further exploration.
 
-Data provided in the [output/](output/) directory reflects the following situation:
+Data provided in the [output/](output/) directory reflects the following situation:  
 ![noria-ontology-UC](noria-ontology-UC.png)
 
 ## Generating the KG from datasource/

@@ -1,0 +1,88 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/noria/object/APPM_TOY_APP01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "APP01_M01";
+  noria:applicationModuleName "APP01_M01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_APP01>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support03> .
+
+<https://w3id.org/noria/object/APPM_TOY_DC01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "DC01";
+  noria:applicationModuleName "DC01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_DC01>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support04> .
+
+<https://w3id.org/noria/object/APPM_TOY_DC02> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "DC02";
+  noria:applicationModuleName "DC02";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_DC02>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support04> .
+
+<https://w3id.org/noria/object/APPM_TOY_INF01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "INF01_M01";
+  noria:applicationModuleName "INF01_M01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_INF01>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support02> .
+
+<https://w3id.org/noria/object/APPM_TOY_MON01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "MON01_M01";
+  noria:applicationModuleName "MON01_M01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_MON01>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support03> .
+
+<https://w3id.org/noria/object/APPM_TOY_PFS01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "PFS01_M01";
+  noria:applicationModuleName "PFS01_M01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_PFS01>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support01> .
+
+<https://w3id.org/noria/object/APPM_TOY_PFS02_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationModuleIdentifier "PFS02_M01";
+  noria:applicationModuleName "PFS02_M01";
+  noria:applicationModuleOf <https://w3id.org/noria/object/APP_TOY_PFS02>;
+  noria:applicationModuleSupportTeam <https://w3id.org/noria/agent/TM_TOY_Support03> .
+
+<https://w3id.org/noria/object/APP_TOY_APP01> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "APP01";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/application> .
+
+<https://w3id.org/noria/object/APP_TOY_DC01> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "DC01";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/infrastructure-area> .
+
+<https://w3id.org/noria/object/APP_TOY_DC02> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "DC02";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/infrastructure-area> .
+
+<https://w3id.org/noria/object/APP_TOY_INF01> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "INF01";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/infrastructure> .
+
+<https://w3id.org/noria/object/APP_TOY_MON01> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "MON01";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/application> .
+
+<https://w3id.org/noria/object/APP_TOY_PFS01> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "PFS01";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/service-platform> .
+
+<https://w3id.org/noria/object/APP_TOY_PFS02> a noria:Application;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:applicationShortIdentifier "PFS02";
+  noria:applicationType <https://w3id.org/noria/kos/application/type/service-platform> .

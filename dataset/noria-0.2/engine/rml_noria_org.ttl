@@ -1,0 +1,229 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Mapping management ---
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix crml: <http://semweb.mmlab.be/ns/crml#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <https://www.w3.org/ns/formats/> .
+
+# --- Domain specific ---
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix voc: <https://w3id.org/noria/kos/> .
+@base  <http://example.org/noria/engine/> .
+
+# =============================================================================
+
+# === Logical Source ===
+
+<LS_NORIA_Teams>
+    rml:source [ a csvw:Table;
+                 csvw:url "datasource/noria_teams.tsv";
+                 csvw:dialect [ a csvw:Dialect;
+                                csvw:delimiter "\t"; ]
+               ];
+    rml:referenceFormulation ql:CSV
+.
+
+<LS_NORIA_Users>
+    rml:source [ a csvw:Table;
+                 csvw:url "datasource/noria_users.tsv";
+                 csvw:dialect [ a csvw:Dialect;
+                                csvw:delimiter "\t"; ]
+               ];
+    rml:referenceFormulation ql:CSV
+.
+
+# === Triples Maps ===
+
+<MP_NORIA_EntityOF>
+    a rr:TriplesMap;
+    dcterms:issued "2022-10-24"^^xsd:date ;
+    rml:logicalSource <LS_NORIA_Teams> ;
+    rr:subjectMap <SM_NORIA_EntityName_FixedOF> ;
+
+    rr:predicateObjectMap [ rr:predicate rdf:type;
+                            rr:objectMap [ rr:constant org:Organization ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate prov:wasDerivedFrom ;
+                            rr:objectMap [ rr:constant "noria-ontology-toy-example" ] ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate rdfs:label ;
+                            rr:objectMap [ rr:constant "Orange" ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate owl:sameAs ;
+                            rr:objectMap [ rr:constant <https://www.wikidata.org/wiki/Q1431486> ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate org:hasUnit ;
+                            rr:objectMap <SM_NORIA_TeamCode> ;
+                          ];
+.
+
+
+<MP_NORIA_Teams>
+    a rr:TriplesMap;
+    rml:logicalSource <LS_NORIA_Teams> ;
+    rr:subjectMap <SM_NORIA_TeamCode> ;
+
+    rr:predicateObjectMap [ rr:predicate rdf:type;
+                            rr:objectMap [ rr:constant org:OrganizationalUnit ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate prov:wasDerivedFrom ;
+                            rr:objectMap [ rr:constant "noria-ontology-toy-example" ] ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate rdfs:label ;
+                            rr:objectMap <OM_NORIA_teamName> ;
+      ];
+
+    rr:predicateObjectMap [ rr:predicate org:identifier ;
+                            rr:objectMap <OM_NORIA_teamId> ;
+      ];
+
+    rr:predicateObjectMap [ rr:predicate org:classification ;
+                            rr:objectMap <OM_NORIA_teamClassification> ;
+      ];
+
+#    rr:predicateObjectMap [ rr:predicate noria:teamManager;
+#                            rr:objectMap <OM_Marine_EDS_Manager> ;
+#      ];
+.
+
+<MP_NORIA_CUid>
+    a rr:TriplesMap;
+    rml:logicalSource <LS_NORIA_Users> ;
+    rr:subjectMap <SM_NORIA_UserConnexionCode> ;
+
+    rr:predicateObjectMap [ rr:predicate rdf:type;
+                            rr:objectMap [ rr:constant noria:CorporateUserIdentifier ];
+                          ] ;
+
+    rr:predicateObjectMap [ rr:predicate foaf:accountName ;
+                            rr:objectMap [ rml:reference "employeeId" ];
+                          ] ;
+.
+
+<MP_NORIA_Users>
+    a rr:TriplesMap;
+    rml:logicalSource <LS_NORIA_Users> ;
+    rr:subjectMap <SM_NORIA_UserId> ;
+
+    rr:predicateObjectMap [ rr:predicate rdf:type;
+                            rr:objectMap [ rr:constant foaf:Person ];
+                          ] ;
+
+    rr:predicateObjectMap [ rr:predicate prov:wasDerivedFrom ;
+                            rr:objectMap [ rr:constant "noria-ontology-toy-example" ] ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate foaf:lastName ;
+                            rr:objectMap [ rml:reference "LastName" ];
+                          ] ;
+
+    rr:predicateObjectMap [ rr:predicate foaf:firstName ;
+                            rr:objectMap [ rml:reference "FirstName" ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate foaf:mbox ;
+                            rr:objectMap [ rml:reference "employeeMailBox" ];
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate foaf:holdsAccount ;
+                            rr:objectMap <SM_NORIA_UserConnexionCode>;
+                          ] ;
+
+    rr:predicateObjectMap [ rr:predicate org:memberOf ;
+                            rr:objectMap <SM_NORIA_TeamCode>;
+                          ] ;
+
+.
+
+# === Terms Maps ===
+
+<SM_NORIA_EntityName_FixedOF>
+    rr:constant "https://w3id.org/noria/agent/ORG_orange-france" ;
+.
+<SM_NORIA_TeamCode>
+    rr:template "https://w3id.org/noria/agent/TM_TOY_{teamId}" ;
+.
+<SM_NORIA_UserConnexionCode>
+    rr:template "https://w3id.org/noria/agent/CUID_TOY_{employeeId}" ;
+.
+<SM_NORIA_UserId>
+    rr:template "https://w3id.org/noria/agent/USER_TOY_{employeeId}" ;
+.
+
+# -----------------------------------------------------------------------------
+
+<OM_NORIA_teamName>
+    rml:reference "teamName".
+
+<OM_NORIA_teamId>
+    rml:reference "teamId".
+
+<OM_NORIA_teamId>
+    rml:reference "teamManager".
+
+<OM_NORIA_teamClassification>
+    rr:template "https://w3id.org/noria/kos/org/ou-classification/{teamClassification}" ;
+.
+
+<OM_NORIA_Undef>
+    rr:constant "undef".
+
+# === EOF =====================================================================

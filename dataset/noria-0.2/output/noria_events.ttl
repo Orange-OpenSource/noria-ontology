@@ -1,0 +1,288 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Mapping management ---
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix crml: <http://semweb.mmlab.be/ns/crml#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+
+@prefix fnml:   <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: 	<https://w3id.org/function/ontology#> .
+@prefix grel:     <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix idlab-fn: <http://example.com/idlab/function/> .
+
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <https://www.w3.org/ns/formats/> .
+
+# --- Domain specific ---
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wsg84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+@prefix ldp: <http://www.w3.org/ns/ldp#>.  # Linked Data Platform
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix voc: <https://w3id.org/noria/kos/> .
+
+# =============================================================================
+
+# === TroubleTicket ===========================================================
+
+<https://w3id.org/noria/document/TT_TOY2022TT>
+  a noria:TroubleTicket;
+  dcterms:created "2022-04-26T12:00:00Z";
+  dcterms:description """Toy example: service access failure from term1. Probable cause: network issue.""";
+  dcterms:identifier "TOY2022TT";
+  dcterms:modified "2022-04-26T12:07:00Z";
+  dcterms:extent "P0Y0M0DT0H10M0S" ;
+  noria:troubleTicketDetectionDateTime "2022-04-26T11:58:00Z";
+  noria:troubleTicketRelatedResource <https://w3id.org/noria/object/RES_TOY_term1> ;
+  noria:troubleTicketStatusCurrent <https://w3id.org/noria/kos/TroubleTicket/status/current> ;
+  noria:documentStatusHistory <https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT_STATUS_Current> ;
+  dcterms:hasPart
+          <https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:05:00Z_CU_LF001>,
+          <https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:07:00Z_CU_LF004>;
+  dcterms:relation
+          <https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2011%3A57%3A00.000> ,
+          <https://w3id.org/noria/event/LOG_TOY_term1_2022-04-26%2011%3A58%3A00.000> ,
+          <https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2011%3A58%3A00.000> ,
+          <https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2012%3A06%3A00.000> ,
+          <https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2012%3A06%3A30.000> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:05:00Z_CU_LF001>
+  a noria:TroubleTicketNote ;
+  dcterms:creator <https://w3id.org/noria/agent/CU_LF001> ;
+  dcterms:created "2022-04-26T12:05:00Z" ;
+  dcterms:description  """Service access diagnosis: no route to srv1. Please check MAN connectivity.""" ;
+  noria:troubleTicketNoteOperationType <https://w3id.org/noria/kos/TroubleTicket/operationType/comment> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:07:00Z_CU_LF004>
+  a noria:TroubleTicketNote ;
+  dcterms:creator <https://w3id.org/noria/agent/CU_LF004> ;
+  dcterms:created "2022-04-26T12:07:00Z" ;
+  dcterms:description  """Repair action: reset interface card on as2. Please check service is restored.""" ;
+  noria:troubleTicketNoteOperationType <https://w3id.org/noria/kos/TroubleTicket/operationType/comment> ;
+  noria:troubleTicketNoteCorrelatedExecution <https://w3id.org/noria/procedure/PEC_TOY2022TT> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# -----------------------------------------------------------------------------
+
+<https://w3id.org/noria/document/TT_TOY2022TT02>
+  a noria:TroubleTicket;
+  dcterms:created "2022-02-12T23:00:00Z";
+  dcterms:description """Toy example: route flap on backbone network. Probable cause: interface failure.""";
+  dcterms:identifier "TOY2022TT02";
+  dcterms:modified "2022-02-12T23:30:00Z";
+  dcterms:extent "P0Y0M0DT0H30M0S" ;
+  noria:troubleTicketDetectionDateTime "2022-02-12T22:58:00Z" ;
+  noria:troubleTicketTrigger <https://w3id.org/noria/event/LOG_TOY_pe_1_1_2022-02-12T22-58-00Z> ;
+  noria:troubleTicketRelatedService <https://w3id.org/noria/object/APP_TOY_INF01> ;
+  noria:troubleTicketStatusCurrent <https://w3id.org/noria/kos/TroubleTicket/status/closed> ;
+  noria:documentStatusHistory
+          <https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Current> ,
+          <https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Restored> ,
+          <https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Closed> ;
+  noria:problemCategory <https://w3id.org/noria/kos/TroubleTicket/trouble-category/isolated-customer-site> ;
+  dcterms:relation <https://w3id.org/noria/event/LOG_TOY_pe_1_1_2022-02-12T22-58-00Z> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === Logs ====================================================================
+
+<https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2011%3A57%3A00.000>
+  a noria:EventRecord ;
+  noria:alarmPerceivedSeverity <https://w3id.org/noria/kos/Notification/Severity/PerceivedSeverity/major> ;
+  noria:alarmProposedRepairAction <https://w3id.org/noria/procedure/PROC_TOY_NetCardReset> ;
+  noria:alarmMitigatedBy <https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:07:00Z_CU_LF004> ;
+  noria:loggingTime "2022-04-26T11:57:00Z";
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_as2> ;
+  noria:logText "SYS_ERROR: L2 table overflow." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/equipmentAlarm> ;
+  dcterms:mediator <https://w3id.org/noria/agent/CU_LF004> ;
+  dcterms:conformsTo <https://w3id.org/noria/kos/Notification/ProbableCause/communicationsSubsystemFailure> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_term1_2022-04-26%2011%3A58%3A00.000>
+  a noria:EventRecord;
+  noria:loggingTime "2022-04-26T11:58:00Z";
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_term1> ;
+  noria:logText "CNX_LOSS: heartbeat timeout with <SRV1>." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/communicationsAlarm> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2011%3A58%3A00.000>
+  a noria:EventRecord;
+  noria:loggingTime "2022-04-26T11:58:00Z";
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_srv1> ;
+  noria:logText "IF_STATE_CHANGE: ge-1/1 to DOWN." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2012%3A06%3A00.000>
+  a noria:EventRecord;
+  noria:loggingTime "2022-04-26T12:06:00Z";
+  noria:logOriginatingAgent <https://w3id.org/noria/agent/CU_LF004> ;
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_as2> ;
+  noria:logText "CLI_CMD: ifCard 2 RESET." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/attributeValueChange> ;
+  pep:hasCommand "request chassis fpc restart slot 2" ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2012%3A06%3A30.000>
+  a noria:EventRecord;
+  noria:loggingTime "2022-04-26T12:06:30Z";
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_srv1> ;
+  noria:logText "IF_STATE_CHANGE: ge-1/1 to UP." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT_STATUS_Current>
+  a noria:EventRecord ;
+  dcterms:title "Current" ;
+  noria:loggingTime "2022-04-26T12:02:00Z" ;
+  dcterms:references <https://w3id.org/noria/document/TT_TOY2022TT> ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  noria:logOriginatingManagementSystem	<https://w3id.org/noria/object/APP_TOY_MON01> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<https://w3id.org/noria/event/LOG_TOY_pe_1_1_2022-02-12T22-58-00Z>
+  a noria:EventRecord ;
+  noria:alarmPerceivedSeverity <https://w3id.org/noria/kos/Notification/Severity/PerceivedSeverity/major> ;
+  noria:loggingTime "2022-02-12T22:58:00Z";
+  noria:logOriginatingManagedObject <https://w3id.org/noria/object/RES_TOY_pe_1_1> ;
+  noria:logText "IF_ERROR: CRC threshold crossed." ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/communicationsAlarm> ;
+  dcterms:conformsTo <https://w3id.org/noria/kos/Notification/ProbableCause/communicationsSubsystemFailure> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Current>
+  a noria:EventRecord ;
+  dcterms:title "Current" ;
+  noria:loggingTime "2022-02-12T23:05:00Z" ;
+  dcterms:references <https://w3id.org/noria/document/TT_TOY2022TT02> ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  noria:logOriginatingManagementSystem	<https://w3id.org/noria/object/APP_TOY_MON01> ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Restored>
+  a noria:EventRecord ;
+  dcterms:title "Resolved" ;
+  dcterms:description "Faulty SFP changed." ;
+  noria:loggingTime "2022-02-12T23:25:00Z" ;
+  dcterms:references <https://w3id.org/noria/document/TT_TOY2022TT02> ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  noria:logOriginatingManagementSystem	<https://w3id.org/noria/object/APP_TOY_MON01> ;
+.
+
+<https://w3id.org/noria/event/LOG_TOY_TT_TOY2022TT02_STATUS_Closed>
+  a noria:EventRecord ;
+  dcterms:title "Closed" ;
+  noria:loggingTime "2022-02-12T23:30:00Z" ;
+  dcterms:references <https://w3id.org/noria/document/TT_TOY2022TT02> ;
+  dcterms:type <https://w3id.org/noria/kos/Notification/EventType/stateChange> ;
+  noria:logOriginatingManagementSystem	<https://w3id.org/noria/object/APP_TOY_MON01> ;
+.
+
+# === Interfaces ==============================================================
+
+<https://w3id.org/noria/object/NI_srv1_ge-1-1>
+  a noria:NetworkInterface;
+  noria:networkInterfaceConnects <https://w3id.org/noria/object/NL_Topology_as2_srv1>;
+  rdfs:label "ge-1/1";
+  noria:networkInterfaceOf <https://w3id.org/noria/object/RES_TOY_srv1> ;
+  noria:networkInterfaceOperationalStatus <https://w3id.org/noria/kos/object/OperationalState/enabled> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/object/NI_as2_ge-2-1>
+  a noria:NetworkInterface;
+  noria:networkInterfaceConnects <https://w3id.org/noria/object/NL_Topology_as2_srv1>;
+  rdfs:label "ge-2/1";
+  noria:networkInterfaceOf <https://w3id.org/noria/object/RES_TOY_as2> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === RCA =====================================================================
+
+<https://w3id.org/noria/document/TTN_TOY2022TT_2022-04-26T12:07:00Z_CU_LF004>
+  pep:forProcedure <https://w3id.org/noria/procedure/PROC_TOY_NetCardReset> ;
+  ldp:member
+          <https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2011%3A57%3A00.000>,
+          <https://w3id.org/noria/event/LOG_TOY_term1_2022-04-26%2011%3A58%3A00.000>,
+          <https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2011%3A58%3A00.000>,
+          <https://w3id.org/noria/event/LOG_TOY_as2_2022-04-26%2012%3A06%3A00.000>,
+          <https://w3id.org/noria/event/LOG_TOY_srv1_2022-04-26%2012%3A06%3A30.000>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/procedure/PROC_TOY_NetCardReset>
+  a noria:OperationPlan ;
+  rdfs:label "Net card reset" ;
+  noria:operationPlanPreCondition <https://w3id.org/noria/procedure/PRECOND_TOY_NetCardReset> ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+<https://w3id.org/noria/procedure/PRECOND_TOY_NetCardReset>
+  a noria:ActionPreCondition ;
+  rdfs:label "Traffic loss at the forwarder level." ;
+  prov:wasDerivedFrom "noria-ontology-toy-example" ;
+.
+
+# === EOF =====================================================================
+

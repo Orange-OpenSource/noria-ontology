@@ -1,0 +1,36 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> a org:Organization;
+  rdfs:label "ACME_Inc.";
+  org:classification <https://w3id.org/noria/kos/org/org-classification/manufacturer>;
+  prov:wasDerivedFrom "noria-ontology-toy-example" .
+
+<https://w3id.org/noria/object/PRODUCT_TOY_ACME_Inc._LapX60> a noria:ProductModel;
+  rdfs:label "LapX60";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:productManufacturedBy <https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> .
+
+<https://w3id.org/noria/object/PRODUCT_TOY_ACME_Inc._R8080> a noria:ProductModel;
+  rdfs:label "R8080";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:productManufacturedBy <https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> .
+
+<https://w3id.org/noria/object/PRODUCT_TOY_ACME_Inc._RtrZ60> a noria:ProductModel;
+  rdfs:label "RtrZ60";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:productManufacturedBy <https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> .
+
+<https://w3id.org/noria/object/PRODUCT_TOY_ACME_Inc._SrvX80> a noria:ProductModel;
+  rdfs:label "SrvX80";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:productManufacturedBy <https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> .
+
+<https://w3id.org/noria/object/PRODUCT_TOY_ACME_Inc._SwC200> a noria:ProductModel;
+  rdfs:label "SwC200";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:productManufacturedBy <https://w3id.org/noria/agent/ORG_TOY_ACME_Inc.> .
