@@ -16,12 +16,13 @@ Competency Questions follows this template:
       OPE: is associated to
       CE2: competency questions
   Evaluation:
-    - type : AT
-      query : at-xxx-.sparql
-      result : OK (simple SPARQL query can answer), AI (need more complex algorithm), Extension (need more concepts in the schema), ExtData (need to leverage external data)
-    - type : AT
-      query : at-yyy-.sparql
-      result : ...
+    - type: AT
+      query: at-xxx-.sparql
+      result: OK (simple SPARQL query can answer), AI (need more complex algorithm), Extension (need more concepts in the schema), ExtData (need to leverage external data)
+    - type: AT
+      query: at-yyy-.sparql
+      result: ...
 ```
+
 Competency Questions are validated with Authoring Tests (ATs) made available through the `query` field.
 Files in the `query` field refers to the [../evaluation/](../evaluation/) folder.
