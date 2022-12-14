@@ -20,7 +20,7 @@ SELECT ?resource ?event ?time
 WHERE {
 	?event rdf:type noria:EventRecord. 
 	?event noria:logOriginatingManagedObject ?resource . 
-	?resource noria:resourceSerialNumber "XXX" .
+	?resource noria:resourceLogisticId "as2" .
 	?event noria:loggingTime ?time 
 }
 ORDER BY ?time

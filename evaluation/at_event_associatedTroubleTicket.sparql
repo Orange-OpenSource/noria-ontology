@@ -16,14 +16,13 @@
 #+   - AT | NORIA-O-0.2
 
 PREFIX noria: <https://w3id.org/noria/ontology/>
-SELECT ?evt ?time ?log ?type ?desc ?probableCause
+SELECT ?tt ?evt ?time ?log ?type ?probableCause
 WHERE {
-    ?tt rdf:type noria:TroubleTicket . 
-	?tt dcterms:relation ?evt .	
+    ?tt rdf:type noria:TroubleTicket .
+	?tt dcterms:relation ?evt .
 	?evt rdf:type noria:EventRecord.
 	OPTIONAL{?evt noria:loggingTime ?time}
 	OPTIONAL{?evt noria:logText ?log}
 	OPTIONAL{?evt dcterms:type ?type}
-	OPTIONAL{?evt dcterms:description ?desc}
 	OPTIONAL{?evt dcterms:conformsTo ?probableCause}
 }
