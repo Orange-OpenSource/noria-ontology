@@ -1,4 +1,4 @@
-# noria-ontology / doc / diagrams
+# noria-ontology / docs / diagrams
 
 Folder for storing documentation diagrams and figures.
 
