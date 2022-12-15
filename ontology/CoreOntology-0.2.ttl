@@ -1,0 +1,347 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+noria:CoreOntology
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "The NORIA Core Ontology"@en ;
+    dcterms:description """The Core Ontology defines high level and general purpose objects and properties for the NORIA ontology framework."""@en ;
+	bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+    skos:changeNote """Change in v0.2:
+- Merging concepts from noria:OrganizationOntology-0.1 where Classes and Properties have been rationalized w.r.t. the ORG model.
+- SEAS alignment within the ontology
+- Renaming -Object- classes and properties into -Element- for cleaner semantics.
+- Adding structuralElementObservableData (Datatype) for better compatibility w.r.t. structuralElementObservable (ObjectType)
+- Adding noria:elementManagedBy property.
+    """ ;
+    owl:versionInfo "v0.2" ;
+    owl:versionIRI <ontology/CoreOntology-0.2> ;
+    owl:priorVersion <ontology/CoreOntology-0.1> ;
+.
+
+# =============================================================================
+# CORE specs
+# =============================================================================
+
+noria:ManagedElement
+    a owl:Class ;
+    rdfs:label "ManagedElement"@en ;
+    rdfs:comment "Top abstract class of NORIA Cyber/Physical concepts for describing, managing and analyzing ICT systems."@en ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf seas:FeatureOfInterest ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:Property
+    a owl:Class ;
+    rdfs:label "Property"@en ;
+    rdfs:comment "An abstract representation of qualifiable, quantifiable, observable or operable qualities of some Element."@en ;
+    vs:term_status "unstable" ;
+    rdfs:subClassOf seas:Property ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:elementProperty
+    a owl:ObjectProperty ;
+    rdfs:label "elementProperty"@en ;
+    rdfs:comment "An abstract representation of a relationship between some Element instance and some Property instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:subPropertyOf seas:hasProperty ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:elementDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:label "elementDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Element Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:elementManagedBy
+    a owl:ObjectProperty ;
+    rdfs:label "elementManagedBy" ;
+    rdfs:comment """The Agent or Owner of the Managed Element.
+
+Alignment:
+- *ORG*: the *elementManagedBy* property can range an `org:Organization` or `org:OrganizationalUnit` entity as the ORG data model defines these class as subClassOf `foaf:Agent` (see [org:Organization](https://www.w3.org/TR/vocab-org/#org:Organization)).
+"""@en ;
+    rdfs:domain noria:ManagedElement ;
+    rdfs:range foaf:Agent ;
+    vs:term_status "stable" ;
+    skos:changeNote """Introduced in v0.2.""" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:StructuralElement
+    a owl:Class ;
+    rdfs:label "StructuralElement"@en ;
+    rdfs:comment "Abstract class for physical/logical ICT systems's assets and relations (a.k.a. *Structural facet*)."@en ;
+    skos:example "router xxx, virtual machine yyy, link zzz entities; is_a, connected_to or part_of properties"@en ;
+    rdfs:subClassOf noria:ManagedElement ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf seas:System ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:StructuralObservable
+    a owl:Class ;
+    rdfs:label "StructuralObservable"@en ;
+    rdfs:comment "An abstract class for ICT systems's properties that should be defined as classes for extended description capability."@en ;
+    skos:example "Time context of the observable value"@en ;
+    rdfs:subClassOf noria:Property ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralElementObservable
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:elementProperty ;
+    rdfs:label "structuralElementObservable"@en ;
+    rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some StructuralObservable instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralObservableOf
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:structuralElementProperty ;
+    rdfs:label "structuralObservableOf"@en ;
+    rdfs:comment "Relates some `StructuralObservable` instance to some `StructuralElement` instance."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralElementObservableData
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:elementProperty ;
+    rdfs:label "structuralElementObservableData"@en ;
+    rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some literal data."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:structuralElementDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:elementDistinguishedName ;
+    rdfs:label "structuralElementDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Structural Element Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:FunctionalElement
+    a owl:Class ;
+    rdfs:label "FunctionalElement"@en ;
+    rdfs:comment "Abstract class for services and broadcasting zones above the *Structural* facet (a.k.a. *Functional facet*)."@en ;
+    rdfs:subClassOf noria:ManagedElement ;
+    vs:term_status "stable" ;
+.
+
+noria:functionalElementDistinguishedName
+    a owl:DatatypeProperty ;
+    rdfs:subPropertyOf noria:elementDistinguishedName ;
+    rdfs:label "functionalElementDistinguishedName"@en ;
+    rdfs:comment "The Distinguished Name of the Functional Element Instance (i.e. unique identifier)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:DynamicElement
+    a owl:Class ;
+    rdfs:label "DynamicElement"@en ;
+    rdfs:comment "Abstract class for time-related entities and their potential chaining (a.k.a. *Dynamic facet*)."@en ;
+    skos:example "An alarm with happens_on or followed_by properties";
+    rdfs:subClassOf noria:ManagedElement ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:eventRelatedElement
+    a owl:ObjectProperty ;
+    rdfs:label "eventRelatedElement" ;
+    rdfs:comment "The structural or functional element instance some event or time-dependant entity is related with."@en ;
+    rdfs:domain noria:DynamicElement ;
+    rdfs:range noria:StructuralElement ,
+               noria:FunctionalElement ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:eventRelatedParty
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "eventRelatedParty" ;
+    rdfs:comment "Party playing a role (stakeholders) in the life cycle of a given event instance or time-dependant entity."@en ;
+    rdfs:domain noria:DynamicElement ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:ProceduralElement
+    a owl:Class ;
+    rdfs:label "ProceduralElement"@en ;
+    rdfs:comment "Abstract class for (predeﬁned/computed) operational process (a.k.a. *Procedural facet*)."@en ;
+    skos:example "Incident diagnosis procedure, cyber attack scenario, network route fail-over algorithm"@en ;
+    rdfs:subClassOf noria:ManagedElement ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# =============================================================================
+# Organization related
+# =============================================================================
+
+noria:CorporateUserIdentifier
+    a owl:Class ;
+    rdfs:label "CUid" ;
+    rdfs:comment """The Corporate User Identifier (CUid) is the unique identifier of a Person as a member of Organization (i.e. an Employee). It is also the main account of this Person for connecting to the organization's IT resources, including to its personal computer (PC).
+
+Alignment:
+- *FOAF*:
+  - The `foaf:accountName` allows for asserting the login identifier of an instance of this class.
+  - The `foaf:holdsAccount` property allows for relating an employee entity to an instance of this class.
+- *UCO*:
+  - A CUid is equivalent to a `observable:UserAccount`.
+  - The `observable:accountLogin` and `observable:accountIdentifier` can be used in parallel to `foaf:accountName` for asserting the the login identifier.
+  - The Person (`foaf:Agent`) holding this CUid is also a `observable:Contact`.
+"""@en ;
+    rdfs:subClassOf foaf:OnlineAccount,
+                    observable:UserAccount ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- alignment with foaf of the previously available noria:employeeId property.""";
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:agentWorkingHours
+    a owl:DatatypeProperty ;
+    rdfs:label "agentWorkingHours" ;
+    rdfs:comment "The Working Hours for reaching the Agent (Team, Employee, etc.)."@en ;
+    skos:example "8:00 am - 12:00 am / 1:00 pm - 5:30 pm (Mon --> Fri)"@en ;
+    skos:example "8H-12H/13H-17H30 (lun --> ven)"@fr ;
+    rdfs:domain foaf:Agent ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamWorkingHours to agentWorkingHours.""" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:agentPreferredContactMethod
+    a owl:ObjectProperty ;
+    rdfs:label "agentPreferredContactMethod" ;
+    rdfs:comment "The preferred contact method to reach the Agent (Team, Group, Employee)."@en ;
+    skos:example "Phone, e-mail"@en ;
+    rdfs:domain foaf:Agent ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/org/agent-contact-method> ;
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ] ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from employeePreferredContactMethod to agentPreferredContactMethod.
+- adding rdfs:subPropertyOf observable:contactNote.
+""" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+noria:agentInstructions
+    a owl:DatatypeProperty ;
+    rdfs:label "agentInstructions" ;
+    rdfs:comment "Instructions for involving the Agent (Team, Group, Employee)."@en ;
+    skos:example "Use the Ticketing system + hotline phone number for national L2 and L3 issues."@en ;
+    rdfs:domain foaf:Agent ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamInstructions to agentInstructions.
+- adding rdfs:subPropertyOf observable:contactNote.
+""" ;
+    rdfs:isDefinedBy noria:CoreOntology ;
+.
+
+# === EOF =====================================================================

@@ -1,0 +1,1040 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+noria:DocumentOntology
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "The NORIA Document Ontology"@en ;
+    dcterms:description """The Document Ontology defines the TroubleTicket and ChangeRequest objects.
+These are data resource (i.e. the result of a process) for efficient Incident Management and Change Management."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+    skos:changeNote """Changes in v0.2:
+- Renaming noria:TroubleTicketOntology to noria:DocumentOntology
+- Merging with the ChangeRequestOntology-0.1
+- TroubleTicket as a BBO Document and DC Resource.
+- ChangeRequest as a BBO Document and DC Resource.
+- Adding the noria:DocumentAttachment class.
+- PEP alignment within the ontology file.
+- troubleTicketSeverity as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/severity>.
+- troubleTicketType as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/type>.
+- troubleTicketCriticity as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/category>.
+- troubleTicketPriority as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/priority>.
+- troubleTicketOrigin as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/origin>.
+- troubleTicketUrgency as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/urgency>.
+- troubleTicketNoteCommentType as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/commentType>.
+- troubleTicketOrigin as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/origin>.
+- troubleTicketNoteOperationType as a owl:ObjectProperty ranging SKOS concepts from <kos/TroubleTicket/<TroubleTicket/operationType>.
+- troubleTicketStatus and changeRequestStatus merged into documentStatusHistory
+- Removing troubleTicketRelationshipParentOf and troubleTicketRelationshipChildOf
+- Using dcterms:contributor for ChangeRequest properties for identifying related parties.
+- Merging changeRequestExternalId, troubleTicketExternalId and troubleTicketCustomerTicketId into documentExternalId.
+- Merging changeRequestHRef and troubleTicketHRef into documentHRef.
+- Adding troubleTicketTrigger for relating the EventRecord at the origin of a given incident management.
+- Removing the noria:ChangeAction and noria:CorrectiveMaintenanceAction to the benefit of EventRecord(s) with a specific type.
+- Removing the usage of noria:Service until better specified. Alternative option is to make use of some noria:Application.applicationType(<kos/application/type/service>) statement. Related to this, the troubleTicketRelatedService property becomes troubleTicketRelatedApplication.
+- Adding the noria:troubleTicketNoteCorrelatedExecution property.
+- Adding the noria:problemCategory property for tracking remediation details.
+- Adding the noria:problemResponsibility property for tracking remediation details.
+""" ;
+    owl:versionInfo "v0.2" ;
+    owl:versionIRI <ontology/DocumentsOntology-0.2> ;
+    owl:priorVersion <ontology/TroubleTicketOntology-0.1>,
+                     <ontology/ChangeRequestOntology-0.1>;
+.
+
+# === DOCUMENT OBJECTS ========================================================
+
+# --- Incident Management -----------------------------------------------------
+
+noria:TroubleTicket
+    a owl:Class ;
+    rdfs:label "TroubleTicket" ;
+    rdfs:comment """A trouble ticket represents a record used for reporting and managing the resolution of resource problems. Main trouble ticket attributes are its description, severity, type, priority, related dates (created, target resolution, resolution, etc.), state and related information (change reason, change date), related parties (originator, owner, pilot), notes, trouble causes and impacts.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicket is a described resource, hence DC terms apply:
+  - troubleTicketId <=> http://purl.org/dc/terms/identifier : Identifier of the trouble ticket.
+  - troubleTicketCreationDateTime <=> http://purl.org/dc/terms/created : The Date on which the TroubleTicket was created in the ticketing system.
+  - troubleTicketLastUpdate <=> http://purl.org/dc/terms/modified : The date and time that the TroubleTicket was last updated.
+  - troubleTicketName <=> http://purl.org/dc/terms/title : Name of the TroubleTicket, typically a short description provided by the user that create the ticket or complementary data
+  - troubleTicketDescription <=> http://purl.org/dc/terms/description : Extended description of the trouble or issue.
+  - troubleTicketNote <=> http://purl.org/dc/terms/hasPart : The TroubleTicketNote(s) that are associated to the TroubleTicket.
+  - troubleTicketAttachment <=> http://purl.org/dc/terms/hasPart : The DocumentAttachment(s) that are associated to the TroubleTicket.
+  - troubleTicketRelationshipParentOf <=> http://purl.org/dc/terms/hasPart : The TroubleTicket(s) this ticket is parent of (TicketRelationship).
+  - troubleTicketRelationshipChildOf <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this ticket is the child of (TicketRelationship).
+  - troubleTicketDuration <=> http://purl.org/dc/terms/extent (optional) : The overall duration of the incident management process, typically in ISO 8601 duration format. Can be useful for computing Mean Time To Repair (MTTR) values for a given `problemCategory`.
+  - troubleTicketCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicket/TroubleTicketNote.
+- *BBO*: a TroubleTicket is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicket is a DataObject.
+- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
+    """@en ;
+    rdfs:subClassOf noria:DynamicElement ;
+    rdfs:subClassOf pep:ProcedureExecutionContainer ;
+    rdfs:subClassOf BBO:DocumentResource ;
+    owl:disjointWith noria:ChangeRequest ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+    rdfs:seeAlso
+            <https://www.dublincore.org/specifications/dublin-core/abstract-model/> ,
+            <https://www.omg.org/spec/BPMN/2.0/PDF#G11.91167> ,
+            <https://wiki.en.it-processmaps.com/index.php/Incident_Management> ;
+.
+
+noria:TroubleTicketNote
+    a owl:Class ;
+    rdfs:label "TroubleTicketNote" ;
+    rdfs:comment """A trouble ticket note represents a record used for reporting and information sharing during the incident management process for a given Trouble Ticket.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicketNote is a described resource, hence DC terms apply:
+  - troubleTicketNoteDate <=> http://purl.org/dc/terms/created : The recording date of the TroubleTicketNote.
+  - troubleTicketNoteAuthor <=> http://purl.org/dc/terms/creator : The Author of the TroubleTicketNote.
+  - troubleTicketNoteText <=> http://purl.org/dc/terms/description : The content of the TroubleTicketNote.
+  - troubleTicketNoteForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this note is part of.
+  - troubleTicketNoteCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicketNote.
+- *BBO*: a TroubleTicketNote is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicketNote is a DataObject.
+- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
+"""@en ;
+    skos:example """We shut interface ge-0-0-1 of Router1 in order to force route on Router2.
+2.6Gb traffic measured at 10:28.
+Customer has confirmed that the service is restored.""" ;
+    rdfs:subClassOf noria:DynamicElement ;
+    rdfs:subClassOf pep:ProcedureExecutionContainer ;
+    rdfs:subClassOf BBO:DocumentResource ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# --- Change Management -------------------------------------------------------
+
+noria:ChangeRequest
+    a owl:Class ;
+    rdfs:label "ChangeRequest" ;
+    vs:term_status "stable" ;
+    rdfs:comment """A Change Request represents a record used for reporting and managing change activities on services and resources. It is a key artefact to the Change Management process. Change Management process is to respond to the customer’s changing business requirements while maximizing value and reducing incidents, disruption and network.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a ChangeRequest is a described resource, hence DC terms apply:
+  - changeRequestId <=> http://purl.org/dc/terms/identifier : Identifier of the ChangeRequest.
+  - changeRequestCreationDateTime <=> http://purl.org/dc/terms/created : The Date and time on which the ChangeRequest was created in the system.
+  - changeRequestLastUpdate <=> http://purl.org/dc/terms/modified : The date and time on which the ChangeRequest was last updated.
+  - changeRequestDescription <=> http://purl.org/dc/terms/description : Extended description of the change to be made.
+  - changeRequestNote <=> http://purl.org/dc/terms/hasPart : A list of customer or internal comments.
+  - changeRequestAttachment <=> http://purl.org/dc/terms/hasPart : DocumentAttachment(s) that are associated to the ChangeRequest.
+  - changeRequestDuration <=> http://purl.org/dc/terms/extent (optional)
+  - changeRequestRelatedParty <=> http://purl.org/dc/terms/contributor : Party playing a role in the ChangeRequest, whether it be an unqualified role (i.e. direct usage of dcterms:contributor) or a qualified role (i.e. sub-properties such as noria:changeRequestInitiatorParty).
+  - changeRequestCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this ChangeRequest.
+- *PEP*: a ChangeRequest is a context for (potentially) many *ChangeAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`.
+- *BBO*: a ChangeRequest is a DocumentResource in the sense that it is the result of the Change Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a ChangeRequest is a DataObject.
+"""@en ;
+    rdfs:subClassOf noria:DynamicElement ;
+    rdfs:subClassOf BBO:DocumentResource ;
+    rdfs:subClassOf pep:ProcedureExecutionContainer ;
+    owl:disjointWith noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# --- Common ------------------------------------------------------------------
+
+noria:DocumentAttachment
+    a owl:Class ;
+    rdfs:label "DocumentAttachment" ;
+    rdfs:comment """A file attachment.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a DocumentAttachment is a described resource, hence DC terms apply:
+  - troubleTicketAttachmentForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.
+  - changeRequestAttachment <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.
+- *BBO*: a DocumentAttachment is a DocumentResource in the sense that it is the result of the Incident Management Process (IMP) or Change Management Process (CMP) and can be used as an input for another activity. From the BPMN 2.0 perspective, a DocumentAttachment is a DataObject.
+    """@en ;
+    skos:example "Picture of broken device, scanning of a bill or charge, network diagram, operation plan, location map." ;
+    rdfs:subClassOf noria:DynamicElement ;
+    rdfs:subClassOf BBO:DocumentResource ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# =============================================================================
+# Common properties
+# =============================================================================
+
+noria:documentStatusHistory
+    a owl:ObjectProperty ;
+    rdfs:label "documentStatusHistory" ;
+    rdfs:comment "The status change history of the document as recorded by the system's logging feature."@en ;
+    skos:example """EventRecord
+    .loggingTime("2019-01-23T11:58:00Z")
+    .logOriginatingManagementSystem(</object/APP_MyOSS>)
+    .references(</document/TT_2019-01-23_Resource1>)
+    .title("InProgress")
+    .type </kos/Notification/EventType/stateChange>""";
+    rdfs:domain noria:TroubleTicket ,
+                noria:ChangeRequest ;
+    rdfs:range noria:EventRecord ;
+    rdfs:subPropertyOf dcterms:references ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:documentExternalId
+    a owl:DatatypeProperty ;
+    rdfs:label "documentExternalId" ;
+    rdfs:comment "ID given by the requestor to facilitate the relationship set up and searches afterwards."@en ;
+    skos:example "Customer reference, Identifier coming from an external system, etc."@en ;
+    rdfs:domain noria:TroubleTicket ,
+                noria:ChangeRequest ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:documentHRef
+    a owl:DatatypeProperty ;
+    rdfs:label "documentHRef" ;
+    rdfs:comment "Hyperlink to the TroubleTicket or ChangeRequest entity in the originating information system."@en ;
+    rdfs:domain noria:TroubleTicket ,
+                noria:ChangeRequest ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf dcterms:source ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+
+# =============================================================================
+# TroubleTicket related properties
+# =============================================================================
+
+noria:troubleTicketSeverity
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketSeverity" ;
+    rdfs:comment """The criticity of the incident.
+
+The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
+The thresholds of Incident resolution depend on standards defined per service type.
+When the thresholds are exceeded, specific process of escalation may be activated."""@en ;
+    skos:example "Minor, Major, Blocking, etc."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/severity>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketType
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketType" ;
+    rdfs:comment "The ticket type."@en ;
+    skos:example "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketCriticity
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCriticity"@en ;
+    rdfs:comment "The ticket criticity from the customer impact perspective."@en ;
+    skos:example "Interrupted service, Corrupted service, Working backup, etc."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/category>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketPriority
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketPriority"@en ;
+    rdfs:comment "The trouble management priority."@en ;
+    skos:example "P1, P2, P3, P4" ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/priority>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ];
+    rdfs:subPropertyOf dcterms:type ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketOrigin
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketOrigin" ;
+    rdfs:comment "The person or group family at the origin of the creation of the Trouble Ticket."@en ;
+    skos:example "Customer, Supervision, Internal, Carrier, User, Partners" ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/origin>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketTrigger
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketTrigger" ;
+    rdfs:comment "The EventRecord at the origin of the creation of the Trouble Ticket."@en ;
+    skos:example "EventRecord(<event/LOG_srvz01.dfg0f873c811_C015FWR080_2020-11-25>)" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range noria:EventRecord ;
+    rdfs:subPropertyOf dcterms:source ;  # TODO: solve Widoco rendering issue when using `rdfs:subPropertyOf dcterms:source` as this statement prevents rdfs:comment and skos:example to be displayed.
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketUrgency
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketUrgency" ;
+    rdfs:comment "The priority level of the incident."@en ;
+    skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/urgency>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketSupervisionTool
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketSupervisionTool" ;
+    rdfs:comment "Supervision tool which detected the problem."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:source ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketCategory
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCategory"@en ;
+    rdfs:comment "The *initial* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
+    skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/trouble-category>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:seeAlso noria:problemCategory ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:problemCategory
+    a owl:ObjectProperty ;
+    rdfs:label "problemCategory"@en ;
+    rdfs:comment "The *final* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
+    skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/trouble-category>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:seeAlso noria:troubleTicketCategory ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketCause
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketCause"@en ;
+    rdfs:comment "The cause(s) defined for the trouble, in plain text."@en ;
+    skos:example """SSH authentication failure due to loss of sync to NTP server and internal clock drift.""" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:subPropertyOf dcterms:description ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:problemResponsibility
+    a owl:ObjectProperty ;
+    rdfs:label "problemResponsibility"@en ;
+    rdfs:comment "The *final* area of responsibility identified for the incident."@en ;
+    skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc." ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/problemResponsibility>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:seeAlso noria:troubleTicketCause ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketDetectionDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketDetectionDateTime" ;
+    rdfs:comment "The date on which the trouble was discovered."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketTargetRestorationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketTargetRestorationDateTime" ;
+    rdfs:comment "The Customer initial restoration date Estimated Time to Restore (ETR)."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketPlannedRestorationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketPlannedRestorationDateTime" ;
+    rdfs:comment "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketCommittedRestorationDateTime
+    a owl:DatatypeProperty ;
+    rdfs:label "troubleTicketCommittedRestorationDateTime" ;
+    rdfs:comment "The Customer Commitment Deadline Date (calculated on product information)."@en ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:subPropertyOf dcterms:date ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketIsNotificationEnable
+    a owl:DatatypeProperty  ;
+    rdfs:label "troubleTicketIsNotificationEnable" ;
+    rdfs:comment "The *enable* or *disable* external notification on trouble ticket events."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketStatusCurrent
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketStatusCurrent" ;
+    rdfs:comment "The current activity status of the trouble ticket."@en ;
+    skos:example "Initialised, InProgress, Frozen, Restored, Resolved, Closed" ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/status>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketRelatedParty
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketRelatedParty" ;
+    rdfs:comment "The related party(ies) that are associated to the ticket."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range foaf:Agent ;
+    rdfs:subPropertyOf noria:eventRelatedParty ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketPartyIntervention
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketPartyIntervention"@en ;
+    rdfs:comment "The history of groups activation and responsibility transfer."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketRelatedService
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketRelatedService" ;
+    rdfs:comment "The *Application* or *Service* entity on which trouble ticket has been created."@en ;
+    skos:example """- TroubleTicket.troubleTicketImpacts("syslog-ng")
+  Application("syslog-ng").applicationType(<kos/application/type/service-platform>)
+
+- TroubleTicket.troubleTicketImpacts("Corporate Internet access Infrastructure")
+  Application("Corporate Internet access Infrastructure").applicationType(<kos/application/type/infrastructure>)
+""" ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range noria:Application,
+        noria:ApplicationModule,
+        noria:Service ;
+    rdfs:subPropertyOf noria:eventRelatedElement ;
+    rdfs:subPropertyOf dcterms:relation ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketRelatedResource
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketRelatedResource" ;
+    rdfs:comment "The Resource entity on which the trouble ticket has been created."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:range noria:Resource ;
+    rdfs:subPropertyOf noria:eventRelatedElement ;
+    rdfs:subPropertyOf dcterms:relation ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketImpacts
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketImpacts"@en ;
+    rdfs:comment "A list of resources or services (applications) impacted by the trouble."@en ;
+    skos:example """TroubleTicket.troubleTicketImpacts({Application [*], Resource [*]})""" ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:subPropertyOf dcterms:relation ;
+    rdfs:seeAlso
+            noria:troubleTicketRelatedResource ,
+            noria:troubleTicketRelatedService ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketCharacteristic
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketCharacteristic" ;
+    rdfs:comment "A list of Characteristics of the ticket (TroubleTicketCharacteristic [*]). The Trouble ticket specific characteristics"@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketFreezeItem
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketFreezeItem"@en ;
+    rdfs:comment "The ticket freeze period history."@en ;
+    skos:example "A list of `noria:EventRecord` specifically describing the freeze periods for the given `noria:TroubleTicket`.";
+    vs:term_status "unstable" ;
+    rdfs:domain noria:TroubleTicket ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+    rdfs:seeAlso noria:documentStatusHistory ;
+.
+
+# =============================================================================
+# TroubleTicketNote related
+# =============================================================================
+
+noria:troubleTicketNoteCommentType
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteCommentType" ;
+    rdfs:comment "The comment provenance type and/or disclosure rules family."@en ;
+    skos:example "Customer, Group, Internal, System, etc."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/commentType>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketNoteOperationType
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteOperationType" ;
+    rdfs:comment "The operation type of the note." ;
+    skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/TroubleTicket/operationType>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:troubleTicketNoteCorrelatedExecution
+    a owl:ObjectProperty ;
+    rdfs:label "troubleTicketNoteCorrelatedExecution" ;
+    rdfs:comment """The correlated *ProcedureExecutionContainer* corresponding to the corrective maintenance actions depicted in the Trouble Ticket Note (i.e. the set of `EventRecord` about interactions with the system and as notified by the system).
+
+From a practical perspective, relating a `noria:TroubleTicketNote` to a `pep:ProcedureExecutionContainer` is akin to show off the materialization of a corrective maintenance action from the technical perspective.
+Note that for actions undoubtedly related to a given trouble ticket note (i.e. that can be asserted without mining for execution context candidates), one can avoid using `troubleTicketNoteCorrelatedExecution` by directly relating the note to `EventRecord` with `ldp:member` as `TroubleTicket` and `TroubleTicketNote` are themselves subclasses of `pep:ProcedureExecutionContainer`.
+"""@en ;
+    rdfs:domain noria:TroubleTicketNote ;
+    rdfs:range pep:ProcedureExecutionContainer ;
+    rdfs:subPropertyOf dcterms:relation ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding the troubleTicketNoteCorrelatedExecution property.
+""";
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# =============================================================================
+# ChangeRequest related
+# =============================================================================
+
+noria:changeRequestPlannedStartTime
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestPlannedStartTime" ;
+    rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestPlannedEndTime
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestPlannedEndTime" ;
+    rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestActualStartTime
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestActualStartTime" ;
+    rdfs:comment "Date and time on which the Change Request implementation has started. It is displayed only after the Change Request implementation has started actually."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestActualEndTime
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestActualEndTime" ;
+    rdfs:comment "Date and time on which the Change Request implementation has been completed. It is displayed only after the Change Request implementation has been completed actually."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:date ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestCategory
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestCategory" ;
+    rdfs:comment "Nature of the Change Request"@en ;
+    skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer"@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/ChangeRequest/category>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestType
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestType" ;
+    rdfs:comment "The type of the request describes the a priori impact and risk level of the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/ChangeRequest/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ] ;
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestChangeCause
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestChangeCause" ;
+    rdfs:comment "Cause of (reason for) the Change Request."@en ;
+    skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/ChangeRequest/cause>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ] ;
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestImpact
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestImpact" ;
+    rdfs:comment "Set of physical/logical entities on which the Change Request is carried-out."@en ;
+    skos:example "Resource(s), Application(s), Service(s)"@en;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range noria:Resource,
+               noria:Application,
+               noria:ApplicationModule,
+               noria:Service ;
+    rdfs:subPropertyOf noria:eventRelatedElement,
+                       dcterms:relation ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestOutageDuration
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestOutageDuration" ;
+    rdfs:comment "Expected duration of the outage, if any involved by the Change Request type."@en ;
+    vs:term_status "stable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:duration ;
+    rdfs:subPropertyOf dcterms:extent ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestStatusCurrent
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestStatusCurrent" ;
+    rdfs:comment "The current status of the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/ChangeRequest/status>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ] ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestSpecification
+    a owl:ObjectProperty ;
+    rdfs:label "changeRequestSpecification" ;
+    rdfs:comment "An item of the standard operation plan catalog for recurring activities."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/ChangeRequest/specification>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+                ] ;
+    rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestInitiatorParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestInitiatorParty" ;
+    rdfs:comment "The agent initiating the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range foaf:Agent ;
+    rdfs:subPropertyOf dcterms:contributor ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestPilotParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestPilotParty" ;
+    rdfs:comment "The pilot of the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range foaf:Agent ;
+    rdfs:subPropertyOf dcterms:contributor ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestActorParty
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+    rdfs:label "changeRequestActorParty" ;
+    rdfs:comment "The actor of the Change Request."@en ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range foaf:Agent ;
+    rdfs:subPropertyOf dcterms:contributor ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:changeRequestIsRegulated
+    a owl:DatatypeProperty ;
+    rdfs:label "changeRequestIsRegulated" ;
+    rdfs:comment "If *true*, the Change Request is subject to special regulations."@en ;
+    vs:term_status "unstable" ;
+    rdfs:domain noria:ChangeRequest ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+
+# =============================================================================
+# RCA related concepts
+# =============================================================================
+
+noria:AnomalyPattern
+    a owl:Class ;
+    rdfs:label "AnomalyPattern" ;
+    rdfs:comment "An abstract class for grouping observables and events that, when satisfied by the existence of some instance/value, represents the occurrence of a (complex) fault/failure mode."@en ;
+    rdfs:subClassOf noria:ProceduralObject ;
+    rdfs:subClassOf folio:FailureMode ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- Renamed AnomalyPattern from AnomalyMode.
+- Adding rdfs:subClassOf folio:FailureMode.
+""" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# === Operations related ======================================================
+
+noria:OperationPlan
+    a owl:Class ;
+    rdfs:label "OperationPlan" ;
+    rdfs:comment "An abstract class representing a formal set of operations to be carried out in a standardized/controlled way."@en ;
+    skos:example "A system upgrade procedure, a network traffic fail-over activation, the control method for qualifying some system fault."@en ;
+    rdfs:subClassOf noria:ProceduralObject ;
+    rdfs:subClassOf folio:ControlMethod,
+                    pep:Procedure ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf folio:ControlMethod.
+""" ;
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# --- Action to Procedure -----------------------------------------------------
+
+noria:actionCorrelatedOperationPlan
+    a owl:ObjectProperty ;
+    rdfs:label "actionCorrelatedOperationPlan" ;
+    rdfs:comment "The Operation Plan (procedure) guiding the execution of the given Action."@en ;
+    rdfs:domain
+            noria:CorrectiveMaintenanceAction,
+            noria:ChangeAction ;
+    rdfs:range noria:OperationPlan ;
+    rdfs:subPropertyOf pep:usedProcedure ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# === Diagnosis and Change related ============================================
+
+noria:ActionPreCondition
+    a owl:Class ;
+    rdfs:subClassOf noria:ProceduralObject ;
+    rdfs:label "ActionPreCondition" ;
+    rdfs:comment """Set of Pre Conditions or Hypothesis enabling/leading to the potential execution of some OperationPlan."""@en ;
+    skos:example "In an Incident Management context: when in situation X, shut link may help"@en ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:ActionPostCondition
+    a owl:Class ;
+    rdfs:subClassOf noria:ProceduralObject ;
+    rdfs:label "ActionPostCondition" ;
+    rdfs:comment """Set of Post Conditions or Potential outcomes that the execution of some OperationPlan may satisfy/lead to/confirm/solve.
+
+From the *ChangeRequest* perspective this enables to declare what to observe in order to confirm that the Procedure reached its goal; from the *TroubleTicket* perspective this enables to capitalize on expectations and outcomes for a given Procedure."""@en ;
+    skos:example """In an Incident Management context, the materialization to expect, such as:
+- 'service restored',
+- 'traffic down',
+- 'Customer or a probe with that traffic coming up after some CLI command'.""" ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# --- Procedure to Hypothesis/Goal --------------------------------------------
+
+noria:operationPlanPreCondition
+    a owl:ObjectProperty ;
+    rdfs:label "operationPlanPreCondition" ;
+    rdfs:comment """The ActionPreCondition to check/that would be checked whenever the OperationPlan will be executed/is executed.
+
+Alignment:
+- *PEP*: OperationPlan (Procedures) may be linked to some description of the input, hence `operationPlanPreCondition` is a kind of `pep:hasInput`.
+- *BBO*: From the BPMN perspective, the `operationPlanPreCondition` is the description of what may activate the realization of a given Task, hence it is a kind of `BBO:has_activationCondition`.
+"""@en ;
+    rdfs:domain noria:OperationPlan ;
+    rdfs:range noria:ActionPreCondition ;
+    rdfs:subPropertyOf pep:hasInput ,
+                       BBO:has_activationCondition ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- Adding pep:hasInput.
+- Adding rdfs:subPropertyOf BBO::has_activationCondition.
+""" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+noria:operationPlanPostCondition
+    a owl:ObjectProperty ;
+    rdfs:label "operationPlanPostCondition" ;
+    rdfs:comment """The ActionPostCondition to check/that would be observed whenever the OperationPlan is carried out.
+
+Alignment:
+- *PEP*: OperationPlan (Procedures) may be linked to some description of the output, hence `operationPlanPostCondition` is a kind of `pep:hasOutput`.
+- *BBO*: From the BPMN perspective, the `operationPlanPostCondition` is the description of what should be observed to after the realization of a given Task, hence it is a kind of `BBO:has_completionCondition`.
+"""@en ;
+    rdfs:domain noria:OperationPlan ;
+    rdfs:range noria:ActionPostCondition ;
+    rdfs:subPropertyOf pep:hasOutput ,
+                       BBO:has_completionCondition ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- Adding pep:hasOutput.
+- Adding rdfs:subPropertyOf BBO::has_completionCondition.
+""" ;
+    rdfs:isDefinedBy noria:DocumentOntology ;
+.
+
+# === EOF =====================================================================

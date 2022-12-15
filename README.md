@@ -16,7 +16,7 @@ Cite:
 ## Usage
 
 We provide a direct access to the NORIA-O resources with the **noria** [w3id.org](https://w3id.org/) identifier:
-* [https://w3id.org/noria/](https://w3id.org/noria/)
+> [https://w3id.org/noria/](https://w3id.org/noria/)
 
 Based on this identifier, the following links apply for direct access to the NORIA-O featured topics:
 
