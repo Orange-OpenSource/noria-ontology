@@ -1,0 +1,336 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+
+# =============================================================================
+
+<application>
+    a skos:ConceptScheme;
+    skos:definition "Set of computer programs used by some group of users for fulfilling some specific task or activity."@en ;
+    skos:definition "Ensemble de programmes dont se servent les utilisateurs afin d'accomplir une tâche ou une activité particulière."@fr ;
+	skos:notation "application" ;
+	# --- Vocab metadata ---
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	dcterms:title "The NORIA Application vocabulary" ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+	skos:exactMatch <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=2075118> ;
+	dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Added the <application/business-importance> scheme
+  - Release for NORIA-O v0.2
+"""@en ;
+.
+
+# =============================================================================
+
+<application/status>
+    a skos:ConceptScheme;
+    skos:definition "Status of an Application"@en;
+    skos:inScheme <application> ;
+    skos:notation "status" ;
+    skos:topConceptOf <application> ;
+.
+
+<application/status/development>
+    a skos:Concept;
+    skos:definition "The Application has been declared into the Information System and its development is started (i.e. analysis, design, coding)."@en;
+    skos:inScheme <application/status> ;
+    skos:notation "development";
+    skos:topConceptOf <application/status> ;
+    skos:prefLabel "Development"@en;
+    skos:prefLabel "En développement"@fr .
+
+<application/status/testing>
+    a skos:Concept;
+    skos:definition "The Application development is under review before going into production (i.e. testing, implementation)."@en;
+	skos:inScheme <application/status> ;
+    skos:notation "testing";
+	skos:topConceptOf <application/status> ;
+    skos:prefLabel "Preproduction"@en;
+    skos:prefLabel "En pré production"@fr .
+
+<application/status/production>
+    a skos:Concept;
+    skos:definition "The Application development is done and it is currently actively used by internal/external customers."@en;
+	skos:inScheme <application/status> ;
+    skos:notation "production";
+	skos:topConceptOf <application/status> ;
+    skos:prefLabel "Production"@en;
+    skos:prefLabel "En production"@fr .
+
+<application/status/outsourced>
+    a skos:Concept;
+    skos:definition "The Application is outsourced and is currently actively used by internal/external customers."@en;
+	skos:inScheme <application/status> ;
+    skos:notation "outsourced";
+	skos:topConceptOf <application/status> ;
+    skos:prefLabel "Outsourced"@en;
+    skos:prefLabel "Externalisé"@fr .
+
+<application/status/decomissioning-asked>
+    a skos:Concept;
+    skos:definition "The Application is no more in use and decomissioning of its resources is under way."@en;
+	skos:inScheme <application/status> ;
+    skos:notation "decomissioning-asked";
+	skos:topConceptOf <application/status> ;
+    skos:prefLabel "Decomissioning asked"@en;
+    skos:prefLabel "Mise hors service en cours"@fr ;
+    skos:altLabel "J4 demandé"@fr .
+
+<application/status/decomissioned>
+    a skos:Concept;
+    skos:definition "The Application is no more in use and its resources have been decomissioned."@en;
+	skos:inScheme <application/status> ;
+    skos:notation "decomissioned";
+	skos:topConceptOf <application/status> ;
+    skos:prefLabel "Decomissioned"@en;
+    skos:prefLabel "Hors service"@fr .
+
+# -----------------------------------------------------------------------------
+
+<application/sla-level>
+    a skos:ConceptScheme;
+    skos:definition "SLA Level of any Application";
+    skos:inScheme <application> ;
+    skos:notation "sla-level" ;
+.
+
+<application/sla-level/gold>
+    a skos:Concept;
+    skos:definition "The Application has 'Gold' SLA."@en;
+    skos:inScheme <application/sla-level> ;
+    skos:notation "gold";
+    skos:topConceptOf <application/sla-level> ;
+    skos:prefLabel "Gold"@en;
+    skos:prefLabel "Or"@fr .
+
+<application/sla-level/silver>
+    a skos:Concept;
+    skos:definition "The Application has 'Silver' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+    skos:notation "silver";
+	skos:topConceptOf <application/sla-level> ;
+    skos:prefLabel "Silver"@en;
+    skos:prefLabel "Argent"@fr .
+
+<application/sla-level/bronze>
+    a skos:Concept;
+    skos:definition "The Application has 'Bronze' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+    skos:notation "bronze";
+	skos:topConceptOf <application/sla-level> ;
+    skos:prefLabel "Bronze"@en;
+    skos:prefLabel "Bronze"@fr .
+
+<application/sla-level/platinum>
+    a skos:Concept;
+    skos:definition "The Application has 'Platinum' SLA."@en;
+    skos:inScheme <application/sla-level> ;
+    skos:notation "platinum";
+	skos:topConceptOf <application/sla-level> ;
+    skos:prefLabel "Platinum"@en;
+    skos:prefLabel "Platine"@fr .
+
+# -----------------------------------------------------------------------------
+
+<application/type>
+    a skos:ConceptScheme;
+    skos:definition "The nature (type) of the Application"@en;
+    skos:notation "type";
+    skos:inScheme <application> ;
+.
+
+<application/type/application>
+    a skos:Concept;
+    skos:definition "Application" ;
+    skos:inScheme <application/type> ;
+    skos:notation "application";
+    skos:prefLabel "Application"@en;
+    skos:prefLabel "Application"@fr;
+.
+
+<application/type/third-party>
+    a skos:Concept;
+    skos:definition "Third Party" ;
+    skos:inScheme <application/type> ;
+    skos:notation "third-party";
+    skos:prefLabel "Third Party"@en;
+    skos:prefLabel "Entité tiers"@fr;
+.
+
+<application/type/sla>
+    a skos:Concept;
+    skos:definition "SLA" ;
+    skos:inScheme <application/type> ;
+    skos:notation "sla";
+    skos:prefLabel "SLA"@en;
+    skos:prefLabel "SLA"@fr;
+.
+
+<application/type/infrastructure-service>
+    a skos:Concept;
+    skos:definition "Infrastructure service" ;
+    skos:inScheme <application/type> ;
+    skos:notation "infrastructure-service";
+    skos:prefLabel "Infrastructure service"@en;
+    skos:prefLabel "Service d'infrastructure"@fr;
+.
+
+<application/type/application-group>
+    a skos:Concept;
+    skos:definition "Application Group" ;
+    skos:inScheme <application/type> ;
+    skos:notation "application-group";
+    skos:prefLabel "Application Group"@en;
+    skos:prefLabel "Groupe Applicatif"@fr;
+.
+
+<application/type/network-equipment>
+    a skos:Concept;
+    skos:definition "Network equipment" ;
+    skos:inScheme <application/type> ;
+    skos:notation "network-equipment";
+    skos:prefLabel "Network equipment"@en;
+    skos:prefLabel "Equipement de réseau"@fr;
+.
+
+<application/type/infrastructure>
+    a skos:Concept;
+    skos:definition "Infrastructure" ;
+    skos:inScheme <application/type> ;
+    skos:notation "infrastructure";
+    skos:prefLabel "Infrastructure"@en;
+    skos:prefLabel "Infrastructure"@fr;
+.
+
+<application/type/service-platform>
+    a skos:Concept;
+    skos:definition "Service Platform" ;
+    skos:inScheme <application/type> ;
+    skos:notation "service-platform";
+    skos:prefLabel "Service Platform"@en;
+    skos:prefLabel "Platforme de service"@fr;
+.
+
+<application/type/it-tool>
+    a skos:Concept;
+    skos:definition "IT Tool" ;
+    skos:inScheme <application/type> ;
+    skos:notation "it-tool";
+    skos:prefLabel "IT Tool"@en;
+    skos:prefLabel "Solution logicielle"@fr;
+.
+
+<application/type/infrastructure-area>
+    a skos:Concept;
+    skos:definition "Infrastructure area" ;
+    skos:inScheme <application/type> ;
+    skos:notation "infrastructure-area";
+    skos:prefLabel "Infrastructure area"@en;
+    skos:prefLabel "Domaine d'infrastructure"@fr;
+.
+
+<application/type/service-platform-model>
+    a skos:Concept;
+    skos:definition "Service Platform Model" ;
+    skos:inScheme <application/type> ;
+    skos:notation "service-platform-model";
+    skos:prefLabel "Service Platform Model"@en;
+    skos:prefLabel "Modèle de Plateforme de Service"@fr;
+.
+
+<application/type/special-group>
+    a skos:Concept;
+    skos:definition "Special Group" ;
+    skos:inScheme <application/type> ;
+    skos:notation "special-group";
+    skos:prefLabel "Special Group"@en;
+    skos:prefLabel "Special Group"@fr;
+.
+
+# -----------------------------------------------------------------------------
+
+<application/business-importance>
+    a skos:ConceptScheme;
+    skos:definition "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en;
+    skos:notation "business-importance";
+    skos:inScheme <application> ;
+.
+
+<application/business-importance/high-critical>
+    a skos:Concept;
+    skos:definition "Highly critical application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "high-critical";
+    skos:prefLabel "High critical"@en
+.
+
+<application/business-importance/critical>
+    a skos:Concept;
+    skos:definition "Critical application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "critical";
+    skos:prefLabel "Critical"@en
+.
+
+<application/business-importance/standard>
+    a skos:Concept;
+    skos:definition "Standard criticality application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "standard";
+    skos:prefLabel "Standard"@en
+.
+
+<application/business-importance/low>
+    a skos:Concept;
+    skos:definition "Low criticality application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "low";
+    skos:prefLabel "Low"@en
+.
+
+<application/business-importance/not-defined>
+    a skos:Concept;
+    skos:definition "The business importance is not defined yet for the application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "not-defined";
+    skos:prefLabel "Not defined"@en
+.
+
+<application/business-importance/not-applicable>
+    a skos:Concept;
+    skos:definition "Defining the business importance is not relevant for the application." ;
+    skos:inScheme <application/business-importance> ;
+    skos:notation "not-applicable";
+    skos:prefLabel "Not applicable"@en
+.
+
+# === EOF =====================================================================

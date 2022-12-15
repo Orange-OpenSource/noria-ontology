@@ -1,0 +1,1121 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+@prefix noria: <https://w3id.org/noria/ontology/> .
+
+# =============================================================================
+
+<Notification>
+  a skos:ConceptScheme;
+  skos:definition "A notification, related to some Facility and with a Severity value.";
+  skos:notation "notification" ;
+	# --- Vocab metadata ---
+  dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+  dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+  dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+  dcterms:publisher <https://www.orange.com/> ;
+  dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+  dcterms:title "The NORIA Notification vocabulary" ;
+  dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+  dcterms:issued "2022-04-12"^^xsd:date ;
+  dcterms:modified "2022-12-15"^^xsd:date ;
+  skos:changeNote """Changes in 2022-12-15:
+  - Added <Notification/Severity/PerceivedSeverity> with SysLog alignment
+  - Release for NORIA-O v0.2
+"""@en ;
+.
+
+# =============================================================================
+
+<Notification/EventType>
+  a skos:ConceptScheme ;
+  skos:notation "eventType" ;
+  skos:inScheme <Notification> ;
+  skos:definition "The Type of the Event."@en ;
+.
+
+<Notification/EventTypeGroup>
+  a skos:ConceptScheme ;
+  skos:notation "eventTypeGroup" ;
+  skos:inScheme <Notification> ;
+  skos:definition "Group of EvenType reflecting some specific alarming situation."@en ;
+.
+
+<Notification/EventTypeGroup/GeneralOperationAlarm>
+  a skos:ConceptScheme ;
+  skos:notation "eventTypeGroup-GeneralOperationAlarm" ;
+  skos:inScheme <Notification> ;
+  skos:definition "Group of EvenType reflecting alarming situations about General Operation context issues."@en ;
+  skos:example "The set of communicationAlarm, qualityofServiceAlarm, processingErrorAlarm, equipmentAlarm and environmentalAlarm event type."@en ;
+.
+
+<Notification/EventTypeGroup/SecurityAlarm>
+  a skos:ConceptScheme ;
+  skos:notation "eventTypeGroup-SecurityAlarm" ;
+  skos:inScheme <Notification> ;
+  skos:definition "Group of EvenType reflecting alarming situations about Security issues."@en ;
+  skos:example "The set of integrityViolation, operationalViolation, physicalViolation, securityServiceOrMechanismViolation and timeDomainViolation event type."@en ;
+.
+
+<Notification/EventTypeGroup/ChangeOperation>
+  a skos:ConceptScheme ;
+  skos:notation "eventTypeGroup-ChangeOperation" ;
+  skos:inScheme <Notification> ;
+  skos:definition "Group of EvenType reflecting change operations on the ICT system within a ChangeRequest context."@en ;
+.
+
+<Notification/EventTypeGroup/CorrectiveMaintenanceOperation>
+  a skos:ConceptScheme ;
+  skos:notation "eventTypeGroup-CorrectiveMaintenanceOperation" ;
+  skos:inScheme <Notification> ;
+  skos:definition "Group of EvenType reflecting corrective maintenance operations on the ICT system within a TroubleTicket context."@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/EventType/miscellaneousError>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:notation "miscellaneousError" ;
+  skos:definition "When a processing error failure has occurred and the error condition encountered does not match any of the object's defined specific error types, this value is used."@en ;
+  skos:prefLabel "miscellaneousError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-miscellaneousError> ;
+.
+
+<Notification/EventType/attributeValueChange>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+  skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+  skos:notation "attributeValueChange" ;
+  skos:definition "This notification type is used to report changes to the attribute such as addition or deletion of members to one or more set valued attributes, replacement of the value of one or more attributes and setting attribute values to their defaults."@en ;
+  skos:prefLabel "attributeValueChange"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-attributeValueChangeBehaviour> ;
+.
+
+<Notification/EventType/communicationsAlarm>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:notation "communicationsAlarm" ;
+  skos:definition "This notification type is used to report when the object detects a communications error."@en ;
+  skos:prefLabel "communicationsAlarm"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-communicationsAlarmBehaviour> ;
+.
+
+<Notification/EventType/environmentalAlarm>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:notation "environmentalAlarm" ;
+  skos:definition "This notification type is used to report a problem in the environment."@en ;
+  skos:prefLabel "environmentalAlarm"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-environmentalAlarmBehaviour> ;
+.
+
+<Notification/EventType/equipmentAlarm>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:notation "equipmentAlarm" ;
+  skos:definition "This notification type is used to report a failure in the equipment."@en ;
+  skos:prefLabel "equipmentAlarm"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-equipmentAlarmBehaviour> ;
+.
+
+<Notification/EventType/integrityViolation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "integrityViolation" ;
+  skos:definition "This notification is used to report that a potential interruption in information flow has occurred such that information may have been illegally modified, inserted or deleted."@en ;
+  skos:prefLabel "integrityViolation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-integrityViolationBehaviour> ;
+.
+
+<Notification/EventType/objectCreation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+  skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+  skos:notation "objectCreation" ;
+  skos:definition "This notification type is used to report the creation of a managed object to another open system."@en ;
+  skos:prefLabel "objectCreation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-objectCreationBehaviour> ;
+.
+
+<Notification/EventType/objectDeletion>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+  skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+  skos:notation "objectDeletion" ;
+  skos:definition "This notification type is used to report the deletion of a managed object to another open system."@en ;
+  skos:prefLabel "objectDeletion"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-objectDeletionBehaviour> ;
+.
+
+<Notification/EventType/operationalViolation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "operationalViolation" ;
+  skos:definition "This notification is used to report that the provision of the requested service was not possible due to the unavailability, malfunction or incorrect invocation of the service."@en ;
+  skos:prefLabel "operationalViolation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-operationalViolationBehaviour> ;
+.
+
+<Notification/EventType/physicalViolation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "physicalViolation" ;
+  skos:definition "This notification is used to report that a physical resource has been violated in a way that indicates a potential security attack."@en ;
+  skos:prefLabel "physicalViolation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-physicalViolationBehaviour> ;
+.
+
+<Notification/EventType/processingErrorAlarm>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:notation "processingErrorAlarm" ;
+  skos:definition "This notification type is used to report processing failure in a managed object."@en ;
+  skos:prefLabel "processingErrorAlarm"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-processingErrorAlarmBehaviour> ;
+.
+
+<Notification/EventType/qualityofServiceAlarm>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:notation "qualityofServiceAlarm" ;
+  skos:definition "This notification type is used to report a failure in the quality of service of the managed object."@en ;
+  skos:prefLabel "qualityofServiceAlarm"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-qualityofServiceAlarmBehaviour> ;
+.
+
+<Notification/EventType/relationshipChange>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+  skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+  skos:notation "relationshipChange" ;
+  skos:definition "This notification type is used to report the change in the value of one or more relationship attributes of a object, that result through either internal operation of the managed object or via management operation."@en ;
+  skos:prefLabel "relationshipChange"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-relationshipChangeBehaviour> ;
+.
+
+<Notification/EventType/securityServiceOrMechanismViolation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "securityServiceOrMechanismViolation" ;
+  skos:definition "This notification is used to report that a security attack has been detected by a security service or mechanism."@en ;
+  skos:prefLabel "securityServiceOrMechanismViolation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityServiceOrMechanismViolationBehaviour> ;
+.
+
+<Notification/EventType/stateChange>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:notation "stateChange" ;
+  skos:definition "This notification type is used to report the change in the the value of one or more state attributes of a managed object, that result through either internal operation of the managed object or via management operation."@en ;
+  skos:prefLabel "stateChange"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-stateChangeBehaviour> ;
+.
+
+<Notification/EventType/timeDomainViolation>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "timeDomainViolation" ;
+  skos:definition "This notification is used to report that an event has occurred at an unexpected or prohibited time."@en ;
+  skos:prefLabel "timeDomainViolation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-timeDomainViolationBehaviour> ;
+.
+
+<Notification/EventType/inferredAlert>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "inferred-alert" ;
+  skos:definition "This notification is used to report that a risk or error condition has been deduced by an external Anomaly Detection (AD) component."@en ;
+  skos:example "atRisk(Resource, '50% k-out-of-n threshold crossed')" ;
+  skos:prefLabel "inferredAlert"@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity>
+  a skos:ConceptScheme ;
+  skos:inScheme <Notification> ;
+  skos:prefLabel "Severity"@en ;
+  skos:prefLabel "Gravité"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity/PerceivedSeverity>
+  a skos:ConceptScheme ;
+  skos:inScheme <Notification/Severity> ;
+  skos:notation "perceived-severity" ;
+  skos:definition "Provides an indication of how it is perceived that the capability of the managed object has been affected."@en ;
+  skos:definition "Donne des indications sur la manière dont la dégradation des fonctions de l'objet géré est perçue."@fr ;
+  rdfs:comment """There is a direct correlation between the perceived severity, log levels and syslog level severities.
+However there is no standard mapping between all proposed severity schemes.
+Therefore we take X.733 for baseline with respect to its anteriority and map other standards through `skos:altLabel` statements.""" ;
+  skos:prefLabel "Perceived severity"@en ;
+  skos:prefLabel "Gravité perçue"@fr ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.PerceivedSeverity> ;
+.
+
+<Notification/Severity/PerceivedSeverity/cleared>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "cleared" ;
+  skos:definition "The Cleared severity level indicates the clearing of one or more previously reported alarms. This alarm clears all alarms for this managed object that have the same Alarm type, Probable cause and Specific problems (if given)."@en ;
+  skos:prefLabel "cleared"@en ;
+  skos:altLabel "Ok" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/critical>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "critical" ;
+  skos:definition "The Critical severity level indicates that a service affecting condition has occurred and an immediate corrective action is required. Such a severity can be reported, for example, when a managed object becomes totally out of service and its capability must be restored."@en ;
+  skos:prefLabel "critical"@en ;
+  skos:altLabel "Emergency"@en ;
+  skos:altLabel "emerg"@en ;
+  skos:altLabel "panic"@en ;
+  skos:altLabel "0" ;
+  skos:altLabel "Alert"@en ;
+  skos:altLabel "1" ;
+  skos:altLabel "Critical"@en ;
+  skos:altLabel "crit"@en ;
+  skos:altLabel "2" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/major>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "major" ;
+  skos:definition "The Major severity level indicates that a service affecting condition has developed and an urgent corrective action is required. Such a severity can be reported, for example, when there is a severe degradation in the capability of the managed object and its full capability must be restored."@en ;
+  skos:prefLabel "major"@en ;
+  skos:altLabel "Error"@en ;
+  skos:altLabel "3" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/minor>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "minor" ;
+  skos:definition "The Minor severity level indicates the existence of a non-service affecting fault condition and that corrective action should be taken in order to prevent a more serious (for example, service affecting) fault. Such a severity can be reported, for example, when the detected alarm condition is not currently degrading the capacity of the managed object."@en ;
+  skos:prefLabel "minor"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/warning>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "warning" ;
+  skos:definition "The Warning severity level indicates the detection of a potential or impending service affecting fault, before any significant effects have been felt. Action should be taken to further diagnose (if necessary) and correct the problem in order to prevent it from becoming a more serious service affecting fault."@en ;
+  skos:prefLabel "warning"@en ;
+  skos:altLabel "Warning"@en ;
+  skos:altLabel "warn"@en ;
+  skos:altLabel "4" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/indeterminate>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "indeterminate" ;
+  skos:definition "The Indeterminate severity level indicates that the severity level cannot be determined."@en ;
+  skos:prefLabel "indeterminate"@en ;
+  skos:altLabel "Unknown"@en ;
+  skos:altLabel "Notice"@en ;
+  skos:altLabel "5" ;
+  skos:altLabel "Informational"@en ;
+  skos:altLabel "info"@en ;
+  skos:altLabel "6" ;
+  skos:altLabel "Debug"@en ;
+  skos:altLabel "7" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity/SecurityAlarmSeverity>
+  a skos:ConceptScheme ;
+  skos:notation "security-alarm-severity" ;
+  skos:inScheme <Notification/Severity> ;
+  skos:related <Notification/Severity/PerceivedSeverity> ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmSeverity> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/indeterminate>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+  skos:notation "indeterminate" ;
+  skos:prefLabel "indeterminate"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/indeterminate> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/critical>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+  skos:notation "critical" ;
+  skos:prefLabel "critical "@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/critical> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/major>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+  skos:notation "major" ;
+  skos:prefLabel "major"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/major> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/minor>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+  skos:notation "minor" ;
+  skos:prefLabel "minor"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/minor> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/warning>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+  skos:notation "warning" ;
+  skos:prefLabel "warning"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/warning> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/ProbableCause>
+  a skos:ConceptScheme ;
+  skos:inScheme <Notification> ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-probableCause>,
+                   <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.ProbableCause> ;
+.
+
+<Notification/ProbableCause/adapterError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "adapterError" ;
+  skos:prefLabel "adapterError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/applicationSubsystemFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "applicationSubsystemFailure" ;
+  skos:prefLabel "applicationSubsystemFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/bandwidthReduced>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "bandwidthReduced" ;
+  skos:prefLabel "bandwidthReduced"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/callEstablishmentError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "callEstablishmentError" ;
+  skos:prefLabel "callEstablishmentError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/communicationsProtocolError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "communicationsProtocolError" ;
+  skos:prefLabel "communicationsProtocolError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/communicationsSubsystemFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "communicationsSubsystemFailure" ;
+  skos:prefLabel "communicationsSubsystemFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/configurationOrCustomizationError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "configurationOrCustomizationError" ;
+  skos:prefLabel "configurationOrCustomizationError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/congestion>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "congestion" ;
+  skos:prefLabel "congestion"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/corruptData>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "corruptData" ;
+  skos:prefLabel "corruptData"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/cpuCyclesLimitExceeded>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "cpuCyclesLimitExceeded" ;
+  skos:prefLabel "cpuCyclesLimitExceeded"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/dataSetOrModemError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "dataSetOrModemError" ;
+  skos:prefLabel "dataSetOrModemError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/degradedSignal>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "degradedSignal" ;
+  skos:prefLabel "degradedSignal"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/dTE-DCEInterfaceError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "dTE-DCEInterfaceError" ;
+  skos:prefLabel "dTE-DCEInterfaceError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/enclosureDoorOpen>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "enclosureDoorOpen" ;
+  skos:prefLabel "enclosureDoorOpen"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/equipmentMalfunction>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "equipmentMalfunction" ;
+  skos:prefLabel "equipmentMalfunction"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/excessiveVibration>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "excessiveVibration" ;
+  skos:prefLabel "excessiveVibration"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/fileError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "fileError" ;
+  skos:prefLabel "fileError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/fireDetected>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "fireDetected" ;
+  skos:prefLabel "fireDetected"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/floodDetected>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "floodDetected" ;
+  skos:prefLabel "floodDetected"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/framingError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "framingError" ;
+  skos:prefLabel "framingError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/heatingOrVentilationOrCoolingSystemProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "heatingOrVentilationOrCoolingSystemProblem" ;
+  skos:prefLabel "heatingOrVentilationOrCoolingSystemProblem"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/humidityUnacceptable>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "humidityUnacceptable" ;
+  skos:prefLabel "humidityUnacceptable"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/inputOutputDeviceError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "inputOutputDeviceError" ;
+  skos:prefLabel "inputOutputDeviceError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/inputDeviceError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "inputDeviceError" ;
+  skos:prefLabel "inputDeviceError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lANError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "lANError" ;
+  skos:prefLabel "lANError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/leakDetected>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "leakDetected" ;
+  skos:prefLabel "leakDetected"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/localNodeTransmissionError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "localNodeTransmissionError" ;
+  skos:prefLabel "localNodeTransmissionError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lossOfFrame>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "lossOfFrame" ;
+  skos:prefLabel "lossOfFrame"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lossOfSignal>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "lossOfSignal" ;
+  skos:prefLabel "lossOfSignal"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/materialSupplyExhausted>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "materialSupplyExhausted" ;
+  skos:prefLabel "materialSupplyExhausted"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/multiplexerProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "multiplexerProblem" ;
+  skos:prefLabel "multiplexerProblem"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/outOfMemory>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "outOfMemory" ;
+  skos:prefLabel "outOfMemory"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/ouputDeviceError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "ouputDeviceError" ;
+  skos:prefLabel "ouputDeviceError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/performanceDegraded>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "performanceDegraded" ;
+  skos:prefLabel "performanceDegraded"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/powerProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "powerProblem" ;
+  skos:prefLabel "powerProblem"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/pressureUnacceptable>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "pressureUnacceptable" ;
+  skos:prefLabel "pressureUnacceptable"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/processorProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "processorProblem" ;
+  skos:prefLabel "processorProblem"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/pumpFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "pumpFailure" ;
+  skos:prefLabel "pumpFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/queueSizeExceeded>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "queueSizeExceeded" ;
+  skos:prefLabel "queueSizeExceeded"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/receiveFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "receiveFailure" ;
+  skos:prefLabel "receiveFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/receiverFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "receiverFailure" ;
+  skos:prefLabel "receiverFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/remoteNodeTransmissionError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "remoteNodeTransmissionError" ;
+  skos:prefLabel "remoteNodeTransmissionError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/resourceAtOrNearingCapacity>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "resourceAtOrNearingCapacity" ;
+  skos:prefLabel "resourceAtOrNearingCapacity"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/responseTimeExcessive>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "responseTimeExcessive" ;
+  skos:prefLabel "responseTimeExcessive"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/retransmissionRateExcessive>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "retransmissionRateExcessive" ;
+  skos:prefLabel "retransmissionRateExcessive"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "softwareError" ;
+  skos:prefLabel "softwareError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareProgramAbnormallyTerminated>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "softwareProgramAbnormallyTerminated" ;
+  skos:prefLabel "softwareProgramAbnormallyTerminated"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareProgramError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "softwareProgramError" ;
+  skos:prefLabel "softwareProgramError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/storageCapacityProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "storageCapacityProblem" ;
+  skos:prefLabel "storageCapacityProblem"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/temperatureUnacceptable>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "temperatureUnacceptable" ;
+  skos:prefLabel "temperatureUnacceptable"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/thresholdCrossed>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "thresholdCrossed" ;
+  skos:prefLabel "thresholdCrossed"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/timingProblem>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "timingProblem" ;
+  skos:prefLabel "adapterError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/toxicLeakDetected>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "toxicLeakDetected" ;
+  skos:prefLabel "toxicLeakDetected"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/transmitFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "transmitFailure" ;
+  skos:prefLabel "adapterError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/transmitterFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "transmitterFailure" ;
+  skos:prefLabel "transmitterFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/underlyingResourceUnavailable>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "underlyingResourceUnavailable" ;
+  skos:prefLabel "adapterError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/versionMismatch>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/ProbableCause> ;
+  skos:notation "versionMismatch" ;
+  skos:prefLabel "adapterError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/SecurityAlarmCause>
+	a skos:ConceptScheme ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause>,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmCause> ;
+                            .
+
+<Notification/SecurityAlarmCause/authenticationFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "authenticationFailure" ;
+  skos:prefLabel "authenticationFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/breachOfConfidentiality>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "breachOfConfidentiality" ;
+  skos:prefLabel "breachOfConfidentiality"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/cableTamper>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "cableTamper" ;
+  skos:prefLabel "cableTamper"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/delayedInformation>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "delayedInformation" ;
+  skos:prefLabel "authenticationFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/denialOfService>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "denialOfService" ;
+  skos:prefLabel "denialOfService"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/duplicateInformation>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "duplicateInformation" ;
+  skos:prefLabel "duplicateInformation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationMissing>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "informationMissing" ;
+  skos:prefLabel "informationMissing"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationModificationDetected>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "informationModificationDetected" ;
+  skos:prefLabel "informationModificationDetected"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationOutOfSequence>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "informationOutOfSequence" ;
+  skos:prefLabel "informationOutOfSequence"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/intrusionDetection>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "intrusionDetection" ;
+  skos:prefLabel "intrusionDetection"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/keyExpired>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "keyExpired" ;
+  skos:prefLabel "keyExpired"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/nonRepudiationFailure>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "nonRepudiationFailure" ;
+  skos:prefLabel "nonRepudiationFailure"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/outOfHoursActivity>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "outOfHoursActivity" ;
+  skos:prefLabel "outOfHoursActivity"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/outOfService>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "outOfService" ;
+  skos:prefLabel "outOfService"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/proceduralError>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "proceduralError" ;
+  skos:prefLabel "proceduralError"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unauthorizedAccessAttempt>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "unauthorizedAccessAttempt" ;
+  skos:prefLabel "unauthorizedAccessAttempt"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unexpectedInformation>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "unexpectedInformation" ;
+  skos:prefLabel "unexpectedInformation"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unspecifiedReason>
+  a skos:Concept,
+    noria:AnomalyPattern ;
+  skos:inScheme <Notification/SecurityAlarmCause> ;
+  skos:notation "unspecifiedReason" ;
+  skos:prefLabel "unspecifiedReason"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+# === EOF =====================================================================

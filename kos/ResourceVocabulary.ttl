@@ -1,0 +1,281 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+
+# =============================================================================
+
+<Resource>
+    a skos:ConceptScheme;
+	skos:definition "Part contributing to the functioning of an Information and Communication Technology (ICT) system."@en;
+	skos:definition "Élément d'un système informatique nécessaire à l'exécution d'une tâche ou d'un programme (Office québécois de la langue française, 2005)."@fr;
+    skos:notation "resource";
+	skos:prefLabel "Resource"@en;
+	skos:prefLabel "Ressource"@fr;
+	skos:altLabel "Computer resource"@fr;
+	skos:altLabel "Elément structurant"@fr;
+	skos:exactMatch <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8364924> ;
+	# --- Vocab metadata ---
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	dcterms:title "The NORIA Resource vocabulary." ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+    dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Added <Resource/LifecycleState> alignement with TMF639_ResourceInventory and emco-base/Resource_Lifecycle_and_Status
+  - Release for NORIA-O v0.2
+"""@en ;
+.
+
+# =============================================================================
+
+<Resource/type> 
+    a skos:ConceptScheme;
+    skos:definition "The nature (type) of the resource"@en;
+    skos:notation "type";
+    skos:inScheme <Resource> ;
+.
+
+<Resource/type/partition>
+	a skos:Concept;
+	skos:definition """Séparation logique ou physique des machines en diverses entités indépendantes."""@fr;
+	skos:definition """Physical or logical partitioning of a device into independent entities."""@en;
+	rdfs:isDefinedBy <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8350550> ;
+	skos:inScheme <Resource/type> ;
+	skos:notation "partition";
+	skos:prefLabel "Partition"@en;
+	skos:prefLabel "Partition"@fr;
+	skos:altLabel "Slice"@en;
+	skos:altLabel "Virtual Machine"@en;
+	skos:altLabel "Machine virtuelle"@fr;
+	skos:altLabel "Ressource logique"@fr;
+.
+
+<Resource/type/server>
+	a skos:Concept;
+	skos:definition "Serveur physique non partitionné."@fr;
+	skos:definition "Physical serveur without partitioning."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "server";
+	skos:prefLabel "Server"@en;
+	skos:prefLabel "Serveur"@fr;
+.
+
+<Resource/type/network-element>
+	a skos:Concept;
+	skos:definition "Equipement réseau physique."@fr;
+	skos:definition "Physical Network Element."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "network-element";
+	skos:prefLabel "Network element"@en;
+	skos:prefLabel "Elément réseau"@fr;
+	skos:altLabel "Network"@en;
+	skos:altLabel "Réseau"@fr;
+.
+
+<Resource/type/vnf>
+	a skos:Concept;
+	skos:definition "Equipement réseau virtuel. Ce type d'équipement réseau est rattaché à un équipement physique."@fr;
+	skos:definition "Instance of a software implementation of Network Function that can be deployed in a virtualized infrastructure. See ETSI 'NFV Terminology for Main Concepts in NFV' Oct 2013."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "vnf";
+	skos:prefLabel "Virtualized Network Function"@en;
+	skos:prefLabel "Fonction de réseau virtualisée"@fr;
+	skos:altLabel "Réseau virtuel"@fr;
+.
+
+<Resource/type/storage>
+	a skos:Concept;
+	skos:definition "Equipements de stockage."@fr;
+	skos:definition "Data storage equipments."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "storage";
+	skos:prefLabel "Storage"@en;
+	skos:prefLabel "Stockage"@fr;
+.
+
+<Resource/type/storage-robot>
+	a skos:Concept;
+	skos:definition "Robots de sauvegarde."@fr;
+	skos:inScheme <Resource/type> ;
+	skos:notation "storage-robot";
+	skos:prefLabel "Storage Robot"@en;
+	skos:prefLabel "Robotique"@fr;
+.
+
+<Resource/type/cluster>
+	a skos:Concept;
+	skos:definition "Regroupement de ressources."@fr;
+	skos:definition "Cluster of resources."@en;
+	skos:example """- VMWARE cluster,
+- Datastore,
+- network stack."""@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "cluster";
+	skos:prefLabel "Cluster"@en;
+	skos:prefLabel "Cluster"@fr;
+.
+
+<Resource/type/rack>
+	a skos:Concept;
+	skos:definition "Une baie technique, un châssis."@fr;
+	skos:definition "Equipment rack."@en;
+	rdfs:isDefinedBy <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8357314>;
+	skos:inScheme <Resource/type> ;
+	skos:notation "server";
+	skos:prefLabel "Rack"@en;
+	skos:prefLabel "Conteneur"@fr;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/LifecycleState>
+    a skos:ConceptScheme ;
+    skos:definition "The life cycle state of the resource."@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+    rdfs:seeAlso <https://github.com/tmforum-apis/TMF639_ResourceInventory> ;
+.
+
+<Resource/LifecycleState/planned>
+    a skos:Concept ;
+    skos:inScheme <Resource/LifecycleState> ;
+    skos:notation "planned" ;
+    skos:prefLabel "planned"@en ;
+    skos:altLabel "Instantiating"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+    rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/installed>
+    a skos:Concept ;
+    skos:inScheme <Resource/LifecycleState> ;
+    skos:notation "installed" ;
+    skos:prefLabel "installed"@en ;
+    skos:altLabel "Created"@en ;
+    skos:altLabel "Instantiated"@en ;
+    skos:altLabel "Provisionning"@en ;
+    skos:altLabel "Préproduction"@fr ;
+    skos:altLabel "Qualification"@fr ;
+    skos:altLabel "A Qualifier"@fr ;
+    skos:altLabel "Affecté"@fr ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+    rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/instantiated>
+    a skos:Concept ;
+    skos:inScheme <Resource/LifecycleState> ;
+    skos:notation "instantiated" ;
+    skos:prefLabel "Instantiated"@en ;
+    skos:altLabel "Running"@en ;
+    skos:altLabel "Work in progress"@en ;
+    skos:altLabel "Instantiated"@en ;
+    skos:altLabel "Production"@fr ;
+    rdfs:isDefinedBy <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+
+<Resource/LifecycleState/pendingRemoval>
+    a skos:Concept ;
+    skos:inScheme <Resource/LifecycleState> ;
+    skos:notation "pendingRemoval" ;
+    skos:prefLabel "pendingRemoval"@en ;
+    skos:altLabel "Terminating"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+    rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/uncommissioned>
+    a skos:Concept ;
+    skos:inScheme <Resource/LifecycleState> ;
+    skos:notation "uncommissioned" ;
+    skos:prefLabel "Uncommissioned"@en ;
+    skos:altLabel "Terminated"@en ;
+    rdfs:isDefinedBy <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/OperationalState>
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/OperationalState/disabled>
+    a skos:Concept ;
+    skos:inScheme <Resource/OperationalState> ;
+    skos:notation "disabled" ;
+    skos:prefLabel "disabled"@en ;
+    skos:altLabel "down"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/OperationalState/enabled>
+    a skos:Concept ;
+    skos:inScheme <Resource/OperationalState> ;
+    skos:notation "enabled" ;
+    skos:prefLabel "enabled"@en ;
+    skos:altLabel "up"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/AdministrativeState>
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/AdministrativeState/locked>
+    a skos:Concept ;
+    skos:inScheme <Resource/AdministrativeState> ;
+    skos:notation "locked" ;
+    skos:prefLabel "locked"@en ;
+    skos:altLabel "down"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+<Resource/AdministrativeState/unlocked>
+    a skos:Concept ;
+    skos:inScheme <Resource/AdministrativeState> ;
+    skos:notation "unlocked" ;
+    skos:prefLabel "unlocked"@en ;
+    skos:altLabel "up"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+<Resource/AdministrativeState/shuttingDown>
+    a skos:Concept ;
+    skos:inScheme <Resource/AdministrativeState> ;
+    skos:notation "shuttingDown" ;
+    skos:prefLabel "shuttingDown"@en ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+# === EOF =====================================================================

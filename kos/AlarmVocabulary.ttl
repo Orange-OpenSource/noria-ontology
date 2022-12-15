@@ -1,0 +1,124 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+
+# =============================================================================
+
+<alarm>
+  a skos:ConceptScheme;
+  skos:definition "A message event, related to some Facility and with a Severity value.";
+  skos:notation "alarm" ;
+	# --- Vocab metadata ---
+  dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+  dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+  dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+  dcterms:publisher <https://www.orange.com/> ;
+  dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+  dcterms:title "The NORIA Alarm vocabulary" ;
+  dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+  dcterms:issued "2022-01-01"^^xsd:date ;
+  dcterms:modified "2022-12-15"^^xsd:date ;
+  skos:changeNote """Changes in 2022-12-15:
+  - Release for NORIA-O v0.2
+"""@en ;
+.
+
+# =============================================================================
+# Following items derived from typical NMS definitions
+# See also https://en.wikipedia.org/wiki/Syslog (Severity Level)
+
+# -----------------------------------------------------------------------------
+
+<alarm/severity>
+  a skos:ConceptScheme;
+  skos:definition "Severity of alarm events";
+  skos:inScheme <alarm> ;
+  skos:notation "alarm-severity" ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/critical>
+  a skos:Concept;
+  skos:definition "A CRITICAL event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "critical";
+  skos:prefLabel "Critical"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/info>
+  a skos:Concept;
+  skos:definition "An INFORMATION event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "info";
+  skos:prefLabel "Info"@en ;
+  skos:altLabel "Informational"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/major>
+  a skos:Concept;
+  skos:definition "An MAJOR event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "major";
+  skos:prefLabel "Major"@en ;
+.
+
+<alarm/severity/minor>
+  a skos:Concept;
+  skos:definition "An MINOR event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "minor";
+  skos:prefLabel "Minor"@en ;
+.
+
+<alarm/severity/ok>
+  a skos:Concept;
+  skos:definition "An OK state event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "ok";
+  skos:prefLabel "OK"@en ;
+.
+
+<alarm/severity/unknown>
+  a skos:Concept;
+  skos:definition "An UNKNOWN state.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "unknown";
+  skos:prefLabel "Unknown"@en ;
+.
+
+<alarm/severity/warning>
+  a skos:Concept;
+  skos:definition "An WARNING event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "warning";
+  skos:prefLabel "Warning"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+# === EOF =====================================================================
