@@ -119,16 +119,16 @@
         CE1: activity
         OPE: originate
         CE2: event
-    Evaluation:
-      - type: AT
-        query: at_event_associatedEvent.sparql
-        result: Query OK Data OK
-      - type: AT
-        query: at_event_relatedResource.sparql
-        result: Query OK Data OK
-      - type: AT
-        query: at_event_relatedParty.sparql
-        result: Query OK Data OK
+  Evaluation:
+    - type: AT
+      query: at_event_associatedEvent.sparql
+      result: Query OK Data OK
+    - type: AT
+      query: at_event_relatedResource.sparql
+      result: Query OK Data OK
+    - type: AT
+      query: at_event_relatedParty.sparql
+      result: Query OK Data OK
 
 
 - Question: What are the fields of the log?
@@ -415,7 +415,7 @@
         OPE: summarizes
         CE2: incident
       Remarks:
-        -  Assumes that Incident is in the Resolved state
+        - Assumes that Incident is in the Resolved state
   Evaluation:
     - type: AT
       query: at_event_associatedSummary.sparql

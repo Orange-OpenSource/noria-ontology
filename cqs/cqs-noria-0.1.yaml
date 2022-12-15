@@ -19,21 +19,21 @@
         OPE: is concerned by
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_troubleTicket_relatedResource.sparql
-      result : OK
-    - type : AT
-      query : at_troubleTicket_relatedService.sparql
-      result : OK
-    - type : AT
-      query : at_troubleTicket_relatedParty.sparql
-      result : OK
-    - type : AT
-      query : at_troubleTicket_relatedAuthor.sparql
-      result : OK
-    - type : AT
-      query : at_troubleTicket_relatedSite.sparql
-      result : OK
+    - type: AT
+      query: at_troubleTicket_relatedResource.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedService.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedParty.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedAuthor.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedSite.sparql
+      result: OK
 
 - Question: What assets are shared by a given asset chain?
   Archetypes:
@@ -45,12 +45,12 @@
         OPE: that belong
         CE2: set of asset chains
   Evaluation:
-    - type : AT
-      query : at_resource_subPartOf.sparql
-      result : OK
-    - type : AT
-      query : at_application_subPartOf.sparql
-      result : OK
+    - type: AT
+      query: at_resource_subPartOf.sparql
+      result: OK
+    - type: AT
+      query: at_application_subPartOf.sparql
+      result: OK
 
 - Question: What logs are coming from a specified resource ?
   Archetypes:
@@ -61,12 +61,12 @@
         OPE: are associated with
         CE2: asset
   Evaluation:
-    - type : AT
-      query : at_log_from_resource.sparql
-      result : OK
-    - type : AT
-      query : at_alarm_from_resource.sparql
-      result : OK
+    - type: AT
+      query: at_log_from_resource.sparql
+      result: OK
+    - type: AT
+      query: at_alarm_from_resource.sparql
+      result: OK
 
 - Question: Which metrics are coming from a specified resource ?
   Archetypes:
@@ -77,9 +77,9 @@
         OPE: are associated with
         CE2: asset
   Evaluation:
-    - type : AT
-      query : at_metric_from_resource.sparql
-      result : OK
+    - type: AT
+      query: at_metric_from_resource.sparql
+      result: OK
 
 - Question: To which event family does this log correspond and is this event normal or abnormal?
   Remarks:
@@ -91,9 +91,9 @@
         CE: event normality/family
         I: event
   Evaluation:
-    - type : AT
-      query : at_event_type.sparql
-      result : OK
+    - type: AT
+      query: at_event_type.sparql
+      result: OK
 
 - Question: What events are associated with a given event?
   Archetypes:
@@ -104,9 +104,9 @@
         OPE: associated with
         CE2: event
   Evaluation:
-    - type : AT
-      query : at_event_associatedEvent.sparql
-      result : OK
+    - type: AT
+      query: at_event_associatedEvent.sparql
+      result: OK
 
 - Question: Which agents/activity/resource caused the event under analysis?
   Archetypes:
@@ -122,19 +122,19 @@
         CE1: activity
         OPE: originate
         CE2: event
-    Evaluation:
-      - type : AT
-        query : at_alarm_correlatedEvent.sparql
-        result : OK
-      - type : AT
-        query : at_event_correlatedResource.sparql
-        result : OK
-      - type : AT
-        query : at_event_relatedObject.sparql
-        result: OK
-      - type : AT
-        query : at_event_relatedParty.sparql
-        result : OK
+  Evaluation:
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: OK
+    - type: AT
+      query: at_event_correlatedResource.sparql
+      result: OK
+    - type: AT
+      query: at_event_relatedObject.sparql
+      result: OK
+    - type: AT
+      query: at_event_relatedParty.sparql
+      result: OK
 
 - Question: What are the fields of the log?
   Remarks:
@@ -152,9 +152,9 @@
         OPE: correspond to
         CE2: log attribute
   Evaluation:
-    - type : AT
-      query : at_field_log.sparql
-      result : OK
+    - type: AT
+      query: at_field_log.sparql
+      result: OK
 
 - Question: Is there any pattern in a given set of logs/alarms?
   Archetypes:
@@ -185,9 +185,9 @@
         OPE: describe
         CE2: set of alarms
   Evaluation:
-    - type : AT
-      query : at_anomalyMode_anomaly.sparql
-      result : anomaly mode + AI (pattern detection from logs)
+    - type: AT
+      query: at_anomalyMode_anomaly.sparql
+      result: anomaly mode + AI (pattern detection from logs)
 
 - Question: What interventions were carried out on this resource that could have caused the incident?
   Archetypes:
@@ -207,12 +207,12 @@
         OPE: explain
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_resource_relatedChange.sparql
-      result : OK
-    - type : AT
-      query : at_resource_relatedTroubleTicket.sparql
-      result : OK
+    - type: AT
+      query: at_resource_relatedChange.sparql
+      result: OK
+    - type: AT
+      query: at_resource_relatedTroubleTicket.sparql
+      result: OK
 
 - Question: What was the root cause of the incident?
   Archetypes:
@@ -224,9 +224,9 @@
         OPE: explain
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_alarm_correlatedEvent.sparql
-      result : AI (to find the root cause from events composing an incident)
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: AI (to find the root cause from events composing an incident)
 
 - Question: Which sequence of events led to the incident?
   Archetypes:
@@ -238,9 +238,9 @@
         OPE: explain
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_alarm_correlatedEvent.sparql
-      result : OK
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: OK
 
 - Question: On which resource did this sequence of events take place and in which order?
   Archetypes:
@@ -260,9 +260,9 @@
         - it is assumed that this is a frequent question, and that it is therefore better to materialise it than to calculate precedences on the fly
         - also note that intervention and incident are subclasses of event.
   Evaluation:
-    - type : AT
-      query : at_resource_associatedEvent.sparql
-      result : OK
+    - type: AT
+      query: at_resource_associatedEvent.sparql
+      result: OK
 
 - Question: What past incidents are similar to a given incident?
   Archetypes:
@@ -274,9 +274,9 @@
         OPE: match
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_alarm_correlatedEvent.sparql
-      result : AI (to compute similarity between incident given their features)
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: AI (to compute similarity between incident given their features)
 
 - Question: What operation plan (automations, operating procedures, etc.) could help us solve the incident?
   Archetypes:
@@ -298,9 +298,9 @@
         CE: incident family
         I: incident
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_incident.sparql
-      result : AI (given the current incident represented by a trouble ticket, what are the preconditions that could be satisfied and therefore suggest to start an associated operation plan)
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: AI (given the current incident represented by a trouble ticket, what are the preconditions that could be satisfied and therefore suggest to start an associated operation plan)
 
 - Question: What corrective actions have been carried out so far for a given incident (who, what, where)?
   Archetypes:
@@ -335,9 +335,9 @@
       Remarks:
         - corresponds to "where".
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_incident.sparql
-      result : OK
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: OK
 
 - Question: What is the list of actions taken that led to the resolution of the incident?
   Archetypes:
@@ -348,9 +348,9 @@
         OPE: solved
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_effect.sparql
-      result : OK
+    - type: AT
+      query: at_correctiveAction_effect.sparql
+      result: OK
 
 - Question: Given all the corrective actions carried out so far for the incident, what assumptions covered the actions taken?
   Remarks:
@@ -368,9 +368,9 @@
         OPE: is validated or not
         CE2: action
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_assumptions.sparql
-      result : OK
+    - type: AT
+      query: at_correctiveAction_assumptions.sparql
+      result: OK
 
 - Question: What has been the effect of the corrective actions taken so far for the incident?
   Archetypes:
@@ -381,9 +381,9 @@
         OPE: arised from
         CE2: action
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_effect.sparql
-      result : OK
+    - type: AT
+      query: at_correctiveAction_effect.sparql
+      result: OK
 
 - Question: Given all the corrective actions carried out so far for the incident, what possible actions could we still take?
   Archetypes:
@@ -395,9 +395,9 @@
         OPE: solve
         CE2: incident
   Evaluation:
-    - type : AT
-      query : at_correctiveAction_incident.sparql
-      result : AI (search operation plans based on relevant preconditions or past operation plans used on similar incidents)
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: AI (search operation plans based on relevant preconditions or past operation plans used on similar incidents)
 
 - Question: What is the summary of this incident and its resolution?
   Archetypes:
@@ -410,9 +410,9 @@
       Remarks:
         - Assumes that Incident is in the Resolved state
   Evaluation:
-    - type : AT
-      query : at_event_associatedEvent.sparql
-      result : AI (to summarize the incident from a set of events)
+    - type: AT
+      query: at_event_associatedEvent.sparql
+      result: AI (to summarize the incident from a set of events)
 
 - Question: Which agents were involved in the resolution of the incident?
   Archetypes:
@@ -423,9 +423,9 @@
         OPE: was associated with
         CE2: incident management
   Evaluation:
-    - type : AT
-      query : at_troubleTicket_relatedParty.sparql
-      result : OK
+    - type: AT
+      query: at_troubleTicket_relatedParty.sparql
+      result: OK
 
 - Question: What is the financial cost of this incident if it occurs?
   Archetypes:
@@ -437,9 +437,9 @@
       Remarks:
         - Assumes that the incident is in the open state at the time of the request
   Evaluation:
-    - type : AT
-      query : no query
-      result : Extension (cost concept)
+    - type: AT
+      query: no query
+      result: Extension (cost concept)
 
 - Question: How long before this incident is resolved?
   Archetypes:
@@ -452,9 +452,9 @@
       Remarks:
         - Assumes that the Incident is in the Open state at the time of the request
   Evaluation:
-    - type : AT
-      query : no query
-      result : AI (learning the MTTR based on the trouble ticket status)
+    - type: AT
+      query: no query
+      result: AI (learning the MTTR based on the trouble ticket status)
 
 - Question: What are the vulnerabilities and the associated risk levels of this infrastructure ?
   Archetypes:
@@ -476,9 +476,9 @@
         OPE: are associated with
         CE2: system of assets
   Evaluation:
-    - type : AT
-      query : at_risk_infrastructure.sparql
-      result : AI (looking for non-desirable network topology shapes or relations to third-party cyber security vulnerability entities based on structure and security scanners)
+    - type: AT
+      query: at_risk_infrastructure.sparql
+      result: AI (looking for non-desirable network topology shapes or relations to third-party cyber security vulnerability entities based on structure and security scanners)
 
 - Question: What is the most likely sequence of actions that would cause this infrastructure to fail?
   Archetypes:
@@ -490,6 +490,6 @@
         OPE: make fail
         CE2: system of assets
   Evaluation:
-    - type : AT
-      query : at_risk_infrastructure.sparql
-      result : AI (looking for asserted/learnt operation plans leading to a undesirable effect)
+    - type: AT
+      query: at_risk_infrastructure.sparql
+      result: AI (looking for asserted/learnt operation plans leading to a undesirable effect)
