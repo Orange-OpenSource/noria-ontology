@@ -1,0 +1,16 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://w3id.org/noria/ontology/noria-0.2> a prov:Entity;
+	 dc:title "The NORIA Ontology";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo :agent1;
+	 prov:wasAttributedTo :agent2;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:wasRevisionOf <https://w3id.org/noria/ontology/noria-0.1>;
+	 prov:wasGeneratedAt "2022-12-15";
+.
+:agent0 a prov:Agent; foaf:name "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)".
+:agent1 a prov:Agent; foaf:name "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)".
+:agent2 a prov:Agent; foaf:name "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)".
