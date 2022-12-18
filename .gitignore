@@ -1,4 +1,6 @@
 # Default ignored files and directories
+.env
+/lib
 /venv
 *.log
 *.~*

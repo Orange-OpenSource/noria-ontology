@@ -16,6 +16,11 @@ SRC_FOLDER=src
 PYTHON_BIN=/usr/bin/python3
 export PYTHONPATH := ./:${SRC_FOLDER}:$(PYTHONPATH)
 
+WIDOCO_BIN=./lib/widoco/java-17-widoco-1.4.17-jar-with-dependencies.jar
+
+# Loading (optional) environment variables from file.
+-include ./.env
+
 ## makefile for the noria-ontology project
 help:	## Show this help.
 	# Get lines with double dash comments and display it
@@ -36,3 +41,28 @@ check-filesystem:	## Check project's filesystem content for clean commit and sha
 	@echo -e "\033[35m > Find files with long filenames  \033[0m"
 	@! find | egrep '/[^/]{100,}$$'
 	@echo -e "\033[35m > Done  \033[0m"
+
+doc-ontology:	## Compile documentation (this task relies on both local and remote files)
+
+	@echo -e "\033[35m > Remove any previous local doc \033[0m (docs/NORIA-O)"
+	@rm -rf docs/NORIA-O/doc
+
+	@echo -e "\033[35m > Call the WIDOCO documentation framework \033[0m (see https://github.com/dgarijo/Widoco)"
+	@echo -e "WIDOCO_BIN = ${WIDOCO_BIN}"
+	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
+	@java \
+	  -Dhttps.proxyHost=${PROXY_SRV} \
+	  -Dhttps.proxyPort=${PROXY_PORT} \
+	  -jar ${WIDOCO_BIN} \
+	  -ontFile ontology/noria-latest.ttl \
+	  -outFolder docs/NORIA-O \
+	  -saveConfig docs/noria-ontology.widoco \
+	  -rewriteAll \
+	  -getOntologyMetadata \
+	  -includeImportedOntologies \
+	  -ignoreIndividuals \
+	  -webVowl \
+	  -noPlaceHolderText \
+	  -uniteSections
+
+	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
