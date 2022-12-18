@@ -9,6 +9,9 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# === PREFIXES ================================================================
+
+# --- Basic ---
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -19,145 +22,151 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix voc: <https://w3id.org/noria/kos/> .
-@prefix voc-imp-objects: <https://w3id.org/noria/kos/imp/> .
-@prefix voc-imp-groups-objects: <https://w3id.org/noria/kos/imp/groups/> .
-@prefix voc-imp-milestones-objects: <https://w3id.org/noria/kos/imp/milestones/> .
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
 
-voc:imp
+# =============================================================================
+
+<imp>
     a skos:ConceptScheme;
     skos:definition "Incident Management Process (IMP).";
     skos:notation "imp" ;
 	# --- Vocab metadata ---
-	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
 	dcterms:publisher <https://www.orange.com/> ;
-	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
-	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
-	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
 	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
-    dcterms:title "The NORIA Incident Management Process (IMP) vocabulary." ;
-    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+	dcterms:title "The NORIA Incident Management Process (IMP) vocabulary." ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+    dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Release for NORIA-O v0.2
+"""@en ;
 .
 
 # =============================================================================
 
-voc-imp-objects:groups
+<imp/groups>
     a skos:ConceptScheme;
     skos:definition "It identifies the the Users, throughout the Groups they belong to, involved in the Incident Management process.";
-    skos:inScheme voc:imp ;
+    skos:inScheme <imp> ;
     skos:notation "groups" .
 
-voc-imp-groups-objects:tmc
+<imp/groups/tmc>
     a skos:Concept;
     skos:definition "Technical Management Center (TMC).";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "tmc";
     skos:prefLabel "Technical Management Center"@en .
 
-voc-imp-groups-objects:smc
+<imp/groups/smc>
     a skos:Concept;
     skos:definition "Service Management Centers (SMC).";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "smc";
     skos:prefLabel "Service Management Center"@en .
 
-voc-imp-groups-objects:fm
+<imp/groups/fm>
     a skos:Concept;
     skos:definition "Field managements.";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "fm";
     skos:prefLabel "Field management"@en ;
     skos:altLabel "Field intervention"@en ;
 .
 
-voc-imp-groups-objects:osc
+<imp/groups/osc>
     a skos:Concept;
     skos:definition "Operational Skill Centers (OSC) related to material suppliers.";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "osc";
     skos:prefLabel "Operational Skill Center"@en .
 
-voc-imp-groups-objects:ccc
+<imp/groups/ccc>
     a skos:Concept;
     skos:definition "Customer Care Centers (CCC).";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "ccc";
     skos:prefLabel "Customer Care Center"@en .
 
-voc-imp-groups-objects:supplier
+<imp/groups/supplier>
     a skos:Concept;
     skos:definition "Suppliers.";
-    skos:inScheme voc-imp-objects:groups ;
+    skos:inScheme <imp/groups>;
     skos:notation "supplier";
     skos:prefLabel "Supplier"@en .
 
 # -----------------------------------------------------------------------------
 
-voc-imp-objects:milestones
+<imp/milestones>
     a skos:ConceptScheme;
     skos:definition "Milestones of the Incident Management Process.";
-    skos:inScheme voc:imp ;
+    skos:inScheme <imp> ;
     skos:notation "milestones" .
 
-voc-imp-milestones-objects:t0
+<imp/milestones/t0>
     a skos:Concept;
     skos:definition "The Event Appearance, reported by the customer or a partner application, starts the Incident Management process.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t0";
     skos:prefLabel "Event Appearance"@en .
 
-voc-imp-milestones-objects:t1
+<imp/milestones/t1>
     a skos:Concept;
     skos:definition "The Registration is the event of entering in Orange internal process and the information due to the Customer.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t1";
     skos:prefLabel "Registration"@en .
 
-voc-imp-milestones-objects:t2
+<imp/milestones/t2>
     a skos:Concept;
     skos:definition "The Customer Information ensures that the customer is aware of the progress of the Incident Management.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t2";
     skos:prefLabel "Customer Information"@en .
 
-voc-imp-milestones-objects:t3
+<imp/milestones/t3>
     a skos:Concept;
     skos:definition "The Diagnosis Activation marks the entry in the active analysis part of the process.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t3";
     skos:prefLabel "Diagnosis Activation"@en .
 
-voc-imp-milestones-objects:t4
+<imp/milestones/t4>
     a skos:Concept;
     skos:definition "The Diagnosis milestone is the end of the root cause analysis (RCA) of the incident.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t4";
     skos:prefLabel "Diagnosis"@en .
 
-voc-imp-milestones-objects:t5
+<imp/milestones/t5>
     a skos:Concept;
     skos:definition "The first step after the diagnosis is the Service Restoration, which restores the service (sometimes in degraded mode) to the Customer.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t5";
     skos:prefLabel "Service Restoration"@en .
 
-voc-imp-milestones-objects:t6
+<imp/milestones/t6>
     a skos:Concept;
     skos:definition "The Incident Resolution marks the end of the Incident, that is to say that the service works again.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t6";
     skos:prefLabel "Incident Resolution"@en .
 
-voc-imp-milestones-objects:t7
+<imp/milestones/t7>
     a skos:Concept;
     skos:definition "The Incident Repairing indicates that the causes of the Incident are resolved, ensuring that it will not occur again.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t7";
     skos:prefLabel "Incident Repairing"@en .
 
-voc-imp-milestones-objects:t8
+<imp/milestones/t8>
     a skos:Concept;
     skos:definition "The Incident Closure, concluded with the Customer, validates the end of the process.";
-    skos:inScheme voc-imp-objects:milestones ;
+    skos:inScheme <imp/milestones> ;
     skos:notation "t8";
     skos:prefLabel "Incident Closure"@en .
+
+# === EOF =====================================================================

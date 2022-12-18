@@ -9,6 +9,9 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# === PREFIXES ================================================================
+
+# --- Basic ---
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -19,51 +22,67 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix voc: <https://w3id.org/noria/kos/> .
-
-# -----------------------------------------------------------------------------
-
-voc:TroubleTicket
-    a skos:ConceptScheme;
-    skos:definition "A Trouble Ticket."@en ;
-    skos:definition "Un Ticket d'Incident."@fr ;
-	# --- Vocab metadata ---
-	dcterms:issued "2022-05-10"^^xsd:date ;
-	dcterms:publisher <https://www.orange.com/> ;
-	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
-	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
-	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
-	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
-    dcterms:title "The NORIA Trouble Ticket vocabulary" ;
-    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
-.
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
 
 # =============================================================================
 
-<https://w3id.org/noria/kos/TroubleTicket/status>
+<TroubleTicket>
+	a skos:ConceptScheme;
+	skos:definition "A Trouble Ticket."@en ;
+	skos:definition "Un Ticket d'Incident."@fr ;
+	# --- Vocab metadata ---
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	dcterms:title "The NORIA Trouble Ticket vocabulary" ;
+	dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Added <TroubleTicket/type> scheme
+  - Added <TroubleTicket/trouble-category> scheme
+  - Added <TroubleTicket/urgency> scheme
+  - Added <TroubleTicket/origin> scheme
+  - Added <TroubleTicket/severity> scheme
+  - Added <TroubleTicket/problemResponsibility> scheme
+  - Added <TroubleTicket/commentType> scheme
+  - Added <TroubleTicket/operationType> scheme
+  - Release for NORIA-O v0.2
+"""@en ;
+.
+
+# =============================================================================
+# Following items apply to TroubleTicket(s)
+
+<TroubleTicket/status>
     a skos:ConceptScheme;
     skos:definition "It identifies the status of any Trouble Ticket or Incident Ticket";
-    skos:inScheme voc:TroubleTicket ;
+    skos:inScheme <TroubleTicket> ;
     skos:notation "status" .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/initialised>
+<TroubleTicket/status/initialised>
     a skos:Concept;
-    skos:definition """The initial state of a Trouble Ticket when created by a Trouble Ticket originator (not managed by API operation).
-    Typical next status : ['In progress']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The initial state of a Trouble Ticket when created by a Trouble Ticket originator (not managed by API operation).
+
+Typical next status : ['In progress']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "initialised";
     skos:prefLabel "Initialised"@en;
     skos:prefLabel "Ouvert"@fr;
     skos:altLabel "Submitted"@en .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/current>
+<TroubleTicket/status/current>
     a skos:Concept;
-    skos:definition """The Trouble Ticket was validated by the Trouble Ticket handler and is being processed.
-    The ticket is being processed (and not frozen) and the resolution process is started.
-    The time counter is running to count the elapsed processing time in relation to the maximum resolution time specified in the contract.
-    It is used to anticipate a possible deadline overrun.
-    Typical next status : ['Restored', 'Pending']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The Trouble Ticket was validated by the Trouble Ticket handler and is being processed.
+The ticket is being processed (and not frozen) and the resolution process is started.
+The time counter is running to count the elapsed processing time in relation to the maximum resolution time specified in the contract.
+It is used to anticipate a possible deadline overrun.
+
+Typical next status : ['Restored', 'Pending']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "current";
     skos:prefLabel "Current"@en;
     skos:prefLabel "En cours"@fr;
@@ -71,112 +90,624 @@ voc:TroubleTicket
     skos:altLabel "InProgress"@en ;
 .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/frozen>
+<TroubleTicket/status/frozen>
     a skos:Concept;
-    skos:definition """The Trouble Ticket handler freezes the Trouble Ticket because the technician is waiting a customer action or complementary information.
-    The process freeze needs the customer agreement.
-    The time counter is stopped, the Ticket processing is awaiting an action from the customer.
-    Typical next status : ['In progress']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The Trouble Ticket handler freezes the Trouble Ticket because the technician is waiting a customer action or complementary information.
+The process freeze needs the customer agreement.
+The time counter is stopped, the Ticket processing is awaiting an action from the customer.
+
+Typical next status : ['In progress']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "frozen";
     skos:prefLabel "Frozen"@en;
     skos:prefLabel "Gelé"@fr ;
     skos:altLabel "Pending"@en .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/restored>
+<TroubleTicket/status/restored>
     a skos:Concept;
-    skos:definition """"The service is restored after a temporary repair and the time counter is stopped.
-    The service concerned by the Trouble Ticket has been restored, but it may need more technical action to definitively solve the causes of the incident.
-    Typical next status : ['Resolved']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """"The service is restored after a temporary repair and the time counter is stopped.
+The service concerned by the Trouble Ticket has been restored, but it may need more technical action to definitively solve the causes of the incident.
+
+Typical next status : ['Resolved']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "restored";
     skos:prefLabel "Restored"@en;
     skos:prefLabel "Réparé"@fr .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/resolved>
+<TroubleTicket/status/resolved>
     a skos:Concept;
-    skos:definition """The service is definitively repaired.
-    The Fault indicated in the Trouble Ticket was corrected by the Trouble Ticket handler and acknowledgement is awaited from its originator.
-    Typical next status : ['Closed']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The service is definitively repaired.
+The Fault indicated in the Trouble Ticket was corrected by the Trouble Ticket handler and acknowledgement is awaited from its originator.
+
+Typical next status : ['Closed']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "resolved";
     skos:prefLabel "Resolved"@en;
     skos:prefLabel "Résolu"@fr .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/closed>
+<TroubleTicket/status/closed>
     a skos:Concept;
-    skos:definition """The customer has validated the service restoration.
-	The Trouble Ticket’s originator has acknowledged the 'resolved' state of the Trouble Ticket.
-	Typical next status : ['Validated', 'Closed for dashboard']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The customer has validated the service restoration.
+The Trouble Ticket’s originator has acknowledged the 'resolved' state of the Trouble Ticket.
+
+Typical next status : ['Validated', 'Closed for dashboard']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "closed";
     skos:prefLabel "Closed"@en;
     skos:prefLabel "Clos"@fr .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/validated>
+<TroubleTicket/status/validated>
     a skos:Concept;
-    skos:definition """A notice has been sent to the customer or a validation has been made in the Trouble Ticket management system by a manager.
-    The Ticket is Validated when its closure is official.
-    This validation may be cancelled to go back to 'Closed' status.
-    Typical next status : ['Revised', 'Closed for dashboard']."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """A notice has been sent to the customer or a validation has been made in the Trouble Ticket management system by a manager.
+The Ticket is Validated when its closure is official.
+This validation may be cancelled to go back to 'Closed' status.
+
+Typical next status : ['Revised', 'Closed for dashboard']."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "validated";
     skos:prefLabel "Validated"@en;
     skos:prefLabel "Validé"@fr .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/revised>
+<TroubleTicket/status/revised>
     a skos:Concept;
-    skos:definition """The Ticket is modified (modification of the accounting).
-    Typical next status : []."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The Ticket is modified (modification of the accounting).
+
+Typical next status : []."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "revised";
     skos:prefLabel "Revised"@en;
     skos:prefLabel "Révisé"@fr .
 
-<https://w3id.org/noria/kos/TroubleTicket/status/closed-for-dashboard>
+<TroubleTicket/status/closed-for-dashboard>
     a skos:Concept;
-    skos:definition """The Ticket has been processed by a monthly treatment to enter in the dashboard and is no longer modifiable.
-    Typical next status : []."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+	skos:definition """The Ticket has been processed by a monthly treatment to enter in the dashboard and is no longer modifiable.
+
+Typical next status : []."""@en;
+    skos:inScheme <TroubleTicket/status>;
     skos:notation "closed-for-dashboard";
     skos:prefLabel "Closed for dashboard"@en;
     skos:prefLabel "Clos pour tableau de bord"@fr .
 
 # =============================================================================
 
-<https://w3id.org/noria/kos/TroubleTicket/priority>
+<TroubleTicket/priority>
     a skos:ConceptScheme;
     skos:definition "Priority definitions of any Trouble Ticket or Incident Ticket for a standard Operating Level Agreement (OLA)";
-    skos:inScheme voc:TroubleTicket ;
+    skos:inScheme <TroubleTicket> ;
     skos:notation "priority" .
 
-<https://w3id.org/noria/kos/TroubleTicket/priority/1>
+<TroubleTicket/priority/0>
     a skos:Concept;
-    skos:definition "A problem or error causing a Service or any portion thereof to be completely inoperative or severely affected causing immediate and significant degradation of service to customers."@en;
+    skos:definition "A problem or error subject to official request.";
+    skos:inScheme <TroubleTicket/priority>;
+    skos:notation "P0";
+    skos:prefLabel "P0"@en .
+
+<TroubleTicket/priority/1>
+    a skos:Concept;
+	skos:definition "A problem or error causing a Service or any portion thereof to be completely inoperative or severely affected causing immediate and significant degradation of service to customers."@en;
 	skos:example "Complete loss of System functionality or loss of system capacity where service usage is significantly impacted e.g. more than 20% of transactions are failing or more than 20% of planned capacity is unavailable."@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:inScheme <TroubleTicket/priority>;
     skos:notation "P1";
     skos:prefLabel "P1"@en .
 
-<https://w3id.org/noria/kos/TroubleTicket/priority/2>
+<TroubleTicket/priority/2>
     a skos:Concept;
-    skos:definition "A problem or error causing a Service or any portion thereof to be adversely affected causing some congestion/service degradation but is not significantly impacting yet a customer ability to utilize the service or the ability to manage/operate the service."@en;
+	skos:definition "A problem or error causing a Service or any portion thereof to be adversely affected causing some congestion/service degradation but is not significantly impacting yet a customer ability to utilize the service or the ability to manage/operate the service."@en;
 	skos:example "Loss of redundancy or loss of system capacity during busy hour where service usage is impacted e.g. less than 20% of transactions are failing or less than 20% of planned capacity is unavailable."@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:inScheme <TroubleTicket/priority>;
     skos:notation "P2";
     skos:prefLabel "P2"@en .
 
-<https://w3id.org/noria/kos/TroubleTicket/priority/3>
+<TroubleTicket/priority/3>
     a skos:Concept;
-    skos:definition "An error causing a Product or portion thereof to fail to perform but such failure is non-critical to business."@en;
+	skos:definition "An error causing a Product or portion thereof to fail to perform but such failure is non-critical to business."@en;
 	skos:example "Minor service degradation with minor impact to customer’s ability to utilize the service or the ability to manage/operate the service."@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:inScheme <TroubleTicket/priority>;
     skos:notation "P3";
     skos:prefLabel "P3"@en .
 
-<https://w3id.org/noria/kos/TroubleTicket/priority/4>
+<TroubleTicket/priority/4>
     a skos:Concept;
-    skos:definition "All incidents that are not Service affecting. Not Service affecting refers to incidents which result in a degradation of system performance but do not affect the user experience."@en;
-    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:definition "All incidents that are not Service affecting. Not Service affecting refers to incidents which result in a degradation of system performance but do not affect the user experience.";
+    skos:inScheme <TroubleTicket/priority>;
     skos:notation "P4";
     skos:prefLabel "P4"@en .
+
+
+# =============================================================================
+
+<TroubleTicket/type>
+    a skos:ConceptScheme;
+    skos:definition "The ticket type." ;
+    skos:example "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc." ;
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "type" .
+
+<TroubleTicket/type/failure>
+    a skos:Concept;
+    skos:definition "Failure.";
+    skos:inScheme <TroubleTicket/type>;
+    skos:notation "failure";
+    skos:prefLabel "Failure"@en ;
+    skos:prefLabel "Incident"@fr ;
+.
+
+<TroubleTicket/type/assistance>
+    a skos:Concept;
+    skos:definition "Assistance.";
+    skos:inScheme <TroubleTicket/type>;
+    skos:notation "assistance";
+    skos:prefLabel "Assistance"@en ;
+    skos:prefLabel "Demande d'assistance"@fr ;
+    skos:altLabel "Demande d'information"@fr ;
+    skos:altLabel "Demande de renseignements"@fr ;
+.
+
+# =============================================================================
+
+<TroubleTicket/trouble-category>
+    a skos:ConceptScheme;
+    skos:definition "It identifies the nature (product ticket class) or technical impact (resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket" ;
+    skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "trouble-category" .
+
+<TroubleTicket/trouble-category/isolated-customer-site>
+    a skos:Concept;
+    skos:definition "Isolated customer site.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "isolated-customer-site";
+    skos:prefLabel "Isolated customer site"@en ;
+    skos:prefLabel "Site client isolé"@fr ;
+.
+
+<TroubleTicket/trouble-category/no-service-impact>
+    a skos:Concept;
+    skos:definition "An issue has been raised but no service impact has been observed.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "no-service-impact";
+    skos:prefLabel "No service impact"@en ;
+    skos:prefLabel "Sans perturbation du service"@fr ;
+    skos:broader <TroubleTicket/trouble-category/resilience-impaired> ,
+                 <TroubleTicket/trouble-category/service-with-standby-activated> ;
+.
+
+<TroubleTicket/trouble-category/resilience-impaired>
+    a skos:Concept;
+    skos:definition "Failover mechanisms or resources are broken or unavailable.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "resilience-impaired";
+    skos:prefLabel "Degraded resilience"@en ;
+    skos:altLabel "Switchover impossible"@en ;
+    skos:altLabel "Disabled active/passive redundancy capability"@en ;
+    skos:prefLabel "Redondance dégradée"@fr ;
+    rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q998767> ;  # HACK: <https://en.wikipedia.org/wiki/Failover> ;
+.
+
+<TroubleTicket/trouble-category/service-with-standby-activated>
+    a skos:Concept;
+    skos:definition "Switchover to the hot/cold standby has been observed/done and no service impact is observed.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "service-with-standby-activated";
+    skos:prefLabel "Failover activated with no service impact"@en ;
+    skos:prefLabel "Service avec secours activé"@fr ;
+    rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q998767> ;  # HACK: <https://en.wikipedia.org/wiki/Failover> ;
+.
+
+<TroubleTicket/trouble-category/service-breakdown>
+    a skos:Concept;
+    skos:definition "The service is interrupted.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "service-breakdown";
+    skos:prefLabel "Interrupted service"@en ;
+    skos:altLabel "Service breakdown"@en ;
+    skos:prefLabel "Service interrompu"@fr ;
+.
+
+<TroubleTicket/trouble-category/service-impaired>
+    a skos:Concept;
+    skos:definition "Quality of Service is degraded.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "service-impaired";
+    skos:prefLabel "Degraded QoS"@en ;
+    skos:altLabel "Impaired service"@en ;
+    skos:prefLabel "Service dégradé"@fr ;
+    skos:broader <TroubleTicket/trouble-category/packet-loss> ;
+.
+
+<TroubleTicket/trouble-category/packet-loss>
+    a skos:Concept;
+    skos:definition """Packet loss occurs when one or more packets of data travelling across a computer network fail to reach their destination.
+Packet loss is either caused by errors in data transmission, typically across wireless networks, or network congestion.
+Packet loss is measured as a percentage of packets lost with respect to packets sent.""";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "packet-loss";
+    skos:prefLabel "Packet loss"@en ;
+    skos:prefLabel "Perte de paquets"@fr ;
+    rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q391064> ;  # HACK: <https://en.wikipedia.org/wiki/Packet_loss> ;
+.
+
+<TroubleTicket/trouble-category/timeout>
+    a skos:Concept;
+    skos:definition "The resource or service is unreachable.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "timeout";
+    skos:prefLabel "Connection timeout"@en ;
+    skos:prefLabel "Délai d'attente de connexion écoulé"@fr ;
+.
+
+<TroubleTicket/trouble-category/supervision-loss>
+    a skos:Concept;
+    skos:definition "Supervision of the resource or service is unavailable.";
+    skos:inScheme <TroubleTicket/trouble-category>;
+    skos:notation "supervision-loss";
+    skos:prefLabel "Supervision loss"@en ;
+    skos:prefLabel "Perte de supervision"@fr ;
+    skos:altLabel "Supervision impossible"@fr ;
+.
+
+# =============================================================================
+
+<TroubleTicket/urgency>
+    a skos:ConceptScheme;
+    skos:definition "The priority level of the incident." ;
+    skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." ;
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "urgency" .
+
+# =============================================================================
+
+<TroubleTicket/origin>
+    a skos:ConceptScheme;
+    skos:definition "The person or group family at the origin of the creation of a given Trouble Ticket.";
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "origin" .
+
+<TroubleTicket/origin/int>
+    a skos:Concept;
+    skos:definition "Internal user.";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "int";
+    skos:prefLabel "Interne"@fr ;
+    skos:prefLabel "Internal User"@en ;
+    skos:related <imp/groups/fm> ;
+.
+
+<TroubleTicket/origin/smc>
+    a skos:Concept;
+    skos:definition "Service Management Centers (SMC).";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "smc";
+    skos:prefLabel "Service Management Center"@en ;
+    skos:exactMatch <imp/groups/smc> ;
+.
+
+<TroubleTicket/origin/tmc>
+    a skos:Concept;
+    skos:definition "Technical Management Center (TMC).";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "tmc";
+    skos:prefLabel "Technical Management Center"@en ;
+    skos:exactMatch <imp/groups/tmc> ;
+.
+
+<TroubleTicket/origin/clt>
+    a skos:Concept;
+    skos:definition "Customer.";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "clt";
+    skos:prefLabel "Client"@fr ;
+    skos:prefLabel "Customer"@en ;
+    skos:broader <TroubleTicket/origin/clt-gp> ,
+    <TroubleTicket/origin/clt-pro> ;
+    skos:related <imp/groups/csc> ;
+.
+
+<TroubleTicket/origin/clt-gp>
+    a skos:Concept;
+    skos:definition "General public customer.";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "clt-gp";
+    skos:prefLabel "Client Grand Public"@fr ;
+    skos:prefLabel "General Public Customer"@en ;
+    skos:altLabel "Client GP"@fr ;
+    skos:altLabel "GP Customer"@en ;
+.
+
+<TroubleTicket/origin/clt-pro>
+    a skos:Concept;
+    skos:definition "Business customer.";
+    skos:inScheme <TroubleTicket/origin> ;
+    skos:notation "clt-pro";
+    skos:prefLabel "Client Entreprise"@fr ;
+    skos:prefLabel "Business Customer"@en ;
+    skos:altLabel "Client PRO"@fr ;
+.
+
+# =============================================================================
+
+<TroubleTicket/severity>
+    a skos:ConceptScheme;
+    skos:definition """The criticity of the incident.
+
+The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
+The thresholds of Incident resolution depend on standards defined per service type.
+When the thresholds are exceeded, specific process of escalation may be activated.""";
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "severity" .
+
+<TroubleTicket/severity/minor>
+    a skos:Concept;
+    skos:definition "Minor incident.";
+    skos:inScheme <TroubleTicket/severity> ;
+    skos:notation "minor";
+    skos:prefLabel "Minor"@en;
+    skos:prefLabel "Mineur"@fr .
+
+<TroubleTicket/severity/major>
+    a skos:Concept;
+    skos:definition "Major incident.";
+    skos:inScheme <TroubleTicket/severity> ;
+    skos:notation "major";
+    skos:prefLabel "Major"@en;
+    skos:prefLabel "Majeur"@fr .
+
+<TroubleTicket/severity/blocking-minor>
+    a skos:Concept;
+    skos:definition "Blocking incident with minor effect.";
+    skos:inScheme  <TroubleTicket/severity> ;
+    skos:notation "blocking-minor";
+    skos:prefLabel "Blocking"@en;
+    skos:altLabel "Blocking/Minor"@en;
+    skos:prefLabel "Bloquant"@fr;
+    skos:altLabel "Bloquant/Mineur"@fr .
+
+<TroubleTicket/severity/blocking-major>
+    a skos:Concept;
+    skos:definition "Blocking incident with major effect.";
+    skos:inScheme  <TroubleTicket/severity> ;
+    skos:notation "blocking-major";
+    skos:prefLabel "Blocking/Major"@en;
+    skos:prefLabel "Bloquant/Majeur"@fr .
+
+# =============================================================================
+
+<TroubleTicket/problemResponsibility>
+    a skos:ConceptScheme;
+    skos:definition "The area of responsibility identified for an incident." ;
+    skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc." ;
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "problemResponsibility" .
+
+<TroubleTicket/problemResponsibility/customer>
+    a skos:Concept;
+    skos:definition "Issue induced by customer action.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "customer";
+    skos:prefLabel "Customer"@en ;
+    skos:prefLabel "Client"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-access-equipment>
+    a skos:Concept;
+    skos:definition "Managed access equipment on customer's premises.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "managed-access-equipment";
+    skos:prefLabel "Managed access equipment on customer's premises"@en ;
+    skos:prefLabel "Equipement d'accès sur site client"@fr ;
+    skos:altLabel "Terminaison Numérique de Ligne (TNL) sur site client"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-backbone-networks>
+    a skos:Concept;
+    skos:definition "Managed backbone networks.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "managed-backbone-networks";
+    skos:prefLabel "Managed backbone networks"@en ;
+    skos:prefLabel "Réseau coeur"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-specific-networks>
+    a skos:Concept;
+    skos:definition "Managed specific networks.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "managed-specific-networks";
+    skos:prefLabel "Managed specific networks"@en ;
+    skos:prefLabel "Réseau spécifique"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/contract-application-hosting-services>
+    a skos:Concept;
+    skos:definition "Contract application-hosting services.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "contract-application-hosting-services";
+    skos:prefLabel "Contract application-hosting services"@en ;
+    skos:prefLabel "Service hébergé chez un partenaire"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/ill-defined>
+    a skos:Concept;
+    skos:definition "Ill-defined.";
+    skos:inScheme <TroubleTicket/problemResponsibility>;
+    skos:notation "ill-defined";
+    skos:prefLabel "Ill-defined"@en ;
+    skos:prefLabel "Indéterminé"@fr ;
+.
+
+# =============================================================================
+# Following items apply to TroubleTicketNote(s)
+
+<TroubleTicket/commentType>
+    a skos:ConceptScheme;
+    skos:definition "The comment type describes the origin of a given comment.";
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "commentType" .
+
+<TroubleTicket/commentType/clt>
+    a skos:Concept;
+    skos:definition "The comment originates from a customer.";
+    skos:inScheme <TroubleTicket/commentType> ;
+    skos:notation "clt";
+    skos:prefLabel "Client"@fr ;
+    skos:prefLabel "Customer"@en ;
+.
+
+<TroubleTicket/commentType/ent>
+    a skos:Concept;
+    skos:definition "The comment originates from an internal technical support team.";
+    skos:inScheme <TroubleTicket/commentType> ;
+    skos:notation "ent";
+    skos:prefLabel "EDS"@fr ;
+    skos:altLabel "Equipe de Soutien"@fr ;
+    skos:prefLabel "Technical Support Team"@en ;
+    skos:altLabel "Support Team"@en ;
+    skos:related <imp/groups/tmc>, <imp/groups/smc>, <imp/groups/fm> ;
+    rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8361875> ;
+.
+
+<TroubleTicket/commentType/int>
+    a skos:Concept;
+    skos:definition "The comment originates from an internal user." ;
+    skos:inScheme <TroubleTicket/commentType> ;
+    skos:notation "int";
+    skos:prefLabel "Interne"@fr ;
+    skos:prefLabel "Internal User"@en ;
+    skos:broader <TroubleTicket/commentType/sys> ;
+.
+
+<TroubleTicket/commentType/sys>
+    a skos:Concept;
+    skos:definition "The comment originates from an automated system." ;
+    skos:example "Operation Support System (OSS), Alert Bot, Support Bot." ;
+    skos:inScheme <TroubleTicket/commentType> ;
+    skos:notation "sys";
+    skos:prefLabel "Système"@fr ;
+    skos:prefLabel "Bot"@en ;
+    skos:altLabel "OSS"@en ;
+    skos:altLabel "Alert Bot"@en ;
+    skos:altLabel "Support Bot"@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<TroubleTicket/operationType>
+    a skos:ConceptScheme;
+    skos:definition "The Operation type of (described by) the note." ;
+    skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc.";
+    skos:inScheme <TroubleTicket> ;
+    skos:notation "operationType" .
+
+<TroubleTicket/operationType/comment-addition>
+	a skos:Concept;
+	skos:definition "Nota-taking about on-going operations."@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "comment";
+	skos:prefLabel "Comments"@en ;
+	skos:prefLabel "Commentaires"@fr .
+
+<TroubleTicket/operationType/inward-customer-contact>
+    a skos:Concept;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "inward-customer-contact";
+    skos:prefLabel "Inward Customer contact"@fr ;
+    skos:prefLabel "Contact Client entrant"@fr ;
+.
+
+<TroubleTicket/operationType/outward-customer-contact>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "outward-customer-contact";
+	skos:prefLabel "Outward Customer contact"@fr ;
+	skos:prefLabel "Contact Client sortant"@fr ;
+.
+
+<TroubleTicket/operationType/handover-request>
+    a skos:Concept;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "handover-request";
+    skos:prefLabel "Handover request"@en ;
+    skos:altLabel "Transfer request"@en ;
+    skos:prefLabel "Demande de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/handover-acceptation>
+    a skos:Concept;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "handover-acceptation";
+    skos:prefLabel "Handover acceptation"@en ;
+    skos:altLabel "Transfer acceptation"@en ;
+    skos:prefLabel "Acceptation de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/handover-denial>
+    a skos:Concept;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "handover-denial";
+    skos:prefLabel "Handover denial"@en ;
+    skos:prefLabel "Refus de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/service-restoration>
+    a skos:Concept;
+    skos:definition "Service restoration thanks to a work around."@en;
+    skos:definition "Rétablissement du service à l'aide d'une solution de contournement, d'un palliatif."@fr;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "service-restoration";
+    skos:prefLabel "Service restoration"@en ;
+    skos:prefLabel "Rétablissement du service"@fr ;
+	skos:related <TroubleTicket/status/restored> ;
+.
+
+<TroubleTicket/operationType/service-recovery>
+    a skos:Concept;
+    skos:definition "Doing an RCA to get to Service Recovery."@en;
+    skos:definition "Rétablissement définitif du service par l'identification et la correction de la cause racine."@fr;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "service-recovery";
+    skos:prefLabel "Service recovery"@en ;
+    skos:prefLabel "Rétablissement complet du service"@fr ;
+	skos:related <TroubleTicket/status/resolved> ;
+.
+
+<TroubleTicket/operationType/incident-escalation>
+    a skos:Concept;
+    skos:definition """Incident escalation happens when an incident requires advanced support, such as sending an on-site technician or assistance from certified support staff."""@en;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "incident-escalation";
+	skos:prefLabel "Incident escalation"@en ;
+    skos:prefLabel "Escalade"@fr ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/incident-closure>
+	a skos:Concept;
+	skos:definition """The incident is considered closed and the incident process ends."""@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "incident-closure";
+	skos:prefLabel "Incident closure"@en ;
+	skos:prefLabel "Clôture"@fr ;
+	skos:related <TroubleTicket/status/closed> ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/incident-freeze>
+    a skos:Concept;
+    skos:definition """indicates that the incident requires some information or response from the user or from a third party. The incident is placed “on hold” so that SLA response deadlines are not exceeded while waiting for a response from the user or vendor."""@en;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "incident-freeze";
+	skos:prefLabel "On hold"@en ;
+	skos:altLabel "Pending"@en ;
+    skos:prefLabel "Demande de Gel/Dégel"@fr ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/attached-document>
+    a skos:Concept;
+    skos:inScheme <TroubleTicket/operationType> ;
+    skos:notation "attached-document";
+	skos:prefLabel "Attached document"@en ;
+    skos:prefLabel "Ajout pièce jointe"@fr ;
+.
+
+# === EOF =====================================================================

@@ -1,0 +1,460 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> .  # Unified Cybersecurity Ontology (UCO)
+
+@prefix devopsprod: <http://w3id.org/devops-infra/product#> .  # DevOps-Infra, Ontology for the representation of the business offering of a company, including the offered services and microservices
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+noria:ApplicationOntology
+    a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "The NORIA Application Ontology"@en ;
+    dcterms:description """The Application Ontology defines Application and Application Module objects so data processing components (e.g. servers with scripts) can be grouped as a functional unit and linked as a whole to administration and support teams."""@en ;
+	bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    dcterms:modified "2022-12-15"^^xsd:date ;
+    skos:changeNote """Change in v0.2:
+- Removed noria:Infrastructure, now using the (noria:Application)=[noria:applicationType]=>(skos:Concept|<kos/application/type/infrastructure>).
+- Merging the noria:FunctionalOntology-0.1 => the noria:Service concept is now a Application.applicationType(Service).
+- Using ORG and FOAF vocabularies instead of specific NORIA concepts (e.g. noria:Team).
+- Changed alignment with SEAS, now directly implemented within the ontology.
+- Changed alignment with UCO, now directly implemented within the ontology.
+""" ;
+    owl:versionInfo "v0.2" ;
+    owl:versionIRI <ontology/ApplicationOntology-0.2> ;
+    owl:priorVersion <ontology/ApplicationOntology-0.1> ;
+.
+
+# === APPLICATION related =====================================================
+
+noria:Application
+    a owl:Class ;
+    rdfs:label "Application" ;
+    rdfs:comment "An abstract system based on data processing and presentation."@en ;
+    skos:example """- RLOGS: Centralization of real time logs.
+- DMZ VoIP: shared management zone / platform for Voice over IP services.""" ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf noria:FunctionalElement ;
+    rdfs:subClassOf seas:System ,
+                    observable:Application ;
+    rdfs:isDefinedBy noria:ApplicationOntology;
+.
+
+noria:applicationModelIdentifier
+    a owl:DatatypeProperty ;
+	rdfs:label "applicationModelIdentifier" ;
+	rdfs:comment "Application model code."@en ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationNumericalIdentifier
+    a owl:DatatypeProperty ;
+	rdfs:label "applicationNumericalIdentifier" ;
+	rdfs:comment "Application numerical identifier, the numerical identifier of the Application within the Information System."@en ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:int ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationShortIdentifier
+    a owl:DatatypeProperty ;
+	rdfs:label "applicationShortIdentifier" ;
+	rdfs:comment "Application short identifier, a short string identifier of Application within the Information System."@en ;
+	rdfs:subPropertyOf noria:functionalElementDistinguishedName ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationType
+    a owl:ObjectProperty ;
+	rdfs:label "applicationType" ;
+	rdfs:comment "The type of the Application."@en ;
+	rdfs:subPropertyOf dcterms:type ;
+    rdfs:domain noria:Application ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/application/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+.
+
+noria:applicationBusinessImportance
+    a owl:ObjectProperty ;
+    rdfs:label "applicationBusinessImportance" ;
+    rdfs:comment "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en ;
+    rdfs:domain noria:Application ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/application/business-importance>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+             ];
+    vs:term_status "unstable" ;
+    skos:changeNote "Introduced in v0.2" ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+.
+
+noria:applicationFunctionalDomain
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationFunctionalDomain" ;
+    rdfs:comment """The functional domain of the Application for describing the organization’s activities from a system point of view.
+
+Alignment:
+- *tmforum*: the `noria:applicationFunctionalDomain` is equivalent to the *Domain* concept of the ODA Functional Framework.
+"""@en ;
+    skos:example """- Market and Customer Relationship Management domain
+- Service Development, Management and Operations
+- Resource Development, Management and Operations""" ;
+    rdfs:domain noria:Application ;
+    vs:term_status "unstable" ;
+    skos:changeNote "Introduced in v0.2" ;
+    rdfs:isDefinedBy noria:ApplicationOntology,
+                     <https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
+.
+
+noria:applicationFunctionalSubDomain
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationFunctionalSubDomain" ;
+    rdfs:comment """The functional sub-domain of the Application for describing the organization’s activities from a system point of view.
+
+Alignment:
+- *tmforum*: the `noria:applicationFunctionalSubDomain` is equivalent to *Aggregate Business Entities* (ABEs) and *Business Entities* (BEs) of the ODA Functional Framework.
+"""@en ;
+    skos:example """- Human Resource Management
+- Offer and Product Operational Analysis
+- Resource Repository Management""" ;
+    rdfs:domain noria:Application ;
+    vs:term_status "unstable" ;
+    skos:changeNote "Introduced in v0.2" ;
+    rdfs:isDefinedBy noria:ApplicationOntology,
+					 <https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
+.
+
+# === APPLICATION MODULE related ==============================================
+
+noria:ApplicationModule
+    a owl:Class ;
+    rdfs:label "ApplicationModule" ;
+    rdfs:comment "A specific and managed instance of an Application."@en ;
+    skos:example """- Development instance of the RLOGS (Centralization of real time logs) Application.
+- B2B instance of the DMZ VoIP (shared management zone / platform for Voice over IP services) Application.""" ;
+    rdfs:subClassOf noria:FunctionalElement ;
+    rdfs:subClassOf seas:System ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+.
+
+noria:applicationModuleOf
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleOf" ;
+    rdfs:comment "A child/parent relationship between a specific and managed instance of an Application (i.e. an Application Module) and the Application."@en ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:subPropertyOf seas:subSystemOf ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleName
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationModuleName" ;
+    rdfs:comment "The name of the Application module."@en ;
+    skos:example """CONCAT(
+    Application().applicationModelIdentifier(),
+    "_",
+    ApplicationModule().applicationModuleIdentifier()
+)"""@en ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf noria:functionalElementDistinguishedName ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationModuleIdentifier"@en ;
+    rdfs:comment "Application module code."@en ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleRelatedParty
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleRelatedParty" ;
+    rdfs:comment "Generic property for linking a party playing a role in the management of the Application Module."@en ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:subPropertyOf noria:elementManagedBy ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf noria:elementManagedBy.""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleAdministrationTeam
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleAdministrationTeam" ;
+    rdfs:comment "Administration team."@en ;
+    rdfs:comment "Entité exploitante."@fr ;
+    rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+    rdfs:range org:OrganizationalUnit ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleAdministrationLeader
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleAdministrationLeader" ;
+    rdfs:comment "Administration leader."@en ;
+    rdfs:comment "Responsable de l'entité exploitante."@fr ;
+    rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+    rdfs:range foaf:Agent ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of noria:Employee.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleSupportTeam
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleSupportTeam" ;
+    rdfs:comment "Level 2 Support Team."@en ;
+    rdfs:comment "Entité support : Soutien Applicatif Technique (SAT) - Exploitant N2."@fr ;
+    rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+    rdfs:range org:OrganizationalUnit ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleSupportLeader
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleSupportLeader" ;
+    rdfs:comment "Support leader."@en ;
+    rdfs:comment "Responsable de l'entité support."@fr ;
+    rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+    rdfs:range foaf:Agent ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of noria:Employee.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleSupportGroup
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleSupportGroup" ;
+    rdfs:comment "Level 1 support team."@en ;
+    rdfs:comment "Entité support: Point d'Entrée Interface Technique (PEIT) - Exploitant N1."@fr ;
+    rdfs:range org:OrganizationalUnit ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleHotlineGroup
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleHotlineGroup" ;
+    rdfs:comment "Hotline team."@en ;
+    rdfs:comment "Equipe d'astreinte applicative."@fr ;
+    rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+    rdfs:range org:OrganizationalUnit ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleSlaLevel
+    a owl:ObjectProperty ;
+	rdfs:label "applicationModuleSlaLevel" ;
+	rdfs:comment "SLA level."@en ;
+	rdfs:comment "Niveau de service."@fr ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <https://w3id.org/noria/kos/application/sla-level>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+             ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleSlaLevelDate
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationModuleSlaLevelDate" ;
+    rdfs:comment "SLA Level date, the date at which the SLA Level has been set or updated."@en ;
+    rdfs:comment "Date du Niveau de service."@fr ;
+    rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+    rdfs:domain noria:ApplicationModule ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleHotlineEnabled
+    a owl:DatatypeProperty ;
+    rdfs:label "applicationModuleHotlineEnabled" ;
+    rdfs:comment "Hotline enabled for issues on a given ApplicationModule."@en ;
+    rdfs:comment "Possibilité d'appel de l'astreinte applicative."@fr ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:range xsd:boolean ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology .
+
+noria:applicationModuleStatus
+    a owl:ObjectProperty ;
+    rdfs:label "applicationModuleStatus" ;
+    rdfs:comment "Status of the Application Module."@en ;
+    rdfs:comment "Etat de service du Module Applicatif."@fr ;
+    skos:example "In Production"@en ;
+    skos:example "En Production"@fr ;
+    rdfs:domain noria:ApplicationModule ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <https://w3id.org/noria/kos/application/status>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+             ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+.
+
+# === SERVICE related =========================================================
+
+noria:Service
+    a owl:Class ;
+    rdfs:label "Service"@en ;
+    rdfs:comment """Service is an abstract base class for defining the Service hierarchy, i.e. the composition of assets (a.k.a. asset chain, service function chain) for providing a end-to-end data path or processing for some specific Customer or purpose.
+
+Usage notes:
+- The `noria:Service` is loosely defined as per the way to group underpinning assets. The typical usage is to assert `noria:ApplicationModule` entities as `seas:subSystemOf` a given `noria:Service`.
+- The network topology related to a given `noria:Service` is inferred from the set of resources, network interfaces and network links included in each Application that is part of the Service.
+  We remark here that, although deterministic, the data path granularity calculus for some communication session (e.g. a time-bounded IP/http query with its response) depends on the specificity of the resources included in `ApplicationModule` instances.
+  For example, the resulting granularity for a "national IP backbone infrastructure" application instance will correspond to the [routing domain](https://en.wikipedia.org/wiki/Routing_domain).
+
+Alignment:
+- *SEAS*: A `noria:Service` allows for grouping components, hence it is a subclass of `seas:System`.
+- *DevOps-Infra*:
+  - The `noria:Service` is a concrete instance of a set of deployment models, hence it relates to `devopsprod:ServiceInstance`.
+  - A `noria:Service.serviceType(<kos/service/type/CustomerFacingService>)` relates to the `devopsprod:BusinessProductInstance` concept.
+- *tmforum*:
+  - The `noria:Service` is equivalent to the `Service` object from the *[TMF 638 - Service Inventory](https://github.com/tmforum-apis/TMF638_ServiceInventory)* API.
+  - Using the `noria:serviceType` relates to asserting the `CustomerFacingService` or `ResourceFacingService` Service subclasses notions of the *TMF 638 - Service Inventory* API (i.e. as either being possibly visible and usable by a Customer or not).
+- *IETF*: Assuming a group *Service Functions* (SFs), the `noria:Service` concept relates to the *Service Function Chain (SFC)* definition from the [RFC 7665: SFC Architecture](https://www.rfc-editor.org/rfc/rfc7665) (see also [ITU-T X.1045](https://handle.itu.int/11.1002/1000/14043) for complementary SFC definition).
+"""@en ;
+    skos:example "End-to-end data path for some specific customer"@fr ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- Further definition, notably with rdfs:seeAlso relationships.
+- Adding owl:equivalentClass devopsprod:ServiceInstance.
+""" ;
+    rdfs:subClassOf noria:FunctionalElement ;
+    rdfs:subClassOf seas:System ;
+    owl:equivalentClass devopsprod:ServiceInstance ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+    rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory>,
+                 <https://www.rfc-editor.org/rfc/rfc7665>,
+                 <https://handle.itu.int/11.1002/1000/14043>;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:serviceType
+    a owl:ObjectProperty ;
+    rdfs:label "serviceType" ;
+    rdfs:comment "The type of the Service."@en ;
+    rdfs:domain noria:Service ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/service/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+             ];
+	rdfs:subPropertyOf dcterms:type ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Introduced in v0.2""" ;
+    rdfs:isDefinedBy noria:ApplicationOntology ;
+.
+
+# === EOF =====================================================================

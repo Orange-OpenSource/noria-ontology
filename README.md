@@ -16,7 +16,7 @@ Cite:
 ## Usage
 
 We provide a direct access to the NORIA-O resources with the **noria** [w3id.org](https://w3id.org/) identifier:
-* [https://w3id.org/noria/](https://w3id.org/noria/)
+> [https://w3id.org/noria/](https://w3id.org/noria/)
 
 Based on this identifier, the following links apply for direct access to the NORIA-O featured topics:
 
@@ -28,26 +28,16 @@ Based on this identifier, the following links apply for direct access to the NOR
 | Competency Questions | https://w3id.org/noria/cqs/ |
 | Authoring Tests | https://w3id.org/noria/evaluation/ |
 
-Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
-For example, the v0.1 main ontology file is available at:
-* [https://w3id.org/noria/ontology/noria-0.1](https://w3id.org/noria/ontology/noria-0.1)
-
-
 See also the *Repository Structure* for navigating into this repository:
 ```
 noria-ontology
 ├───cqs <Ontology Requirements and Specification> (e.g. Competency Questions)
 ├───dataset <toy example for examplification of the NORIA-O model>
+├───docs <documentation, diagrams and figures>
 ├───evaluation <NORIA-O evaluation tool set> (e.g. Authoring Tests)
 ├───kos <NORIA-O controlled vocabulary> (e.g. codelists)
 └───ontology <the NORIA-O implementation>
 ```
-
-## Contribute
-
-In the general case, please
-* *fork and create merge request*, or
-* *raise an issue* into the project's space.
 
 ## Copyright
 

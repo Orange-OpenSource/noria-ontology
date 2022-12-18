@@ -1,0 +1,69 @@
+@prefix bot: <https://w3id.org/bot#> .
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/noria/location/SITE_DC01> a bot:Site;
+  rdfs:label "DC01";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01> .
+
+<https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01> a bot:Building;
+  rdfs:label "DC01_B01";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01> .
+
+<https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01> a bot:Storey;
+  rdfs:label "DC01_B01_S01";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01/ROOM_DC01_B01_S01_R01> .
+
+<https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01/ROOM_DC01_B01_S01_R01>
+  a noria:Room;
+  rdfs:label "DC01_B01_S01_R01";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01/ROOM_DC01_B01_S01_R01/LOC_A-1> .
+
+<https://w3id.org/noria/location/SITE_DC01/BLDG_DC01_B01/STR_DC01_B01_S01/ROOM_DC01_B01_S01_R01/LOC_A-1>
+  a noria:Locus;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:hasElement <https://w3id.org/noria/object/RES_TOY_as1>, <https://w3id.org/noria/object/RES_TOY_pe_1_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_1_2>, <https://w3id.org/noria/object/RES_TOY_pe_2_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_2_2>, <https://w3id.org/noria/object/RES_TOY_rack_01>,
+    <https://w3id.org/noria/object/RES_TOY_term1>;
+  noria:locusLine "A";
+  noria:locusRow "1" .
+
+<https://w3id.org/noria/location/SITE_DC02> a bot:Site;
+  rdfs:label "DC02";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03> .
+
+<https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03> a bot:Building;
+  rdfs:label "DC02_B03";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03> .
+
+<https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03> a bot:Storey;
+  rdfs:label "DC02_B03_SM03";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03/ROOM_DC02_B03_SM03_R02> .
+
+<https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03/ROOM_DC02_B03_SM03_R02>
+  a noria:Room;
+  rdfs:label "DC02_B03_SM03_R02";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:containsZone <https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03/ROOM_DC02_B03_SM03_R02/LOC_G-8> .
+
+<https://w3id.org/noria/location/SITE_DC02/BLDG_DC02_B03/STR_DC02_B03_SM03/ROOM_DC02_B03_SM03_R02/LOC_G-8>
+  a noria:Locus;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  bot:hasElement <https://w3id.org/noria/object/RES_TOY_as2>, <https://w3id.org/noria/object/RES_TOY_as3>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_1>, <https://w3id.org/noria/object/RES_TOY_pe_3_2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_1>, <https://w3id.org/noria/object/RES_TOY_pe_4_2>,
+    <https://w3id.org/noria/object/RES_TOY_rack_02>, <https://w3id.org/noria/object/RES_TOY_srv1>,
+    <https://w3id.org/noria/object/RES_TOY_srv2>;
+  noria:locusLine "G";
+  noria:locusRow "8" .

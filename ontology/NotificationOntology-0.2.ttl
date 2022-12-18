@@ -1,0 +1,353 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+noria:NotificationOntology
+	a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "The NORIA Notification Ontology"@en ;
+    dcterms:description """The Notification Ontology defines concepts and properties related to Event Reporting, such as Technical Logs, System Logs and Alarms.
+
+Instances of these concepts are time related artefacts.
+Some of these definitions are derived from the CCITT Rec. X.721 and CCITT Rec. X.733 document for best match with Open Systems Interconnection (OSI) compliant devices and systems."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+    skos:changeNote """Changes in v0.2:
+- Introducing the noria:EventRecord
+- Alignment with SLOGERT within the ontology.
+- noria:EventRecord as a BBO DocumentResource, DC Resource and SLOGERT Event.
+- Removing the noria:eventLogId property to the benefit of dcterms:identifier.
+- Removing the noria:eventLogInformation property to the benefit of dcterms:description.
+- Removing the noria:eventLogType property to the benefit of dcterms:type.
+- Removing the noria:alarmCorrelatedNotifications property to the benefit of dcterms:relation.
+- Removing the noria:alarmOwner property to the benefit of dcterms:mediator.
+- Removing the noria:alarmProbableCause property to the benefit of dcterms:conformsTo.
+- Removing the usage of noria:Service until better specified. Alternative option is to make use of some noria:Application.applicationType(<kos/application/type/service>) statement.
+- Merging the noria:securityAlarmDetector property into noria:logOriginatingManagedObject.
+- Merging the noria:alarmServiceUser property into noria:logOriginatingAgent.
+- Merging the noria:securityAlarmSeverity property into noria:alarmSeverity.
+""" ;
+	owl:versionInfo "v0.2" ;
+	owl:versionIRI <ontology/NotificationOntology-0.2> ;
+	owl:priorVersion <ontology/NotificationOntology-0.1> ;
+    rdfs:seeAlso
+		<https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+        <https://www.itu.int/rec/T-REC-X.721-199202-I> ;
+.
+
+# === General Event definitions ===============================================
+
+noria:EventRecord
+    a owl:Class ;
+    rdfs:label "EventRecord" ;
+    rdfs:comment """This managed object represents the information stored in the log as a result of receiving notifications or incoming event reports.
+
+In that sense it is an abstract object with basic properties (e.g. event type, logging time, provenance system, message) to interpret in the context of its properties and relationships.
+For example, an *EventRecord* instance `log1` originating from the managed resource `R1` and describing a network interface state change on the Resource is fetched from a syslog-ng platform `Mon1` (i.e. the originating management system).
+A related *EventRecord* instance `alarm1` with `noria:alarmSeverity = Critical` and originating managed resource `R1` is triggered by a Network Monitoring System `NMS1` (i.e. the originating management system) for presentation to the Technical Support Center.
+
+Considering possible combinations of properties' objects and values, a `noria:EventRecord` allows for describing:
+- both informational and alarm notifications (this rely on `skos:ConceptScheme` over the `dcterms:type` of the `noria:EventRecord`),
+- notifications that affect both the network infrastructure (e.g. network interface down), network applications/services (e.g. timeout, k-out-of-n) and the Operation Support System (OSS) itself (e.g. updating a `noria:TroubleTicketNote`),
+- notifications originating from both onboard signaling (e.g. [SNMP Trap](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol)), probes (e.g. [NIDS](https://en.wikipedia.org/wiki/Intrusion_detection_system)), the monitoring system (e.g. threshold overrun, business rules) and inference engines (e.g. NORIA-AD).
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a EventRecord is a described resource, hence DC terms apply:
+  - *logRecordId* <=> http://purl.org/dc/terms/identifier : Identifier of notification or log record, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-logRecordId>.
+  - *logInformation* <=> http://purl.org/dc/terms/description : Additional information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalInformation>.
+  - *logType* <=> http://purl.org/dc/terms/type : The Type of the Event (e.g. General Operation Alarm, State Change, etc.), as defined by the NORIA `kos/Notification/EventType` concept scheme.
+  - *alarmCorrelatedNotifications* <=> http://purl.org/dc/terms/relation : EventRecord instances or identifiers that are considered to be correlated to this EventRecord, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-correlatedNotifications>.
+  - *alarmOwner* <=> http://purl.org/dc/terms/mediator : The Support team member who acknowledged an Alarm Event Record.
+  - *alarmProbableCause* <=> http://purl.org/dc/terms/conformsTo : The asserted or inferred cause of the Alarm Event Record, as defined by the NORIA `kos/Notification/ProbableCause` and `kos/Notification/SecurityAlarmCause` concept schemes.
+    Asserting the Alarm cause is equivalent to directly connecting the Alarm, as a fault (issue, incident) artefact, to some phenomenon interpretation.
+    Inferring the Alarm cause is equivalent to guessing the phenomenon origin through Root Cause Analysis (RCA) or some probabilistic approach.
+- *BBO*: an EventRecord is a `BBO:DocumentResource` in the sense that it is the result of the Event Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, an EventRecord is a `DataObject`.
+- *PEP*: an EventRecord is an artefact of the realization of a `pep:Procedure`, hence it is a specialization of a `pep:ProcedureExecution` for the NORIA context.
+- *SLOGERT*: an EventRecord is equivalent to a `log:Event`.
+"""@en ;
+    skos:example """- A network router event with
+  loggingTime=`2022-01-01T17:12:00,259Z` and
+  logText=`LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up`.
+- A configuration change event on network router with
+  pep:hasCommand='no shutdown' and
+  logText='SYS-5-CONFIG_I: Configured from console by vty2 (10.34.195.36)'
+  and logOriginatingManagedObject=<object/NE_R1>.
+"""@en ;
+	skos:changeNote """Changes in v0.2:
+- EventRecord introduced, replacing noria:EventLog.
+- Removing many related properties to the benefit of direct instanciation with dcterms properties.
+- Adding rdfs:subClassOf BBO:DocumentResource.
+- Adding rdfs:subClassOf pep:ProcedureExecution.
+- Adding rdfs:subClassOf log:Event.
+""" ;
+    rdfs:subClassOf noria:DynamicElement ;
+    rdfs:subClassOf BBO:DocumentResource ,
+                    pep:ProcedureExecution ,
+                    observable:EventRecord ,
+                    log:Event ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# =============================================================================
+# Common properties
+# =============================================================================
+
+noria:logOriginatingManagedObject
+    a owl:ObjectProperty ;
+    rdfs:label "logOriginatingManagedObject" ;
+    rdfs:comment "The Managed Object entity at the origin of the Log record. This includes information about the service provider associated with the service request that caused a security alarm."@en ;
+    skos:example "A named Resource, Application, Security Alarm Detector, etc."@en ;
+    rdfs:domain noria:EventRecord ;
+    rdfs:range noria:Resource ,
+               noria:Application ;
+    vs:term_status "stable" ;
+    rdfs:subPropertyOf noria:eventRelatedElement ;
+    rdfs:subPropertyOf dcterms:creator ,
+                       prov:wasAttributedTo ,
+                       pep:madeBy ,
+                       folio:happenedAt ,
+                       log:hasSourceHost ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Adding rdfs:subPropertyOf folio:happenedAt.
+- Adding rdfs:subPropertyOf log:hasSourceHost.
+- Adding reference to ITU-T X721 SecurityAlarmDetector.
+- Adding reference to ITU-T X721 serviceProvider.
+- Merging the noria:serviceProvider.
+""" ;
+    rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-managedObjectInstance> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-SecurityAlarmDetector> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceProvider> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:logOriginatingManagementSystem
+    a owl:ObjectProperty ;
+    rdfs:label "logOriginatingManagementSystem" ;
+    rdfs:comment "The Management System that receives, processes and forwards the Log record."@en ;
+    skos:example "A named instance of Network Management System (NMS), Security Information and Event Monitoring system (SIEM), etc."@en ;
+    rdfs:domain noria:EventRecord ;
+    rdfs:range noria:Application ;
+    rdfs:subPropertyOf noria:eventRelatedElement ;
+    rdfs:subPropertyOf dcterms:creator ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Adding rdfs:subPropertyOf noria:eventRelatedElement.
+""" ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:logOriginatingAgent
+    a owl:ObjectProperty ;
+    rdfs:label "logOriginatingAgent" ;
+    rdfs:comment "The Agent at the origin of the Log record whenever it represents some action carried out on the ICT system. This includes information about the service user associated with the service request that caused a security alarm."@en ;
+    skos:example "A employee or maintenance bot that carried-out a change or corrective maintenance action. A service user that carried-out SQL Injection."@en ;
+    rdfs:subPropertyOf noria:eventRelatedParty ,
+                       pep:madeBy ;
+    rdfs:domain noria:EventRecord ;
+    rdfs:range foaf:Agent ;
+    rdfs:subPropertyOf dcterms:creator ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of rdfs:range noria:Employee.
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Merging the noria:alarmServiceUser.
+""" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-sourceIndicator> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:logText
+    a owl:DatatypeProperty ;
+    rdfs:label "logText" ;
+    rdfs:comment "Textual information describing the logged event." ;
+    # HACK: discarding this property lead to the following comment in the noria:EventRecord alignment => - *logText* <=> http://purl.org/dc/terms/title : Textual information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText>.
+    rdfs:domain noria:EventRecord ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:title ,
+                       pep:hasSimpleResult ,
+                       log:msg ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:title.
+- Adding rdfs:subPropertyOf pep:hasSimpleResult.
+- Adding rdfs:subPropertyOf log:msg.
+""" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:loggingTime
+    a owl:DatatypeProperty ;
+    rdfs:label "loggingTime" ;
+    rdfs:comment "The Date on which the log record was created in the system." ;
+    # Discarding this property lead to the following comment in the noria:EventRecord alignment => - *loggingTime* <=> http://purl.org/dc/terms/created : The Date on which the log record was created in the system, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime>.
+    rdfs:domain noria:EventRecord ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf dcterms:created ,
+                       log:time ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:created.
+- Adding rdfs:subPropertyOf log:time.
+""" ;
+    rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# =============================================================================
+# Alarm related properties
+# =============================================================================
+
+noria:alarmSeverity
+    a owl:ObjectProperty ;
+    rdfs:label "alarmSeverity" ;
+    rdfs:comment "Indication of how it is perceived that the capability of the managed object has been affected, or how serious are the service affecting conditions (including for security alarms)."@en ;
+    skos:example "Critical, Major, Minor, Warning."@en;
+    rdfs:domain noria:EventRecord ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <Notification/Severity/PerceivedSeverity>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+      ] ;
+    rdfs:subPropertyOf dcterms:type ,
+                       folio:hasCriticality ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Changed owl:hasValue restriction to <Notification/Severity/PerceivedSeverity> in place of <Notification/PerceivedSeverity>.
+- Adding rdfs:subPropertyOf dcterms:type.
+- Adding rdfs:subPropertyOf folio:hasCriticality.
+- Merging the noria:securityAlarmSeverity.
+""" ;
+    rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-perceivedSeverity>,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmSeverity> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmProposedRepairAction
+    a owl:ObjectProperty ;
+    rdfs:label "alarmProposedRepairAction" ;
+    rdfs:comment """This parameter, when present, is used if the cause is known and the system being managed can suggest one or more solutions.
+This parameter is a set of possibilities specified by the object class definer.
+"""@en ;
+    skos:example "Switch to standby equipment, retry to connect, replace media, etc."@en ;
+    rdfs:domain noria:EventRecord ;  # TODO: add constraint to Notifications of the OperationalAlarm type
+    rdfs:range pep:Procedure ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+    <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-proposedRepairActions> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmMonitoredAttribute
+    a owl:ObjectProperty ;
+    rdfs:label "alarmMonitoredAttribute" ;
+    rdfs:comment """The Monitored attributes parameter, when present, defines one or more attributes of the managed object and their corresponding values at the time of the alarm.
+Managed object definers may specify the set of attributes which are of interest, if any.
+This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm.
+"""@en ;
+	rdfs:domain noria:EventRecord ;  # TODO: add constraint to Notifications of the OperationalAlarm type
+    vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-monitoredAttributes> ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+noria:alarmMitigatedBy
+    a owl:ObjectProperty ;
+    rdfs:label "alarmMitigatedBy" ;
+    rdfs:comment """The ProcedureExecutionContainer (i.e. the set of Procedure Execution(s)) that led to clear the alarm and/or solve the issue.
+
+This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm."""@en ;
+    skos:example """ProcedureExecutionContainer(x)
+    .ldp:member EventRecord(y)
+        .hasCommand='ip address 10.1.5.1 255.255.255.0'
+        .hasResult='SYS-5-CONFIG_I: Configured from console by vty2 (10.34.195.36)'
+""" ;
+    rdfs:domain noria:EventRecord ;
+    rdfs:range pep:ProcedureExecutionContainer ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:NotificationOntology ;
+.
+
+# === EOF =====================================================================

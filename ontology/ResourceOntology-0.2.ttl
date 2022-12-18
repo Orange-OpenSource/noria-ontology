@@ -1,0 +1,479 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+noria:ResourceOntology
+	a voaf:Vocabulary, owl:Ontology ;
+    dcterms:title "The NORIA Resource Ontology"@en ;
+    dcterms:description """The Resource Ontology defines ICT systems entities at abstract level (e.g. as records within an asset management database) for efficient management as individuals and also as parts of higher level systems (e.g. part of Services or Infrastructure)."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+    skos:changeNote """Changes in v0.2:
+- Alignment with SEAS within the ontology.
+- Alignment with SLOGERT within the ontology.
+- Alignment with UCO within the ontology.
+- Changing noria:ManufacturerProductModel to noria:ProductModel
+- Removing noria:manufacturerProductName to the benefit of rdfs:label
+- Removing noria:networkInterfaceName to the benefit of rdfs:label
+- Removing noria:networkLinkManagedBy to the benefit of noria:resourceManagedBy
+- Removing noria:resourceSubPartOf to the benefit of seas:subSystemOf.
+- Removing noria:virtualServerId (The UID of the Virtual Server instance) to the benefit of observable:pid.
+- Removing noria:virtualServerGuestOf (The name or of the hosting Resource (i.e. server) of the Virtual Server instance) to the benefit of seas:subSystemOf.
+- Removing noria:virtualServerPartOfCluster (The Cluster Resource of the Virtual Server instance) to the benefit of seas:subSystemOf.
+- Adding noria:clusterController.
+""";
+    owl:versionInfo "v0.2" ;
+	owl:versionIRI <ontology/ResourceOntology-0.1> ;
+	owl:priorVersion <ontology/ResourceOntology-0.2> ;
+.
+
+# =============================================================================
+# Structural objects
+# =============================================================================
+
+noria:Resource
+	a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment """General resource record of the Communication Device kind from the logistics park. It is a managed entity that can be either Physical or Virtual.
+
+Alignment:
+- *SEAS*: Whenever a Resource individual is an assembly of other resources (e.g. a server rack) or is part of an assembly (e.g. a server blade), the Resource individual can also be declared as a `seas:System` in order to benefit of the `seas:subSystemOf` relation.
+  For example, Resources may be grouped in some `noria:Service` class for providing both an end-to-end analysis of the data path (i.e. Communication Devices + Connections) and an abstract object linked to some end user (e.g. Customer).
+- *BOT*: A `noria:Resource` is a sub-class of `bot:Element` for setting instances in the context of a physical environment (e.g. in a building).
+- *SLOGERT*: A `noria:Resource` is equivalent to a `log:Host`.
+- *UCO*: A `noria:Resource` is equivalent to an UCO's observable `Device`.
+"""@en ;
+    skos:altLabel "ICT resource."@en ;
+    skos:altLabel "Elément structurant informatique et télécoms."@fr ;
+    rdfs:seeAlso <kos/Resource/> ;
+    rdfs:subClassOf noria:StructuralElement ;
+    rdfs:subClassOf seas:System,
+                    seas:CommunicationDevice,
+                    bot:Element ,
+                    observable:Device ,
+                    log:Host ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf bot:Element.
+- Adding rdfs:subClassOf observable:Device.
+- Adding rdfs:subClassOf log:Host.
+""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- Connection related objects ----------------------------------------------
+
+noria:NetworkInterface
+	a owl:Class ;
+    rdfs:label "NetworkInterface" ;
+    rdfs:comment """A Network Interface of some Resource (e.g. server, router, virtual routing and forwarding (VRF) instance), and of some type (e.g. physical, virtual).
+
+Usage notes:
+- The name of the Network Interface (aka. networkInterfaceName, such as `ge-0/0/0.3013` or `ae52.3028`) can be set with the `rdfs:label` property.
+"""@en ;
+    rdfs:subClassOf noria:StructuralElement ;
+    rdfs:subClassOf seas:CommunicationConnectionPoint,
+                    observable:NetworkInterface ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf observable:NetworkInterface.
+""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:NetworkLink
+    a owl:Class ;
+    rdfs:label "NetworkLink" ;
+    rdfs:comment """A physical or logical Link between Resources.
+
+Usage notes:
+- The organizational unit in charge of the Network Link (i.e. the Support team or Owner of the Network Link) can be set with the `noria:resourceManagedBy` property.
+"""@en ;
+    skos:example "Optical fiber, L2TP connection, etc."@en ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf noria:StructuralElement ;
+    rdfs:subClassOf seas:CommunicationConnection ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# === Structural Property objects ==============================================
+
+noria:ProductModel
+	a owl:Class ;
+    rdfs:label "ProductModel" ;
+    rdfs:comment "The Product Model of some Resource as per the Manufacturer's naming."@en ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf noria:StructuralProperty ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# =============================================================================
+# Properties
+# =============================================================================
+
+# --- General usage -----------------------------------------------------------
+
+noria:resourceManagedBy
+    a owl:ObjectProperty ;
+    rdfs:label "resourceManagedBy" ;
+    rdfs:comment "The Support team or Owner of the Network Element (IT Resource)."@en ;
+    skos:example """- Resource("DNS server").resourceManagedBy("DNS admin team")
+- NetworkLink("WAN Paris-Papeete").resourceManagedBy("International backbone support team")""";
+    rdfs:subPropertyOf noria:elementManagedBy ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- rdfs:range moved from noria:Team and noria:Organization to foaf:Agent.
+- Removing rdfs:range foaf:Agent as it is already defined by noria:elementManagedBy.
+- Removing rdfs:domain noria:Resource for noria:Resource and noria:NetworkLink compatibility.""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:agentManagesResource
+    a owl:ObjectProperty ;
+    owl:inverseOf noria:resourceManagedBy ;
+    rdfs:label "agentManagesResource" ;
+    rdfs:comment """The Network Element (IT Resource) the Agent is responsible of (supervises).
+
+Alignment:
+- *FOAF*: A team may be interested into following the state of some resources, hence this property is semantically akin to `foaf:topic_interest`.
+"""@en ;
+    rdfs:domain foaf:Agent ;
+    rdfs:subPropertyOf foaf:topic_interest ;
+    vs:term_status "stable" ;
+    skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamManagesResource to agentManagesResource.
+- Removing rdfs:range noria:Resource for noria:Resource and noria:NetworkLink compatibility.""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:Resource domain ---------------------------------------------------
+
+noria:resourceLogisticId
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceLogisticId" ;
+    rdfs:comment "The logistic UID of the Resource (a.k.a. asset tag)."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceHostName
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceHostName" ;
+    rdfs:comment "The hostname (nodename) of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf noria:structuralElementDistinguishedName ;
+    rdfs:subPropertyOf dcterms:identifier,
+                       log:host ,
+                       observable:hostname ;
+    vs:term_status "stable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf log:host.
+- Adding rdfs:subPropertyOf observable:hostname.
+""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+    rdfs:seeAlso <https://en.wikipedia.org/wiki/Hostname> ;
+.
+
+noria:resourceProductModel
+    a owl:ObjectProperty ;
+    rdfs:label "resourceProductModel" ;
+    rdfs:comment "The product model of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:ProductModel ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceType
+    a owl:ObjectProperty ;
+    rdfs:label "resourceType" ;
+    rdfs:comment "The type of the Network Element Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Resource/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceSerialNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceSerialNumber" ;
+    rdfs:comment "The serial number of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceUsageState
+    a owl:ObjectProperty ;
+    rdfs:label "resourceUsageState" ;
+    rdfs:comment "The production state of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Resource/LifecycleState>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceInstallationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceInstallationDate" ;
+    rdfs:comment "The installation date of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceForApplication
+    a owl:ObjectProperty ;
+    rdfs:label "resourceForApplication" ;
+    rdfs:comment "The Application this Resource is contributing to, whatever the Application type."@en ;
+    skos:example "Corporate Internet access Infrastructure, Clock synchronization Service"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Application ;
+    rdfs:subPropertyOf seas:subSystemOf ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedAtLocus
+	a owl:ObjectProperty ;
+	rdfs:label "locatedAtLocus" ;
+	rdfs:comment """A uniquely identified space of the Resource within a given Room.
+
+Alignment:
+- *UCO*: This property enables linking a concrete `Resource` instance to some location, hence it relates to `observable:location`.
+- *BOT*: This property is akin to the inverse of `bot:hasElement`.
+"""@en ;
+	skos:example "Line: L, Column:6, in Room:Server room 314."@en ;
+	skos:example "Ligne:L, Colonne:6, en Salle:SALLE STOCKAGE RESEAU 314."@fr ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:Locus ;
+    rdfs:subPropertyOf observable:location ;
+	vs:term_status "unstable" ;
+    skos:changeNote """Changes in v0.2:
+- Adding rdfs:range noria:Locus.
+- Adding rdfs:subPropertyOf observable:location.
+""" ;
+	rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceManagementIPAddress
+    a owl:ObjectProperty ;
+    rdfs:label "resourceManagementIPAddress" ;
+    rdfs:comment "Specifies the IP address for remote management of the Resource, if relevant."@en ;
+    skos:example """- IPv4: 192.168.1.25.
+- IPv6: 2001:0db8:0000:0000:0000:8a2e:0370:7334"""@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:subPropertyOf observable:ipAddress ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Introduced in v0.2""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:clusterController
+    a owl:ObjectProperty ;
+    rdfs:label "clusterController" ;
+    rdfs:comment "Relates a Resource that is part of a cluster with the cluster controller."@en ;
+    skos:example """Resource("cluster-01").clusterController("virtual-center-01")""" ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Resource ;
+    rdfs:subPropertyOf seas:subSystemOf ;
+    vs:term_status "unstable" ;
+    skos:changeNote """Introduced in v0.2""" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:ProductModel domain ---------------------------------------------------
+
+noria:productManufacturedBy
+    a owl:ObjectProperty ;
+    rdfs:label "productManufacturedBy" ;
+    rdfs:comment "The Manufacturer of the Product Model."@en ;
+    rdfs:domain noria:ProductModel ;
+    rdfs:range org:Organization ;
+    vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- property name and label changed from noria:manufacturedBy to noria:productManufacturedBy.
+- rdfs:range moved from noria:Manufacturer to org:Organization.
+""" ;
+	rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:NetworkInterface domain --------------------------------------------
+
+noria:networkInterfaceDescription
+    a owl:DatatypeProperty ;
+    rdfs:label "networkInterfaceDescription" ;
+    rdfs:comment "A human-readable/editable text that describes the network interface. The information included in the description depends on the capabilities of the Resource's operating system."@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceType
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceType" ;
+    rdfs:comment "The type of the Network Interface."@en ;
+	skos:example "physical, subinterface, virtual"@en ;
+    rdfs:domain noria:NetworkInterface;
+	# TODO: define a controlled vocabulary for networkInterfaceType and link it with a restricted rdfs:range
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceOf
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceOf" ;
+    rdfs:comment "The Resource the Network Interface is part-of."@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:subPropertyOf seas:connectionPointOf ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceConnects
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceConnects" ;
+    rdfs:comment "The Network Link the Network Interface is attached-to."@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range noria:NetworkLink ;
+    vs:term_status "stable" ;
+    rdfs:subPropertyOf seas:connectsSystemAt ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:NetworkLink domain ------------------------------------------------
+
+noria:networkLinkId
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkId" ;
+    rdfs:comment "The UID of the NetworkLink."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkTerminationResource
+    a owl:ObjectProperty ;
+    rdfs:label "networkLinkTerminationResource" ;
+    rdfs:comment "Link termination Resource, the Resource at some end fo the Network Link."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:subPropertyOf seas:connectsSystem ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkInstallationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkInstallationDate" ;
+    rdfs:comment "The installation date of the NetworkLink."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkType
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkType" ;
+    rdfs:comment "A description of the type of the Network Link."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:string ;
+	# TODO: further define the <kos/NetworkLink/type> SKOS scheme for networkLinkType and link it with a restricted rdfs:range, this entails changing this property type to owl:ObjectProperty
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# === EOF =====================================================================

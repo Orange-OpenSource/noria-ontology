@@ -1,0 +1,193 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+@prefix voc: <https://w3id.org/noria/kos/> .
+@prefix voc-cr-objects: <https://w3id.org/noria/kos/ChangeRequest/> .
+@prefix voc-cr-status-objects: <https://w3id.org/noria/kos/ChangeRequest/status/> .
+@prefix voc-cr-sla-objects: <https://w3id.org/noria/kos/ChangeRequest/sla-level/> .
+@prefix voc-cr-pl-objects: <https://w3id.org/noria/kos/ChangeRequest/pl/> .
+
+# -----------------------------------------------------------------------------
+
+voc:ChangeRequest
+    a skos:ConceptScheme;
+    skos:definition "A Change Request"@en;
+    skos:notation "change-request" ;
+	# --- Vocab metadata ---
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+    dcterms:title "The NORIA Change Request vocabulary" ;
+    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+.
+
+# =============================================================================
+
+voc-cr-objects:status
+    a skos:ConceptScheme;
+    skos:definition "It identifies the status of any Change Request ticket within the Change Request workflow"@en;
+    skos:notation "status" ;
+    skos:inScheme voc:ChangeRequest ;
+.
+
+voc-cr-status-objects:draft
+    a skos:Concept;
+    skos:definition "A Change Request have been initialized by Requester and is currently under definition."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "draft";
+    skos:prefLabel "Draft"@en;
+    skos:prefLabel "Brouillon"@fr ;
+.
+
+voc-cr-status-objects:scheduling
+    a skos:Concept;
+    skos:definition "Planned operations have been defined and distributed to all technical and reception groups. Typical next status : ['Validated']."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "scheduling";
+    skos:prefLabel "Scheduling"@en;
+    skos:altLabel "Prepared"@en;
+    skos:prefLabel "Plannifié"@fr ;
+.
+
+voc-cr-status-objects:validated
+    a skos:Concept;
+    skos:definition "The Validating Party has received and approved operations characteristics with respect to technical or customer constraints (e.g. date and time of finalization). Typical next status : ['In Progress', 'Cancelled']."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "validated";
+    skos:prefLabel "Validated"@en;
+    skos:prefLabel "Validé"@fr ;
+.
+
+voc-cr-status-objects:cancelled
+    a skos:Concept;
+    skos:definition "Planned operations are cancelled and cancellation documents have been sent to Related Party (e.g. customers)."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "cancelled";
+    skos:prefLabel "Cancelled"@en;
+    skos:prefLabel "Annulé"@fr ;
+.
+
+voc-cr-status-objects:current
+    a skos:Concept;
+    skos:definition "At start date of the operation. Typical next status : ['Executed']."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "current";
+    skos:prefLabel "In progress"@en;
+    skos:prefLabel "En cours"@fr ;
+.
+
+voc-cr-status-objects:executed
+    a skos:Concept;
+    skos:definition "Planned operations are done. Modifications are possible but will be tracked. Typical next status : ['Final']."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "executed";
+    skos:prefLabel "Executed"@en;
+    skos:prefLabel "Réalisé"@fr ;
+.
+
+voc-cr-status-objects:final
+    a skos:Concept;
+    skos:definition "Planned operations are done and no more modifications will be carried out. Typical next status : ['Closed']."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "final";
+    skos:prefLabel "Final"@en;
+    skos:prefLabel "Terminé"@fr ;
+.
+
+voc-cr-status-objects:closed
+    a skos:Concept;
+    skos:definition "Assessment done, the Change Request is closed. Typical next status : []."@en;
+    skos:inScheme voc-cr-objects:status ;
+    skos:notation "closed";
+    skos:prefLabel "Closed"@en;
+    skos:prefLabel "Clos"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<https://w3id.org/noria/kos/ChangeRequest/type>
+    a skos:ConceptScheme;
+    skos:definition "It identifies the type of risk involved by any Change Request ticket"@en;
+    skos:notation "status" ;
+    skos:inScheme voc:ChangeRequest ;
+.
+
+<https://w3id.org/noria/kos/ChangeRequest/type/owr-normal>
+    a skos:Concept;
+    skos:definition "Operation With Risk (OWR) - Normal mitigation effort"@en ;
+    skos:definition "Operation A Risque (OAR) - Effort d'atténuation normal"@fr ;
+    skos:inScheme voc-cr-objects:type ;
+    skos:notation "owr-standard";
+    skos:prefLabel "OWR Standard"@en;
+    skos:prefLabel "OAR Standard"@fr ;
+    skos:altLabel "OWR_Normal"@en ;
+    skos:altLabel "OAR_Normal"@fr ;
+    skos:altLabel "OWR_Standard"@en ;
+    skos:altLabel "Task Order"@en ;
+.
+
+<https://w3id.org/noria/kos/ChangeRequest/type/owr-major>
+    a skos:Concept;
+    skos:definition "Operation With Risk (OWR) - Major mitigation effort"@en ;
+    skos:definition "Operation A Risque (OAR) - Effort d'atténuation élevé"@fr ;
+    skos:inScheme voc-cr-objects:type ;
+    skos:notation "owr-standard";
+    skos:prefLabel "OWR Standard"@en ;
+    skos:prefLabel "OAR Standard"@fr ;
+    skos:altLabel "OWR_Major"@en ;
+    skos:altLabel "OAR_Majeur"@fr ;
+.
+
+<https://w3id.org/noria/kos/ChangeRequest/type/pw-normal>
+    a skos:Concept;
+    skos:definition "Planned Work (PW) - Normal mitigation effort"@en ;
+    skos:definition "Travaux Programmés (TP) - Effort d'atténuation normal"@fr ;
+    skos:inScheme voc-cr-objects:type ;
+    skos:notation "pw-normal";
+    skos:prefLabel "PW Normal"@en;
+    skos:prefLabel "TP Normal"@fr ;
+    skos:altLabel "PW_Normal"@en ;
+.
+
+
+<https://w3id.org/noria/kos/ChangeRequest/type/pw-major>
+    a skos:Concept;
+    skos:definition "Planned Work (PW) - Major mitigation effort"@en ;
+    skos:definition "Travaux Programmés (TP) - Effort d'atténuation élevé"@fr ;
+    skos:inScheme voc-cr-objects:type ;
+    skos:notation "pw-major";
+    skos:prefLabel "PW_Major"@en;
+    skos:prefLabel "TP_Majeur"@fr ;
+    skos:altLabel "PW Normal"@en ;
+.
+
+<https://w3id.org/noria/kos/ChangeRequest/type/pw-automated>
+    a skos:Concept;
+    skos:definition "Automated Planned Work (PW)"@en ;
+    skos:definition "Travaux Programmés (TP) automatisé"@fr ;
+    skos:inScheme voc-cr-objects:type ;
+    skos:notation "pw-automated";
+    skos:prefLabel "Change Auto"@en;
+    skos:prefLabel "Change Auto"@fr ;
+.

@@ -9,6 +9,9 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# === PREFIXES ================================================================
+
+# --- Basic ---
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -19,131 +22,140 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix voc: <https://w3id.org/noria/kos/> .
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
 
-voc:oss
+# =============================================================================
+
+<oss>
     a skos:ConceptScheme;
     skos:definition "Operation Support System (OSS).";
-    skos:notation "oss" ;
+	skos:notation "oss" ;
 	# --- Vocab metadata ---
-	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
 	dcterms:publisher <https://www.orange.com/> ;
-	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
-	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
-	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
 	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
-    dcterms:title "The NORIA Operation Support System (OSS) vocabulary." ;
-    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+	dcterms:title "The NORIA Operation Support System (OSS) vocabulary." ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+	dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Release for NORIA-O v0.2
+"""@en ;
 .
 
 # =============================================================================
 
-<https://w3id.org/noria/kos/oss/process>
+<oss/process>
     a skos:ConceptScheme;
-    skos:definition "Recommended process in relation to OSSs (Operation Support Systems).";
-    skos:inScheme voc:oss ;
+    skos:definition "Process recommended by the OSS (Operation Support System) Group Solution.";
+    skos:inScheme <oss> ;
     skos:notation "process" .
 
-<https://w3id.org/noria/kos/oss/process/change-management>
+<oss/process/change-management>
     a skos:Concept;
     skos:definition "Change management.";
-    skos:inScheme <https://w3id.org/noria/kos/oss/process>;
+    skos:inScheme <oss/process>;
     skos:notation "change-management";
     skos:prefLabel "Change Management Process"@en .
 
-<https://w3id.org/noria/kos/oss/process/incident-management>
+<oss/process/incident-management>
     a skos:Concept;
-    skos:definition """Incident management: an incident is a failure or a deterioration of service detected and declared by the customer or by internal operator.
-    The associated process is to find and solve the causes of the incident and to restore the service.
-    The incident is an urgent situation calling for a very short term action and resolution"""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/process>;
-    skos:related <https://w3id.org/noria/kos/oss/process/problem-management>;
+	skos:definition """Incident management: an incident is a failure or a deterioration of service detected and declared by the customer or by internal operator.
+The associated process is to find and solve the causes of the incident and to restore the service.
+The incident is an urgent situation calling for a very short term action and resolution"""@en;
+    skos:inScheme <oss/process>;
+    skos:related <oss/process/problem-management>;
     skos:notation "incident-management";
     skos:prefLabel "Incident Management Process"@en .
 
-<https://w3id.org/noria/kos/oss/process/problem-management>
+<oss/process/problem-management>
     a skos:Concept;
-    skos:definition """Problem management: a problem is a risky situation which can cause an incident and is generally observed by internal operators.
-    The associated process is to analyse the causes of the problem and to correct them in order to avoid the incident from occurring.
-    The problem is a middle / long term situation calling for deep analysis and reliable solution."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/process>;
-    skos:related <https://w3id.org/noria/kos/oss/process/incident-management>;
+	skos:definition """Problem management: a problem is a risky situation which can cause an incident and is generally observed by internal operators.
+The associated process is to analyse the causes of the problem and to correct them in order to avoid the incident from occurring.
+The problem is a middle / long term situation calling for deep analysis and reliable solution."""@en;
+    skos:inScheme <oss/process>;
+    skos:related <oss/process/incident-management>;
     skos:notation "problem-management";
     skos:prefLabel "Problem Management Process"@en .
 
-<https://w3id.org/noria/kos/oss/process/anomaly-report>
+<oss/process/anomaly-report>
     a skos:Concept;
     skos:definition "Anomaly report.";
-    skos:inScheme <https://w3id.org/noria/kos/oss/process>;
+    skos:inScheme <oss/process>;
     skos:notation "anomaly-report";
     skos:prefLabel "Anomaly Report"@en .
 
 # -----------------------------------------------------------------------------
 
-<https://w3id.org/noria/kos/oss/gnoc-roles>
+<oss/gnoc-roles>
     a skos:ConceptScheme;
     skos:definition "Users roles involved in GNOC (Global Network Operation Center) processes (i.e. incident management and change management).";
-    skos:inScheme voc:oss ;
+    skos:inScheme <oss> ;
     skos:notation "gnoc-roles" .
 
-<https://w3id.org/noria/kos/oss/gnoc-roles/icr>
+<oss/gnoc-roles/icr>
     a skos:Concept;
-    skos:definition """Responsible for coordination of failure removal, i.e. to restore service in the shortest possible time and to minimize failure impact.
-    All high priority incidents (e.g. Priority 1 and 2) are managed by the ICR."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/gnoc-roles>;
+	skos:definition """Responsible for coordination of failure removal, i.e. to restore service in the shortest possible time and to minimize failure impact.
+All high priority incidents (e.g. Priority 1 and 2) are managed by the ICR."""@en;
+    skos:inScheme <oss/gnoc-roles>;
     skos:notation "icr";
     skos:prefLabel "Incident Coordinator"@en .
 
-<https://w3id.org/noria/kos/oss/gnoc-roles/ccr>
+<oss/gnoc-roles/ccr>
     a skos:Concept;
-    skos:definition """Responsible for coordination of all changes realized by the GNOC.
-    Identifies/prevents risks in changes (e.g. situations when changes each with no impact, could generate incidents if performed simultaneously).
-    All changes with high impact/risk are managed by the CCR."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/gnoc-roles>;
+	skos:definition """Responsible for coordination of all changes realized by the GNOC.
+Identifies/prevents risks in changes (e.g. situations when changes each with no impact, could generate incidents if performed simultaneously).
+All changes with high impact/risk are managed by the CCR."""@en;
+    skos:inScheme <oss/gnoc-roles>;
     skos:notation "ccr";
     skos:prefLabel "Change Coordinator"@en .
 
-<https://w3id.org/noria/kos/oss/gnoc-roles/tir>
+<oss/gnoc-roles/tir>
     a skos:Concept;
     skos:definition "Entity or person identifying the incident and opening the trouble ticket.";
-    skos:inScheme <https://w3id.org/noria/kos/oss/gnoc-roles>;
+    skos:inScheme <oss/gnoc-roles>;
     skos:notation "tir";
     skos:prefLabel "Ticket Initiator"@en .
 
-<https://w3id.org/noria/kos/oss/gnoc-roles/mcc>
+<oss/gnoc-roles/mcc>
     a skos:Concept;
     skos:definition "Entity or person to be contacted for feedback or escalation.";
-    skos:inScheme <https://w3id.org/noria/kos/oss/gnoc-roles>;
+    skos:inScheme <oss/gnoc-roles>;
     skos:notation "mcc";
     skos:prefLabel "Main Customer Contact"@en .
 
 # -----------------------------------------------------------------------------
 
-<https://w3id.org/noria/kos/oss/technical-objects>
+<oss/technical-objects>
     a skos:ConceptScheme;
-    skos:definition """High-level objects, managed by OSS components, which represent the elements of Orange and the customers’ networks and services."""@en;
-    skos:inScheme voc:oss ;
+	skos:definition """High-level objects, managed by OSS components, which represent the elements of Orange and the customers’ networks and services."""@en;
+    skos:inScheme <oss> ;
     skos:notation "technical-objects" .
 
-<https://w3id.org/noria/kos/oss/technical-objects/product>
+<oss/technical-objects/product>
     a skos:Concept;
-    skos:definition """A Product is a service provided and charged to the customer and it relies on one or several Resources.
-    A Product is associated to a customer and it can carry warranties and SLAs.
-    These two points make the difference between Resource and Product."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/technical-objects>;
+	skos:definition """A Product is a service provided and charged to the customer and it relies on one or several Resources.
+A Product is associated to a customer and it can carry warranties and SLAs.
+These two points make the difference between Resource and Product."""@en;
+    skos:inScheme <oss/technical-objects>;
     skos:notation "product";
     skos:prefLabel "Product"@en .
 
-<https://w3id.org/noria/kos/oss/technical-objects/resource>
+<oss/technical-objects/resource>
     a skos:Concept;
-    skos:definition """The Resources are shared elements of the network on which the Customers' Products and Services are implemented."""@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/technical-objects>;
+	skos:definition """The Resources are shared elements of the network on which the Customers' Products and Services are implemented."""@en;
+    skos:inScheme <oss/technical-objects>;
     skos:notation "resource";
     skos:prefLabel "Resource"@en .
 
-<https://w3id.org/noria/kos/oss/technical-objects/non-managed-product>
+<oss/technical-objects/non-managed-product>
     a skos:Concept;
-    skos:definition "Object necessary to describe a technical component to carry operations and where there is no record of the technical element."@en;
-    skos:inScheme <https://w3id.org/noria/kos/oss/technical-objects>;
+	skos:definition "Object necessary to describe a technical component to carry operations and where there is no record of the technical element."@en;
+    skos:inScheme <oss/technical-objects>;
     skos:notation "non-managed-product";
     skos:prefLabel "Non-managed Product"@en .
+
+# === EOF =====================================================================

@@ -9,6 +9,9 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# === PREFIXES ================================================================
+
+# --- Basic ---
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -19,49 +22,53 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
 @prefix noria: <https://w3id.org/noria/ontology/> .
 
-@prefix voc: <https://w3id.org/noria/kos/> .
-@base <https://w3id.org/noria/kos/> .
+# =============================================================================
 
 <Notification>
   a skos:ConceptScheme;
   skos:definition "A notification, related to some Facility and with a Severity value.";
   skos:notation "notification" ;
 	# --- Vocab metadata ---
-  dcterms:issued "2022-05-10"^^xsd:date ;
+  dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+  dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+  dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
   dcterms:publisher <https://www.orange.com/> ;
-  dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
-  dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
-  dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
   dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
   dcterms:title "The NORIA Notification vocabulary" ;
-  dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+  dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+  dcterms:issued "2022-04-12"^^xsd:date ;
+  dcterms:modified "2022-12-15"^^xsd:date ;
+  skos:changeNote """Changes in 2022-12-15:
+  - Added <Notification/Severity/PerceivedSeverity> with SysLog alignment
+  - Release for NORIA-O v0.2
+"""@en ;
 .
 
 # =============================================================================
-
-# -----------------------------------------------------------------------------
 
 <Notification/EventType>
   a skos:ConceptScheme ;
   skos:notation "eventType" ;
   skos:inScheme <Notification> ;
-  skos:definition "The family of an event."@en ;
+  skos:definition "The Type of the Event."@en ;
 .
 
 <Notification/EventTypeGroup>
   a skos:ConceptScheme ;
   skos:notation "eventTypeGroup" ;
   skos:inScheme <Notification> ;
-  skos:definition "Group of EventType reflecting some specific alarming situation."@en ;
+  skos:definition "Group of EvenType reflecting some specific alarming situation."@en ;
 .
 
 <Notification/EventTypeGroup/GeneralOperationAlarm>
   a skos:ConceptScheme ;
   skos:notation "eventTypeGroup-GeneralOperationAlarm" ;
   skos:inScheme <Notification> ;
-  skos:definition "Group of EventType reflecting alarming situations about General Operation context issues."@en ;
+  skos:definition "Group of EvenType reflecting alarming situations about General Operation context issues."@en ;
   skos:example "The set of communicationAlarm, qualityofServiceAlarm, processingErrorAlarm, equipmentAlarm and environmentalAlarm event type."@en ;
 .
 
@@ -251,93 +258,186 @@
   rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-timeDomainViolationBehaviour> ;
 .
 
+<Notification/EventType/inferredAlert>
+  a skos:Concept ;
+  skos:inScheme <Notification/EventType> ;
+  skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+  skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+  skos:notation "inferred-alert" ;
+  skos:definition "This notification is used to report that a risk or error condition has been deduced by an external Anomaly Detection (AD) component."@en ;
+  skos:example "atRisk(Resource, '50% k-out-of-n threshold crossed')" ;
+  skos:prefLabel "inferredAlert"@en ;
+.
+
 # -----------------------------------------------------------------------------
 
-<Notification/PerceivedSeverity>
+<Notification/Severity>
   a skos:ConceptScheme ;
   skos:inScheme <Notification> ;
+  skos:prefLabel "Severity"@en ;
+  skos:prefLabel "Gravité"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity/PerceivedSeverity>
+  a skos:ConceptScheme ;
+  skos:inScheme <Notification/Severity> ;
+  skos:notation "perceived-severity" ;
+  skos:definition "Provides an indication of how it is perceived that the capability of the managed object has been affected."@en ;
+  skos:definition "Donne des indications sur la manière dont la dégradation des fonctions de l'objet géré est perçue."@fr ;
+  rdfs:comment """There is a direct correlation between the perceived severity, log levels and syslog level severities.
+However there is no standard mapping between all proposed severity schemes.
+Therefore we take X.733 for baseline with respect to its anteriority and map other standards through `skos:altLabel` statements.""" ;
+  skos:prefLabel "Perceived severity"@en ;
+  skos:prefLabel "Gravité perçue"@fr ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
   rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.PerceivedSeverity> ;
 .
 
-<Notification/PerceivedSeverity/critical>
+<Notification/Severity/PerceivedSeverity/cleared>
   a skos:Concept ;
-  skos:inScheme <Notification/PerceivedSeverity> ;
-  skos:notation "critical" ;
-  skos:prefLabel "critical"@en .
-
-<Notification/PerceivedSeverity/major>
-  a skos:Concept ;
-  skos:inScheme <Notification/PerceivedSeverity> ;
-  skos:notation "major" ;
-  skos:prefLabel "major"@en .
-
-<Notification/PerceivedSeverity/minor>
-  a skos:Concept ;
-  skos:inScheme <Notification/PerceivedSeverity> ;
-  skos:notation "minor" ;
-  skos:prefLabel "minor"@en .
-
-<Notification/PerceivedSeverity/warning>
-  a skos:Concept ;
-  skos:inScheme <Notification/PerceivedSeverity> ;
-  skos:notation "warning" ;
-  skos:prefLabel "warning"@en .
-
-<Notification/PerceivedSeverity/cleared>
-  a skos:Concept ;
-  skos:inScheme <Notification/PerceivedSeverity> ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
   skos:notation "cleared" ;
-  skos:prefLabel "cleared"@en .
+  skos:definition "The Cleared severity level indicates the clearing of one or more previously reported alarms. This alarm clears all alarms for this managed object that have the same Alarm type, Probable cause and Specific problems (if given)."@en ;
+  skos:prefLabel "cleared"@en ;
+  skos:altLabel "Ok" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/critical>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "critical" ;
+  skos:definition "The Critical severity level indicates that a service affecting condition has occurred and an immediate corrective action is required. Such a severity can be reported, for example, when a managed object becomes totally out of service and its capability must be restored."@en ;
+  skos:prefLabel "critical"@en ;
+  skos:altLabel "Emergency"@en ;
+  skos:altLabel "emerg"@en ;
+  skos:altLabel "panic"@en ;
+  skos:altLabel "0" ;
+  skos:altLabel "Alert"@en ;
+  skos:altLabel "1" ;
+  skos:altLabel "Critical"@en ;
+  skos:altLabel "crit"@en ;
+  skos:altLabel "2" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/major>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "major" ;
+  skos:definition "The Major severity level indicates that a service affecting condition has developed and an urgent corrective action is required. Such a severity can be reported, for example, when there is a severe degradation in the capability of the managed object and its full capability must be restored."@en ;
+  skos:prefLabel "major"@en ;
+  skos:altLabel "Error"@en ;
+  skos:altLabel "3" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/minor>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "minor" ;
+  skos:definition "The Minor severity level indicates the existence of a non-service affecting fault condition and that corrective action should be taken in order to prevent a more serious (for example, service affecting) fault. Such a severity can be reported, for example, when the detected alarm condition is not currently degrading the capacity of the managed object."@en ;
+  skos:prefLabel "minor"@en ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/warning>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "warning" ;
+  skos:definition "The Warning severity level indicates the detection of a potential or impending service affecting fault, before any significant effects have been felt. Action should be taken to further diagnose (if necessary) and correct the problem in order to prevent it from becoming a more serious service affecting fault."@en ;
+  skos:prefLabel "warning"@en ;
+  skos:altLabel "Warning"@en ;
+  skos:altLabel "warn"@en ;
+  skos:altLabel "4" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/indeterminate>
+  a skos:Concept ;
+  skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+  skos:notation "indeterminate" ;
+  skos:definition "The Indeterminate severity level indicates that the severity level cannot be determined."@en ;
+  skos:prefLabel "indeterminate"@en ;
+  skos:altLabel "Unknown"@en ;
+  skos:altLabel "Notice"@en ;
+  skos:altLabel "5" ;
+  skos:altLabel "Informational"@en ;
+  skos:altLabel "info"@en ;
+  skos:altLabel "6" ;
+  skos:altLabel "Debug"@en ;
+  skos:altLabel "7" ;
+  rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+  rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
 
 # -----------------------------------------------------------------------------
 
-<Notification/SecurityAlarmSeverity>
+<Notification/Severity/SecurityAlarmSeverity>
   a skos:ConceptScheme ;
-  skos:inScheme <Notification> ;
+  skos:notation "security-alarm-severity" ;
+  skos:inScheme <Notification/Severity> ;
+  skos:related <Notification/Severity/PerceivedSeverity> ;
   rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmSeverity> ;
 .
 
-<Notification/SecurityAlarmSeverity/indeterminate>
+<Notification/Severity/SecurityAlarmSeverity/indeterminate>
   a skos:Concept ;
-  skos:inScheme <Notification/SecurityAlarmSeverity> ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
   skos:notation "indeterminate" ;
-  skos:prefLabel "indeterminate"@en .
+  skos:prefLabel "indeterminate"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/indeterminate> ;
+.
 
-<Notification/SecurityAlarmSeverity/critical>
+<Notification/Severity/SecurityAlarmSeverity/critical>
   a skos:Concept ;
-  skos:inScheme <Notification/SecurityAlarmSeverity> ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
   skos:notation "critical" ;
-  skos:prefLabel "critical "@en .
+  skos:prefLabel "critical "@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/critical> ;
+.
 
-<Notification/SecurityAlarmSeverity/major>
+<Notification/Severity/SecurityAlarmSeverity/major>
   a skos:Concept ;
-  skos:inScheme <Notification/SecurityAlarmSeverity> ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
   skos:notation "major" ;
-  skos:prefLabel "major"@en .
+  skos:prefLabel "major"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/major> ;
+.
 
-<Notification/SecurityAlarmSeverity/minor>
+<Notification/Severity/SecurityAlarmSeverity/minor>
   a skos:Concept ;
-  skos:inScheme <Notification/SecurityAlarmSeverity> ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
   skos:notation "minor" ;
-  skos:prefLabel "minor"@en .
+  skos:prefLabel "minor"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/minor> ;
+.
 
-<Notification/SecurityAlarmSeverity/warning>
+<Notification/Severity/SecurityAlarmSeverity/warning>
   a skos:Concept ;
-  skos:inScheme <Notification/SecurityAlarmSeverity> ;
+  skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
   skos:notation "warning" ;
-  skos:prefLabel "warning"@en .
+  skos:prefLabel "warning"@en ;
+  skos:exactMatch <Notification/Severity/PerceivedSeverity/warning> ;
+.
 
 # -----------------------------------------------------------------------------
 
 <Notification/ProbableCause>
   a skos:ConceptScheme ;
   skos:inScheme <Notification> ;
-  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.ProbableCause> ;
+  rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-probableCause>,
+                   <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.ProbableCause> ;
 .
 
 <Notification/ProbableCause/adapterError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "adapterError" ;
   skos:prefLabel "adapterError"@en ;
@@ -346,7 +446,7 @@
 
 <Notification/ProbableCause/applicationSubsystemFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "applicationSubsystemFailure" ;
   skos:prefLabel "applicationSubsystemFailure"@en ;
@@ -355,7 +455,7 @@
 
 <Notification/ProbableCause/bandwidthReduced>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "bandwidthReduced" ;
   skos:prefLabel "bandwidthReduced"@en ;
@@ -364,7 +464,7 @@
 
 <Notification/ProbableCause/callEstablishmentError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "callEstablishmentError" ;
   skos:prefLabel "callEstablishmentError"@en ;
@@ -373,7 +473,7 @@
 
 <Notification/ProbableCause/communicationsProtocolError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "communicationsProtocolError" ;
   skos:prefLabel "communicationsProtocolError"@en ;
@@ -382,7 +482,7 @@
 
 <Notification/ProbableCause/communicationsSubsystemFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "communicationsSubsystemFailure" ;
   skos:prefLabel "communicationsSubsystemFailure"@en ;
@@ -391,7 +491,7 @@
 
 <Notification/ProbableCause/configurationOrCustomizationError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "configurationOrCustomizationError" ;
   skos:prefLabel "configurationOrCustomizationError"@en ;
@@ -400,7 +500,7 @@
 
 <Notification/ProbableCause/congestion>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "congestion" ;
   skos:prefLabel "congestion"@en ;
@@ -409,7 +509,7 @@
 
 <Notification/ProbableCause/corruptData>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "corruptData" ;
   skos:prefLabel "corruptData"@en ;
@@ -418,7 +518,7 @@
 
 <Notification/ProbableCause/cpuCyclesLimitExceeded>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "cpuCyclesLimitExceeded" ;
   skos:prefLabel "cpuCyclesLimitExceeded"@en ;
@@ -427,7 +527,7 @@
 
 <Notification/ProbableCause/dataSetOrModemError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "dataSetOrModemError" ;
   skos:prefLabel "dataSetOrModemError"@en ;
@@ -436,7 +536,7 @@
 
 <Notification/ProbableCause/degradedSignal>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "degradedSignal" ;
   skos:prefLabel "degradedSignal"@en ;
@@ -445,7 +545,7 @@
 
 <Notification/ProbableCause/dTE-DCEInterfaceError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "dTE-DCEInterfaceError" ;
   skos:prefLabel "dTE-DCEInterfaceError"@en ;
@@ -454,7 +554,7 @@
 
 <Notification/ProbableCause/enclosureDoorOpen>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "enclosureDoorOpen" ;
   skos:prefLabel "enclosureDoorOpen"@en ;
@@ -463,7 +563,7 @@
 
 <Notification/ProbableCause/equipmentMalfunction>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "equipmentMalfunction" ;
   skos:prefLabel "equipmentMalfunction"@en ;
@@ -472,7 +572,7 @@
 
 <Notification/ProbableCause/excessiveVibration>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "excessiveVibration" ;
   skos:prefLabel "excessiveVibration"@en ;
@@ -481,7 +581,7 @@
 
 <Notification/ProbableCause/fileError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "fileError" ;
   skos:prefLabel "fileError"@en ;
@@ -490,7 +590,7 @@
 
 <Notification/ProbableCause/fireDetected>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "fireDetected" ;
   skos:prefLabel "fireDetected"@en ;
@@ -499,7 +599,7 @@
 
 <Notification/ProbableCause/floodDetected>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "floodDetected" ;
   skos:prefLabel "floodDetected"@en ;
@@ -508,7 +608,7 @@
 
 <Notification/ProbableCause/framingError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "framingError" ;
   skos:prefLabel "framingError"@en ;
@@ -517,7 +617,7 @@
 
 <Notification/ProbableCause/heatingOrVentilationOrCoolingSystemProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "heatingOrVentilationOrCoolingSystemProblem" ;
   skos:prefLabel "heatingOrVentilationOrCoolingSystemProblem"@en ;
@@ -526,7 +626,7 @@
 
 <Notification/ProbableCause/humidityUnacceptable>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "humidityUnacceptable" ;
   skos:prefLabel "humidityUnacceptable"@en ;
@@ -535,7 +635,7 @@
 
 <Notification/ProbableCause/inputOutputDeviceError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "inputOutputDeviceError" ;
   skos:prefLabel "inputOutputDeviceError"@en ;
@@ -544,7 +644,7 @@
 
 <Notification/ProbableCause/inputDeviceError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "inputDeviceError" ;
   skos:prefLabel "inputDeviceError"@en ;
@@ -553,7 +653,7 @@
 
 <Notification/ProbableCause/lANError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "lANError" ;
   skos:prefLabel "lANError"@en ;
@@ -562,7 +662,7 @@
 
 <Notification/ProbableCause/leakDetected>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "leakDetected" ;
   skos:prefLabel "leakDetected"@en ;
@@ -571,7 +671,7 @@
 
 <Notification/ProbableCause/localNodeTransmissionError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "localNodeTransmissionError" ;
   skos:prefLabel "localNodeTransmissionError"@en ;
@@ -580,7 +680,7 @@
 
 <Notification/ProbableCause/lossOfFrame>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "lossOfFrame" ;
   skos:prefLabel "lossOfFrame"@en ;
@@ -589,7 +689,7 @@
 
 <Notification/ProbableCause/lossOfSignal>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "lossOfSignal" ;
   skos:prefLabel "lossOfSignal"@en ;
@@ -598,7 +698,7 @@
 
 <Notification/ProbableCause/materialSupplyExhausted>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "materialSupplyExhausted" ;
   skos:prefLabel "materialSupplyExhausted"@en ;
@@ -607,7 +707,7 @@
 
 <Notification/ProbableCause/multiplexerProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "multiplexerProblem" ;
   skos:prefLabel "multiplexerProblem"@en ;
@@ -616,7 +716,7 @@
 
 <Notification/ProbableCause/outOfMemory>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "outOfMemory" ;
   skos:prefLabel "outOfMemory"@en ;
@@ -625,7 +725,7 @@
 
 <Notification/ProbableCause/ouputDeviceError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "ouputDeviceError" ;
   skos:prefLabel "ouputDeviceError"@en ;
@@ -634,7 +734,7 @@
 
 <Notification/ProbableCause/performanceDegraded>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "performanceDegraded" ;
   skos:prefLabel "performanceDegraded"@en ;
@@ -643,7 +743,7 @@
 
 <Notification/ProbableCause/powerProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "powerProblem" ;
   skos:prefLabel "powerProblem"@en ;
@@ -652,7 +752,7 @@
 
 <Notification/ProbableCause/pressureUnacceptable>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "pressureUnacceptable" ;
   skos:prefLabel "pressureUnacceptable"@en ;
@@ -661,7 +761,7 @@
 
 <Notification/ProbableCause/processorProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "processorProblem" ;
   skos:prefLabel "processorProblem"@en ;
@@ -670,7 +770,7 @@
 
 <Notification/ProbableCause/pumpFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "pumpFailure" ;
   skos:prefLabel "pumpFailure"@en ;
@@ -679,7 +779,7 @@
 
 <Notification/ProbableCause/queueSizeExceeded>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "queueSizeExceeded" ;
   skos:prefLabel "queueSizeExceeded"@en ;
@@ -688,7 +788,7 @@
 
 <Notification/ProbableCause/receiveFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "receiveFailure" ;
   skos:prefLabel "receiveFailure"@en ;
@@ -697,7 +797,7 @@
 
 <Notification/ProbableCause/receiverFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "receiverFailure" ;
   skos:prefLabel "receiverFailure"@en ;
@@ -706,7 +806,7 @@
 
 <Notification/ProbableCause/remoteNodeTransmissionError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "remoteNodeTransmissionError" ;
   skos:prefLabel "remoteNodeTransmissionError"@en ;
@@ -715,7 +815,7 @@
 
 <Notification/ProbableCause/resourceAtOrNearingCapacity>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "resourceAtOrNearingCapacity" ;
   skos:prefLabel "resourceAtOrNearingCapacity"@en ;
@@ -724,7 +824,7 @@
 
 <Notification/ProbableCause/responseTimeExcessive>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "responseTimeExcessive" ;
   skos:prefLabel "responseTimeExcessive"@en ;
@@ -733,7 +833,7 @@
 
 <Notification/ProbableCause/retransmissionRateExcessive>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "retransmissionRateExcessive" ;
   skos:prefLabel "retransmissionRateExcessive"@en ;
@@ -742,7 +842,7 @@
 
 <Notification/ProbableCause/softwareError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "softwareError" ;
   skos:prefLabel "softwareError"@en ;
@@ -751,7 +851,7 @@
 
 <Notification/ProbableCause/softwareProgramAbnormallyTerminated>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "softwareProgramAbnormallyTerminated" ;
   skos:prefLabel "softwareProgramAbnormallyTerminated"@en ;
@@ -760,7 +860,7 @@
 
 <Notification/ProbableCause/softwareProgramError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "softwareProgramError" ;
   skos:prefLabel "softwareProgramError"@en ;
@@ -769,7 +869,7 @@
 
 <Notification/ProbableCause/storageCapacityProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "storageCapacityProblem" ;
   skos:prefLabel "storageCapacityProblem"@en ;
@@ -778,7 +878,7 @@
 
 <Notification/ProbableCause/temperatureUnacceptable>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "temperatureUnacceptable" ;
   skos:prefLabel "temperatureUnacceptable"@en ;
@@ -787,7 +887,7 @@
 
 <Notification/ProbableCause/thresholdCrossed>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "thresholdCrossed" ;
   skos:prefLabel "thresholdCrossed"@en ;
@@ -796,7 +896,7 @@
 
 <Notification/ProbableCause/timingProblem>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "timingProblem" ;
   skos:prefLabel "adapterError"@en ;
@@ -805,7 +905,7 @@
 
 <Notification/ProbableCause/toxicLeakDetected>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "toxicLeakDetected" ;
   skos:prefLabel "toxicLeakDetected"@en ;
@@ -814,7 +914,7 @@
 
 <Notification/ProbableCause/transmitFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "transmitFailure" ;
   skos:prefLabel "adapterError"@en ;
@@ -823,7 +923,7 @@
 
 <Notification/ProbableCause/transmitterFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "transmitterFailure" ;
   skos:prefLabel "transmitterFailure"@en ;
@@ -832,7 +932,7 @@
 
 <Notification/ProbableCause/underlyingResourceUnavailable>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "underlyingResourceUnavailable" ;
   skos:prefLabel "adapterError"@en ;
@@ -841,7 +941,7 @@
 
 <Notification/ProbableCause/versionMismatch>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/ProbableCause> ;
   skos:notation "versionMismatch" ;
   skos:prefLabel "adapterError"@en ;
@@ -852,12 +952,13 @@
 
 <Notification/SecurityAlarmCause>
 	a skos:ConceptScheme ;
-	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmCause> ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause>,
+                     <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmCause> ;
                             .
 
 <Notification/SecurityAlarmCause/authenticationFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "authenticationFailure" ;
   skos:prefLabel "authenticationFailure"@en ;
@@ -866,7 +967,7 @@
 
 <Notification/SecurityAlarmCause/breachOfConfidentiality>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "breachOfConfidentiality" ;
   skos:prefLabel "breachOfConfidentiality"@en ;
@@ -875,7 +976,7 @@
 
 <Notification/SecurityAlarmCause/cableTamper>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "cableTamper" ;
   skos:prefLabel "cableTamper"@en ;
@@ -884,7 +985,7 @@
 
 <Notification/SecurityAlarmCause/delayedInformation>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "delayedInformation" ;
   skos:prefLabel "authenticationFailure"@en ;
@@ -893,7 +994,7 @@
 
 <Notification/SecurityAlarmCause/denialOfService>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "denialOfService" ;
   skos:prefLabel "denialOfService"@en ;
@@ -902,7 +1003,7 @@
 
 <Notification/SecurityAlarmCause/duplicateInformation>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "duplicateInformation" ;
   skos:prefLabel "duplicateInformation"@en ;
@@ -911,7 +1012,7 @@
 
 <Notification/SecurityAlarmCause/informationMissing>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "informationMissing" ;
   skos:prefLabel "informationMissing"@en ;
@@ -920,7 +1021,7 @@
 
 <Notification/SecurityAlarmCause/informationModificationDetected>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "informationModificationDetected" ;
   skos:prefLabel "informationModificationDetected"@en ;
@@ -929,7 +1030,7 @@
 
 <Notification/SecurityAlarmCause/informationOutOfSequence>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "informationOutOfSequence" ;
   skos:prefLabel "informationOutOfSequence"@en ;
@@ -938,7 +1039,7 @@
 
 <Notification/SecurityAlarmCause/intrusionDetection>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "intrusionDetection" ;
   skos:prefLabel "intrusionDetection"@en ;
@@ -947,7 +1048,7 @@
 
 <Notification/SecurityAlarmCause/keyExpired>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "keyExpired" ;
   skos:prefLabel "keyExpired"@en ;
@@ -956,7 +1057,7 @@
 
 <Notification/SecurityAlarmCause/nonRepudiationFailure>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "nonRepudiationFailure" ;
   skos:prefLabel "nonRepudiationFailure"@en ;
@@ -965,7 +1066,7 @@
 
 <Notification/SecurityAlarmCause/outOfHoursActivity>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "outOfHoursActivity" ;
   skos:prefLabel "outOfHoursActivity"@en ;
@@ -974,7 +1075,7 @@
 
 <Notification/SecurityAlarmCause/outOfService>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "outOfService" ;
   skos:prefLabel "outOfService"@en ;
@@ -983,7 +1084,7 @@
 
 <Notification/SecurityAlarmCause/proceduralError>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "proceduralError" ;
   skos:prefLabel "proceduralError"@en ;
@@ -992,7 +1093,7 @@
 
 <Notification/SecurityAlarmCause/unauthorizedAccessAttempt>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "unauthorizedAccessAttempt" ;
   skos:prefLabel "unauthorizedAccessAttempt"@en ;
@@ -1001,7 +1102,7 @@
 
 <Notification/SecurityAlarmCause/unexpectedInformation>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "unexpectedInformation" ;
   skos:prefLabel "unexpectedInformation"@en ;
@@ -1010,9 +1111,11 @@
 
 <Notification/SecurityAlarmCause/unspecifiedReason>
   a skos:Concept,
-    noria:AnomalyMode ;
+    noria:AnomalyPattern ;
   skos:inScheme <Notification/SecurityAlarmCause> ;
   skos:notation "unspecifiedReason" ;
   skos:prefLabel "unspecifiedReason"@en ;
   rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
 .
+
+# === EOF =====================================================================

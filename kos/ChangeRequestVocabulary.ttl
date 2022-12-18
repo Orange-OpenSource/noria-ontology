@@ -9,6 +9,9 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# === PREFIXES ================================================================
+
+# --- Basic ---
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -19,106 +22,120 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-@prefix voc: <https://w3id.org/noria/kos/> .
-@prefix voc-cr-objects: <https://w3id.org/noria/kos/ChangeRequest/> .
-@prefix voc-cr-status-objects: <https://w3id.org/noria/kos/ChangeRequest/status/> .
-@prefix voc-cr-sla-objects: <https://w3id.org/noria/kos/ChangeRequest/sla-level/> .
-@prefix voc-cr-pl-objects: <https://w3id.org/noria/kos/ChangeRequest/pl/> .
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
 
-# -----------------------------------------------------------------------------
+# =============================================================================
 
-voc:ChangeRequest
+<ChangeRequest>
     a skos:ConceptScheme;
     skos:definition "A Change Request"@en;
     skos:notation "change-request" ;
 	# --- Vocab metadata ---
-	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
 	dcterms:publisher <https://www.orange.com/> ;
-	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
-	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
-	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
 	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
     dcterms:title "The NORIA Change Request vocabulary" ;
-    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+    dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+    dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2022-12-15"^^xsd:date ;
+	skos:changeNote """Changes in 2022-12-15:
+  - Added the <application/business-importance> scheme
+  - Release for NORIA-O v0.2
+"""@en ;
 .
 
 # =============================================================================
 
-voc-cr-objects:status
+<ChangeRequest/status>
     a skos:ConceptScheme;
-    skos:definition "It identifies the status of any Change Request ticket within the Change Request workflow"@en;
+    skos:definition "It identifies the status of any Change Request ticket within the Change Request workflow."@en;
     skos:notation "status" ;
-    skos:inScheme voc:ChangeRequest ;
+    skos:inScheme <ChangeRequest> ;
 .
 
-voc-cr-status-objects:draft
+<ChangeRequest/status/draft>
     a skos:Concept;
     skos:definition "A Change Request have been initialized by Requester and is currently under definition."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "draft";
     skos:prefLabel "Draft"@en;
     skos:prefLabel "Brouillon"@fr ;
 .
 
-voc-cr-status-objects:scheduling
+<ChangeRequest/status/scheduling>
     a skos:Concept;
-    skos:definition "Planned operations have been defined and distributed to all technical and reception groups. Typical next status : ['Validated']."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """Planned operations have been defined and distributed to all technical and reception groups.
+
+Typical next status : ['Validated']."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "scheduling";
     skos:prefLabel "Scheduling"@en;
     skos:altLabel "Prepared"@en;
     skos:prefLabel "Plannifié"@fr ;
 .
 
-voc-cr-status-objects:validated
+<ChangeRequest/status/validated>
     a skos:Concept;
-    skos:definition "The Validating Party has received and approved operations characteristics with respect to technical or customer constraints (e.g. date and time of finalization). Typical next status : ['In Progress', 'Cancelled']."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """"The Validating Party has received and approved operations characteristics with respect to technical or customer constraints (e.g. date and time of finalization).
+
+Typical next status : ['In Progress', 'Cancelled']."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "validated";
     skos:prefLabel "Validated"@en;
     skos:prefLabel "Validé"@fr ;
 .
 
-voc-cr-status-objects:cancelled
+<ChangeRequest/status/cancelled>
     a skos:Concept;
     skos:definition "Planned operations are cancelled and cancellation documents have been sent to Related Party (e.g. customers)."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "cancelled";
     skos:prefLabel "Cancelled"@en;
     skos:prefLabel "Annulé"@fr ;
 .
 
-voc-cr-status-objects:current
+<ChangeRequest/status/current>
     a skos:Concept;
-    skos:definition "At start date of the operation. Typical next status : ['Executed']."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """At start date of the operation.
+
+Typical next status : ['Executed']."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "current";
     skos:prefLabel "In progress"@en;
     skos:prefLabel "En cours"@fr ;
 .
 
-voc-cr-status-objects:executed
+<ChangeRequest/status/executed>
     a skos:Concept;
-    skos:definition "Planned operations are done. Modifications are possible but will be tracked. Typical next status : ['Final']."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """Planned operations are done. Modifications are possible but will be tracked.
+
+Typical next status : ['Final']."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "executed";
     skos:prefLabel "Executed"@en;
     skos:prefLabel "Réalisé"@fr ;
 .
 
-voc-cr-status-objects:final
+<ChangeRequest/status/final>
     a skos:Concept;
-    skos:definition "Planned operations are done and no more modifications will be carried out. Typical next status : ['Closed']."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """Planned operations are done and no more modifications will be carried out.
+
+Typical next status : ['Closed']."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "final";
     skos:prefLabel "Final"@en;
     skos:prefLabel "Terminé"@fr ;
 .
 
-voc-cr-status-objects:closed
+<ChangeRequest/status/closed>
     a skos:Concept;
-    skos:definition "Assessment done, the Change Request is closed. Typical next status : []."@en;
-    skos:inScheme voc-cr-objects:status ;
+    skos:definition """Assessment done, the Change Request is closed.
+
+Typical next status : []."""@en;
+    skos:inScheme <ChangeRequest/status> ;
     skos:notation "closed";
     skos:prefLabel "Closed"@en;
     skos:prefLabel "Clos"@fr ;
@@ -126,18 +143,18 @@ voc-cr-status-objects:closed
 
 # -----------------------------------------------------------------------------
 
-<https://w3id.org/noria/kos/ChangeRequest/type>
+<ChangeRequest/type>
     a skos:ConceptScheme;
-    skos:definition "It identifies the type of risk involved by any Change Request ticket"@en;
+    skos:definition "It identifies the type of risk involved by any Change Request ticket."@en;
     skos:notation "status" ;
-    skos:inScheme voc:ChangeRequest ;
+    skos:inScheme <ChangeRequest> ;
 .
 
-<https://w3id.org/noria/kos/ChangeRequest/type/owr-normal>
+<ChangeRequest/type/owr-normal>
     a skos:Concept;
-    skos:definition "Operation With Risk (OWR) - Normal mitigation effort"@en ;
-    skos:definition "Operation A Risque (OAR) - Effort d'atténuation normal"@fr ;
-    skos:inScheme voc-cr-objects:type ;
+    skos:definition "Operation With Risk (OWR) - Normal mitigation effort."@en ;
+    skos:definition "Operation A Risque (OAR) - Effort d'atténuation normal."@fr ;
+    skos:inScheme <ChangeRequest/type> ;
     skos:notation "owr-standard";
     skos:prefLabel "OWR Standard"@en;
     skos:prefLabel "OAR Standard"@fr ;
@@ -147,11 +164,11 @@ voc-cr-status-objects:closed
     skos:altLabel "Task Order"@en ;
 .
 
-<https://w3id.org/noria/kos/ChangeRequest/type/owr-major>
+<ChangeRequest/type/owr-major>
     a skos:Concept;
-    skos:definition "Operation With Risk (OWR) - Major mitigation effort"@en ;
-    skos:definition "Operation A Risque (OAR) - Effort d'atténuation élevé"@fr ;
-    skos:inScheme voc-cr-objects:type ;
+    skos:definition "Operation With Risk (OWR) - Major mitigation effort."@en ;
+    skos:definition "Operation A Risque (OAR) - Effort d'atténuation élevé."@fr ;
+    skos:inScheme <ChangeRequest/type> ;
     skos:notation "owr-standard";
     skos:prefLabel "OWR Standard"@en ;
     skos:prefLabel "OAR Standard"@fr ;
@@ -159,11 +176,11 @@ voc-cr-status-objects:closed
     skos:altLabel "OAR_Majeur"@fr ;
 .
 
-<https://w3id.org/noria/kos/ChangeRequest/type/pw-normal>
+<ChangeRequest/type/pw-normal>
     a skos:Concept;
-    skos:definition "Planned Work (PW) - Normal mitigation effort"@en ;
-    skos:definition "Travaux Programmés (TP) - Effort d'atténuation normal"@fr ;
-    skos:inScheme voc-cr-objects:type ;
+    skos:definition "Planned Work (PW) - Normal mitigation effort."@en ;
+    skos:definition "Travaux Programmés (TP) - Effort d'atténuation normal."@fr ;
+    skos:inScheme <ChangeRequest/type> ;
     skos:notation "pw-normal";
     skos:prefLabel "PW Normal"@en;
     skos:prefLabel "TP Normal"@fr ;
@@ -171,23 +188,52 @@ voc-cr-status-objects:closed
 .
 
 
-<https://w3id.org/noria/kos/ChangeRequest/type/pw-major>
+<ChangeRequest/type/pw-major>
     a skos:Concept;
-    skos:definition "Planned Work (PW) - Major mitigation effort"@en ;
-    skos:definition "Travaux Programmés (TP) - Effort d'atténuation élevé"@fr ;
-    skos:inScheme voc-cr-objects:type ;
+    skos:definition "Planned Work (PW) - Major mitigation effort."@en ;
+    skos:definition "Travaux Programmés (TP) - Effort d'atténuation élevé."@fr ;
+    skos:inScheme <ChangeRequest/type> ;
     skos:notation "pw-major";
     skos:prefLabel "PW_Major"@en;
     skos:prefLabel "TP_Majeur"@fr ;
     skos:altLabel "PW Normal"@en ;
 .
 
-<https://w3id.org/noria/kos/ChangeRequest/type/pw-automated>
+<ChangeRequest/type/pw-automated>
     a skos:Concept;
-    skos:definition "Automated Planned Work (PW)"@en ;
-    skos:definition "Travaux Programmés (TP) automatisé"@fr ;
-    skos:inScheme voc-cr-objects:type ;
+    skos:definition "Automated Planned Work (PW)."@en ;
+    skos:definition "Travaux Programmés (TP) automatisé."@fr ;
+    skos:inScheme <ChangeRequest/type> ;
     skos:notation "pw-automated";
     skos:prefLabel "Change Auto"@en;
     skos:prefLabel "Change Auto"@fr ;
 .
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/category>
+    a skos:ConceptScheme;
+    skos:definition "It identifies the nature of the operations for a change request."@en ;
+    skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer, etc." ;
+    skos:inScheme <ChangeRequest> ;
+    skos:notation "category" .
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/cause>
+    a skos:ConceptScheme;
+    skos:definition "It identifies the cause or motivations at the origin of a change request."@en ;
+    skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc." ;
+    skos:inScheme <ChangeRequest> ;
+    skos:notation "cause" .
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/specification>
+    a skos:ConceptScheme;
+    skos:definition "The catalog of standard operation plans for recurring activities."@en ;
+    skos:example "Software upgrade, Resilience check, etc." ;
+    skos:inScheme <ChangeRequest> ;
+    skos:notation "specification" .
+
+# === EOF =====================================================================

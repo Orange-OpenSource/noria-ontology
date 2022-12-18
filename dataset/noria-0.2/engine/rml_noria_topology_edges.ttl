@@ -1,0 +1,140 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Mapping management ---
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix crml: <http://semweb.mmlab.be/ns/crml#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix formats: <https://www.w3.org/ns/formats/> .
+
+@prefix fnml:   <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: 	<https://w3id.org/function/ontology#> .
+@prefix grel:     <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix idlab-fn: <http://example.com/idlab/function/> .
+
+# --- Domain specific ---
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix noria-fno: <http://example.org/noria/functions/> .
+@prefix voc: <https://w3id.org/noria/kos/> .
+@base  <http://example.org/noria/engine/> .
+
+# =============================================================================
+
+# === Logical Source ===
+
+<LS_Topology_NetworkLink>
+    rml:source "datasource/noria_topology.graphml" ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/:graphml/:graph/:edge" ;
+    rdfs:comment "This Logical Source defines an XPath iterator to 'edge' nodes from a NORIA GraphML file assuming the presence of a default 'xmlns' in the XML specs. (note the empty ':' in front of XPath nodes).";
+.
+
+# === Triples Maps ===
+
+<MP_Topology_NetworkLink>
+    a rr:TriplesMap;
+    rml:logicalSource <LS_Topology_NetworkLink>;
+
+    rr:subjectMap <SM_Topology_NetworkLink> ;
+
+    rr:predicateObjectMap [ rr:predicate rdf:type;
+                            rr:objectMap [ rr:constant noria:NetworkLink ];
+                          ] ;
+
+    rr:predicateObjectMap [ rr:predicate prov:wasDerivedFrom ;
+                            rr:objectMap [ rr:constant "noria-ontology-toy-example" ] ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate noria:networkLinkId ;
+                            rr:objectMap <OM_Topology_LinkId> ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate noria:networkLinkTerminationResource ;
+                            rr:objectMap <OM_Topology_TerminationResource_A> ;
+                          ];
+
+    rr:predicateObjectMap [ rr:predicate noria:networkLinkTerminationResource ;
+                            rr:objectMap <OM_Topology_TerminationResource_B> ;
+                          ];
+.
+
+# === Terms Maps ===
+
+<SM_Topology_NetworkLink>
+    rr:template "https://w3id.org/noria/object/NL_TOY_{@source}_{@target}" ;
+.
+
+<OM_Topology_LinkId>
+    fnml:functionValue [ rr:predicateObjectMap [ rr:predicate fno:executes ;
+                                                 rr:objectMap [ rr:constant noria-fno:generateNetworkLinkID ] ] ;
+                         rr:predicateObjectMap [ rr:predicate noria-fno:prefix ;
+                                                 rr:objectMap [ rr:constant "NL_TOY" ] ] ;
+                         rr:predicateObjectMap [ rr:predicate noria-fno:endpointA ;
+                                                 rr:objectMap [
+                                                                  rml:reference "@source" ;
+                                                              ] ] ;
+                         rr:predicateObjectMap [ rr:predicate noria-fno:endpointB ;
+                                                 rr:objectMap [
+                                                                  rml:reference "@target" ;
+                                                              ] ] ;
+                       ].
+
+<OM_Topology_TerminationResource_A>
+#    rml:reference "@source";
+    rr:template "https://w3id.org/noria/object/RES_TOY_{@source}" ;
+.
+
+<OM_Topology_TerminationResource_B>
+#    rml:reference "@target";
+    rr:template "https://w3id.org/noria/object/RES_TOY_{@target}" ;
+.

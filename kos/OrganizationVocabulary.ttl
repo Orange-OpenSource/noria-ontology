@@ -1,0 +1,196 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+
+# =============================================================================
+
+<org>
+    a skos:ConceptScheme;
+    skos:definition "A vocabulary for standardized information annotation on organizations and organizational structures.";
+    skos:notation "org" ;
+	# --- Vocab metadata ---
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	dcterms:title "The NORIA Organization vocabulary." ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+	dcterms:issued "2022-12-15"^^xsd:date ;
+.
+
+# =============================================================================
+
+<org/org-classification>
+    a skos:ConceptScheme;
+    skos:definition "A classification scheme for describing an Organization.";
+    skos:inScheme <org> ;
+    skos:notation "org-classification" ;
+    rdfs:seeAlso
+            <https://www.w3.org/TR/vocab-org/#org:classification> ,
+            <https://www.w3.org/TR/vocab-org/#org:Organization> ;
+.
+
+<org/ou-classification>
+    a skos:ConceptScheme;
+    skos:definition "A classification scheme for describing an Organizational Unit.";
+    skos:inScheme <org> ;
+    skos:notation "ou-classification" ;
+    rdfs:seeAlso
+            <https://www.w3.org/TR/vocab-org/#org:classification> ,
+            <https://www.w3.org/TR/vocab-org/#org:OrganizationalUnit> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<org/org-classification/manufacturer>
+    a skos:Concept;
+    skos:definition "An organization assuming a manufacturing activity of some product." ;
+    skos:inScheme <org/org-classification> ;
+    skos:notation "manufacturer";
+    skos:prefLabel "Manufacturer"@en .
+
+# -----------------------------------------------------------------------------
+
+<org/ou-classification/tsg>
+    a skos:Concept;
+    skos:definition """An organizational operational unit (team) with a technical support role; i.e. a group of employees with specific skills or devoted to some specific task/work/project w.r.t. IT Service and Resource management.
+
+The unique identifier of the team (e.g. the operation code) can be instantiated with the `org:identifier` property.""" ;
+    skos:inScheme <org/ou-classification> ;
+    skos:notation "tsg";
+    skos:prefLabel "Technical Support Group"@en ;
+.
+
+<org/ou-classification/aaa-technical-group>
+    a skos:Concept;
+    skos:definition """An AAA Technical Group (TG) is an abstract group representing usage and/or administration access rights for Applications and Resources.
+It is a combination between an application (devices list) and a profile (type of account access, for example: admin, application, db, etc.).
+
+Associations between Business Groups (BGs) and TG define the rights of users to access on Resources.
+Each BG / TG combination is created with *Read* or *Write* right to the operating accounts.""" ;
+    skos:example """- The user `User5` can access to `Server5` and `Server6` of `Application2` with `write` right to DB accounts (e.g. oracle, bddadmin, etc.) on these servers.
+- AAA RADIUS Profile.""" ;
+    skos:inScheme <org/ou-classification> ;
+    skos:notation "aaa-technical-group" ;
+    skos:prefLabel "AAA Technical Group"@en ;
+    skos:prefLabel "Groupe Technique AAA"@fr ;
+.
+
+<org/ou-classification/aaa-business-group>
+    a skos:Concept;
+    skos:definition "An AAA Business Group (BG) is a users list." ;
+    skos:example "Active Directory (AD) Groups." ;
+    skos:inScheme <org/ou-classification> ;
+    skos:notation "aaa-business-group" ;
+    skos:prefLabel "AAA Business Group"@en ;
+    skos:prefLabel "Groupe Métier AAA"@fr ;
+    rdfs:seeAlso <org/ou-classification/aaa-technical-group> ;
+.
+
+<org/ou-classification/company-department>
+    a skos:Concept;
+    skos:definition "An administrative or technical division of a company or organization." ;
+    skos:example "Sales department, human resources department, production department." ;
+    skos:inScheme <org/ou-classification> ;
+    skos:notation "company-department" ;
+    skos:prefLabel "Company department - Management entity"@en ;
+    skos:prefLabel "Département d'entreprise - Unité de gestion"@fr ;
+    rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=501885> ;
+.
+
+# =============================================================================
+
+<org/agent-contact-method>
+    a skos:ConceptScheme;
+    skos:definition "A classification scheme for describing the preferred contact method.";
+    skos:inScheme <org> ;
+    skos:notation "agent-contact-method" ;
+    rdfs:seeAlso <http://xmlns.com/foaf/spec/#term_Agent> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<org/agent-contact-method/no-pref>
+    a skos:Concept;
+    skos:definition "The agent have no preferred contact method." ;
+    skos:inScheme <org/agent-contact-method> ;
+    skos:notation "no-pref";
+    skos:prefLabel "No preference"@en ;
+.
+
+<org/agent-contact-method/phone>
+    a skos:Concept;
+    skos:definition "The agent should preferably be contacted by phone." ;
+    skos:inScheme <org/agent-contact-method> ;
+    skos:notation "phone";
+    skos:prefLabel "Phone"@en ;
+    skos:prefLabel "Téléphone"@fr ;
+.
+
+<org/agent-contact-method/e-mail>
+    a skos:Concept;
+    skos:definition "The agent should preferably be contacted by e-mail." ;
+    skos:inScheme <org/agent-contact-method> ;
+    skos:notation "e-mail";
+    skos:prefLabel "e-mail" ;
+    skos:altLabel "email" ;
+    skos:altLabel "E-mail" ;
+    skos:altLabel "Electronic mail" ;
+    rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q9158> ;  # HACK: <https://en.wikipedia.org/wiki/Email>
+.
+
+<org/agent-contact-method/p-mail>
+    a skos:Concept;
+    skos:definition "The agent should preferably be contacted by postal mail." ;
+    skos:inScheme <org/agent-contact-method> ;
+    skos:notation "p-mail";
+    skos:prefLabel "p-mail"@en ;
+    skos:altLabel "Postal mail"@en ;
+    skos:prefLabel "Courrier postal"@fr ;
+    skos:altLabel "Courrier poste"@fr ;
+    skos:altLabel "Courrier"@fr ;
+    rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=2076492> ;
+.
+
+<org/agent-contact-method/sms>
+    a skos:Concept;
+    skos:definition "The agent should preferably be contacted by SMS message." ;
+    skos:inScheme <org/agent-contact-method> ;
+    skos:notation "sms";
+    skos:prefLabel "SMS" ;
+    skos:altLabel "Short text message"@en ;
+    skos:altLabel "Text message"@en ;
+    skos:altLabel "Short message"@en ;
+    skos:altLabel "SMS message"@en ;
+    skos:altLabel "Texto"@fr ;
+    skos:altLabel "Message texte"@fr ;
+    skos:altLabel "Minimessage"@fr ;
+    skos:altLabel "Message SMS"@fr ;
+    rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26506622> ;
+.
+
+# === EOF =====================================================================

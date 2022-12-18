@@ -1,0 +1,495 @@
+---
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+- Question: Which entity (resource/application/site) is concerned by a given incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: resource/application/agent
+        OPE: is concerned by
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_troubleTicket_relatedResource.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedService.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedParty.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedAuthor.sparql
+      result: OK
+    - type: AT
+      query: at_troubleTicket_relatedSite.sparql
+      result: OK
+
+- Question: What assets are shared by a given asset chain?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: common
+        CE1: set of assets
+        OPE: that belong
+        CE2: set of asset chains
+  Evaluation:
+    - type: AT
+      query: at_resource_subPartOf.sparql
+      result: OK
+    - type: AT
+      query: at_application_subPartOf.sparql
+      result: OK
+
+- Question: What logs are coming from a specified resource ?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: set of logs
+        OPE: are associated with
+        CE2: asset
+  Evaluation:
+    - type: AT
+      query: at_log_from_resource.sparql
+      result: OK
+    - type: AT
+      query: at_alarm_from_resource.sparql
+      result: OK
+
+- Question: Which metrics are coming from a specified resource ?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: metrics (observable)
+        OPE: are associated with
+        CE2: asset
+  Evaluation:
+    - type: AT
+      query: at_metric_from_resource.sparql
+      result: OK
+
+- Question: To which event family does this log correspond and is this event normal or abnormal?
+  Remarks:
+    - The notion of family can both refer to an annotation of the log as made by SLOGERT, or a hierarchy.
+  Archetypes:
+    - id: 3
+      pattern: What type of [CE] is [I]?
+      components:
+        CE: event normality/family
+        I: event
+  Evaluation:
+    - type: AT
+      query: at_event_type.sparql
+      result: OK
+
+- Question: What events are associated with a given event?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: event
+        OPE: associated with
+        CE2: event
+  Evaluation:
+    - type: AT
+      query: at_event_associatedEvent.sparql
+      result: OK
+
+- Question: Which agents/activity/resource caused the event under analysis?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: agent
+        OPE: originate
+        CE2: event
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: activity
+        OPE: originate
+        CE2: event
+  Evaluation:
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: OK
+    - type: AT
+      query: at_event_correlatedResource.sparql
+      result: OK
+    - type: AT
+      query: at_event_relatedObject.sparql
+      result: OK
+    - type: AT
+      query: at_event_relatedParty.sparql
+      result: OK
+
+- Question: What are the fields of the log?
+  Remarks:
+    - The notion of reference refers both to individuals (user, hostname, IP, process) and to a characteristic/function/semantic (cf. SLOGERT)
+  Archetypes:
+    - id: 3
+      pattern: What type of [CE] is [I]?
+      components:
+        CE: log attribute class
+        I: log attribute
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: asset
+        OPE: correspond to
+        CE2: log attribute
+  Evaluation:
+    - type: AT
+      query: at_field_log.sparql
+      result: OK
+
+- Question: Is there any pattern in a given set of logs/alarms?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: set of patterns
+        OPE: are associated with
+        CE2: set of logs
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: set patterns
+        OPE: are associated with
+        CE2: set of alarms
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: most important
+        CE1: pattern
+        OPE: describe
+        CE2: set of logs
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: most important
+        CE1: pattern
+        OPE: describe
+        CE2: set of alarms
+  Evaluation:
+    - type: AT
+      query: at_anomalyMode_anomaly.sparql
+      result: anomaly mode + AI (pattern detection from logs)
+
+- Question: What interventions were carried out on this resource that could have caused the incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: planned operations
+        OPE: are associated with
+        CE2: set of assets
+      Remarks:
+        - planned operations is not necessarily the only type of operation, one can also consider unreported operations and curative operations
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: most important
+        CE1: planned intervention
+        OPE: explain
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_resource_relatedChange.sparql
+      result: OK
+    - type: AT
+      query: at_resource_relatedTroubleTicket.sparql
+      result: OK
+
+- Question: What was the root cause of the incident?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: best
+        CE1: event
+        OPE: explain
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: AI (to find the root cause from events composing an incident)
+
+- Question: Which sequence of events led to the incident?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: best
+        CE1: sequence of events
+        OPE: explain
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: OK
+
+- Question: On which resource did this sequence of events take place and in which order?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: set of assets
+        OPE: are contained in
+        CE2: sequence of events
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: event
+        OPE: precede
+        CE2: event
+      Remarks:
+        - it is assumed that this is a frequent question, and that it is therefore better to materialise it than to calculate precedences on the fly
+        - also note that intervention and incident are subclasses of event.
+  Evaluation:
+    - type: AT
+      query: at_resource_associatedEvent.sparql
+      result: OK
+
+- Question: What past incidents are similar to a given incident?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: best
+        CE1: set of incidents
+        OPE: match
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_alarm_correlatedEvent.sparql
+      result: AI (to compute similarity between incident given their features)
+
+- Question: What operation plan (automations, operating procedures, etc.) could help us solve the incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: procedure
+        OPE: is associated with
+        CE2: incident family
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: action
+        OPE: are contained in
+        CE2: procedure
+    - id: 3
+      pattern: What type of [CE] is [I]?
+      components:
+        CE: incident family
+        I: incident
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: AI (given the current incident represented by a trouble ticket, what are the preconditions that could be satisfied and therefore suggest to start an associated operation plan)
+
+- Question: What corrective actions have been carried out so far for a given incident (who, what, where)?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: action
+        OPE: are contained in
+        CE2: incident management
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: agent
+        OPE: carried out
+        CE2: action
+      Remarks:
+        - corresponds to the "who"
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: action
+        OPE: is part of
+        CE2: action
+      Remarks:
+        - corresponds to the "what"
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: asset
+        OPE: concerned by
+        CE2: action
+      Remarks:
+        - corresponds to "where".
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: OK
+
+- Question: What is the list of actions taken that led to the resolution of the incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: action sequence
+        OPE: solved
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_effect.sparql
+      result: OK
+
+- Question: Given all the corrective actions carried out so far for the incident, what assumptions covered the actions taken?
+  Remarks:
+    - one action can address several assumptions
+  Archetypes:
+    - id: 4
+      pattern: Is the [CE1] [CE2]?
+      components:
+        CE1: action
+        CE2: successful
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: hypothesis
+        OPE: is validated or not
+        CE2: action
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_assumptions.sparql
+      result: OK
+
+- Question: What has been the effect of the corrective actions taken so far for the incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: effect
+        OPE: arised from
+        CE2: action
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_effect.sparql
+      result: OK
+
+- Question: Given all the corrective actions carried out so far for the incident, what possible actions could we still take?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: possible
+        CE1: procedure
+        OPE: solve
+        CE2: incident
+  Evaluation:
+    - type: AT
+      query: at_correctiveAction_incident.sparql
+      result: AI (search operation plans based on relevant preconditions or past operation plans used on similar incidents)
+
+- Question: What is the summary of this incident and its resolution?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: summary
+        OPE: summarizes
+        CE2: incident
+      Remarks:
+        - Assumes that Incident is in the Resolved state
+  Evaluation:
+    - type: AT
+      query: at_event_associatedEvent.sparql
+      result: AI (to summarize the incident from a set of events)
+
+- Question: Which agents were involved in the resolution of the incident?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: agent
+        OPE: was associated with
+        CE2: incident management
+  Evaluation:
+    - type: AT
+      query: at_troubleTicket_relatedParty.sparql
+      result: OK
+
+- Question: What is the financial cost of this incident if it occurs?
+  Archetypes:
+    - id: 2
+      pattern: How much does [CE] [DP]?
+      components:
+        CE: incident
+        DP: cost
+      Remarks:
+        - Assumes that the incident is in the open state at the time of the request
+  Evaluation:
+    - type: AT
+      query: no query
+      result: Extension (cost concept)
+
+- Question: How long before this incident is resolved?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: MTTR
+        OPE: correspond to
+        CE2: incident
+      Remarks:
+        - Assumes that the Incident is in the Open state at the time of the request
+  Evaluation:
+    - type: AT
+      query: no query
+      result: AI (learning the MTTR based on the trouble ticket status)
+
+- Question: What are the vulnerabilities and the associated risk levels of this infrastructure ?
+  Archetypes:
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: incident family
+        OPE: can be associated with
+        CE2: system of assets
+    - id: 2
+      pattern: How much does [CE] [DP]?
+      components:
+        CE: system of assets
+        DP: risk level
+    - id: 1
+      pattern: Which [CE1] [OPE] [CE2]
+      components:
+        CE1: vulnerabilities
+        OPE: are associated with
+        CE2: system of assets
+  Evaluation:
+    - type: AT
+      query: at_risk_infrastructure.sparql
+      result: AI (looking for non-desirable network topology shapes or relations to third-party cyber security vulnerability entities based on structure and security scanners)
+
+- Question: What is the most likely sequence of actions that would cause this infrastructure to fail?
+  Archetypes:
+    - id: 6
+      pattern: What is the [NM] [CE1] to [OPE] [CE2]?
+      components:
+        NM: most probable
+        CE1: action sequence
+        OPE: make fail
+        CE2: system of assets
+  Evaluation:
+    - type: AT
+      query: at_risk_infrastructure.sparql
+      result: AI (looking for asserted/learnt operation plans leading to a undesirable effect)

@@ -11,3 +11,5 @@ General approach:
 
 Naming convention:
 * `at_`: Authoring Tests (AT)
+
+For older ontology releases, see the corresponding `noria-<major>.<minor>/` sub-folder.

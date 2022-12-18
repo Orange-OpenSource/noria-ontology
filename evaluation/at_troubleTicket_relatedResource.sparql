@@ -9,11 +9,22 @@
 #
 # THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# GRLC metadata
+#+ summary: Authoring Test for the NORIA-O data model
+#+ method: GET
+#+ tags:
+#+   - AT | NORIA-O-0.2
+
 PREFIX noria: <https://w3id.org/noria/ontology/>
-SELECT ?tt ?res ?hostname
+SELECT ?tt ?res ?hostnameRes ?resImpact ?hostnameResImpact
 WHERE {
 	?tt a noria:TroubleTicket ;
 		noria:troubleTicketRelatedResource ?res.
+	OPTIONAL{
+		?tt noria:troubleTicketImpacts ?resImpact .
+		?resImpact rdf:type noria:Resource . 
+		?resImpact noria:resourceHostName ?hostnameResImpact .
+	}
 	?res rdf:type noria:Resource .
-	?res noria:resourceHostName ?hostname.
+	?res noria:resourceHostName ?hostnameRes.
 }

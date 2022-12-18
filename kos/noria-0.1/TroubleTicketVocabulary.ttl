@@ -1,0 +1,182 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+@prefix voc: <https://w3id.org/noria/kos/> .
+
+# -----------------------------------------------------------------------------
+
+voc:TroubleTicket
+    a skos:ConceptScheme;
+    skos:definition "A Trouble Ticket."@en ;
+    skos:definition "Un Ticket d'Incident."@fr ;
+	# --- Vocab metadata ---
+	dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+    dcterms:title "The NORIA Trouble Ticket vocabulary" ;
+    dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
+.
+
+# =============================================================================
+
+<https://w3id.org/noria/kos/TroubleTicket/status>
+    a skos:ConceptScheme;
+    skos:definition "It identifies the status of any Trouble Ticket or Incident Ticket";
+    skos:inScheme voc:TroubleTicket ;
+    skos:notation "status" .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/initialised>
+    a skos:Concept;
+    skos:definition """The initial state of a Trouble Ticket when created by a Trouble Ticket originator (not managed by API operation).
+    Typical next status : ['In progress']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "initialised";
+    skos:prefLabel "Initialised"@en;
+    skos:prefLabel "Ouvert"@fr;
+    skos:altLabel "Submitted"@en .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/current>
+    a skos:Concept;
+    skos:definition """The Trouble Ticket was validated by the Trouble Ticket handler and is being processed.
+    The ticket is being processed (and not frozen) and the resolution process is started.
+    The time counter is running to count the elapsed processing time in relation to the maximum resolution time specified in the contract.
+    It is used to anticipate a possible deadline overrun.
+    Typical next status : ['Restored', 'Pending']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "current";
+    skos:prefLabel "Current"@en;
+    skos:prefLabel "En cours"@fr;
+    skos:altLabel "In progress"@en ;
+    skos:altLabel "InProgress"@en ;
+.
+
+<https://w3id.org/noria/kos/TroubleTicket/status/frozen>
+    a skos:Concept;
+    skos:definition """The Trouble Ticket handler freezes the Trouble Ticket because the technician is waiting a customer action or complementary information.
+    The process freeze needs the customer agreement.
+    The time counter is stopped, the Ticket processing is awaiting an action from the customer.
+    Typical next status : ['In progress']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "frozen";
+    skos:prefLabel "Frozen"@en;
+    skos:prefLabel "Gelé"@fr ;
+    skos:altLabel "Pending"@en .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/restored>
+    a skos:Concept;
+    skos:definition """"The service is restored after a temporary repair and the time counter is stopped.
+    The service concerned by the Trouble Ticket has been restored, but it may need more technical action to definitively solve the causes of the incident.
+    Typical next status : ['Resolved']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "restored";
+    skos:prefLabel "Restored"@en;
+    skos:prefLabel "Réparé"@fr .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/resolved>
+    a skos:Concept;
+    skos:definition """The service is definitively repaired.
+    The Fault indicated in the Trouble Ticket was corrected by the Trouble Ticket handler and acknowledgement is awaited from its originator.
+    Typical next status : ['Closed']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "resolved";
+    skos:prefLabel "Resolved"@en;
+    skos:prefLabel "Résolu"@fr .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/closed>
+    a skos:Concept;
+    skos:definition """The customer has validated the service restoration.
+	The Trouble Ticket’s originator has acknowledged the 'resolved' state of the Trouble Ticket.
+	Typical next status : ['Validated', 'Closed for dashboard']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "closed";
+    skos:prefLabel "Closed"@en;
+    skos:prefLabel "Clos"@fr .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/validated>
+    a skos:Concept;
+    skos:definition """A notice has been sent to the customer or a validation has been made in the Trouble Ticket management system by a manager.
+    The Ticket is Validated when its closure is official.
+    This validation may be cancelled to go back to 'Closed' status.
+    Typical next status : ['Revised', 'Closed for dashboard']."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "validated";
+    skos:prefLabel "Validated"@en;
+    skos:prefLabel "Validé"@fr .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/revised>
+    a skos:Concept;
+    skos:definition """The Ticket is modified (modification of the accounting).
+    Typical next status : []."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "revised";
+    skos:prefLabel "Revised"@en;
+    skos:prefLabel "Révisé"@fr .
+
+<https://w3id.org/noria/kos/TroubleTicket/status/closed-for-dashboard>
+    a skos:Concept;
+    skos:definition """The Ticket has been processed by a monthly treatment to enter in the dashboard and is no longer modifiable.
+    Typical next status : []."""@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/status>;
+    skos:notation "closed-for-dashboard";
+    skos:prefLabel "Closed for dashboard"@en;
+    skos:prefLabel "Clos pour tableau de bord"@fr .
+
+# =============================================================================
+
+<https://w3id.org/noria/kos/TroubleTicket/priority>
+    a skos:ConceptScheme;
+    skos:definition "Priority definitions of any Trouble Ticket or Incident Ticket for a standard Operating Level Agreement (OLA)";
+    skos:inScheme voc:TroubleTicket ;
+    skos:notation "priority" .
+
+<https://w3id.org/noria/kos/TroubleTicket/priority/1>
+    a skos:Concept;
+    skos:definition "A problem or error causing a Service or any portion thereof to be completely inoperative or severely affected causing immediate and significant degradation of service to customers."@en;
+	skos:example "Complete loss of System functionality or loss of system capacity where service usage is significantly impacted e.g. more than 20% of transactions are failing or more than 20% of planned capacity is unavailable."@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:notation "P1";
+    skos:prefLabel "P1"@en .
+
+<https://w3id.org/noria/kos/TroubleTicket/priority/2>
+    a skos:Concept;
+    skos:definition "A problem or error causing a Service or any portion thereof to be adversely affected causing some congestion/service degradation but is not significantly impacting yet a customer ability to utilize the service or the ability to manage/operate the service."@en;
+	skos:example "Loss of redundancy or loss of system capacity during busy hour where service usage is impacted e.g. less than 20% of transactions are failing or less than 20% of planned capacity is unavailable."@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:notation "P2";
+    skos:prefLabel "P2"@en .
+
+<https://w3id.org/noria/kos/TroubleTicket/priority/3>
+    a skos:Concept;
+    skos:definition "An error causing a Product or portion thereof to fail to perform but such failure is non-critical to business."@en;
+	skos:example "Minor service degradation with minor impact to customer’s ability to utilize the service or the ability to manage/operate the service."@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:notation "P3";
+    skos:prefLabel "P3"@en .
+
+<https://w3id.org/noria/kos/TroubleTicket/priority/4>
+    a skos:Concept;
+    skos:definition "All incidents that are not Service affecting. Not Service affecting refers to incidents which result in a degradation of system performance but do not affect the user experience."@en;
+    skos:inScheme <https://w3id.org/noria/kos/TroubleTicket/priority>;
+    skos:notation "P4";
+    skos:prefLabel "P4"@en .

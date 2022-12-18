@@ -1,0 +1,537 @@
+# Copyright (c) 2022 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> . #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .
+
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+@prefix seas: <https://w3id.org/seas/>.
+
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/> .
+
+# =============================================================================
+
+voaf:Vocabulary a owl:Class .
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:issued a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:contributor a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+vs:term_status a owl:AnnotationProperty .
+foaf:Person a owl:Class .
+foaf:name a owl:DatatypeProperty .
+
+# =============================================================================
+
+noria:ResourceOntology
+    a owl:Ontology,
+      voaf:Vocabulary ;
+    dcterms:title "The NORIA Resource Ontology"@en ;
+    dcterms:description """The Resource Ontology defines ICT systems entities at abstract level (e.g. as records within an asset management database) for efficient management as individuals and also as parts of higher level systems (e.g. part of Services or Infrastructure)."""@en ;
+    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator <https://orcid.org/0000-0001-5887-899X> ;  # Lionel Tailhardat
+	dcterms:creator <https://orcid.org/0000-0001-5639-1504> ;  # Yoan Chabot
+	dcterms:creator <https://orcid.org/0000-0003-0457-1436> ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	vann:preferredNamespacePrefix "noria" ;
+	vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+	dcterms:issued "2022-05-10"^^xsd:date ;
+    owl:versionIRI <ontology/ResourceOntology-0.1> ;
+    owl:versionInfo "v0.1" ;
+.
+
+# === Structural objects ======================================================
+
+noria:Resource
+    a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment """General resource record of the Communication Device kind from the logistics park. It is a managed entity that can be either Physical or Virtual.
+
+Whenever a Resource individual is an assembly of other resources (e.g. a server rack) or is part of an assembly (e.g. a server blade), the Resource individual can also be declared as a seas:System in order to benefit of the seas:subSystemOf relation.
+
+For example, Resources may be grouped in a noria:Service for providing both an end-to-end analysis of the data path (i.e. Communication Devices + Connections) and an abstract object linked to some end user (e.g. Customer).
+"""@en ;
+    skos:altLabel "ICT resource"@en ;
+    skos:altLabel "Elément structurant informatique et télécoms."@fr ;
+    vs:term_status "stable" ;
+    rdfs:seeAlso <kos/Resource/> ;
+    rdfs:subClassOf noria:StructuralObject ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- Compute related specialization of noria:Resource ------------------------
+
+noria:VirtualServer
+    a owl:Class ;
+    rdfs:label "VirtualServer" ;
+    rdfs:subClassOf noria:Resource,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty noria:resourceType ;
+                      owl:allValuesFrom [ owl:intersectionOf
+                                                   ( skos:Concept
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty skos:notation ;
+                                                       owl:hasValue <kos/Resource/type/partition>
+                                                     ]
+                                                   ) ;
+                                          rdf:type owl:Class
+                               ]
+                    ] ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+
+# --- Connection related objects ----------------------------------------------
+
+noria:NetworkInterface
+    rdf:type owl:Class ;
+    rdfs:label "NetworkInterface" ;
+    rdfs:comment "A Network Interface of some Resource (e.g. server, router, virtual routing and forwarding (VRF) instance), and of some type (e.g. physical, virtual)."@en ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf noria:StructuralObject ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:NetworkLink
+    rdf:type owl:Class ;
+    rdfs:label "NetworkLink" ;
+    rdfs:comment "A physical or logical Link between Resources (e.g. optical fiber, L2TP connection)."@en ;
+    vs:term_status "unstable" ;
+    rdfs:subClassOf noria:StructuralObject ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# === Structural Property objects ==============================================
+
+noria:ManufacturerProductModel
+    a owl:Class ;
+    rdfs:label "Model" ;
+    rdfs:comment "The Model name of some Resource as per the Manufacturer's naming."@en ;
+    vs:term_status "stable" ;
+    rdfs:subClassOf noria:StructuralProperty ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# === Properties ==============================================================
+
+# --- noria:Resource domain ---------------------------------------------------
+
+noria:resourceLogisticId
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceLogisticId" ;
+    rdfs:comment "The logistic UID of the Resource (a.k.a. asset tag)."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceHostName
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceHostName" ;
+    rdfs:comment "The Host Name of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf noria:structuralObjectDistinguishedName ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceManufacturer
+    a owl:ObjectProperty ;
+    rdfs:label "resourceManufacturer" ;
+    rdfs:comment "The manufacturer of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Manufacturer ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceModel
+    a owl:ObjectProperty ;
+    rdfs:label "resourceModel" ;
+    rdfs:comment "The model of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:ManufacturerProductModel ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceType
+    a owl:ObjectProperty ;
+    rdfs:label "resourceType" ;
+    rdfs:comment "The type of the Network Element Resource"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Resource/type>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceSerialNumber
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceSerialNumber" ;
+    rdfs:comment "The serial number of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceUsageState
+    a owl:ObjectProperty ;
+    rdfs:label "resourceUsageState" ;
+    rdfs:comment "The production state of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range [ owl:intersectionOf ( skos:Concept
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty skos:inScheme ;
+                                        owl:hasValue <kos/Resource/LifecycleState>
+                                      ]
+                                    ) ;
+                 rdf:type owl:Class
+               ];
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceInstallationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "resourceInstallationDate" ;
+    rdfs:comment "The installation date of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceManagedBy
+    a owl:ObjectProperty ;
+    rdfs:label "resourceManagedBy" ;
+    rdfs:comment "The Support team or Owner of the Resource."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range
+            noria:Team,
+            noria:Organization ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceForApplication
+    a owl:ObjectProperty ;
+    rdfs:label "resourceForApplication" ;
+    rdfs:comment "The Application this Resource is contributing to."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Application ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceForInfrastructure
+    a owl:ObjectProperty ;
+    rdfs:label "resourceForInfrastructure" ;
+    rdfs:comment "The Infrastructure this Resource is part of."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Application ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceForService
+    a owl:ObjectProperty ;
+    rdfs:label "resourceForService" ;
+    rdfs:comment "The Service this Resource is contributing to."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Service ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:resourceSubPartOf
+    a owl:ObjectProperty ;
+    rdfs:label "resourceSubPartOf" ;
+    rdfs:comment "The Resource this Resource is part of."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedInSite
+    a owl:ObjectProperty ;
+    rdfs:label "locatedInSite" ;
+    rdfs:comment "The Site the Resource is located in"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Site ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedInPremises
+    a owl:ObjectProperty ;
+    rdfs:label "locatedInPremises" ;
+    rdfs:comment "The Premises/Building the Resource is located in"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Premises ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedInFloor
+    a owl:ObjectProperty ;
+    rdfs:label "locatedInFloor" ;
+    rdfs:comment "Located in Floor"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Floor ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedInRoom
+    a owl:ObjectProperty ;
+    rdfs:label "locatedInRoom" ;
+    rdfs:comment "The Room the Resource is located in"@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Room ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedAtLine
+    a owl:DatatypeProperty ;
+    rdfs:label "locatedAtLine" ;
+    rdfs:comment "Line location of the Resource within the Room."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:locatedAtRow
+    a owl:DatatypeProperty ;
+    rdfs:label "locatedAtRow" ;
+    rdfs:comment "Row location of the Resource within the Room."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:Manufacturer domain ---------------------------------------------------
+
+noria:manufacturerName
+    a owl:DatatypeProperty ;
+    rdfs:label "manufacturerName" ;
+    rdfs:comment "The Name of the Manufacturer."@en ;
+    rdfs:range noria:Manufacturer ;
+    rdfs:domain xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:ManufacturerProductModel domain ---------------------------------------------------
+
+noria:manufacturerProductName
+    a owl:DatatypeProperty ;
+    rdfs:label "manufacturerProductName" ;
+    rdfs:comment "The Name of the Manufactured Product."@en ;
+    rdfs:range noria:ManufacturerProductModel ;
+    rdfs:domain xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:manufacturedBy
+    a owl:ObjectProperty ;
+    rdfs:label "manufacturedBy" ;
+    rdfs:comment "The Name of the Resource Manufacturer"@en ;
+    rdfs:domain noria:ManufacturerProductModel ;
+    rdfs:range noria:Manufacturer ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:Networknterface domain --------------------------------------------
+
+noria:networkInterfaceName
+    a owl:DatatypeProperty ;
+    rdfs:label "networkInterfaceName" ;
+    rdfs:comment "The name of the Network Interface (e.g. ge-0/0/0.3013, ae52.3028)"@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceDescription
+    a owl:DatatypeProperty ;
+    rdfs:label "networkInterfaceDescription" ;
+    rdfs:comment "A human-readable/editable text that describes the network interface. The information included in the description depends on the capabilities of the Resource's operating system."@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range xsd:string ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceType
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceType" ;
+    rdfs:comment "The type of the Network Interface (e.g. physical, subinterface, virtual)."@en ;
+    rdfs:domain noria:NetworkInterface;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceOf
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceOf" ;
+    rdfs:comment "The Resource the Network Interface is part-of"@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkInterfaceConnects
+    a owl:ObjectProperty ;
+    rdfs:label "networkInterfaceConnects" ;
+    rdfs:comment "The Network Link the Network Interface is attached-to"@en ;
+    rdfs:domain noria:NetworkInterface ;
+    rdfs:range noria:NetworkLink ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:NetworkLink domain ------------------------------------------------
+
+noria:networkLinkId
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkId" ;
+    rdfs:comment "The UID of the NetworkLink."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkTerminationResource
+    a owl:ObjectProperty ;
+    rdfs:label "networkLinkTerminationResource" ;
+    rdfs:comment "Link termination Resource, the Resource at some end fo the Network Link."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range noria:Resource ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkInstallationDate
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkInstallationDate" ;
+    rdfs:comment "The installation date of the NetworkLink."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:dateTime ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkManagedBy
+    a owl:ObjectProperty ;
+    rdfs:label "networkLinkManagedBy" ;
+    rdfs:comment "The Support team or Owner of the NetworkLink."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range noria:Organization ,
+               noria:Team ;
+    vs:term_status "stable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:networkLinkType
+    a owl:DatatypeProperty ;
+    rdfs:label "networkLinkType" ;
+    rdfs:comment "A description of the type of the Network Link."@en ;
+    rdfs:domain noria:NetworkLink ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+# --- noria:VirtualServer domain ---------------------------------------------------
+
+noria:virtualServerId
+    a owl:DatatypeProperty ;
+    rdfs:label "virtualServerId" ;
+    rdfs:comment "The UID of the Virtual Server instance."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dcterms:identifier ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:virtualServerGuestOf
+    a owl:DatatypeProperty ;
+    rdfs:label "virtualServerGuestOf" ;
+    rdfs:comment "The name or of the hosting Resource (i.e. server) of the Virtual Server instance."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range xsd:string ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.
+
+noria:virtualServerPartOfCluster
+    a owl:ObjectProperty ;
+    rdfs:label "virtualServerPartOfCluster" ;
+    rdfs:comment "The Cluster Resource of the Virtual Server instance."@en ;
+    rdfs:domain noria:Resource ;
+    rdfs:range noria:Resource ;
+    vs:term_status "unstable" ;
+    rdfs:isDefinedBy noria:ResourceOntology ;
+.

@@ -1,0 +1,32 @@
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix seas: <https://w3id.org/seas/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/noria/object/APPM_TOY_APP01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  seas:subSystemOf <https://w3id.org/noria/object/SVC_TOY_DBAccess> .
+
+<https://w3id.org/noria/object/APPM_TOY_INF01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  seas:subSystemOf <https://w3id.org/noria/object/SVC_TOY_DBAccess>, <https://w3id.org/noria/object/SVC_TOY_TimeServer> .
+
+<https://w3id.org/noria/object/APPM_TOY_PFS01_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  seas:subSystemOf <https://w3id.org/noria/object/SVC_TOY_DBAccess> .
+
+<https://w3id.org/noria/object/APPM_TOY_PFS02_M01> a noria:ApplicationModule;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  seas:subSystemOf <https://w3id.org/noria/object/SVC_TOY_TimeServer> .
+
+<https://w3id.org/noria/object/SVC_TOY_DBAccess> a noria:Service;
+  rdfs:label "DBAccess";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:serviceType <https://w3id.org/noria/kos/service/type/CustomerFacingService> .
+
+<https://w3id.org/noria/object/SVC_TOY_TimeServer> a noria:Service;
+  rdfs:label "TimeServer";
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:serviceType <https://w3id.org/noria/kos/service/type/ResourceFacingService> .
