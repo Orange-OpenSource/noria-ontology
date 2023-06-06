@@ -6,13 +6,33 @@ The vocabularies follows the [SKOS](https://www.w3.org/TR/skos-reference/) model
 
 ## Naming convention
 
-Every vocabulary document must be a Turtle document, and be named as follows:
+Each vocabulary document must be in [Turtle](https://www.w3.org/TR/turtle/) syntax, and saved in a folder whose name corresponds to the version of the release:
 
 ```
-NAMEVocabulary.ttl
+NAME-MAJOR.MINOR/DOCUMENT.ttl
 ```
 
-For older ontology releases, see the corresponding `noria-<major>.<minor>/` sub-folder.
+where:
+
+- NAME matches `^[a-z]*$`
+- MAJOR matches `^[0-9]+$`
+- MINOR matches `^[0-9]+$`
+
+see http://semver.org/ for semantic versioning specification.
+
+When releasing a new version of the ontology,
+
+* create a `noria-<major>.<minor>` folder,
+* update the `noria-latest.ttl` symbolic link for targeting the latest ontology version:
+  ```shell
+  # From the ontology directory
+  ln -s -f noria-<MAJOR.MINOR>/noria.ttl noria-latest.ttl
+  # e.g. ln -s -f noria-0.3/noria.ttl noria-latest.ttl
+  ```
+
+Direct reference to a versioned vocabulary implementation also makes use of the *noria* identifier.
+For example, the v0.3 main vocabulary file is available at: [https://w3id.org/noria/kos/noria-0.3](https://w3id.org/noria/kos/noria-0.3).
+Using this approach rely on rewriting rules defined at the [perma-id/w3id.org](https://github.com/perma-id/w3id.org) level towards the relevant folder/sub-folder.
 
 ## Vocabulary metadata
 

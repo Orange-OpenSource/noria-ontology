@@ -1,0 +1,3113 @@
+# Copyright (c) 2022-2023 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# --- NORIA ---
+@base <https://w3id.org/noria/kos/> .
+@prefix noria: <https://w3id.org/noria/ontology/> .
+
+# === Basic scheme ============================================================
+
+<https://w3id.org/noria/kos/>
+	a skos:ConceptScheme;
+	skos:notation "noria-kos" ;
+	# --- Vocab metadata ---
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+	dcterms:publisher <https://www.orange.com/> ;
+	dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+	dcterms:title "The NORIA-O vocabulary" ;
+	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
+	dcterms:issued "2022-01-01"^^xsd:date ;
+	dcterms:modified "2023-06-06"^^xsd:date ;
+	skos:changeNote """Changes in v0.3:
+
+- Changed the vocabulary architecture from micro-architecture to single file.
+- Added the noria-kos general concept scheme.
+"""@en ;
+.
+
+# =============================================================================
+# Alarm vocabulary
+# =============================================================================
+
+<alarm>
+  a skos:ConceptScheme;
+  skos:definition "A message event, related to some Facility and with a Severity value.";
+  skos:notation "alarm" ;
+  skos:inScheme <https://w3id.org/noria/kos/> ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+# =============================================================================
+# Following items derived from typical NMS definitions
+# See also https://en.wikipedia.org/wiki/Syslog (Severity Level)
+
+# -----------------------------------------------------------------------------
+
+<alarm/severity>
+  a skos:ConceptScheme;
+  skos:definition "Severity of alarm events";
+  skos:inScheme <alarm> ;
+  skos:notation "alarm-severity" ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/critical>
+  a skos:Concept;
+  skos:definition "A CRITICAL event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "critical";
+  skos:prefLabel "Critical"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/info>
+  a skos:Concept;
+  skos:definition "An INFORMATION event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "info";
+  skos:prefLabel "Info"@en ;
+  skos:altLabel "Informational"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+<alarm/severity/major>
+  a skos:Concept;
+  skos:definition "An MAJOR event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "major";
+  skos:prefLabel "Major"@en ;
+.
+
+<alarm/severity/minor>
+  a skos:Concept;
+  skos:definition "An MINOR event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "minor";
+  skos:prefLabel "Minor"@en ;
+.
+
+<alarm/severity/ok>
+  a skos:Concept;
+  skos:definition "An OK state event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "ok";
+  skos:prefLabel "OK"@en ;
+.
+
+<alarm/severity/unknown>
+  a skos:Concept;
+  skos:definition "An UNKNOWN state.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "unknown";
+  skos:prefLabel "Unknown"@en ;
+.
+
+<alarm/severity/warning>
+  a skos:Concept;
+  skos:definition "An WARNING event.";
+  skos:inScheme <alarm/severity>;
+  skos:notation "warning";
+  skos:prefLabel "Warning"@en ;
+  rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
+.
+
+# =============================================================================
+# Application vocabulary
+# =============================================================================
+
+<application>
+	a skos:ConceptScheme;
+	skos:definition "Set of computer programs used by some group of users for fulfilling some specific task or activity."@en ;
+	skos:definition "Ensemble de programmes dont se servent les utilisateurs afin d'accomplir une tâche ou une activité particulière."@fr ;
+	skos:notation "application" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<application/status>
+	a skos:ConceptScheme;
+	skos:definition "Status of an Application"@en;
+	skos:inScheme <application> ;
+	skos:notation "status" ;
+	skos:topConceptOf <application> ;
+.
+
+<application/status/development>
+	a skos:Concept;
+	skos:definition "The Application has been declared into the Information System and its development is started (i.e. analysis, design, coding)."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "development";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Development"@en;
+	skos:prefLabel "En développement"@fr .
+
+<application/status/testing>
+	a skos:Concept;
+	skos:definition "The Application development is under review before going into production (i.e. testing, implementation)."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "testing";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Preproduction"@en;
+	skos:prefLabel "En pré production"@fr .
+
+<application/status/production>
+	a skos:Concept;
+	skos:definition "The Application development is done and it is currently actively used by internal/external customers."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "production";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Production"@en;
+	skos:prefLabel "En production"@fr .
+
+<application/status/outsourced>
+	a skos:Concept;
+	skos:definition "The Application is outsourced and is currently actively used by internal/external customers."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "outsourced";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Outsourced"@en;
+	skos:prefLabel "Externalisé"@fr .
+
+<application/status/decomissioning-asked>
+	a skos:Concept;
+	skos:definition "The Application is no more in use and decomissioning of its resources is under way."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "decomissioning-asked";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Decomissioning asked"@en;
+	skos:prefLabel "Mise hors service en cours"@fr ;
+	skos:altLabel "J4 demandé"@fr .
+
+<application/status/decomissioned>
+	a skos:Concept;
+	skos:definition "The Application is no more in use and its resources have been decomissioned."@en;
+	skos:inScheme <application/status> ;
+	skos:notation "decomissioned";
+	skos:topConceptOf <application/status> ;
+	skos:prefLabel "Decomissioned"@en;
+	skos:prefLabel "Hors service"@fr .
+
+# -----------------------------------------------------------------------------
+
+<application/sla-level>
+	a skos:ConceptScheme;
+	skos:definition "SLA Level of any Application";
+	skos:inScheme <application> ;
+	skos:notation "sla-level" ;
+.
+
+<application/sla-level/gold>
+	a skos:Concept;
+	skos:definition "The Application has 'Gold' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+	skos:notation "gold";
+	skos:topConceptOf <application/sla-level> ;
+	skos:prefLabel "Gold"@en;
+	skos:prefLabel "Or"@fr .
+
+<application/sla-level/silver>
+	a skos:Concept;
+	skos:definition "The Application has 'Silver' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+	skos:notation "silver";
+	skos:topConceptOf <application/sla-level> ;
+	skos:prefLabel "Silver"@en;
+	skos:prefLabel "Argent"@fr .
+
+<application/sla-level/bronze>
+	a skos:Concept;
+	skos:definition "The Application has 'Bronze' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+	skos:notation "bronze";
+	skos:topConceptOf <application/sla-level> ;
+	skos:prefLabel "Bronze"@en;
+	skos:prefLabel "Bronze"@fr .
+
+<application/sla-level/platinum>
+	a skos:Concept;
+	skos:definition "The Application has 'Platinum' SLA."@en;
+	skos:inScheme <application/sla-level> ;
+	skos:notation "platinum";
+	skos:topConceptOf <application/sla-level> ;
+	skos:prefLabel "Platinum"@en;
+	skos:prefLabel "Platine"@fr .
+
+# -----------------------------------------------------------------------------
+
+<application/type>
+	a skos:ConceptScheme;
+	skos:definition "The nature (type) of the Application"@en;
+	skos:notation "type";
+	skos:inScheme <application> ;
+.
+
+<application/type/application>
+	a skos:Concept;
+	skos:definition "Application" ;
+	skos:inScheme <application/type> ;
+	skos:notation "application";
+	skos:prefLabel "Application"@en;
+	skos:prefLabel "Application"@fr;
+.
+
+<application/type/third-party>
+	a skos:Concept;
+	skos:definition "Third Party" ;
+	skos:inScheme <application/type> ;
+	skos:notation "third-party";
+	skos:prefLabel "Third Party"@en;
+	skos:prefLabel "Entité tiers"@fr;
+.
+
+<application/type/sla>
+	a skos:Concept;
+	skos:definition "SLA" ;
+	skos:inScheme <application/type> ;
+	skos:notation "sla";
+	skos:prefLabel "SLA"@en;
+	skos:prefLabel "SLA"@fr;
+.
+
+<application/type/infrastructure-service>
+	a skos:Concept;
+	skos:definition "Infrastructure service" ;
+	skos:inScheme <application/type> ;
+	skos:notation "infrastructure-service";
+	skos:prefLabel "Infrastructure service"@en;
+	skos:prefLabel "Service d'infrastructure"@fr;
+.
+
+<application/type/application-group>
+	a skos:Concept;
+	skos:definition "Application Group" ;
+	skos:inScheme <application/type> ;
+	skos:notation "application-group";
+	skos:prefLabel "Application Group"@en;
+	skos:prefLabel "Groupe Applicatif"@fr;
+.
+
+<application/type/network-equipment>
+	a skos:Concept;
+	skos:definition "Network equipment" ;
+	skos:inScheme <application/type> ;
+	skos:notation "network-equipment";
+	skos:prefLabel "Network equipment"@en;
+	skos:prefLabel "Equipement de réseau"@fr;
+.
+
+<application/type/infrastructure>
+	a skos:Concept;
+	skos:definition "Infrastructure" ;
+	skos:inScheme <application/type> ;
+	skos:notation "infrastructure";
+	skos:prefLabel "Infrastructure"@en;
+	skos:prefLabel "Infrastructure"@fr;
+.
+
+<application/type/service-platform>
+	a skos:Concept;
+	skos:definition "Service Platform" ;
+	skos:inScheme <application/type> ;
+	skos:notation "service-platform";
+	skos:prefLabel "Service Platform"@en;
+	skos:prefLabel "Platforme de service"@fr;
+.
+
+<application/type/it-tool>
+	a skos:Concept;
+	skos:definition "IT Tool" ;
+	skos:inScheme <application/type> ;
+	skos:notation "it-tool";
+	skos:prefLabel "IT Tool"@en;
+	skos:prefLabel "Solution logicielle"@fr;
+.
+
+<application/type/infrastructure-area>
+	a skos:Concept;
+	skos:definition "Infrastructure area" ;
+	skos:inScheme <application/type> ;
+	skos:notation "infrastructure-area";
+	skos:prefLabel "Infrastructure area"@en;
+	skos:prefLabel "Domaine d'infrastructure"@fr;
+.
+
+<application/type/service-platform-model>
+	a skos:Concept;
+	skos:definition "Service Platform Model" ;
+	skos:inScheme <application/type> ;
+	skos:notation "service-platform-model";
+	skos:prefLabel "Service Platform Model"@en;
+	skos:prefLabel "Modèle de Plateforme de Service"@fr;
+.
+
+<application/type/special-group>
+	a skos:Concept;
+	skos:definition "Special Group" ;
+	skos:inScheme <application/type> ;
+	skos:notation "special-group";
+	skos:prefLabel "Special Group"@en;
+	skos:prefLabel "Special Group"@fr;
+.
+
+# -----------------------------------------------------------------------------
+
+<application/business-importance>
+	a skos:ConceptScheme;
+	skos:definition "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en;
+	skos:notation "business-importance";
+	skos:inScheme <application> ;
+.
+
+<application/business-importance/high-critical>
+	a skos:Concept;
+	skos:definition "Highly critical application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "high-critical";
+	skos:prefLabel "High critical"@en
+.
+
+<application/business-importance/critical>
+	a skos:Concept;
+	skos:definition "Critical application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "critical";
+	skos:prefLabel "Critical"@en
+.
+
+<application/business-importance/standard>
+	a skos:Concept;
+	skos:definition "Standard criticality application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "standard";
+	skos:prefLabel "Standard"@en
+.
+
+<application/business-importance/low>
+	a skos:Concept;
+	skos:definition "Low criticality application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "low";
+	skos:prefLabel "Low"@en
+.
+
+<application/business-importance/not-defined>
+	a skos:Concept;
+	skos:definition "The business importance is not defined yet for the application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "not-defined";
+	skos:prefLabel "Not defined"@en
+.
+
+<application/business-importance/not-applicable>
+	a skos:Concept;
+	skos:definition "Defining the business importance is not relevant for the application." ;
+	skos:inScheme <application/business-importance> ;
+	skos:notation "not-applicable";
+	skos:prefLabel "Not applicable"@en
+.
+
+# =============================================================================
+# ChangeRequest vocabulary
+# =============================================================================
+
+<ChangeRequest>
+	a skos:ConceptScheme;
+	skos:definition "A Change Request"@en;
+	skos:notation "change-request" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<ChangeRequest/status>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the status of any Change Request ticket within the Change Request workflow."@en;
+	skos:notation "status" ;
+	skos:inScheme <ChangeRequest> ;
+.
+
+<ChangeRequest/status/draft>
+	a skos:Concept;
+	skos:definition "A Change Request have been initialized by Requester and is currently under definition."@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "draft";
+	skos:prefLabel "Draft"@en;
+	skos:prefLabel "Brouillon"@fr ;
+.
+
+<ChangeRequest/status/scheduling>
+	a skos:Concept;
+	skos:definition """Planned operations have been defined and distributed to all technical and reception groups.
+
+Typical next status : ['Validated']."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "scheduling";
+	skos:prefLabel "Scheduling"@en;
+	skos:altLabel "Prepared"@en;
+	skos:prefLabel "Plannifié"@fr ;
+.
+
+<ChangeRequest/status/validated>
+	a skos:Concept;
+	skos:definition """"The Validating Party has received and approved operations characteristics with respect to technical or customer constraints (e.g. date and time of finalization).
+
+Typical next status : ['In Progress', 'Cancelled']."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "validated";
+	skos:prefLabel "Validated"@en;
+	skos:prefLabel "Validé"@fr ;
+.
+
+<ChangeRequest/status/cancelled>
+	a skos:Concept;
+	skos:definition "Planned operations are cancelled and cancellation documents have been sent to Related Party (e.g. customers)."@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "cancelled";
+	skos:prefLabel "Cancelled"@en;
+	skos:prefLabel "Annulé"@fr ;
+.
+
+<ChangeRequest/status/current>
+	a skos:Concept;
+	skos:definition """At start date of the operation.
+
+Typical next status : ['Executed']."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "current";
+	skos:prefLabel "In progress"@en;
+	skos:prefLabel "En cours"@fr ;
+.
+
+<ChangeRequest/status/executed>
+	a skos:Concept;
+	skos:definition """Planned operations are done. Modifications are possible but will be tracked.
+
+Typical next status : ['Final']."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "executed";
+	skos:prefLabel "Executed"@en;
+	skos:prefLabel "Réalisé"@fr ;
+.
+
+<ChangeRequest/status/final>
+	a skos:Concept;
+	skos:definition """Planned operations are done and no more modifications will be carried out.
+
+Typical next status : ['Closed']."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "final";
+	skos:prefLabel "Final"@en;
+	skos:prefLabel "Terminé"@fr ;
+.
+
+<ChangeRequest/status/closed>
+	a skos:Concept;
+	skos:definition """Assessment done, the Change Request is closed.
+
+Typical next status : []."""@en;
+	skos:inScheme <ChangeRequest/status> ;
+	skos:notation "closed";
+	skos:prefLabel "Closed"@en;
+	skos:prefLabel "Clos"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/type>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the type of risk involved by any Change Request ticket."@en;
+	skos:notation "status" ;
+	skos:inScheme <ChangeRequest> ;
+.
+
+<ChangeRequest/type/owr-normal>
+	a skos:Concept;
+	skos:definition "Operation With Risk (OWR) - Normal mitigation effort."@en ;
+	skos:definition "Operation A Risque (OAR) - Effort d'atténuation normal."@fr ;
+	skos:inScheme <ChangeRequest/type> ;
+	skos:notation "owr-standard";
+	skos:prefLabel "OWR Standard"@en;
+	skos:prefLabel "OAR Standard"@fr ;
+	skos:altLabel "OWR_Normal"@en ;
+	skos:altLabel "OAR_Normal"@fr ;
+	skos:altLabel "OWR_Standard"@en ;
+	skos:altLabel "Task Order"@en ;
+.
+
+<ChangeRequest/type/owr-major>
+	a skos:Concept;
+	skos:definition "Operation With Risk (OWR) - Major mitigation effort."@en ;
+	skos:definition "Operation A Risque (OAR) - Effort d'atténuation élevé."@fr ;
+	skos:inScheme <ChangeRequest/type> ;
+	skos:notation "owr-standard";
+	skos:prefLabel "OWR Standard"@en ;
+	skos:prefLabel "OAR Standard"@fr ;
+	skos:altLabel "OWR_Major"@en ;
+	skos:altLabel "OAR_Majeur"@fr ;
+.
+
+<ChangeRequest/type/pw-normal>
+	a skos:Concept;
+	skos:definition "Planned Work (PW) - Normal mitigation effort."@en ;
+	skos:definition "Travaux Programmés (TP) - Effort d'atténuation normal."@fr ;
+	skos:inScheme <ChangeRequest/type> ;
+	skos:notation "pw-normal";
+	skos:prefLabel "PW Normal"@en;
+	skos:prefLabel "TP Normal"@fr ;
+	skos:altLabel "PW_Normal"@en ;
+.
+
+
+<ChangeRequest/type/pw-major>
+	a skos:Concept;
+	skos:definition "Planned Work (PW) - Major mitigation effort."@en ;
+	skos:definition "Travaux Programmés (TP) - Effort d'atténuation élevé."@fr ;
+	skos:inScheme <ChangeRequest/type> ;
+	skos:notation "pw-major";
+	skos:prefLabel "PW_Major"@en;
+	skos:prefLabel "TP_Majeur"@fr ;
+	skos:altLabel "PW Normal"@en ;
+.
+
+<ChangeRequest/type/pw-automated>
+	a skos:Concept;
+	skos:definition "Automated Planned Work (PW)."@en ;
+	skos:definition "Travaux Programmés (TP) automatisé."@fr ;
+	skos:inScheme <ChangeRequest/type> ;
+	skos:notation "pw-automated";
+	skos:prefLabel "Change Auto"@en;
+	skos:prefLabel "Change Auto"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/category>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the nature of the operations for a change request."@en ;
+	skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer, etc." ;
+	skos:inScheme <ChangeRequest> ;
+	skos:notation "category" .
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/cause>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the cause or motivations at the origin of a change request."@en ;
+	skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc." ;
+	skos:inScheme <ChangeRequest> ;
+	skos:notation "cause" .
+
+# -----------------------------------------------------------------------------
+
+<ChangeRequest/specification>
+	a skos:ConceptScheme;
+	skos:definition "The catalog of standard operation plans for recurring activities."@en ;
+	skos:example "Software upgrade, Resilience check, etc." ;
+	skos:inScheme <ChangeRequest> ;
+	skos:notation "specification" .
+
+# =============================================================================
+# Incident Management Process (IMP) vocabulary
+# =============================================================================
+
+<imp>
+	a skos:ConceptScheme;
+	skos:definition "Incident Management Process (IMP).";
+	skos:notation "imp" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<imp/groups>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the the Users, throughout the Groups they belong to, involved in the Incident Management process.";
+	skos:inScheme <imp> ;
+	skos:notation "groups" .
+
+<imp/groups/tmc>
+	a skos:Concept;
+	skos:definition "Technical Management Center (TMC).";
+	skos:inScheme <imp/groups>;
+	skos:notation "tmc";
+	skos:prefLabel "Technical Management Center"@en .
+
+<imp/groups/smc>
+	a skos:Concept;
+	skos:definition "Service Management Centers (SMC).";
+	skos:inScheme <imp/groups>;
+	skos:notation "smc";
+	skos:prefLabel "Service Management Center"@en .
+
+<imp/groups/fm>
+	a skos:Concept;
+	skos:definition "Field managements.";
+	skos:inScheme <imp/groups>;
+	skos:notation "fm";
+	skos:prefLabel "Field management"@en ;
+	skos:altLabel "Field intervention"@en ;
+.
+
+<imp/groups/osc>
+	a skos:Concept;
+	skos:definition "Operational Skill Centers (OSC) related to material suppliers.";
+	skos:inScheme <imp/groups>;
+	skos:notation "osc";
+	skos:prefLabel "Operational Skill Center"@en .
+
+<imp/groups/ccc>
+	a skos:Concept;
+	skos:definition "Customer Care Centers (CCC).";
+	skos:inScheme <imp/groups>;
+	skos:notation "ccc";
+	skos:prefLabel "Customer Care Center"@en .
+
+<imp/groups/supplier>
+	a skos:Concept;
+	skos:definition "Suppliers.";
+	skos:inScheme <imp/groups>;
+	skos:notation "supplier";
+	skos:prefLabel "Supplier"@en .
+
+# -----------------------------------------------------------------------------
+
+<imp/milestones>
+	a skos:ConceptScheme;
+	skos:definition "Milestones of the Incident Management Process.";
+	skos:inScheme <imp> ;
+	skos:notation "milestones" .
+
+<imp/milestones/t0>
+	a skos:Concept;
+	skos:definition "The Event Appearance, reported by the customer or a partner application, starts the Incident Management process.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t0";
+	skos:prefLabel "Event Appearance"@en .
+
+<imp/milestones/t1>
+	a skos:Concept;
+	skos:definition "The Registration is the event of entering in Orange internal process and the information due to the Customer.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t1";
+	skos:prefLabel "Registration"@en .
+
+<imp/milestones/t2>
+	a skos:Concept;
+	skos:definition "The Customer Information ensures that the customer is aware of the progress of the Incident Management.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t2";
+	skos:prefLabel "Customer Information"@en .
+
+<imp/milestones/t3>
+	a skos:Concept;
+	skos:definition "The Diagnosis Activation marks the entry in the active analysis part of the process.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t3";
+	skos:prefLabel "Diagnosis Activation"@en .
+
+<imp/milestones/t4>
+	a skos:Concept;
+	skos:definition "The Diagnosis milestone is the end of the root cause analysis (RCA) of the incident.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t4";
+	skos:prefLabel "Diagnosis"@en .
+
+<imp/milestones/t5>
+	a skos:Concept;
+	skos:definition "The first step after the diagnosis is the Service Restoration, which restores the service (sometimes in degraded mode) to the Customer.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t5";
+	skos:prefLabel "Service Restoration"@en .
+
+<imp/milestones/t6>
+	a skos:Concept;
+	skos:definition "The Incident Resolution marks the end of the Incident, that is to say that the service works again.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t6";
+	skos:prefLabel "Incident Resolution"@en .
+
+<imp/milestones/t7>
+	a skos:Concept;
+	skos:definition "The Incident Repairing indicates that the causes of the Incident are resolved, ensuring that it will not occur again.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t7";
+	skos:prefLabel "Incident Repairing"@en .
+
+<imp/milestones/t8>
+	a skos:Concept;
+	skos:definition "The Incident Closure, concluded with the Customer, validates the end of the process.";
+	skos:inScheme <imp/milestones> ;
+	skos:notation "t8";
+	skos:prefLabel "Incident Closure"@en .
+
+# =============================================================================
+# NetworkLink vocabulary
+# =============================================================================
+
+<NetworkLink>
+	a skos:ConceptScheme;
+	skos:notation "networklink";
+	skos:prefLabel "Network Link"@en;
+	skos:prefLabel "Liaison Réseau"@fr;
+	skos:altLabel "Jonction"@fr;
+	skos:altLabel "Lien"@fr;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<NetworkLink/type>
+	a skos:ConceptScheme;
+	skos:notation "type";
+	skos:inScheme <NetworkLink> ;
+.
+
+# =============================================================================
+# Notification vocabulary
+# =============================================================================
+
+<Notification>
+	a skos:ConceptScheme;
+	skos:definition "A notification, related to some Facility and with a Severity value.";
+	skos:notation "notification" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<Notification/EventType>
+	a skos:ConceptScheme ;
+	skos:notation "eventType" ;
+	skos:inScheme <Notification> ;
+	skos:definition "The Type of the Event."@en ;
+.
+
+<Notification/EventTypeGroup>
+	a skos:ConceptScheme ;
+	skos:notation "eventTypeGroup" ;
+	skos:inScheme <Notification> ;
+	skos:definition "Group of EvenType reflecting some specific alarming situation."@en ;
+.
+
+<Notification/EventTypeGroup/GeneralOperationAlarm>
+	a skos:ConceptScheme ;
+	skos:notation "eventTypeGroup-GeneralOperationAlarm" ;
+	skos:inScheme <Notification> ;
+	skos:definition "Group of EvenType reflecting alarming situations about General Operation context issues."@en ;
+	skos:example "The set of communicationAlarm, qualityofServiceAlarm, processingErrorAlarm, equipmentAlarm and environmentalAlarm event type."@en ;
+.
+
+<Notification/EventTypeGroup/SecurityAlarm>
+	a skos:ConceptScheme ;
+	skos:notation "eventTypeGroup-SecurityAlarm" ;
+	skos:inScheme <Notification> ;
+	skos:definition "Group of EvenType reflecting alarming situations about Security issues."@en ;
+	skos:example "The set of integrityViolation, operationalViolation, physicalViolation, securityServiceOrMechanismViolation and timeDomainViolation event type."@en ;
+.
+
+<Notification/EventTypeGroup/ChangeOperation>
+	a skos:ConceptScheme ;
+	skos:notation "eventTypeGroup-ChangeOperation" ;
+	skos:inScheme <Notification> ;
+	skos:definition "Group of EvenType reflecting change operations on the ICT system within a ChangeRequest context."@en ;
+.
+
+<Notification/EventTypeGroup/CorrectiveMaintenanceOperation>
+	a skos:ConceptScheme ;
+	skos:notation "eventTypeGroup-CorrectiveMaintenanceOperation" ;
+	skos:inScheme <Notification> ;
+	skos:definition "Group of EvenType reflecting corrective maintenance operations on the ICT system within a TroubleTicket context."@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/EventType/miscellaneousError>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:notation "miscellaneousError" ;
+	skos:definition "When a processing error failure has occurred and the error condition encountered does not match any of the object's defined specific error types, this value is used."@en ;
+	skos:prefLabel "miscellaneousError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-miscellaneousError> ;
+.
+
+<Notification/EventType/attributeValueChange>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+	skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+	skos:notation "attributeValueChange" ;
+	skos:definition "This notification type is used to report changes to the attribute such as addition or deletion of members to one or more set valued attributes, replacement of the value of one or more attributes and setting attribute values to their defaults."@en ;
+	skos:prefLabel "attributeValueChange"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-attributeValueChangeBehaviour> ;
+.
+
+<Notification/EventType/communicationsAlarm>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:notation "communicationsAlarm" ;
+	skos:definition "This notification type is used to report when the object detects a communications error."@en ;
+	skos:prefLabel "communicationsAlarm"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-communicationsAlarmBehaviour> ;
+.
+
+<Notification/EventType/environmentalAlarm>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:notation "environmentalAlarm" ;
+	skos:definition "This notification type is used to report a problem in the environment."@en ;
+	skos:prefLabel "environmentalAlarm"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-environmentalAlarmBehaviour> ;
+.
+
+<Notification/EventType/equipmentAlarm>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:notation "equipmentAlarm" ;
+	skos:definition "This notification type is used to report a failure in the equipment."@en ;
+	skos:prefLabel "equipmentAlarm"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-equipmentAlarmBehaviour> ;
+.
+
+<Notification/EventType/integrityViolation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "integrityViolation" ;
+	skos:definition "This notification is used to report that a potential interruption in information flow has occurred such that information may have been illegally modified, inserted or deleted."@en ;
+	skos:prefLabel "integrityViolation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-integrityViolationBehaviour> ;
+.
+
+<Notification/EventType/objectCreation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+	skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+	skos:notation "objectCreation" ;
+	skos:definition "This notification type is used to report the creation of a managed object to another open system."@en ;
+	skos:prefLabel "objectCreation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-objectCreationBehaviour> ;
+.
+
+<Notification/EventType/objectDeletion>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+	skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+	skos:notation "objectDeletion" ;
+	skos:definition "This notification type is used to report the deletion of a managed object to another open system."@en ;
+	skos:prefLabel "objectDeletion"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-objectDeletionBehaviour> ;
+.
+
+<Notification/EventType/operationalViolation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "operationalViolation" ;
+	skos:definition "This notification is used to report that the provision of the requested service was not possible due to the unavailability, malfunction or incorrect invocation of the service."@en ;
+	skos:prefLabel "operationalViolation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-operationalViolationBehaviour> ;
+.
+
+<Notification/EventType/physicalViolation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "physicalViolation" ;
+	skos:definition "This notification is used to report that a physical resource has been violated in a way that indicates a potential security attack."@en ;
+	skos:prefLabel "physicalViolation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-physicalViolationBehaviour> ;
+.
+
+<Notification/EventType/processingErrorAlarm>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:notation "processingErrorAlarm" ;
+	skos:definition "This notification type is used to report processing failure in a managed object."@en ;
+	skos:prefLabel "processingErrorAlarm"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-processingErrorAlarmBehaviour> ;
+.
+
+<Notification/EventType/qualityofServiceAlarm>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:notation "qualityofServiceAlarm" ;
+	skos:definition "This notification type is used to report a failure in the quality of service of the managed object."@en ;
+	skos:prefLabel "qualityofServiceAlarm"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-qualityofServiceAlarmBehaviour> ;
+.
+
+<Notification/EventType/relationshipChange>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/ChangeOperation> ;
+	skos:inScheme <Notification/EventTypeGroup/CorrectiveMaintenanceOperation> ;
+	skos:notation "relationshipChange" ;
+	skos:definition "This notification type is used to report the change in the value of one or more relationship attributes of a object, that result through either internal operation of the managed object or via management operation."@en ;
+	skos:prefLabel "relationshipChange"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-relationshipChangeBehaviour> ;
+.
+
+<Notification/EventType/securityServiceOrMechanismViolation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "securityServiceOrMechanismViolation" ;
+	skos:definition "This notification is used to report that a security attack has been detected by a security service or mechanism."@en ;
+	skos:prefLabel "securityServiceOrMechanismViolation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityServiceOrMechanismViolationBehaviour> ;
+.
+
+<Notification/EventType/stateChange>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:notation "stateChange" ;
+	skos:definition "This notification type is used to report the change in the the value of one or more state attributes of a managed object, that result through either internal operation of the managed object or via management operation."@en ;
+	skos:prefLabel "stateChange"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-stateChangeBehaviour> ;
+.
+
+<Notification/EventType/timeDomainViolation>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "timeDomainViolation" ;
+	skos:definition "This notification is used to report that an event has occurred at an unexpected or prohibited time."@en ;
+	skos:prefLabel "timeDomainViolation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-timeDomainViolationBehaviour> ;
+.
+
+<Notification/EventType/inferredAlert>
+	a skos:Concept ;
+	skos:inScheme <Notification/EventType> ;
+	skos:inScheme <Notification/EventTypeGroup/GeneralOperationAlarm> ;
+	skos:inScheme <Notification/EventTypeGroup/SecurityAlarm> ;
+	skos:notation "inferred-alert" ;
+	skos:definition "This notification is used to report that a risk or error condition has been deduced by an external Anomaly Detection (AD) component."@en ;
+	skos:example "atRisk(Resource, '50% k-out-of-n threshold crossed')" ;
+	skos:prefLabel "inferredAlert"@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity>
+	a skos:ConceptScheme ;
+	skos:inScheme <Notification> ;
+	skos:prefLabel "Severity"@en ;
+	skos:prefLabel "Gravité"@fr ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity/PerceivedSeverity>
+	a skos:ConceptScheme ;
+	skos:inScheme <Notification/Severity> ;
+	skos:notation "perceived-severity" ;
+	skos:definition "Provides an indication of how it is perceived that the capability of the managed object has been affected."@en ;
+	skos:definition "Donne des indications sur la manière dont la dégradation des fonctions de l'objet géré est perçue."@fr ;
+	rdfs:comment """There is a direct correlation between the perceived severity, log levels and syslog level severities.
+However there is no standard mapping between all proposed severity schemes.
+Therefore we take X.733 for baseline with respect to its anteriority and map other standards through `skos:altLabel` statements.""" ;
+	skos:prefLabel "Perceived severity"@en ;
+	skos:prefLabel "Gravité perçue"@fr ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.PerceivedSeverity> ;
+.
+
+<Notification/Severity/PerceivedSeverity/cleared>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "cleared" ;
+	skos:definition "The Cleared severity level indicates the clearing of one or more previously reported alarms. This alarm clears all alarms for this managed object that have the same Alarm type, Probable cause and Specific problems (if given)."@en ;
+	skos:prefLabel "cleared"@en ;
+	skos:altLabel "Ok" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/critical>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "critical" ;
+	skos:definition "The Critical severity level indicates that a service affecting condition has occurred and an immediate corrective action is required. Such a severity can be reported, for example, when a managed object becomes totally out of service and its capability must be restored."@en ;
+	skos:prefLabel "critical"@en ;
+	skos:altLabel "Emergency"@en ;
+	skos:altLabel "emerg"@en ;
+	skos:altLabel "panic"@en ;
+	skos:altLabel "0" ;
+	skos:altLabel "Alert"@en ;
+	skos:altLabel "1" ;
+	skos:altLabel "Critical"@en ;
+	skos:altLabel "crit"@en ;
+	skos:altLabel "2" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+	rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/major>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "major" ;
+	skos:definition "The Major severity level indicates that a service affecting condition has developed and an urgent corrective action is required. Such a severity can be reported, for example, when there is a severe degradation in the capability of the managed object and its full capability must be restored."@en ;
+	skos:prefLabel "major"@en ;
+	skos:altLabel "Error"@en ;
+	skos:altLabel "3" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+	rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/minor>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "minor" ;
+	skos:definition "The Minor severity level indicates the existence of a non-service affecting fault condition and that corrective action should be taken in order to prevent a more serious (for example, service affecting) fault. Such a severity can be reported, for example, when the detected alarm condition is not currently degrading the capacity of the managed object."@en ;
+	skos:prefLabel "minor"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+.
+
+<Notification/Severity/PerceivedSeverity/warning>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "warning" ;
+	skos:definition "The Warning severity level indicates the detection of a potential or impending service affecting fault, before any significant effects have been felt. Action should be taken to further diagnose (if necessary) and correct the problem in order to prevent it from becoming a more serious service affecting fault."@en ;
+	skos:prefLabel "warning"@en ;
+	skos:altLabel "Warning"@en ;
+	skos:altLabel "warn"@en ;
+	skos:altLabel "4" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+	rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+<Notification/Severity/PerceivedSeverity/indeterminate>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/PerceivedSeverity> ;
+	skos:notation "indeterminate" ;
+	skos:definition "The Indeterminate severity level indicates that the severity level cannot be determined."@en ;
+	skos:prefLabel "indeterminate"@en ;
+	skos:altLabel "Unknown"@en ;
+	skos:altLabel "Notice"@en ;
+	skos:altLabel "5" ;
+	skos:altLabel "Informational"@en ;
+	skos:altLabel "info"@en ;
+	skos:altLabel "6" ;
+	skos:altLabel "Debug"@en ;
+	skos:altLabel "7" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
+	rdfs:isDefinedBy <https://www.rfc-editor.org/rfc/rfc5424> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/Severity/SecurityAlarmSeverity>
+	a skos:ConceptScheme ;
+	skos:notation "security-alarm-severity" ;
+	skos:inScheme <Notification/Severity> ;
+	skos:related <Notification/Severity/PerceivedSeverity> ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmSeverity> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/indeterminate>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+	skos:notation "indeterminate" ;
+	skos:prefLabel "indeterminate"@en ;
+	skos:exactMatch <Notification/Severity/PerceivedSeverity/indeterminate> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/critical>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+	skos:notation "critical" ;
+	skos:prefLabel "critical "@en ;
+	skos:exactMatch <Notification/Severity/PerceivedSeverity/critical> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/major>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+	skos:notation "major" ;
+	skos:prefLabel "major"@en ;
+	skos:exactMatch <Notification/Severity/PerceivedSeverity/major> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/minor>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+	skos:notation "minor" ;
+	skos:prefLabel "minor"@en ;
+	skos:exactMatch <Notification/Severity/PerceivedSeverity/minor> ;
+.
+
+<Notification/Severity/SecurityAlarmSeverity/warning>
+	a skos:Concept ;
+	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
+	skos:notation "warning" ;
+	skos:prefLabel "warning"@en ;
+	skos:exactMatch <Notification/Severity/PerceivedSeverity/warning> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/ProbableCause>
+	a skos:ConceptScheme ;
+	skos:inScheme <Notification> ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-probableCause>,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.ProbableCause> ;
+.
+
+<Notification/ProbableCause/adapterError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "adapterError" ;
+	skos:prefLabel "adapterError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/applicationSubsystemFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "applicationSubsystemFailure" ;
+	skos:prefLabel "applicationSubsystemFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/bandwidthReduced>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "bandwidthReduced" ;
+	skos:prefLabel "bandwidthReduced"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/callEstablishmentError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "callEstablishmentError" ;
+	skos:prefLabel "callEstablishmentError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/communicationsProtocolError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "communicationsProtocolError" ;
+	skos:prefLabel "communicationsProtocolError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/communicationsSubsystemFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "communicationsSubsystemFailure" ;
+	skos:prefLabel "communicationsSubsystemFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/configurationOrCustomizationError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "configurationOrCustomizationError" ;
+	skos:prefLabel "configurationOrCustomizationError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/congestion>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "congestion" ;
+	skos:prefLabel "congestion"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/corruptData>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "corruptData" ;
+	skos:prefLabel "corruptData"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/cpuCyclesLimitExceeded>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "cpuCyclesLimitExceeded" ;
+	skos:prefLabel "cpuCyclesLimitExceeded"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/dataSetOrModemError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "dataSetOrModemError" ;
+	skos:prefLabel "dataSetOrModemError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/degradedSignal>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "degradedSignal" ;
+	skos:prefLabel "degradedSignal"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/dTE-DCEInterfaceError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "dTE-DCEInterfaceError" ;
+	skos:prefLabel "dTE-DCEInterfaceError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/enclosureDoorOpen>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "enclosureDoorOpen" ;
+	skos:prefLabel "enclosureDoorOpen"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/equipmentMalfunction>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "equipmentMalfunction" ;
+	skos:prefLabel "equipmentMalfunction"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/excessiveVibration>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "excessiveVibration" ;
+	skos:prefLabel "excessiveVibration"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/fileError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "fileError" ;
+	skos:prefLabel "fileError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/fireDetected>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "fireDetected" ;
+	skos:prefLabel "fireDetected"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/floodDetected>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "floodDetected" ;
+	skos:prefLabel "floodDetected"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/framingError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "framingError" ;
+	skos:prefLabel "framingError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/heatingOrVentilationOrCoolingSystemProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "heatingOrVentilationOrCoolingSystemProblem" ;
+	skos:prefLabel "heatingOrVentilationOrCoolingSystemProblem"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/humidityUnacceptable>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "humidityUnacceptable" ;
+	skos:prefLabel "humidityUnacceptable"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/inputOutputDeviceError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "inputOutputDeviceError" ;
+	skos:prefLabel "inputOutputDeviceError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/inputDeviceError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "inputDeviceError" ;
+	skos:prefLabel "inputDeviceError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lANError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "lANError" ;
+	skos:prefLabel "lANError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/leakDetected>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "leakDetected" ;
+	skos:prefLabel "leakDetected"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/localNodeTransmissionError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "localNodeTransmissionError" ;
+	skos:prefLabel "localNodeTransmissionError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lossOfFrame>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "lossOfFrame" ;
+	skos:prefLabel "lossOfFrame"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/lossOfSignal>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "lossOfSignal" ;
+	skos:prefLabel "lossOfSignal"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/materialSupplyExhausted>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "materialSupplyExhausted" ;
+	skos:prefLabel "materialSupplyExhausted"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/multiplexerProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "multiplexerProblem" ;
+	skos:prefLabel "multiplexerProblem"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/outOfMemory>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "outOfMemory" ;
+	skos:prefLabel "outOfMemory"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/ouputDeviceError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "ouputDeviceError" ;
+	skos:prefLabel "ouputDeviceError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/performanceDegraded>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "performanceDegraded" ;
+	skos:prefLabel "performanceDegraded"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/powerProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "powerProblem" ;
+	skos:prefLabel "powerProblem"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/pressureUnacceptable>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "pressureUnacceptable" ;
+	skos:prefLabel "pressureUnacceptable"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/processorProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "processorProblem" ;
+	skos:prefLabel "processorProblem"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/pumpFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "pumpFailure" ;
+	skos:prefLabel "pumpFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/queueSizeExceeded>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "queueSizeExceeded" ;
+	skos:prefLabel "queueSizeExceeded"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/receiveFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "receiveFailure" ;
+	skos:prefLabel "receiveFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/receiverFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "receiverFailure" ;
+	skos:prefLabel "receiverFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/remoteNodeTransmissionError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "remoteNodeTransmissionError" ;
+	skos:prefLabel "remoteNodeTransmissionError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/resourceAtOrNearingCapacity>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "resourceAtOrNearingCapacity" ;
+	skos:prefLabel "resourceAtOrNearingCapacity"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/responseTimeExcessive>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "responseTimeExcessive" ;
+	skos:prefLabel "responseTimeExcessive"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/retransmissionRateExcessive>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "retransmissionRateExcessive" ;
+	skos:prefLabel "retransmissionRateExcessive"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "softwareError" ;
+	skos:prefLabel "softwareError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareProgramAbnormallyTerminated>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "softwareProgramAbnormallyTerminated" ;
+	skos:prefLabel "softwareProgramAbnormallyTerminated"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/softwareProgramError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "softwareProgramError" ;
+	skos:prefLabel "softwareProgramError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/storageCapacityProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "storageCapacityProblem" ;
+	skos:prefLabel "storageCapacityProblem"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/temperatureUnacceptable>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "temperatureUnacceptable" ;
+	skos:prefLabel "temperatureUnacceptable"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/thresholdCrossed>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "thresholdCrossed" ;
+	skos:prefLabel "thresholdCrossed"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/timingProblem>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "timingProblem" ;
+	skos:prefLabel "adapterError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/toxicLeakDetected>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "toxicLeakDetected" ;
+	skos:prefLabel "toxicLeakDetected"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/transmitFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "transmitFailure" ;
+	skos:prefLabel "adapterError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/transmitterFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "transmitterFailure" ;
+	skos:prefLabel "transmitterFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/underlyingResourceUnavailable>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "underlyingResourceUnavailable" ;
+	skos:prefLabel "adapterError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+<Notification/ProbableCause/versionMismatch>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/ProbableCause> ;
+	skos:notation "versionMismatch" ;
+	skos:prefLabel "adapterError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.arfProbableCause> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Notification/SecurityAlarmCause>
+	a skos:ConceptScheme ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause>,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/authenticationFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "authenticationFailure" ;
+	skos:prefLabel "authenticationFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/breachOfConfidentiality>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "breachOfConfidentiality" ;
+	skos:prefLabel "breachOfConfidentiality"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/cableTamper>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "cableTamper" ;
+	skos:prefLabel "cableTamper"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/delayedInformation>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "delayedInformation" ;
+	skos:prefLabel "authenticationFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/denialOfService>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "denialOfService" ;
+	skos:prefLabel "denialOfService"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/duplicateInformation>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "duplicateInformation" ;
+	skos:prefLabel "duplicateInformation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationMissing>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "informationMissing" ;
+	skos:prefLabel "informationMissing"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationModificationDetected>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "informationModificationDetected" ;
+	skos:prefLabel "informationModificationDetected"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/informationOutOfSequence>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "informationOutOfSequence" ;
+	skos:prefLabel "informationOutOfSequence"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/intrusionDetection>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "intrusionDetection" ;
+	skos:prefLabel "intrusionDetection"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/keyExpired>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "keyExpired" ;
+	skos:prefLabel "keyExpired"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/nonRepudiationFailure>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "nonRepudiationFailure" ;
+	skos:prefLabel "nonRepudiationFailure"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/outOfHoursActivity>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "outOfHoursActivity" ;
+	skos:prefLabel "outOfHoursActivity"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/outOfService>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "outOfService" ;
+	skos:prefLabel "outOfService"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/proceduralError>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "proceduralError" ;
+	skos:prefLabel "proceduralError"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unauthorizedAccessAttempt>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "unauthorizedAccessAttempt" ;
+	skos:prefLabel "unauthorizedAccessAttempt"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unexpectedInformation>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "unexpectedInformation" ;
+	skos:prefLabel "unexpectedInformation"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+<Notification/SecurityAlarmCause/unspecifiedReason>
+	a skos:Concept,
+	  noria:AnomalyPattern ;
+	skos:inScheme <Notification/SecurityAlarmCause> ;
+	skos:notation "unspecifiedReason" ;
+	skos:prefLabel "unspecifiedReason"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.securityAlarmCause> ;
+.
+
+# =============================================================================
+# Organization vocabulary
+# =============================================================================
+
+<org>
+	a skos:ConceptScheme;
+	skos:definition "A vocabulary for standardized information annotation on organizations and organizational structures.";
+	skos:notation "org" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<org/org-classification>
+	a skos:ConceptScheme;
+	skos:definition "A classification scheme for describing an Organization.";
+	skos:inScheme <org> ;
+	skos:notation "org-classification" ;
+	rdfs:seeAlso
+		<https://www.w3.org/TR/vocab-org/#org:classification> ,
+		<https://www.w3.org/TR/vocab-org/#org:Organization> ;
+.
+
+<org/ou-classification>
+	a skos:ConceptScheme;
+	skos:definition "A classification scheme for describing an Organizational Unit.";
+	skos:inScheme <org> ;
+	skos:notation "ou-classification" ;
+	rdfs:seeAlso
+		<https://www.w3.org/TR/vocab-org/#org:classification> ,
+		<https://www.w3.org/TR/vocab-org/#org:OrganizationalUnit> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<org/org-classification/manufacturer>
+	a skos:Concept;
+	skos:definition "An organization assuming a manufacturing activity of some product." ;
+	skos:inScheme <org/org-classification> ;
+	skos:notation "manufacturer";
+	skos:prefLabel "Manufacturer"@en .
+
+# -----------------------------------------------------------------------------
+
+<org/ou-classification/tsg>
+	a skos:Concept;
+	skos:definition """An organizational operational unit (team) with a technical support role; i.e. a group of employees with specific skills or devoted to some specific task/work/project w.r.t. IT Service and Resource management.
+
+The unique identifier of the team (e.g. the operation code) can be instantiated with the `org:identifier` property.""" ;
+	skos:inScheme <org/ou-classification> ;
+	skos:notation "tsg";
+	skos:prefLabel "Technical Support Group"@en ;
+.
+
+<org/ou-classification/aaa-technical-group>
+	a skos:Concept;
+	skos:definition """An AAA Technical Group (TG) is an abstract group representing usage and/or administration access rights for Applications and Resources.
+It is a combination between an application (devices list) and a profile (type of account access, for example: admin, application, db, etc.).
+
+Associations between Business Groups (BGs) and TG define the rights of users to access on Resources.
+Each BG / TG combination is created with *Read* or *Write* right to the operating accounts.""" ;
+	skos:example """- The user `User5` can access to `Server5` and `Server6` of `Application2` with `write` right to DB accounts (e.g. oracle, bddadmin, etc.) on these servers.
+- AAA RADIUS Profile.""" ;
+	skos:inScheme <org/ou-classification> ;
+	skos:notation "aaa-technical-group" ;
+	skos:prefLabel "AAA Technical Group"@en ;
+	skos:prefLabel "Groupe Technique AAA"@fr ;
+.
+
+<org/ou-classification/aaa-business-group>
+	a skos:Concept;
+	skos:definition "An AAA Business Group (BG) is a users list." ;
+	skos:example "Active Directory (AD) Groups." ;
+	skos:inScheme <org/ou-classification> ;
+	skos:notation "aaa-business-group" ;
+	skos:prefLabel "AAA Business Group"@en ;
+	skos:prefLabel "Groupe Métier AAA"@fr ;
+	rdfs:seeAlso <org/ou-classification/aaa-technical-group> ;
+.
+
+<org/ou-classification/company-department>
+	a skos:Concept;
+	skos:definition "An administrative or technical division of a company or organization." ;
+	skos:example "Sales department, human resources department, production department." ;
+	skos:inScheme <org/ou-classification> ;
+	skos:notation "company-department" ;
+	skos:prefLabel "Company department - Management entity"@en ;
+	skos:prefLabel "Département d'entreprise - Unité de gestion"@fr ;
+	rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=501885> ;
+.
+
+# =============================================================================
+
+<org/agent-contact-method>
+	a skos:ConceptScheme;
+	skos:definition "A classification scheme for describing the preferred contact method.";
+	skos:inScheme <org> ;
+	skos:notation "agent-contact-method" ;
+	rdfs:seeAlso <http://xmlns.com/foaf/spec/#term_Agent> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<org/agent-contact-method/no-pref>
+	a skos:Concept;
+	skos:definition "The agent have no preferred contact method." ;
+	skos:inScheme <org/agent-contact-method> ;
+	skos:notation "no-pref";
+	skos:prefLabel "No preference"@en ;
+.
+
+<org/agent-contact-method/phone>
+	a skos:Concept;
+	skos:definition "The agent should preferably be contacted by phone." ;
+	skos:inScheme <org/agent-contact-method> ;
+	skos:notation "phone";
+	skos:prefLabel "Phone"@en ;
+	skos:prefLabel "Téléphone"@fr ;
+.
+
+<org/agent-contact-method/e-mail>
+	a skos:Concept;
+	skos:definition "The agent should preferably be contacted by e-mail." ;
+	skos:inScheme <org/agent-contact-method> ;
+	skos:notation "e-mail";
+	skos:prefLabel "e-mail" ;
+	skos:altLabel "email" ;
+	skos:altLabel "E-mail" ;
+	skos:altLabel "Electronic mail" ;
+	rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q9158> ;  # HACK: <https://en.wikipedia.org/wiki/Email>
+.
+
+<org/agent-contact-method/p-mail>
+	a skos:Concept;
+	skos:definition "The agent should preferably be contacted by postal mail." ;
+	skos:inScheme <org/agent-contact-method> ;
+	skos:notation "p-mail";
+	skos:prefLabel "p-mail"@en ;
+	skos:altLabel "Postal mail"@en ;
+	skos:prefLabel "Courrier postal"@fr ;
+	skos:altLabel "Courrier poste"@fr ;
+	skos:altLabel "Courrier"@fr ;
+	rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=2076492> ;
+.
+
+<org/agent-contact-method/sms>
+	a skos:Concept;
+	skos:definition "The agent should preferably be contacted by SMS message." ;
+	skos:inScheme <org/agent-contact-method> ;
+	skos:notation "sms";
+	skos:prefLabel "SMS" ;
+	skos:altLabel "Short text message"@en ;
+	skos:altLabel "Text message"@en ;
+	skos:altLabel "Short message"@en ;
+	skos:altLabel "SMS message"@en ;
+	skos:altLabel "Texto"@fr ;
+	skos:altLabel "Message texte"@fr ;
+	skos:altLabel "Minimessage"@fr ;
+	skos:altLabel "Message SMS"@fr ;
+	rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=26506622> ;
+.
+
+# =============================================================================
+# Operation Support System (OSS) vocabulary
+# =============================================================================
+
+<oss>
+	a skos:ConceptScheme;
+	skos:definition "Operation Support System (OSS).";
+	skos:notation "oss" ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<oss/process>
+	a skos:ConceptScheme;
+	skos:definition "Process recommended by the OSS (Operation Support System) Group Solution.";
+	skos:inScheme <oss> ;
+	skos:notation "process" .
+
+<oss/process/change-management>
+	a skos:Concept;
+	skos:definition "Change management.";
+	skos:inScheme <oss/process>;
+	skos:notation "change-management";
+	skos:prefLabel "Change Management Process"@en .
+
+<oss/process/incident-management>
+	a skos:Concept;
+	skos:definition """Incident management: an incident is a failure or a deterioration of service detected and declared by the customer or by internal operator.
+The associated process is to find and solve the causes of the incident and to restore the service.
+The incident is an urgent situation calling for a very short term action and resolution"""@en;
+	skos:inScheme <oss/process>;
+	skos:related <oss/process/problem-management>;
+	skos:notation "incident-management";
+	skos:prefLabel "Incident Management Process"@en .
+
+<oss/process/problem-management>
+	a skos:Concept;
+	skos:definition """Problem management: a problem is a risky situation which can cause an incident and is generally observed by internal operators.
+The associated process is to analyse the causes of the problem and to correct them in order to avoid the incident from occurring.
+The problem is a middle / long term situation calling for deep analysis and reliable solution."""@en;
+	skos:inScheme <oss/process>;
+	skos:related <oss/process/incident-management>;
+	skos:notation "problem-management";
+	skos:prefLabel "Problem Management Process"@en .
+
+<oss/process/anomaly-report>
+	a skos:Concept;
+	skos:definition "Anomaly report.";
+	skos:inScheme <oss/process>;
+	skos:notation "anomaly-report";
+	skos:prefLabel "Anomaly Report"@en .
+
+# -----------------------------------------------------------------------------
+
+<oss/gnoc-roles>
+	a skos:ConceptScheme;
+	skos:definition "Users roles involved in GNOC (Global Network Operation Center) processes (i.e. incident management and change management).";
+	skos:inScheme <oss> ;
+	skos:notation "gnoc-roles" .
+
+<oss/gnoc-roles/icr>
+	a skos:Concept;
+	skos:definition """Responsible for coordination of failure removal, i.e. to restore service in the shortest possible time and to minimize failure impact.
+All high priority incidents (e.g. Priority 1 and 2) are managed by the ICR."""@en;
+	skos:inScheme <oss/gnoc-roles>;
+	skos:notation "icr";
+	skos:prefLabel "Incident Coordinator"@en .
+
+<oss/gnoc-roles/ccr>
+	a skos:Concept;
+	skos:definition """Responsible for coordination of all changes realized by the GNOC.
+Identifies/prevents risks in changes (e.g. situations when changes each with no impact, could generate incidents if performed simultaneously).
+All changes with high impact/risk are managed by the CCR."""@en;
+	skos:inScheme <oss/gnoc-roles>;
+	skos:notation "ccr";
+	skos:prefLabel "Change Coordinator"@en .
+
+<oss/gnoc-roles/tir>
+	a skos:Concept;
+	skos:definition "Entity or person identifying the incident and opening the trouble ticket.";
+	skos:inScheme <oss/gnoc-roles>;
+	skos:notation "tir";
+	skos:prefLabel "Ticket Initiator"@en .
+
+<oss/gnoc-roles/mcc>
+	a skos:Concept;
+	skos:definition "Entity or person to be contacted for feedback or escalation.";
+	skos:inScheme <oss/gnoc-roles>;
+	skos:notation "mcc";
+	skos:prefLabel "Main Customer Contact"@en .
+
+# -----------------------------------------------------------------------------
+
+<oss/technical-objects>
+	a skos:ConceptScheme;
+	skos:definition """High-level objects, managed by OSS components, which represent the elements of Orange and the customers’ networks and services."""@en;
+	skos:inScheme <oss> ;
+	skos:notation "technical-objects" .
+
+<oss/technical-objects/product>
+	a skos:Concept;
+	skos:definition """A Product is a service provided and charged to the customer and it relies on one or several Resources.
+A Product is associated to a customer and it can carry warranties and SLAs.
+These two points make the difference between Resource and Product."""@en;
+	skos:inScheme <oss/technical-objects>;
+	skos:notation "product";
+	skos:prefLabel "Product"@en .
+
+<oss/technical-objects/resource>
+	a skos:Concept;
+	skos:definition """The Resources are shared elements of the network on which the Customers' Products and Services are implemented."""@en;
+	skos:inScheme <oss/technical-objects>;
+	skos:notation "resource";
+	skos:prefLabel "Resource"@en .
+
+<oss/technical-objects/non-managed-product>
+	a skos:Concept;
+	skos:definition "Object necessary to describe a technical component to carry operations and where there is no record of the technical element."@en;
+	skos:inScheme <oss/technical-objects>;
+	skos:notation "non-managed-product";
+	skos:prefLabel "Non-managed Product"@en .
+
+
+# =============================================================================
+# Resource vocabulary
+# =============================================================================
+
+<Resource>
+	a skos:ConceptScheme;
+	skos:definition "Part contributing to the functioning of an Information and Communication Technology (ICT) system."@en;
+	skos:definition "Élément d'un système informatique nécessaire à l'exécution d'une tâche ou d'un programme (Office québécois de la langue française, 2005)."@fr;
+	skos:notation "resource";
+	skos:prefLabel "Resource"@en;
+	skos:prefLabel "Ressource"@fr;
+	skos:altLabel "Computer resource"@fr;
+	skos:altLabel "Elément structurant"@fr;
+	skos:exactMatch <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8364924> ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+
+<Resource/type>
+	a skos:ConceptScheme;
+	skos:definition "The nature (type) of the resource"@en;
+	skos:notation "type";
+	skos:inScheme <Resource> ;
+.
+
+<Resource/type/partition>
+	a skos:Concept;
+	skos:definition """Séparation logique ou physique des machines en diverses entités indépendantes."""@fr;
+	skos:definition """Physical or logical partitioning of a device into independent entities."""@en;
+	rdfs:isDefinedBy <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8350550> ;
+	skos:inScheme <Resource/type> ;
+	skos:notation "partition";
+	skos:prefLabel "Partition"@en;
+	skos:prefLabel "Partition"@fr;
+	skos:altLabel "Slice"@en;
+	skos:altLabel "Virtual Machine"@en;
+	skos:altLabel "Machine virtuelle"@fr;
+	skos:altLabel "Ressource logique"@fr;
+.
+
+<Resource/type/server>
+	a skos:Concept;
+	skos:definition "Serveur physique non partitionné."@fr;
+	skos:definition "Physical serveur without partitioning."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "server";
+	skos:prefLabel "Server"@en;
+	skos:prefLabel "Serveur"@fr;
+.
+
+<Resource/type/network-element>
+	a skos:Concept;
+	skos:definition "Equipement réseau physique."@fr;
+	skos:definition "Physical Network Element."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "network-element";
+	skos:prefLabel "Network element"@en;
+	skos:prefLabel "Elément réseau"@fr;
+	skos:altLabel "Network"@en;
+	skos:altLabel "Réseau"@fr;
+.
+
+<Resource/type/vnf>
+	a skos:Concept;
+	skos:definition "Equipement réseau virtuel. Ce type d'équipement réseau est rattaché à un équipement physique."@fr;
+	skos:definition "Instance of a software implementation of Network Function that can be deployed in a virtualized infrastructure. See ETSI 'NFV Terminology for Main Concepts in NFV' Oct 2013."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "vnf";
+	skos:prefLabel "Virtualized Network Function"@en;
+	skos:prefLabel "Fonction de réseau virtualisée"@fr;
+	skos:altLabel "Réseau virtuel"@fr;
+.
+
+<Resource/type/storage>
+	a skos:Concept;
+	skos:definition "Equipements de stockage."@fr;
+	skos:definition "Data storage equipments."@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "storage";
+	skos:prefLabel "Storage"@en;
+	skos:prefLabel "Stockage"@fr;
+.
+
+<Resource/type/storage-robot>
+	a skos:Concept;
+	skos:definition "Robots de sauvegarde."@fr;
+	skos:inScheme <Resource/type> ;
+	skos:notation "storage-robot";
+	skos:prefLabel "Storage Robot"@en;
+	skos:prefLabel "Robotique"@fr;
+.
+
+<Resource/type/cluster>
+	a skos:Concept;
+	skos:definition "Regroupement de ressources."@fr;
+	skos:definition "Cluster of resources."@en;
+	skos:example """- VMWARE cluster,
+- Datastore,
+- network stack."""@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "cluster";
+	skos:prefLabel "Cluster"@en;
+	skos:prefLabel "Cluster"@fr;
+.
+
+<Resource/type/rack>
+	a skos:Concept;
+	skos:definition "Une baie technique, un châssis."@fr;
+	skos:definition "Equipment rack."@en;
+	rdfs:isDefinedBy <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8357314>;
+	skos:inScheme <Resource/type> ;
+	skos:notation "server";
+	skos:prefLabel "Rack"@en;
+	skos:prefLabel "Conteneur"@fr;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/LifecycleState>
+	a skos:ConceptScheme ;
+	skos:definition "The life cycle state of the resource."@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+	rdfs:seeAlso <https://github.com/tmforum-apis/TMF639_ResourceInventory> ;
+.
+
+<Resource/LifecycleState/planned>
+	a skos:Concept ;
+	skos:inScheme <Resource/LifecycleState> ;
+	skos:notation "planned" ;
+	skos:prefLabel "planned"@en ;
+	skos:altLabel "Instantiating"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+	rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/installed>
+	a skos:Concept ;
+	skos:inScheme <Resource/LifecycleState> ;
+	skos:notation "installed" ;
+	skos:prefLabel "installed"@en ;
+	skos:altLabel "Created"@en ;
+	skos:altLabel "Instantiated"@en ;
+	skos:altLabel "Provisionning"@en ;
+	skos:altLabel "Préproduction"@fr ;
+	skos:altLabel "Qualification"@fr ;
+	skos:altLabel "A Qualifier"@fr ;
+	skos:altLabel "Affecté"@fr ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+	rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/instantiated>
+	a skos:Concept ;
+	skos:inScheme <Resource/LifecycleState> ;
+	skos:notation "instantiated" ;
+	skos:prefLabel "Instantiated"@en ;
+	skos:altLabel "Running"@en ;
+	skos:altLabel "Work in progress"@en ;
+	skos:altLabel "Instantiated"@en ;
+	skos:altLabel "Production"@fr ;
+	rdfs:isDefinedBy <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+
+<Resource/LifecycleState/pendingRemoval>
+	a skos:Concept ;
+	skos:inScheme <Resource/LifecycleState> ;
+	skos:notation "pendingRemoval" ;
+	skos:prefLabel "pendingRemoval"@en ;
+	skos:altLabel "Terminating"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
+	rdfs:seeAlso <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+<Resource/LifecycleState/uncommissioned>
+	a skos:Concept ;
+	skos:inScheme <Resource/LifecycleState> ;
+	skos:notation "uncommissioned" ;
+	skos:prefLabel "Uncommissioned"@en ;
+	skos:altLabel "Terminated"@en ;
+	rdfs:isDefinedBy <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/OperationalState>
+	a skos:ConceptScheme ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/OperationalState/disabled>
+	a skos:Concept ;
+	skos:inScheme <Resource/OperationalState> ;
+	skos:notation "disabled" ;
+	skos:prefLabel "disabled"@en ;
+	skos:altLabel "down"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/OperationalState/enabled>
+	a skos:Concept ;
+	skos:inScheme <Resource/OperationalState> ;
+	skos:notation "enabled" ;
+	skos:prefLabel "enabled"@en ;
+	skos:altLabel "up"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<Resource/AdministrativeState>
+	a skos:ConceptScheme ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
+.
+
+<Resource/AdministrativeState/locked>
+	a skos:Concept ;
+	skos:inScheme <Resource/AdministrativeState> ;
+	skos:notation "locked" ;
+	skos:prefLabel "locked"@en ;
+	skos:altLabel "down"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+<Resource/AdministrativeState/unlocked>
+	a skos:Concept ;
+	skos:inScheme <Resource/AdministrativeState> ;
+	skos:notation "unlocked" ;
+	skos:prefLabel "unlocked"@en ;
+	skos:altLabel "up"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+<Resource/AdministrativeState/shuttingDown>
+	a skos:Concept ;
+	skos:inScheme <Resource/AdministrativeState> ;
+	skos:notation "shuttingDown" ;
+	skos:prefLabel "shuttingDown"@en ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.AdministrativeState> ;
+.
+
+# =============================================================================
+# Service vocabulary
+# =============================================================================
+
+<service>
+	a skos:ConceptScheme;
+	skos:definition """Service is an abstract base class for defining the Service hierarchy, i.e. the composition of assets (a.k.a. asset chain, service function chain) for providing a end-to-end data path or processing for some specific Customer or purpose."""@en ;
+	skos:notation "service" ;
+	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# -----------------------------------------------------------------------------
+
+<service/type>
+	a skos:ConceptScheme;
+	skos:definition """All Services are characterized as either being possibly visible and usable by a Customer or not.
+This gives rise to the two subclasses of Service: CustomerFacingService and ResourceFacingService."""@en;
+	skos:notation "type";
+	skos:inScheme <service> ;
+	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
+.
+
+<service/type/CustomerFacingService>
+	a skos:Concept;
+	skos:definition "A Customer Facing Service (CFS) is possibly visible and usable by a Customer."@en ;
+	skos:inScheme <service/type> ;
+	skos:notation "CustomerFacingService" ;
+	skos:prefLabel "Customer Facing Service"@en ;
+	skos:altLabel "CFS"@en ;
+	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
+.
+
+<service/type/ResourceFacingService>
+	a skos:Concept;
+	skos:definition "A Resource Facing Service (RFS) is not visible and usable by a Customer."@en ;
+	skos:inScheme <service/type> ;
+	skos:notation "ResourceFacingService" ;
+	skos:prefLabel "Resource Facing Service"@en ;
+	skos:altLabel "RFS"@en ;
+	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
+.
+
+# =============================================================================
+# TroubleTicket vocabulary
+# =============================================================================
+
+<TroubleTicket>
+	a skos:ConceptScheme;
+	skos:definition "A Trouble Ticket."@en ;
+	skos:definition "Un Ticket d'Incident."@fr ;
+	skos:inScheme <https://w3id.org/noria/kos/> ;
+.
+
+# =============================================================================
+# Following items apply to TroubleTicket(s)
+
+<TroubleTicket/status>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the status of any Trouble Ticket or Incident Ticket";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "status" .
+
+<TroubleTicket/status/initialised>
+	a skos:Concept;
+	skos:definition """The initial state of a Trouble Ticket when created by a Trouble Ticket originator (not managed by API operation).
+
+Typical next status : ['In progress']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "initialised";
+	skos:prefLabel "Initialised"@en;
+	skos:prefLabel "Ouvert"@fr;
+	skos:altLabel "Submitted"@en .
+
+<TroubleTicket/status/current>
+	a skos:Concept;
+	skos:definition """The Trouble Ticket was validated by the Trouble Ticket handler and is being processed.
+The ticket is being processed (and not frozen) and the resolution process is started.
+The time counter is running to count the elapsed processing time in relation to the maximum resolution time specified in the contract.
+It is used to anticipate a possible deadline overrun.
+
+Typical next status : ['Restored', 'Pending']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "current";
+	skos:prefLabel "Current"@en;
+	skos:prefLabel "En cours"@fr;
+	skos:altLabel "In progress"@en ;
+	skos:altLabel "InProgress"@en ;
+.
+
+<TroubleTicket/status/frozen>
+	a skos:Concept;
+	skos:definition """The Trouble Ticket handler freezes the Trouble Ticket because the technician is waiting a customer action or complementary information.
+The process freeze needs the customer agreement.
+The time counter is stopped, the Ticket processing is awaiting an action from the customer.
+
+Typical next status : ['In progress']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "frozen";
+	skos:prefLabel "Frozen"@en;
+	skos:prefLabel "Gelé"@fr ;
+	skos:altLabel "Pending"@en .
+
+<TroubleTicket/status/restored>
+	a skos:Concept;
+	skos:definition """"The service is restored after a temporary repair and the time counter is stopped.
+The service concerned by the Trouble Ticket has been restored, but it may need more technical action to definitively solve the causes of the incident.
+
+Typical next status : ['Resolved']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "restored";
+	skos:prefLabel "Restored"@en;
+	skos:prefLabel "Réparé"@fr .
+
+<TroubleTicket/status/resolved>
+	a skos:Concept;
+	skos:definition """The service is definitively repaired.
+The Fault indicated in the Trouble Ticket was corrected by the Trouble Ticket handler and acknowledgement is awaited from its originator.
+
+Typical next status : ['Closed']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "resolved";
+	skos:prefLabel "Resolved"@en;
+	skos:prefLabel "Résolu"@fr .
+
+<TroubleTicket/status/closed>
+	a skos:Concept;
+	skos:definition """The customer has validated the service restoration.
+The Trouble Ticket’s originator has acknowledged the 'resolved' state of the Trouble Ticket.
+
+Typical next status : ['Validated', 'Closed for dashboard']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "closed";
+	skos:prefLabel "Closed"@en;
+	skos:prefLabel "Clos"@fr .
+
+<TroubleTicket/status/validated>
+	a skos:Concept;
+	skos:definition """A notice has been sent to the customer or a validation has been made in the Trouble Ticket management system by a manager.
+The Ticket is Validated when its closure is official.
+This validation may be cancelled to go back to 'Closed' status.
+
+Typical next status : ['Revised', 'Closed for dashboard']."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "validated";
+	skos:prefLabel "Validated"@en;
+	skos:prefLabel "Validé"@fr .
+
+<TroubleTicket/status/revised>
+	a skos:Concept;
+	skos:definition """The Ticket is modified (modification of the accounting).
+
+Typical next status : []."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "revised";
+	skos:prefLabel "Revised"@en;
+	skos:prefLabel "Révisé"@fr .
+
+<TroubleTicket/status/closed-for-dashboard>
+	a skos:Concept;
+	skos:definition """The Ticket has been processed by a monthly treatment to enter in the dashboard and is no longer modifiable.
+
+Typical next status : []."""@en;
+	skos:inScheme <TroubleTicket/status>;
+	skos:notation "closed-for-dashboard";
+	skos:prefLabel "Closed for dashboard"@en;
+	skos:prefLabel "Clos pour tableau de bord"@fr .
+
+# =============================================================================
+
+<TroubleTicket/priority>
+	a skos:ConceptScheme;
+	skos:definition "Priority definitions of any Trouble Ticket or Incident Ticket for a standard Operating Level Agreement (OLA)";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "priority" .
+
+<TroubleTicket/priority/0>
+	a skos:Concept;
+	skos:definition "A problem or error subject to official request.";
+	skos:inScheme <TroubleTicket/priority>;
+	skos:notation "P0";
+	skos:prefLabel "P0"@en .
+
+<TroubleTicket/priority/1>
+	a skos:Concept;
+	skos:definition "A problem or error causing a Service or any portion thereof to be completely inoperative or severely affected causing immediate and significant degradation of service to customers."@en;
+	skos:example "Complete loss of System functionality or loss of system capacity where service usage is significantly impacted e.g. more than 20% of transactions are failing or more than 20% of planned capacity is unavailable."@en;
+	skos:inScheme <TroubleTicket/priority>;
+	skos:notation "P1";
+	skos:prefLabel "P1"@en .
+
+<TroubleTicket/priority/2>
+	a skos:Concept;
+	skos:definition "A problem or error causing a Service or any portion thereof to be adversely affected causing some congestion/service degradation but is not significantly impacting yet a customer ability to utilize the service or the ability to manage/operate the service."@en;
+	skos:example "Loss of redundancy or loss of system capacity during busy hour where service usage is impacted e.g. less than 20% of transactions are failing or less than 20% of planned capacity is unavailable."@en;
+	skos:inScheme <TroubleTicket/priority>;
+	skos:notation "P2";
+	skos:prefLabel "P2"@en .
+
+<TroubleTicket/priority/3>
+	a skos:Concept;
+	skos:definition "An error causing a Product or portion thereof to fail to perform but such failure is non-critical to business."@en;
+	skos:example "Minor service degradation with minor impact to customer’s ability to utilize the service or the ability to manage/operate the service."@en;
+	skos:inScheme <TroubleTicket/priority>;
+	skos:notation "P3";
+	skos:prefLabel "P3"@en .
+
+<TroubleTicket/priority/4>
+	a skos:Concept;
+	skos:definition "All incidents that are not Service affecting. Not Service affecting refers to incidents which result in a degradation of system performance but do not affect the user experience.";
+	skos:inScheme <TroubleTicket/priority>;
+	skos:notation "P4";
+	skos:prefLabel "P4"@en .
+
+
+# =============================================================================
+
+<TroubleTicket/type>
+	a skos:ConceptScheme;
+	skos:definition "The ticket type." ;
+	skos:example "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc." ;
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "type" .
+
+<TroubleTicket/type/failure>
+	a skos:Concept;
+	skos:definition "Failure.";
+	skos:inScheme <TroubleTicket/type>;
+	skos:notation "failure";
+	skos:prefLabel "Failure"@en ;
+	skos:prefLabel "Incident"@fr ;
+.
+
+<TroubleTicket/type/assistance>
+	a skos:Concept;
+	skos:definition "Assistance.";
+	skos:inScheme <TroubleTicket/type>;
+	skos:notation "assistance";
+	skos:prefLabel "Assistance"@en ;
+	skos:prefLabel "Demande d'assistance"@fr ;
+	skos:altLabel  "Request for information"@en ;
+	skos:altLabel "Information request"@en ;
+	skos:altLabel "Demande d'information"@fr ;
+	skos:altLabel "Demande de renseignements"@fr ;
+.
+
+# =============================================================================
+
+<TroubleTicket/trouble-category>
+	a skos:ConceptScheme;
+	skos:definition "It identifies the nature (product ticket class) or technical impact (resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket" ;
+	skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "trouble-category" .
+
+<TroubleTicket/trouble-category/isolated-customer-site>
+	a skos:Concept;
+	skos:definition "Isolated customer site.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "isolated-customer-site";
+	skos:prefLabel "Isolated customer site"@en ;
+	skos:prefLabel "Site client isolé"@fr ;
+.
+
+<TroubleTicket/trouble-category/no-service-impact>
+	a skos:Concept;
+	skos:definition "An issue has been raised but no service impact has been observed.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "no-service-impact";
+	skos:prefLabel "No service impact"@en ;
+	skos:prefLabel "Sans perturbation du service"@fr ;
+	skos:broader <TroubleTicket/trouble-category/resilience-impaired> ,
+	<TroubleTicket/trouble-category/service-with-standby-activated> ;
+.
+
+<TroubleTicket/trouble-category/resilience-impaired>
+	a skos:Concept;
+	skos:definition "Failover mechanisms or resources are broken or unavailable.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "resilience-impaired";
+	skos:prefLabel "Degraded resilience"@en ;
+	skos:altLabel "Switchover impossible"@en ;
+	skos:altLabel "Disabled active/passive redundancy capability"@en ;
+	skos:prefLabel "Redondance dégradée"@fr ;
+	rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q998767> ;  # HACK: <https://en.wikipedia.org/wiki/Failover> ;
+.
+
+<TroubleTicket/trouble-category/service-with-standby-activated>
+	a skos:Concept;
+	skos:definition "Switchover to the hot/cold standby has been observed/done and no service impact is observed.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "service-with-standby-activated";
+	skos:prefLabel "Failover activated with no service impact"@en ;
+	skos:prefLabel "Service avec secours activé"@fr ;
+	rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q998767> ;  # HACK: <https://en.wikipedia.org/wiki/Failover> ;
+.
+
+<TroubleTicket/trouble-category/service-breakdown>
+	a skos:Concept;
+	skos:definition "The service is interrupted.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "service-breakdown";
+	skos:prefLabel "Interrupted service"@en ;
+	skos:altLabel "Service breakdown"@en ;
+	skos:prefLabel "Service interrompu"@fr ;
+.
+
+<TroubleTicket/trouble-category/service-impaired>
+	a skos:Concept;
+	skos:definition "Quality of Service is degraded.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "service-impaired";
+	skos:prefLabel "Degraded QoS"@en ;
+	skos:altLabel "Impaired service"@en ;
+	skos:prefLabel "Service dégradé"@fr ;
+	skos:broader <TroubleTicket/trouble-category/packet-loss> ;
+.
+
+<TroubleTicket/trouble-category/packet-loss>
+	a skos:Concept;
+	skos:definition """Packet loss occurs when one or more packets of data travelling across a computer network fail to reach their destination.
+Packet loss is either caused by errors in data transmission, typically across wireless networks, or network congestion.
+Packet loss is measured as a percentage of packets lost with respect to packets sent.""";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "packet-loss";
+	skos:prefLabel "Packet loss"@en ;
+	skos:prefLabel "Perte de paquets"@fr ;
+	rdfs:rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q391064> ;  # HACK: <https://en.wikipedia.org/wiki/Packet_loss> ;
+.
+
+<TroubleTicket/trouble-category/timeout>
+	a skos:Concept;
+	skos:definition "The resource or service is unreachable.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "timeout";
+	skos:prefLabel "Connection timeout"@en ;
+	skos:prefLabel "Délai d'attente de connexion écoulé"@fr ;
+.
+
+<TroubleTicket/trouble-category/supervision-loss>
+	a skos:Concept;
+	skos:definition "Supervision of the resource or service is unavailable.";
+	skos:inScheme <TroubleTicket/trouble-category>;
+	skos:notation "supervision-loss";
+	skos:prefLabel "Supervision loss"@en ;
+	skos:prefLabel "Perte de supervision"@fr ;
+	skos:altLabel "Supervision impossible"@fr ;
+.
+
+# =============================================================================
+
+<TroubleTicket/urgency>
+	a skos:ConceptScheme;
+	skos:definition "The priority level of the incident." ;
+	skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." ;
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "urgency" .
+
+# =============================================================================
+
+<TroubleTicket/origin>
+	a skos:ConceptScheme;
+	skos:definition "The person or group family at the origin of the creation of a given Trouble Ticket.";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "origin" .
+
+<TroubleTicket/origin/int>
+	a skos:Concept;
+	skos:definition "Internal user.";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "int";
+	skos:prefLabel "Interne"@fr ;
+	skos:prefLabel "Internal User"@en ;
+	skos:related <imp/groups/fm> ;
+.
+
+<TroubleTicket/origin/smc>
+	a skos:Concept;
+	skos:definition "Service Management Centers (SMC).";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "smc";
+	skos:prefLabel "Service Management Center"@en ;
+	skos:altLabel "SMC" ;
+	skos:exactMatch <imp/groups/smc> ;
+.
+
+<TroubleTicket/origin/tmc>
+	a skos:Concept;
+	skos:definition "Technical Management Center (TMC).";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "tmc";
+	skos:prefLabel "Technical Management Center"@en ;
+	skos:altLabel "TMC" ;
+	skos:exactMatch <imp/groups/tmc> ;
+.
+
+<TroubleTicket/origin/clt>
+	a skos:Concept;
+	skos:definition "Customer.";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "clt";
+	skos:prefLabel "Client"@fr ;
+	skos:prefLabel "Customer"@en ;
+	skos:broader <TroubleTicket/origin/clt-gp> ,
+	<TroubleTicket/origin/clt-pro> ;
+	skos:related <imp/groups/csc> ;
+.
+
+<TroubleTicket/origin/clt-gp>
+	a skos:Concept;
+	skos:definition "General public customer.";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "clt-gp";
+	skos:prefLabel "Client Grand Public"@fr ;
+	skos:prefLabel "General Public Customer"@en ;
+	skos:altLabel "Client GP"@fr ;
+	skos:altLabel "GP Customer"@en ;
+.
+
+<TroubleTicket/origin/clt-pro>
+	a skos:Concept;
+	skos:definition "Business customer.";
+	skos:inScheme <TroubleTicket/origin> ;
+	skos:notation "clt-pro";
+	skos:prefLabel "Client Entreprise"@fr ;
+	skos:prefLabel "Business Customer"@en ;
+	skos:altLabel "Client PRO"@fr ;
+	skos:altLabel "Corporate Customer"@en ;
+.
+
+# =============================================================================
+
+<TroubleTicket/severity>
+	a skos:ConceptScheme;
+	skos:definition """The criticity of the incident.
+
+The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
+The thresholds of Incident resolution depend on standards defined per service type.
+When the thresholds are exceeded, specific process of escalation may be activated.""";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "severity" .
+
+<TroubleTicket/severity/minor>
+	a skos:Concept;
+	skos:definition "Minor incident.";
+	skos:inScheme <TroubleTicket/severity> ;
+	skos:notation "minor";
+	skos:prefLabel "Minor"@en;
+	skos:prefLabel "Mineur"@fr .
+
+<TroubleTicket/severity/major>
+	a skos:Concept;
+	skos:definition "Major incident.";
+	skos:inScheme <TroubleTicket/severity> ;
+	skos:notation "major";
+	skos:prefLabel "Major"@en;
+	skos:prefLabel "Majeur"@fr .
+
+<TroubleTicket/severity/blocking-minor>
+	a skos:Concept;
+	skos:definition "Blocking incident with minor effect.";
+	skos:inScheme  <TroubleTicket/severity> ;
+	skos:notation "blocking-minor";
+	skos:prefLabel "Blocking"@en;
+	skos:altLabel "Blocking/Minor"@en;
+	skos:prefLabel "Bloquant"@fr;
+	skos:altLabel "Bloquant/Mineur"@fr .
+
+<TroubleTicket/severity/blocking-major>
+	a skos:Concept;
+	skos:definition "Blocking incident with major effect.";
+	skos:inScheme  <TroubleTicket/severity> ;
+	skos:notation "blocking-major";
+	skos:prefLabel "Blocking/Major"@en;
+	skos:prefLabel "Bloquant/Majeur"@fr .
+
+# =============================================================================
+
+<TroubleTicket/problemResponsibility>
+	a skos:ConceptScheme;
+	skos:definition "The area of responsibility identified for an incident." ;
+	skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc." ;
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "problemResponsibility" .
+
+<TroubleTicket/problemResponsibility/customer>
+	a skos:Concept;
+	skos:definition "Issue induced by customer action.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "customer";
+	skos:prefLabel "Customer"@en ;
+	skos:prefLabel "Client"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-access-equipment>
+	a skos:Concept;
+	skos:definition "Managed access equipment on customer's premises.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "managed-access-equipment";
+	skos:prefLabel "Managed access equipment on customer's premises"@en ;
+	skos:prefLabel "Equipement d'accès sur site client"@fr ;
+	skos:altLabel "Terminaison Numérique de Ligne (TNL) sur site client"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-backbone-networks>
+	a skos:Concept;
+	skos:definition "Managed backbone networks.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "managed-backbone-networks";
+	skos:prefLabel "Managed backbone networks"@en ;
+	skos:prefLabel "Réseau coeur"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/managed-specific-networks>
+	a skos:Concept;
+	skos:definition "Managed specific networks.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "managed-specific-networks";
+	skos:prefLabel "Managed specific networks"@en ;
+	skos:prefLabel "Réseau spécifique"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/contract-application-hosting-services>
+	a skos:Concept;
+	skos:definition "Contract application-hosting services.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "contract-application-hosting-services";
+	skos:prefLabel "Contract application-hosting services"@en ;
+	skos:prefLabel "Service hébergé chez un partenaire"@fr ;
+.
+
+<TroubleTicket/problemResponsibility/ill-defined>
+	a skos:Concept;
+	skos:definition "Ill-defined.";
+	skos:inScheme <TroubleTicket/problemResponsibility>;
+	skos:notation "ill-defined";
+	skos:prefLabel "Ill-defined"@en ;
+	skos:prefLabel "Indéterminé"@fr ;
+.
+
+# =============================================================================
+# Following items apply to TroubleTicketNote(s)
+
+<TroubleTicket/commentType>
+	a skos:ConceptScheme;
+	skos:definition "The comment type describes the origin of a given comment.";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "commentType" .
+
+<TroubleTicket/commentType/clt>
+	a skos:Concept;
+	skos:definition "The comment originates from a customer.";
+	skos:inScheme <TroubleTicket/commentType> ;
+	skos:notation "clt";
+	skos:prefLabel "Client"@fr ;
+	skos:prefLabel "Customer"@en ;
+.
+
+<TroubleTicket/commentType/ent>
+	a skos:Concept;
+	skos:definition "The comment originates from an internal technical support team.";
+	skos:inScheme <TroubleTicket/commentType> ;
+	skos:notation "ent";
+	skos:prefLabel "EDS"@fr ;
+	skos:altLabel "Equipe de Soutien"@fr ;
+	skos:prefLabel "Technical Support Team"@en ;
+	skos:altLabel "Support Team"@en ;
+	skos:related <imp/groups/tmc>, <imp/groups/smc>, <imp/groups/fm> ;
+	rdfs:seeAlso <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8361875> ;
+.
+
+<TroubleTicket/commentType/int>
+	a skos:Concept;
+	skos:definition "The comment originates from an internal user." ;
+	skos:inScheme <TroubleTicket/commentType> ;
+	skos:notation "int";
+	skos:prefLabel "Interne"@fr ;
+	skos:prefLabel "Internal User"@en ;
+	skos:broader <TroubleTicket/commentType/sys> ;
+.
+
+<TroubleTicket/commentType/sys>
+	a skos:Concept;
+	skos:definition "The comment originates from an automated system." ;
+	skos:example "Operation Support System (OSS), Alert Bot, Support Bot." ;
+	skos:inScheme <TroubleTicket/commentType> ;
+	skos:notation "sys";
+	skos:prefLabel "Système"@fr ;
+	skos:prefLabel "Bot"@en ;
+	skos:altLabel "OSS"@en ;
+	skos:altLabel "Alert Bot"@en ;
+	skos:altLabel "Support Bot"@en ;
+.
+
+# -----------------------------------------------------------------------------
+
+<TroubleTicket/operationType>
+	a skos:ConceptScheme;
+	skos:definition "The Operation type of (described by) the note." ;
+	skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc.";
+	skos:inScheme <TroubleTicket> ;
+	skos:notation "operationType" .
+
+<TroubleTicket/operationType/comment-addition>
+	a skos:Concept;
+	skos:definition "Nota-taking about on-going operations."@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "comment";
+	skos:prefLabel "Comments"@en ;
+	skos:prefLabel "Commentaires"@fr .
+
+<TroubleTicket/operationType/inward-customer-contact>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "inward-customer-contact";
+	skos:prefLabel "Inward Customer contact"@fr ;
+	skos:prefLabel "Contact Client entrant"@fr ;
+.
+
+<TroubleTicket/operationType/outward-customer-contact>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "outward-customer-contact";
+	skos:prefLabel "Outward Customer contact"@fr ;
+	skos:prefLabel "Contact Client sortant"@fr ;
+.
+
+<TroubleTicket/operationType/handover-request>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "handover-request";
+	skos:prefLabel "Handover request"@en ;
+	skos:altLabel "Transfer request"@en ;
+	skos:prefLabel "Demande de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/handover-acceptation>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "handover-acceptation";
+	skos:prefLabel "Handover acceptation"@en ;
+	skos:altLabel "Transfer acceptation"@en ;
+	skos:prefLabel "Acceptation de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/handover-denial>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "handover-denial";
+	skos:prefLabel "Handover denial"@en ;
+	skos:prefLabel "Refus de transfert"@fr ;
+.
+
+<TroubleTicket/operationType/service-restoration>
+	a skos:Concept;
+	skos:definition "Service restoration thanks to a work around."@en;
+	skos:definition "Rétablissement du service à l'aide d'une solution de contournement, d'un palliatif."@fr;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "service-restoration";
+	skos:prefLabel "Service restoration"@en ;
+	skos:prefLabel "Rétablissement du service"@fr ;
+	skos:related <TroubleTicket/status/restored> ;
+.
+
+<TroubleTicket/operationType/service-recovery>
+	a skos:Concept;
+	skos:definition "Doing an RCA to get to Service Recovery."@en;
+	skos:definition "Rétablissement définitif du service par l'identification et la correction de la cause racine."@fr;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "service-recovery";
+	skos:prefLabel "Service recovery"@en ;
+	skos:prefLabel "Rétablissement complet du service"@fr ;
+	skos:related <TroubleTicket/status/resolved> ;
+.
+
+<TroubleTicket/operationType/incident-escalation>
+	a skos:Concept;
+	skos:definition """Incident escalation happens when an incident requires advanced support, such as sending an on-site technician or assistance from certified support staff."""@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "incident-escalation";
+	skos:prefLabel "Incident escalation"@en ;
+	skos:prefLabel "Escalade"@fr ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/incident-closure>
+	a skos:Concept;
+	skos:definition """The incident is considered closed and the incident process ends."""@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "incident-closure";
+	skos:prefLabel "Incident closure"@en ;
+	skos:prefLabel "Clôture"@fr ;
+	skos:related <TroubleTicket/status/closed> ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/incident-freeze>
+	a skos:Concept;
+	skos:definition """indicates that the incident requires some information or response from the user or from a third party. The incident is placed “on hold” so that SLA response deadlines are not exceeded while waiting for a response from the user or vendor."""@en;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "incident-freeze";
+	skos:prefLabel "On hold"@en ;
+	skos:altLabel "Pending"@en ;
+	skos:prefLabel "Demande de Gel/Dégel"@fr ;
+	rdfs:seeAlso <https://www.bmc.com/blogs/itil-v3-incident-management/> ;
+.
+
+<TroubleTicket/operationType/attached-document>
+	a skos:Concept;
+	skos:inScheme <TroubleTicket/operationType> ;
+	skos:notation "attached-document";
+	skos:prefLabel "Attached document"@en ;
+	skos:prefLabel "Ajout pièce jointe"@fr ;
+.
+
+# === EOF =====================================================================
