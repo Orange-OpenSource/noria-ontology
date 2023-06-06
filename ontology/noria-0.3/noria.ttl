@@ -62,7 +62,7 @@
 
 # =============================================================================
 
-<https://w3id.org/noria/ontology/>
+noria:
 	a voaf:Vocabulary, owl:Ontology ;
     dcterms:title "The NORIA Ontology"@en ;
     dcterms:description """The NORIA-O project is a data model for IT networks, events and operations information.
@@ -82,7 +82,7 @@ Alignment holds for the following vocabulary releases:
 - [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
 - [UCO](https://github.com/ucoProject/uco) Release-0.8.0
 """@en ;
-    foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.pnghttps://raw.githubusercontent.com/Orange-OpenSource/noria-ontology/master/dataset/noria-0.2/noria-ontology-UC.png> ;
+    foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> ;
     bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
 	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
 	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
@@ -94,9 +94,10 @@ Alignment holds for the following vocabulary releases:
     dcterms:issued "2022-05-10"^^xsd:date ;
 	dcterms:modified "2023-06-06"^^xsd:date ;
 	skos:changeNote """Changes in v0.3:
+
 - Changed the ontology architecture from micro-architecture to single file.
 - Removed owl:imports for NORIA foundations.
-""";
+"""@en ;
 	owl:versionInfo "v0.3" ;
 	owl:versionIRI <ontology/noria-0.3> ;
 	owl:priorVersion <ontology/noria-0.2> ;

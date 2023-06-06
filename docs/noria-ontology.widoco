@@ -1,34 +1,18 @@
 
-abstract=The NORIA-O project is a data model for IT networks, events and operations information.
-The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
-
-Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
-Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
-Alignment holds for the following vocabulary releases:
-- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
-- [BOT](https://w3id.org/bot/) 0.3.2
-- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
-- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
-- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
-- [PEP](https://w3id.org/pep/) 1.1
-- [SEAS](https://w3id.org/seas/) 1.1
-- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
-- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
-
-ontologyTitle=The NORIA Ontology
+abstract=
+ontologyTitle=
 ontologyPrefix=noria
 ontologyNamespaceURI=https://w3id.org/noria/ontology/
-ontologyName=The NORIA Ontology
-thisVersionURI=https://w3id.org/noria/ontology/noria-0.2
+ontologyName=[Ontology Name]
+thisVersionURI=https://w3id.org/noria/ontology/noria-0.3
 latestVersionURI=
-previousVersionURI=https://w3id.org/noria/ontology/noria-0.1
-dateOfRelease=2022-12-15
-ontologyRevisionNumber=v0.2
+previousVersionURI=https://w3id.org/noria/ontology/noria-0.2
+dateOfRelease=2023-06-06
+ontologyRevisionNumber=v0.3
 licenseURI=https://spdx.org/licenses/BSD-4-Clause
 licenseName=https://spdx.org/licenses/BSD-4-Clause
 licenseIconURL=null
-citeAs=Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X), Raphaël Troncy (https://orcid.org/0000-0003-0457-1436), Yoan Chabot (https://orcid.org/0000-0001-5639-1504). The NORIA Ontology. Revision: v0.2. Retrieved from: https://w3id.org/noria/ontology/noria-0.2
+citeAs=Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X), Raphaël Troncy (https://orcid.org/0000-0003-0457-1436), Yoan Chabot (https://orcid.org/0000-0001-5639-1504). Revision: v0.3. Retrieved from: https://w3id.org/noria/ontology/noria-0.3
 DOI=
 status=nonPeerReviewed
 backwardsCompatibleWith=
@@ -44,8 +28,8 @@ contributors=
 contributorsURI=
 contributorsInstitution=
 contributorsInstitutionURI=
-importedOntologyNames=ApplicationOntology;CoreOntology;DocumentOntology;LocationOntology;NotificationOntology;ObservableOntology;ResourceOntology
-importedOntologyURIs=https://w3id.org/noria/ontology/ApplicationOntology;https://w3id.org/noria/ontology/CoreOntology;https://w3id.org/noria/ontology/DocumentOntology;https://w3id.org/noria/ontology/LocationOntology;https://w3id.org/noria/ontology/NotificationOntology;https://w3id.org/noria/ontology/ObservableOntology;https://w3id.org/noria/ontology/ResourceOntology
+importedOntologyNames=
+importedOntologyURIs=
 extendedOntologyNames=
 extendedOntologyURIs=
 RDFXMLSerialization=ontology.rdf

@@ -7,59 +7,138 @@
 @base <https://w3id.org/noria/ontology/> .
 
 <https://w3id.org/noria/ontology/> rdf:type owl:Ontology ;
-                                    owl:versionIRI :noria-0.2 ;
-                                    owl:imports :ApplicationOntology-0.2 ,
-                                                :CoreOntology-0.2 ,
-                                                :DocumentOntology-0.2 ,
-                                                :LocationOntology-0.2 ,
-                                                :NotificationOntology-0.2 ,
-                                                :ObservableOntology-0.2 ,
-                                                :ResourceOntology-0.2 ;
+                                    owl:versionIRI :noria-0.3 ;
                                     <http://purl.org/dc/terms/creator> "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ,
                                                                        "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ,
                                                                        "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;
-                                    <http://purl.org/dc/terms/description> """The NORIA-O project is a data model for IT networks, events and operations information.
-The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
-
-Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
-Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
-Alignment holds for the following vocabulary releases:
-- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
-- [BOT](https://w3id.org/bot/) 0.3.2
-- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
-- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
-- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
-- [PEP](https://w3id.org/pep/) 1.1
-- [SEAS](https://w3id.org/seas/) 1.1
-- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
-- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
-"""@en ;
                                     <http://purl.org/dc/terms/issued> "2022-05-10"^^xsd:date ;
                                     <http://purl.org/dc/terms/license> <https://spdx.org/licenses/BSD-4-Clause> ;
-                                    <http://purl.org/dc/terms/modified> "2022-12-15"^^xsd:date ;
+                                    <http://purl.org/dc/terms/modified> "2023-06-06"^^xsd:date ;
                                     <http://purl.org/dc/terms/publisher> <https://www.orange.com/> ;
-                                    <http://purl.org/dc/terms/title> "The NORIA Ontology"@en ;
                                     <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;
                                     <http://purl.org/vocab/vann/preferredNamespacePrefix> "noria" ;
                                     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/noria/ontology/" ;
                                     rdfs:seeAlso <https://w3id.org/noria/doc/> ;
-                                    owl:incompatibleWith :noria-0.1 ;
-                                    owl:priorVersion :noria-0.1 ;
-                                    owl:versionInfo "v0.2" ;
-                                    <http://xmlns.com/foaf/0.1/depiction> <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.pnghttps://raw.githubusercontent.com/Orange-OpenSource/noria-ontology/master/dataset/noria-0.2/noria-ontology-UC.png> .
+                                    owl:priorVersion :noria-0.2 ;
+                                    owl:versionInfo "v0.3" ;
+                                    <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.3:
+
+- Changed the ontology architecture from micro-architecture to single file.
+- Removed owl:imports for NORIA foundations.
+"""@en ;
+                                    <http://xmlns.com/foaf/0.1/depiction> <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#changeNote
+<http://www.w3.org/2004/02/skos/core#changeNote> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
 
 ###  http://xmlns.com/foaf/0.1/depiction
 <http://xmlns.com/foaf/0.1/depiction> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+#################################################################
 #    Object Properties
 #################################################################
+
+###  http://IBCNServices.github.io/Folio-Ontology/Folio.owl#happenedAt
+<http://IBCNServices.github.io/Folio-Ontology/Folio.owl#happenedAt> rdf:type owl:ObjectProperty .
+
+
+###  http://IBCNServices.github.io/Folio-Ontology/Folio.owl#hasCriticality
+<http://IBCNServices.github.io/Folio-Ontology/Folio.owl#hasCriticality> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/dc/terms/references
+<http://purl.org/dc/terms/references> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/dc/terms/relation
+<http://purl.org/dc/terms/relation> rdf:type owl:ObjectProperty .
+
+
+###  http://purl.org/dc/terms/type
+<http://purl.org/dc/terms/type> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> rdf:type owl:ObjectProperty .
+
+
+###  http://xmlns.com/foaf/0.1/topic_interest
+<http://xmlns.com/foaf/0.1/topic_interest> rdf:type owl:ObjectProperty .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#ipAddress
+<https://unifiedcyberontology.org/ontology/uco/observable#ipAddress> rdf:type owl:ObjectProperty .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#location
+<https://unifiedcyberontology.org/ontology/uco/observable#location> rdf:type owl:ObjectProperty .
+
 
 ###  https://w3id.org/noria/ontology/actionCorrelatedOperationPlan
 :actionCorrelatedOperationPlan rdf:type owl:ObjectProperty ;
@@ -68,7 +147,7 @@ Alignment holds for the following vocabulary releases:
                                            :CorrectiveMaintenanceAction ;
                                rdfs:range :OperationPlan ;
                                rdfs:comment "The Operation Plan (procedure) guiding the execution of the given Action."@en ;
-                               rdfs:isDefinedBy :DocumentOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "actionCorrelatedOperationPlan" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -83,7 +162,7 @@ Alignment holds for the following vocabulary releases:
 Alignment:
 - *FOAF*: A team may be interested into following the state of some resources, hence this property is semantically akin to `foaf:topic_interest`.
 """@en ;
-                      rdfs:isDefinedBy :ResourceOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "agentManagesResource" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                       <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -104,7 +183,7 @@ Alignment:
                                           rdf:type owl:Class
                                         ] ;
                              rdfs:comment "The preferred contact method to reach the Agent (Team, Group, Employee)."@en ;
-                             rdfs:isDefinedBy :CoreOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "agentPreferredContactMethod" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                              <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -122,7 +201,7 @@ Alignment:
                   rdfs:comment """The ProcedureExecutionContainer (i.e. the set of Procedure Execution(s)) that led to clear the alarm and/or solve the issue.
 
 This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm."""@en ;
-                  rdfs:isDefinedBy :NotificationOntology ;
+                  rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                   rdfs:label "alarmMitigatedBy" ;
                   <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                   <http://www.w3.org/2004/02/skos/core#example> """ProcedureExecutionContainer(x)
@@ -139,7 +218,7 @@ This allows, for example, the timely reporting of changing conditions prevalent 
 Managed object definers may specify the set of attributes which are of interest, if any.
 This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm.
 """@en ;
-                         rdfs:isDefinedBy :NotificationOntology ,
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                           <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-monitoredAttributes> ,
                                           <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
                          rdfs:label "alarmMonitoredAttribute" ;
@@ -153,7 +232,7 @@ This allows, for example, the timely reporting of changing conditions prevalent 
                            rdfs:comment """This parameter, when present, is used if the cause is known and the system being managed can suggest one or more solutions.
 This parameter is a set of possibilities specified by the object class definer.
 """@en ;
-                           rdfs:isDefinedBy :NotificationOntology ,
+                           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                             <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-proposedRepairActions> ,
                                             <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
                            rdfs:label "alarmProposedRepairAction" ;
@@ -175,7 +254,7 @@ This parameter is a set of possibilities specified by the object class definer.
                             rdf:type owl:Class
                           ] ;
                rdfs:comment "Indication of how it is perceived that the capability of the managed object has been affected, or how serious are the service affecting conditions (including for security alarms)."@en ;
-               rdfs:isDefinedBy :NotificationOntology ,
+               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                 <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-perceivedSeverity> ,
                                 <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmSeverity> ,
                                 <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
@@ -202,7 +281,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                             rdf:type owl:Class
                                           ] ;
                                rdfs:comment "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en ;
-                               rdfs:isDefinedBy :ApplicationOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "applicationBusinessImportance" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                <http://www.w3.org/2004/02/skos/core#changeNote> "Introduced in v0.2" .
@@ -214,7 +293,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                        rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                                        rdfs:comment "Administration leader."@en ,
                                                     "Responsable de l'entité exploitante."@fr ;
-                                       rdfs:isDefinedBy :ApplicationOntology ;
+                                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                        rdfs:label "applicationModuleAdministrationLeader" ;
                                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                        <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -228,7 +307,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                      rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
                                      rdfs:comment "Administration team."@en ,
                                                   "Entité exploitante."@fr ;
-                                     rdfs:isDefinedBy :ApplicationOntology ;
+                                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                      rdfs:label "applicationModuleAdministrationTeam" ;
                                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                      <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -242,7 +321,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
                                rdfs:comment "Equipe d'astreinte applicative."@fr ,
                                             "Hotline team."@en ;
-                               rdfs:isDefinedBy :ApplicationOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "applicationModuleHotlineGroup" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -255,7 +334,7 @@ This parameter is a set of possibilities specified by the object class definer.
                      rdfs:subPropertyOf <https://w3id.org/seas/subSystemOf> ;
                      rdfs:domain :ApplicationModule ;
                      rdfs:comment "A child/parent relationship between a specific and managed instance of an Application (i.e. an Application Module) and the Application."@en ;
-                     rdfs:isDefinedBy :ApplicationOntology ;
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                      rdfs:label "applicationModuleOf" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -265,7 +344,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                rdfs:subPropertyOf :elementManagedBy ;
                                rdfs:domain :ApplicationModule ;
                                rdfs:comment "Generic property for linking a party playing a role in the management of the Application Module."@en ;
-                               rdfs:isDefinedBy :ApplicationOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "applicationModuleRelatedParty" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -285,7 +364,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                       ] ;
                            rdfs:comment "Niveau de service."@fr ,
                                         "SLA level."@en ;
-                           rdfs:isDefinedBy :ApplicationOntology ;
+                           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                            rdfs:label "applicationModuleSlaLevel" ;
                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -303,7 +382,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                     ] ;
                          rdfs:comment "Etat de service du Module Applicatif."@fr ,
                                       "Status of the Application Module."@en ;
-                         rdfs:isDefinedBy :ApplicationOntology ;
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                          rdfs:label "applicationModuleStatus" ;
                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                          <http://www.w3.org/2004/02/skos/core#example> "En Production"@fr ,
@@ -315,7 +394,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
                                rdfs:comment "Entité support: Point d'Entrée Interface Technique (PEIT) - Exploitant N1."@fr ,
                                             "Level 1 support team."@en ;
-                               rdfs:isDefinedBy :ApplicationOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "applicationModuleSupportGroup" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -329,7 +408,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                 rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                                 rdfs:comment "Responsable de l'entité support."@fr ,
                                              "Support leader."@en ;
-                                rdfs:isDefinedBy :ApplicationOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "applicationModuleSupportLeader" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                 <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -343,7 +422,7 @@ This parameter is a set of possibilities specified by the object class definer.
                               rdfs:range <http://www.w3.org/ns/org#OrganizationalUnit> ;
                               rdfs:comment "Entité support : Soutien Applicatif Technique (SAT) - Exploitant N2."@fr ,
                                            "Level 2 Support Team."@en ;
-                              rdfs:isDefinedBy :ApplicationOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "applicationModuleSupportTeam" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                               <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -364,7 +443,7 @@ This parameter is a set of possibilities specified by the object class definer.
                               rdf:type owl:Class
                             ] ;
                  rdfs:comment "The type of the Application."@en ;
-                 rdfs:isDefinedBy :ApplicationOntology ;
+                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                  rdfs:label "applicationType" ;
                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -376,7 +455,7 @@ This parameter is a set of possibilities specified by the object class definer.
                          rdfs:domain :ChangeRequest ;
                          rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                          rdfs:comment "The actor of the Change Request."@en ;
-                         rdfs:isDefinedBy :DocumentOntology ;
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                          rdfs:label "changeRequestActorParty" ;
                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -394,7 +473,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                     rdf:type owl:Class
                                   ] ;
                        rdfs:comment "Nature of the Change Request"@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "changeRequestCategory" ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#example> "Internal intervention, Third party intervention, Customer intervention, Change requested by customer"@en .
@@ -413,7 +492,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                        rdf:type owl:Class
                                      ] ;
                           rdfs:comment "Cause of (reason for) the Change Request."@en ;
-                          rdfs:isDefinedBy :DocumentOntology ;
+                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                           rdfs:label "changeRequestChangeCause" ;
                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                           <http://www.w3.org/2004/02/skos/core#example> "Configuration, Preventative maintenance, Software upgrade, Network extension, etc."@en .
@@ -429,7 +508,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                 :Resource ,
                                 :Service ;
                      rdfs:comment "Set of physical/logical entities on which the Change Request is carried-out."@en ;
-                     rdfs:isDefinedBy :DocumentOntology ;
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                      rdfs:label "changeRequestImpact" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                      <http://www.w3.org/2004/02/skos/core#example> "Resource(s), Application(s), Service(s)"@en .
@@ -442,7 +521,7 @@ This parameter is a set of possibilities specified by the object class definer.
                              rdfs:domain :ChangeRequest ;
                              rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                              rdfs:comment "The agent initiating the Change Request."@en ;
-                             rdfs:isDefinedBy :DocumentOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "changeRequestInitiatorParty" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -454,9 +533,13 @@ This parameter is a set of possibilities specified by the object class definer.
                          rdfs:domain :ChangeRequest ;
                          rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                          rdfs:comment "The pilot of the Change Request."@en ;
-                         rdfs:isDefinedBy :DocumentOntology ;
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                          rdfs:label "changeRequestPilotParty" ;
                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
+
+
+###  https://w3id.org/noria/ontology/changeRequestRelatedParty
+:changeRequestRelatedParty rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/noria/ontology/changeRequestSpecification
@@ -472,7 +555,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                          rdf:type owl:Class
                                        ] ;
                             rdfs:comment "An item of the standard operation plan catalog for recurring activities."@en ;
-                            rdfs:isDefinedBy :DocumentOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "changeRequestSpecification" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -489,7 +572,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                          rdf:type owl:Class
                                        ] ;
                             rdfs:comment "The current status of the Change Request."@en ;
-                            rdfs:isDefinedBy :DocumentOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "changeRequestStatusCurrent" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -507,7 +590,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                 rdf:type owl:Class
                               ] ;
                    rdfs:comment "The type of the request describes the a priori impact and risk level of the Change Request."@en ;
-                   rdfs:isDefinedBy :DocumentOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "changeRequestType" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -518,7 +601,7 @@ This parameter is a set of possibilities specified by the object class definer.
                    rdfs:domain :Resource ;
                    rdfs:range :Resource ;
                    rdfs:comment "Relates a Resource that is part of a cluster with the cluster controller."@en ;
-                   rdfs:isDefinedBy :ResourceOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "clusterController" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                    <http://www.w3.org/2004/02/skos/core#changeNote> "Introduced in v0.2" ;
@@ -532,7 +615,7 @@ This parameter is a set of possibilities specified by the object class definer.
                                    :TroubleTicket ;
                        rdfs:range :EventRecord ;
                        rdfs:comment "The status change history of the document as recorded by the system's logging feature."@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "documentStatusHistory" ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#example> """EventRecord
@@ -552,7 +635,7 @@ This parameter is a set of possibilities specified by the object class definer.
 Alignment:
 - *ORG*: the *elementManagedBy* property can range an `org:Organization` or `org:OrganizationalUnit` entity as the ORG data model defines these class as subClassOf `foaf:Agent` (see [org:Organization](https://www.w3.org/TR/vocab-org/#org:Organization)).
 """@en ;
-                  rdfs:isDefinedBy :CoreOntology ;
+                  rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                   rdfs:label "elementManagedBy" ;
                   <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                   <http://www.w3.org/2004/02/skos/core#changeNote> "Introduced in v0.2." .
@@ -562,7 +645,7 @@ Alignment:
 :elementProperty rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf <https://w3id.org/seas/hasProperty> ;
                  rdfs:comment "An abstract representation of a relationship between some Element instance and some Property instance."@en ;
-                 rdfs:isDefinedBy :CoreOntology ;
+                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                  rdfs:label "elementProperty"@en ;
                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -573,7 +656,7 @@ Alignment:
                      rdfs:range :FunctionalElement ,
                                 :StructuralElement ;
                      rdfs:comment "The structural or functional element instance some event or time-dependant entity is related with."@en ;
-                     rdfs:isDefinedBy :CoreOntology ;
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                      rdfs:label "eventRelatedElement" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -582,7 +665,7 @@ Alignment:
 :eventRelatedParty rdf:type owl:ObjectProperty ;
                    rdfs:domain :DynamicElement ;
                    rdfs:comment "Party playing a role (stakeholders) in the life cycle of a given event instance or time-dependant entity."@en ;
-                   rdfs:isDefinedBy :CoreOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "eventRelatedParty" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -598,7 +681,7 @@ Alignment:
 - *UCO*: This property enables linking a concrete `Resource` instance to some location, hence it relates to `observable:location`.
 - *BOT*: This property is akin to the inverse of `bot:hasElement`.
 """@en ;
-                rdfs:isDefinedBy :ResourceOntology ;
+                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                 rdfs:label "locatedAtLocus" ;
                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                 <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -618,7 +701,7 @@ Alignment:
                      rdfs:domain :EventRecord ;
                      rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                      rdfs:comment "The Agent at the origin of the Log record whenever it represents some action carried out on the ICT system. This includes information about the service user associated with the service request that caused a security alarm."@en ;
-                     rdfs:isDefinedBy :NotificationOntology ,
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                       <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ,
                                       <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-sourceIndicator> ;
                      rdfs:label "logOriginatingAgent" ;
@@ -644,7 +727,7 @@ Alignment:
                              rdfs:range :Application ,
                                         :Resource ;
                              rdfs:comment "The Managed Object entity at the origin of the Log record. This includes information about the service provider associated with the service request that caused a security alarm."@en ;
-                             rdfs:isDefinedBy :NotificationOntology ,
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                               <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-SecurityAlarmDetector> ,
                                               <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-managedObjectInstance> ,
                                               <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceProvider> ,
@@ -671,7 +754,7 @@ Alignment:
                                 rdfs:domain :EventRecord ;
                                 rdfs:range :Application ;
                                 rdfs:comment "The Management System that receives, processes and forwards the Log record."@en ;
-                                rdfs:isDefinedBy :NotificationOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "logOriginatingManagementSystem" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                                 <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -695,7 +778,7 @@ Alignment:
                                                    rdf:type owl:Class
                                                  ] ;
                                       rdfs:comment "The administrative status of the Network Interface."@en ;
-                                      rdfs:isDefinedBy :ObservableOntology ;
+                                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                       rdfs:label "networkInterfaceAdministrativeStatus" ;
                                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                                       <http://www.w3.org/2004/02/skos/core#example> "up, down" .
@@ -707,9 +790,39 @@ Alignment:
                           rdfs:domain :NetworkInterface ;
                           rdfs:range :NetworkLink ;
                           rdfs:comment "The Network Link the Network Interface is attached-to."@en ;
-                          rdfs:isDefinedBy :ResourceOntology ;
+                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                           rdfs:label "networkInterfaceConnects" ;
                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceLaserRxHighPowerWarningThreshold
+:networkInterfaceLaserRxHighPowerWarningThreshold rdf:type owl:ObjectProperty ;
+                                                  rdfs:subPropertyOf :structuralElementObservableData ;
+                                                  rdfs:domain :NetworkInterface .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceLaserRxLowPowerWarningThreshold
+:networkInterfaceLaserRxLowPowerWarningThreshold rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf :structuralElementObservableData ;
+                                                 rdfs:domain :NetworkInterface .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPower
+:networkInterfaceLaserRxOpticalPower rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf :structuralElementObservableData ;
+                                     rdfs:domain :NetworkInterface .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPowerAverage
+:networkInterfaceLaserRxOpticalPowerAverage rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf :structuralElementObservableData ;
+                                            rdfs:domain :NetworkInterface .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceLaserTxOpticalPower
+:networkInterfaceLaserTxOpticalPower rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf :structuralElementObservableData ;
+                                     rdfs:domain :NetworkInterface .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceOf
@@ -718,7 +831,7 @@ Alignment:
                     rdfs:domain :NetworkInterface ;
                     rdfs:range :Resource ;
                     rdfs:comment "The Resource the Network Interface is part-of."@en ;
-                    rdfs:isDefinedBy :ResourceOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "networkInterfaceOf" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -736,17 +849,23 @@ Alignment:
                                                 rdf:type owl:Class
                                               ] ;
                                    rdfs:comment "The operational status of the Network Interface."@en ;
-                                   rdfs:isDefinedBy :ObservableOntology ;
+                                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                    rdfs:label "networkInterfaceOperationalStatus" ;
                                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                                    <http://www.w3.org/2004/02/skos/core#example> "up, down" .
+
+
+###  https://w3id.org/noria/ontology/networkInterfaceRoutingPriorityMetric
+:networkInterfaceRoutingPriorityMetric rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf :structuralElementObservableData ;
+                                       rdfs:domain :NetworkInterface .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceType
 :networkInterfaceType rdf:type owl:ObjectProperty ;
                       rdfs:domain :NetworkInterface ;
                       rdfs:comment "The type of the Network Interface."@en ;
-                      rdfs:isDefinedBy :ResourceOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "networkInterfaceType" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                       <http://www.w3.org/2004/02/skos/core#example> "physical, subinterface, virtual"@en .
@@ -758,7 +877,7 @@ Alignment:
                                 rdfs:domain :NetworkLink ;
                                 rdfs:range :Resource ;
                                 rdfs:comment "Link termination Resource, the Resource at some end fo the Network Link."@en ;
-                                rdfs:isDefinedBy :ResourceOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "networkLinkTerminationResource" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -775,7 +894,7 @@ Alignment:
 - *PEP*: OperationPlan (Procedures) may be linked to some description of the output, hence `operationPlanPostCondition` is a kind of `pep:hasOutput`.
 - *BBO*: From the BPMN perspective, the `operationPlanPostCondition` is the description of what should be observed to after the realization of a given Task, hence it is a kind of `BBO:has_completionCondition`.
 """@en ;
-                            rdfs:isDefinedBy :DocumentOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "operationPlanPostCondition" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                             <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -796,7 +915,7 @@ Alignment:
 - *PEP*: OperationPlan (Procedures) may be linked to some description of the input, hence `operationPlanPreCondition` is a kind of `pep:hasInput`.
 - *BBO*: From the BPMN perspective, the `operationPlanPreCondition` is the description of what may activate the realization of a given Task, hence it is a kind of `BBO:has_activationCondition`.
 """@en ;
-                           rdfs:isDefinedBy :DocumentOntology ;
+                           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                            rdfs:label "operationPlanPreCondition" ;
                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                            <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -818,7 +937,7 @@ Alignment:
                               rdf:type owl:Class
                             ] ;
                  rdfs:comment "The *final* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
-                 rdfs:isDefinedBy :DocumentOntology ;
+                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                  rdfs:label "problemCategory"@en ;
                  rdfs:seeAlso :troubleTicketCategory ;
                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -838,7 +957,7 @@ Alignment:
                                     rdf:type owl:Class
                                   ] ;
                        rdfs:comment "The *final* area of responsibility identified for the incident."@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "problemResponsibility"@en ;
                        rdfs:seeAlso :troubleTicketCause ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -850,7 +969,7 @@ Alignment:
                        rdfs:domain :ProductModel ;
                        rdfs:range <http://www.w3.org/ns/org#Organization> ;
                        rdfs:comment "The Manufacturer of the Product Model."@en ;
-                       rdfs:isDefinedBy :ResourceOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "productManufacturedBy" ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -865,7 +984,7 @@ Alignment:
                         rdfs:domain :Resource ;
                         rdfs:range :Application ;
                         rdfs:comment "The Application this Resource is contributing to, whatever the Application type."@en ;
-                        rdfs:isDefinedBy :ResourceOntology ;
+                        rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                         rdfs:label "resourceForApplication" ;
                         <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                         <http://www.w3.org/2004/02/skos/core#example> "Corporate Internet access Infrastructure, Clock synchronization Service"@en .
@@ -875,7 +994,7 @@ Alignment:
 :resourceManagedBy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :elementManagedBy ;
                    rdfs:comment "The Support team or Owner of the Network Element (IT Resource)."@en ;
-                   rdfs:isDefinedBy :ResourceOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "resourceManagedBy" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -891,7 +1010,7 @@ Alignment:
                              rdfs:subPropertyOf <https://unifiedcyberontology.org/ontology/uco/observable#ipAddress> ;
                              rdfs:domain :Resource ;
                              rdfs:comment "Specifies the IP address for remote management of the Resource, if relevant."@en ;
-                             rdfs:isDefinedBy :ResourceOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "resourceManagementIPAddress" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                              <http://www.w3.org/2004/02/skos/core#changeNote> "Introduced in v0.2" ;
@@ -904,7 +1023,7 @@ Alignment:
                       rdfs:domain :Resource ;
                       rdfs:range :ProductModel ;
                       rdfs:comment "The product model of the Resource."@en ;
-                      rdfs:isDefinedBy :ResourceOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "resourceProductModel" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -921,7 +1040,7 @@ Alignment:
                            rdf:type owl:Class
                          ] ;
               rdfs:comment "The type of the Network Element Resource."@en ;
-              rdfs:isDefinedBy :ResourceOntology ;
+              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
               rdfs:label "resourceType" ;
               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -938,7 +1057,7 @@ Alignment:
                                  rdf:type owl:Class
                                ] ;
                     rdfs:comment "The production state of the Resource."@en ;
-                    rdfs:isDefinedBy :ResourceOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "resourceUsageState" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -956,7 +1075,7 @@ Alignment:
                           rdf:type owl:Class
                         ] ;
              rdfs:comment "The type of the Service."@en ;
-             rdfs:isDefinedBy :ApplicationOntology ;
+             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
              rdfs:label "serviceType" ;
              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
              <http://www.w3.org/2004/02/skos/core#changeNote> "Introduced in v0.2" .
@@ -966,20 +1085,25 @@ Alignment:
 :structuralElementObservable rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf :elementProperty ;
                              rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some StructuralObservable instance."@en ;
-                             rdfs:isDefinedBy :CoreOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "structuralElementObservable"@en ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
 
 ###  https://w3id.org/noria/ontology/structuralElementObservableData
-:structuralElementObservableData rdfs:subPropertyOf :elementProperty .
+:structuralElementObservableData rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf :elementProperty .
+
+
+###  https://w3id.org/noria/ontology/structuralElementProperty
+:structuralElementProperty rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/noria/ontology/structuralObservableOf
 :structuralObservableOf rdf:type owl:ObjectProperty ;
                         owl:inverseOf :structuralElementProperty ;
                         rdfs:comment "Relates some `StructuralObservable` instance to some `StructuralElement` instance."@en ;
-                        rdfs:isDefinedBy :CoreOntology ;
+                        rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                         rdfs:label "structuralObservableOf"@en ;
                         <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -997,7 +1121,7 @@ Alignment:
                                     rdf:type owl:Class
                                   ] ;
                        rdfs:comment "The *initial* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "troubleTicketCategory"@en ;
                        rdfs:seeAlso :problemCategory ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -1008,7 +1132,7 @@ Alignment:
 :troubleTicketCharacteristic rdf:type owl:ObjectProperty ;
                              rdfs:domain :TroubleTicket ;
                              rdfs:comment "A list of Characteristics of the ticket (TroubleTicketCharacteristic [*]). The Trouble ticket specific characteristics"@en ;
-                             rdfs:isDefinedBy :DocumentOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "troubleTicketCharacteristic" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1026,7 +1150,7 @@ Alignment:
                                      rdf:type owl:Class
                                    ] ;
                         rdfs:comment "The ticket criticity from the customer impact perspective."@en ;
-                        rdfs:isDefinedBy :DocumentOntology ;
+                        rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                         rdfs:label "troubleTicketCriticity"@en ;
                         <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                         <http://www.w3.org/2004/02/skos/core#example> "Interrupted service, Corrupted service, Working backup, etc."@en .
@@ -1036,7 +1160,7 @@ Alignment:
 :troubleTicketFreezeItem rdf:type owl:ObjectProperty ;
                          rdfs:domain :TroubleTicket ;
                          rdfs:comment "The ticket freeze period history."@en ;
-                         rdfs:isDefinedBy :DocumentOntology ;
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                          rdfs:label "troubleTicketFreezeItem"@en ;
                          rdfs:seeAlso :documentStatusHistory ;
                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
@@ -1048,7 +1172,7 @@ Alignment:
                       rdfs:subPropertyOf <http://purl.org/dc/terms/relation> ;
                       rdfs:domain :TroubleTicket ;
                       rdfs:comment "A list of resources or services (applications) impacted by the trouble."@en ;
-                      rdfs:isDefinedBy :DocumentOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "troubleTicketImpacts"@en ;
                       rdfs:seeAlso :troubleTicketRelatedResource ,
                                    :troubleTicketRelatedService ;
@@ -1069,7 +1193,7 @@ Alignment:
                                            rdf:type owl:Class
                                          ] ;
                               rdfs:comment "The comment provenance type and/or disclosure rules family."@en ;
-                              rdfs:isDefinedBy :DocumentOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "troubleTicketNoteCommentType" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                               <http://www.w3.org/2004/02/skos/core#example> "Customer, Group, Internal, System, etc."@en .
@@ -1085,7 +1209,7 @@ Alignment:
 From a practical perspective, relating a `noria:TroubleTicketNote` to a `pep:ProcedureExecutionContainer` is akin to show off the materialization of a corrective maintenance action from the technical perspective.
 Note that for actions undoubtedly related to a given trouble ticket note (i.e. that can be asserted without mining for execution context candidates), one can avoid using `troubleTicketNoteCorrelatedExecution` by directly relating the note to `EventRecord` with `ldp:member` as `TroubleTicket` and `TroubleTicketNote` are themselves subclasses of `pep:ProcedureExecutionContainer`.
 """@en ;
-                                      rdfs:isDefinedBy :DocumentOntology ;
+                                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                       rdfs:label "troubleTicketNoteCorrelatedExecution" ;
                                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                       <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -1106,7 +1230,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                                              rdf:type owl:Class
                                            ] ;
                                 rdfs:comment "The operation type of the note." ;
-                                rdfs:isDefinedBy :DocumentOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "troubleTicketNoteOperationType" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                                 <http://www.w3.org/2004/02/skos/core#example> "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc."@en .
@@ -1125,7 +1249,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                                   rdf:type owl:Class
                                 ] ;
                      rdfs:comment "The person or group family at the origin of the creation of the Trouble Ticket."@en ;
-                     rdfs:isDefinedBy :DocumentOntology ;
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                      rdfs:label "troubleTicketOrigin" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                      <http://www.w3.org/2004/02/skos/core#example> "Customer, Supervision, Internal, Carrier, User, Partners" .
@@ -1135,7 +1259,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
 :troubleTicketPartyIntervention rdf:type owl:ObjectProperty ;
                                 rdfs:domain :TroubleTicket ;
                                 rdfs:comment "The history of groups activation and responsibility transfer."@en ;
-                                rdfs:isDefinedBy :DocumentOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "troubleTicketPartyIntervention"@en ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1153,7 +1277,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                                     rdf:type owl:Class
                                   ] ;
                        rdfs:comment "The trouble management priority."@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "troubleTicketPriority"@en ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#example> "P1, P2, P3, P4" .
@@ -1165,7 +1289,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                            rdfs:domain :TroubleTicket ;
                            rdfs:range <http://xmlns.com/foaf/0.1/Agent> ;
                            rdfs:comment "The related party(ies) that are associated to the ticket."@en ;
-                           rdfs:isDefinedBy :DocumentOntology ;
+                           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                            rdfs:label "troubleTicketRelatedParty" ;
                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1177,7 +1301,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                               rdfs:domain :TroubleTicket ;
                               rdfs:range :Resource ;
                               rdfs:comment "The Resource entity on which the trouble ticket has been created."@en ;
-                              rdfs:isDefinedBy :DocumentOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "troubleTicketRelatedResource" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1191,7 +1315,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                                         :ApplicationModule ,
                                         :Service ;
                              rdfs:comment "The *Application* or *Service* entity on which trouble ticket has been created."@en ;
-                             rdfs:isDefinedBy :DocumentOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "troubleTicketRelatedService" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                              <http://www.w3.org/2004/02/skos/core#example> """- TroubleTicket.troubleTicketImpacts(\"syslog-ng\")
@@ -1219,7 +1343,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
 The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
 The thresholds of Incident resolution depend on standards defined per service type.
 When the thresholds are exceeded, specific process of escalation may be activated."""@en ;
-                       rdfs:isDefinedBy :DocumentOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "troubleTicketSeverity" ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#example> "Minor, Major, Blocking, etc."@en .
@@ -1237,7 +1361,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                                          rdf:type owl:Class
                                        ] ;
                             rdfs:comment "The current activity status of the trouble ticket."@en ;
-                            rdfs:isDefinedBy :DocumentOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "troubleTicketStatusCurrent" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                             <http://www.w3.org/2004/02/skos/core#example> "Initialised, InProgress, Frozen, Restored, Resolved, Closed" .
@@ -1262,7 +1386,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                                 rdf:type owl:Class
                               ] ;
                    rdfs:comment "The ticket type."@en ;
-                   rdfs:isDefinedBy :DocumentOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "troubleTicketType" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#example> "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc."@en .
@@ -1281,7 +1405,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                                    rdf:type owl:Class
                                  ] ;
                       rdfs:comment "The priority level of the incident."@en ;
-                      rdfs:isDefinedBy :DocumentOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "troubleTicketUrgency" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                       <http://www.w3.org/2004/02/skos/core#example> "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." .
@@ -1300,21 +1424,105 @@ When the thresholds are exceeded, specific process of escalation may be activate
                                   rdf:type owl:Class
                                 ] ;
                      rdfs:comment "The operational status of the Virtual Server."@en ;
-                     rdfs:isDefinedBy :ObservableOntology ;
+                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                      rdfs:label "virtualServerStatus" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+
+
+###  https://w3id.org/pep/hasInput
+<https://w3id.org/pep/hasInput> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pep/hasOutput
+<https://w3id.org/pep/hasOutput> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pep/madeBy
+<https://w3id.org/pep/madeBy> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pep/usedProcedure
+<https://w3id.org/pep/usedProcedure> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/connectionPointOf
+<https://w3id.org/seas/connectionPointOf> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/connectsSystem
+<https://w3id.org/seas/connectsSystem> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/connectsSystemAt
+<https://w3id.org/seas/connectsSystemAt> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/hasProperty
+<https://w3id.org/seas/hasProperty> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/subSystemOf
+<https://w3id.org/seas/subSystemOf> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/sepses/ns/log#hasSourceHost
+<https://w3id.org/sepses/ns/log#hasSourceHost> rdf:type owl:ObjectProperty .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_activationCondition
+<https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_activationCondition> rdf:type owl:ObjectProperty .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_completionCondition
+<https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_completionCondition> rdf:type owl:ObjectProperty .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/date
+<http://purl.org/dc/terms/date> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/extent
+<http://purl.org/dc/terms/extent> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:DatatypeProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2006/time#inXSDDateTimeStamp
+<http://www.w3.org/2006/time#inXSDDateTimeStamp> rdf:type owl:DatatypeProperty .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#hostname
+<https://unifiedcyberontology.org/ontology/uco/observable#hostname> rdf:type owl:DatatypeProperty .
+
+
 ###  https://w3id.org/noria/ontology/agentInstructions
 :agentInstructions rdf:type owl:DatatypeProperty ;
                    rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Instructions for involving the Agent (Team, Group, Employee)."@en ;
-                   rdfs:isDefinedBy :CoreOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "agentInstructions" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -1330,7 +1538,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                    rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
                    rdfs:range xsd:string ;
                    rdfs:comment "The Working Hours for reaching the Agent (Team, Employee, etc.)."@en ;
-                   rdfs:isDefinedBy :CoreOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "agentWorkingHours" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                    <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
@@ -1348,7 +1556,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 Alignment:
 - *tmforum*: the `noria:applicationFunctionalDomain` is equivalent to the *Domain* concept of the ODA Functional Framework.
 """@en ;
-                             rdfs:isDefinedBy :ApplicationOntology ,
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                               <https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
                              rdfs:label "applicationFunctionalDomain" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
@@ -1366,7 +1574,7 @@ Alignment:
 Alignment:
 - *tmforum*: the `noria:applicationFunctionalSubDomain` is equivalent to *Aggregate Business Entities* (ABEs) and *Business Entities* (BEs) of the ODA Functional Framework.
 """@en ;
-                                rdfs:isDefinedBy :ApplicationOntology ,
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                                                  <https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
                                 rdfs:label "applicationFunctionalSubDomain" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
@@ -1382,7 +1590,7 @@ Alignment:
                             rdfs:domain :Application ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Application model code."@en ;
-                            rdfs:isDefinedBy :ApplicationOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "applicationModelIdentifier" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1393,7 +1601,7 @@ Alignment:
                                  rdfs:range xsd:boolean ;
                                  rdfs:comment "Hotline enabled for issues on a given ApplicationModule."@en ,
                                               "Possibilité d'appel de l'astreinte applicative."@fr ;
-                                 rdfs:isDefinedBy :ApplicationOntology ;
+                                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                  rdfs:label "applicationModuleHotlineEnabled" ;
                                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1404,7 +1612,7 @@ Alignment:
                              rdfs:domain :ApplicationModule ;
                              rdfs:range xsd:string ;
                              rdfs:comment "Application module code."@en ;
-                             rdfs:isDefinedBy :ApplicationOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "applicationModuleIdentifier"@en ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1415,7 +1623,7 @@ Alignment:
                        rdfs:domain :ApplicationModule ;
                        rdfs:range xsd:string ;
                        rdfs:comment "The name of the Application module."@en ;
-                       rdfs:isDefinedBy :ApplicationOntology ;
+                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                        rdfs:label "applicationModuleName" ;
                        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                        <http://www.w3.org/2004/02/skos/core#example> """CONCAT(
@@ -1431,7 +1639,7 @@ Alignment:
                                rdfs:domain :ApplicationModule ;
                                rdfs:comment "Date du Niveau de service."@fr ,
                                             "SLA Level date, the date at which the SLA Level has been set or updated."@en ;
-                               rdfs:isDefinedBy :ApplicationOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "applicationModuleSlaLevelDate" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1442,7 +1650,7 @@ Alignment:
                                 rdfs:domain :Application ;
                                 rdfs:range xsd:int ;
                                 rdfs:comment "Application numerical identifier, the numerical identifier of the Application within the Information System."@en ;
-                                rdfs:isDefinedBy :ApplicationOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "applicationNumericalIdentifier" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1454,7 +1662,7 @@ Alignment:
                             rdfs:domain :Application ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Application short identifier, a short string identifier of Application within the Information System."@en ;
-                            rdfs:isDefinedBy :ApplicationOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "applicationShortIdentifier" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1465,7 +1673,7 @@ Alignment:
                             rdfs:domain :ChangeRequest ;
                             rdfs:range xsd:dateTime ;
                             rdfs:comment "Date and time on which the Change Request implementation has been completed. It is displayed only after the Change Request implementation has been completed actually."@en ;
-                            rdfs:isDefinedBy :DocumentOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "changeRequestActualEndTime" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1476,7 +1684,7 @@ Alignment:
                               rdfs:domain :ChangeRequest ;
                               rdfs:range xsd:dateTime ;
                               rdfs:comment "Date and time on which the Change Request implementation has started. It is displayed only after the Change Request implementation has started actually."@en ;
-                              rdfs:isDefinedBy :DocumentOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "changeRequestActualStartTime" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1486,7 +1694,7 @@ Alignment:
                           rdfs:domain :ChangeRequest ;
                           rdfs:range xsd:boolean ;
                           rdfs:comment "If *true*, the Change Request is subject to special regulations."@en ;
-                          rdfs:isDefinedBy :DocumentOntology ;
+                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                           rdfs:label "changeRequestIsRegulated" ;
                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1497,7 +1705,7 @@ Alignment:
                              rdfs:domain :ChangeRequest ;
                              rdfs:range xsd:duration ;
                              rdfs:comment "Expected duration of the outage, if any involved by the Change Request type."@en ;
-                             rdfs:isDefinedBy :DocumentOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "changeRequestOutageDuration" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1508,7 +1716,7 @@ Alignment:
                              rdfs:domain :ChangeRequest ;
                              rdfs:range xsd:dateTime ;
                              rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
-                             rdfs:isDefinedBy :DocumentOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "changeRequestPlannedEndTime" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1519,7 +1727,7 @@ Alignment:
                                rdfs:domain :ChangeRequest ;
                                rdfs:range xsd:dateTime ;
                                rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
-                               rdfs:isDefinedBy :DocumentOntology ;
+                               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                rdfs:label "changeRequestPlannedStartTime" ;
                                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1531,7 +1739,7 @@ Alignment:
                                 :TroubleTicket ;
                     rdfs:range xsd:string ;
                     rdfs:comment "ID given by the requestor to facilitate the relationship set up and searches afterwards."@en ;
-                    rdfs:isDefinedBy :DocumentOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "documentExternalId" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                     <http://www.w3.org/2004/02/skos/core#example> "Customer reference, Identifier coming from an external system, etc."@en .
@@ -1544,7 +1752,7 @@ Alignment:
                           :TroubleTicket ;
               rdfs:range xsd:anyURI ;
               rdfs:comment "Hyperlink to the TroubleTicket or ChangeRequest entity in the originating information system."@en ;
-              rdfs:isDefinedBy :DocumentOntology ;
+              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
               rdfs:label "documentHRef" ;
               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1552,7 +1760,7 @@ Alignment:
 ###  https://w3id.org/noria/ontology/elementDistinguishedName
 :elementDistinguishedName rdf:type owl:DatatypeProperty ;
                           rdfs:comment "The Distinguished Name of the Element Instance (i.e. unique identifier)."@en ;
-                          rdfs:isDefinedBy :CoreOntology ;
+                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                           rdfs:label "elementDistinguishedName"@en ;
                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1561,7 +1769,7 @@ Alignment:
 :functionalElementDistinguishedName rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf :elementDistinguishedName ;
                                     rdfs:comment "The Distinguished Name of the Functional Element Instance (i.e. unique identifier)."@en ;
-                                    rdfs:isDefinedBy :CoreOntology ;
+                                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                     rdfs:label "functionalElementDistinguishedName"@en ;
                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1570,7 +1778,7 @@ Alignment:
 :locusLine rdf:type owl:DatatypeProperty ;
            rdfs:domain :Locus ;
            rdfs:comment "The line identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
-           rdfs:isDefinedBy :LocationOntology ;
+           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
            rdfs:label "locusLine" ;
            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
            <http://www.w3.org/2004/02/skos/core#changeNote> "Addition in v0.2." ;
@@ -1581,7 +1789,7 @@ Alignment:
 :locusRow rdf:type owl:DatatypeProperty ;
           rdfs:domain :Locus ;
           rdfs:comment "The row identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
-          rdfs:isDefinedBy :LocationOntology ;
+          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
           rdfs:label "locusLine" ;
           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
           <http://www.w3.org/2004/02/skos/core#changeNote> "Addition in v0.2." ;
@@ -1596,7 +1804,7 @@ Alignment:
          rdfs:domain :EventRecord ;
          rdfs:range xsd:string ;
          rdfs:comment "Textual information describing the logged event." ;
-         rdfs:isDefinedBy :NotificationOntology ,
+         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                           <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
          rdfs:label "logText" ;
          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -1614,7 +1822,7 @@ Alignment:
              rdfs:domain :EventRecord ;
              rdfs:range xsd:dateTime ;
              rdfs:comment "The Date on which the log record was created in the system." ;
-             rdfs:isDefinedBy :NotificationOntology ,
+             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                               <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime> ;
              rdfs:label "loggingTime" ;
              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -1629,78 +1837,39 @@ Alignment:
                              rdfs:domain :NetworkInterface ;
                              rdfs:range xsd:string ;
                              rdfs:comment "A human-readable/editable text that describes the network interface. The information included in the description depends on the capabilities of the Resource's operating system."@en ;
-                             rdfs:isDefinedBy :ResourceOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "networkInterfaceDescription" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceLaserRxHighPowerWarningThreshold
 :networkInterfaceLaserRxHighPowerWarningThreshold rdf:type owl:DatatypeProperty ;
-                                                  rdfs:subPropertyOf :structuralElementObservableData ;
-                                                  rdfs:domain :NetworkInterface ;
-                                                  rdfs:range xsd:int ;
-                                                  rdfs:comment "The high received power notification threshold."@en ;
-                                                  rdfs:isDefinedBy :ObservableOntology ;
-                                                  rdfs:label "networkInterfaceLaserRxHighPowerWarningThreshold" ;
-                                                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+                                                  rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceLaserRxLowPowerWarningThreshold
 :networkInterfaceLaserRxLowPowerWarningThreshold rdf:type owl:DatatypeProperty ;
-                                                 rdfs:subPropertyOf :structuralElementObservableData ;
-                                                 rdfs:domain :NetworkInterface ;
-                                                 rdfs:range xsd:int ;
-                                                 rdfs:comment "The low received power notification threshold."@en ;
-                                                 rdfs:isDefinedBy :ObservableOntology ;
-                                                 rdfs:label "networkInterfaceLaserRxLowPowerWarningThreshold" ;
-                                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+                                                 rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPower
 :networkInterfaceLaserRxOpticalPower rdf:type owl:DatatypeProperty ;
-                                     rdfs:subPropertyOf :structuralElementObservableData ;
-                                     rdfs:domain :NetworkInterface ;
-                                     rdfs:range xsd:int ;
-                                     rdfs:comment "The received optical power measure of the Network Interface, in dBm."@en ;
-                                     rdfs:isDefinedBy :ObservableOntology ;
-                                     rdfs:label "networkInterfaceLaserRxOpticalPower" ;
-                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                     <http://www.w3.org/2004/02/skos/core#example> "Rx = -3.58 dBm" .
+                                     rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPowerAverage
 :networkInterfaceLaserRxOpticalPowerAverage rdf:type owl:DatatypeProperty ;
-                                            rdfs:subPropertyOf :structuralElementObservableData ;
-                                            rdfs:domain :NetworkInterface ;
-                                            rdfs:range xsd:int ;
-                                            rdfs:comment "The average received optical power of the Network Interface, in dBm."@en ;
-                                            rdfs:isDefinedBy :ObservableOntology ;
-                                            rdfs:label "networkInterfaceLaserRxOpticalPowerAverage" ;
-                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+                                            rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceLaserTxOpticalPower
 :networkInterfaceLaserTxOpticalPower rdf:type owl:DatatypeProperty ;
-                                     rdfs:subPropertyOf :structuralElementObservableData ;
-                                     rdfs:domain :NetworkInterface ;
-                                     rdfs:range xsd:int ;
-                                     rdfs:comment "The emitted optical power measure of the Network Interface, in dBm."@en ;
-                                     rdfs:isDefinedBy :ObservableOntology ;
-                                     rdfs:label "networkInterfaceLaserTxOpticalPower" ;
-                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
-                                     <http://www.w3.org/2004/02/skos/core#example> "Tx = -2.13 dBm" .
+                                     rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkInterfaceRoutingPriorityMetric
 :networkInterfaceRoutingPriorityMetric rdf:type owl:DatatypeProperty ;
-                                       rdfs:subPropertyOf :structuralElementObservableData ;
-                                       rdfs:domain :NetworkInterface ;
-                                       rdfs:range xsd:int ;
-                                       rdfs:comment "The metric value associated to the Network Interface for some routing protocol."@en ;
-                                       rdfs:isDefinedBy :ObservableOntology ;
-                                       rdfs:label "networkInterfaceRoutingPriorityMetric" ;
-                                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
-                                       <http://www.w3.org/2004/02/skos/core#example> "IS-IS route priority=122" .
+                                       rdfs:range xsd:int .
 
 
 ###  https://w3id.org/noria/ontology/networkLinkId
@@ -1709,7 +1878,7 @@ Alignment:
                rdfs:domain :NetworkLink ;
                rdfs:range xsd:string ;
                rdfs:comment "The UID of the NetworkLink."@en ;
-               rdfs:isDefinedBy :ResourceOntology ;
+               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                rdfs:label "networkLinkId" ;
                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1719,7 +1888,7 @@ Alignment:
                              rdfs:domain :NetworkLink ;
                              rdfs:range xsd:dateTime ;
                              rdfs:comment "The installation date of the NetworkLink."@en ;
-                             rdfs:isDefinedBy :ResourceOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "networkLinkInstallationDate" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1729,7 +1898,7 @@ Alignment:
                  rdfs:domain :NetworkLink ;
                  rdfs:range xsd:string ;
                  rdfs:comment "A description of the type of the Network Link."@en ;
-                 rdfs:isDefinedBy :ResourceOntology ;
+                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                  rdfs:label "networkLinkType" ;
                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1743,7 +1912,7 @@ Alignment:
                   rdfs:domain :Resource ;
                   rdfs:range xsd:string ;
                   rdfs:comment "The hostname (nodename) of the Resource."@en ;
-                  rdfs:isDefinedBy :ResourceOntology ;
+                  rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                   rdfs:label "resourceHostName" ;
                   rdfs:seeAlso <https://en.wikipedia.org/wiki/Hostname> ;
                   <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -1758,7 +1927,7 @@ Alignment:
                           rdfs:domain :Resource ;
                           rdfs:range xsd:dateTime ;
                           rdfs:comment "The installation date of the Resource."@en ;
-                          rdfs:isDefinedBy :ResourceOntology ;
+                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                           rdfs:label "resourceInstallationDate" ;
                           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1769,7 +1938,7 @@ Alignment:
                     rdfs:domain :Resource ;
                     rdfs:range xsd:string ;
                     rdfs:comment "The logistic UID of the Resource (a.k.a. asset tag)."@en ;
-                    rdfs:isDefinedBy :ResourceOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "resourceLogisticId" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1780,7 +1949,7 @@ Alignment:
                       rdfs:domain :Resource ;
                       rdfs:range xsd:string ;
                       rdfs:comment "The serial number of the Resource."@en ;
-                      rdfs:isDefinedBy :ResourceOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "resourceSerialNumber" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1790,7 +1959,7 @@ Alignment:
         rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
         rdfs:domain <https://w3id.org/bot#Site> ;
         rdfs:comment "A unique identifier of a Site."@en ;
-        rdfs:isDefinedBy :LocationOntology ;
+        rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
         rdfs:label "siteId" ;
         <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
         <http://www.w3.org/2004/02/skos/core#changeNote> "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." .
@@ -1800,7 +1969,7 @@ Alignment:
 :sitePrincipalAddress rdf:type owl:DatatypeProperty ;
                       rdfs:domain <https://w3id.org/bot#Site> ;
                       rdfs:comment "Street address of a Site."@en ;
-                      rdfs:isDefinedBy :LocationOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "sitePrincipalAddress" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                       <http://www.w3.org/2004/02/skos/core#changeNote> "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." .
@@ -1814,7 +1983,7 @@ Alignment:
 
 Alignment:
 - *GeoNames*: a `P` class `gn:Feature` (city, village, etc.) may correspond to this property."""@en ;
-                              rdfs:isDefinedBy :LocationOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "sitePrincipalAddressCityName" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                               <http://www.w3.org/2004/02/skos/core#changeNote> "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." .
@@ -1832,7 +2001,7 @@ Alignment:
   - a `A` class `gn:Feature` (country, state, region, etc.) may correspond to this property.
   - prefer ISO 3166 values for easier matching with `gn:countryCode`.
 """@en ;
-                             rdfs:isDefinedBy :LocationOntology ;
+                             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                              rdfs:label "sitePrincipalAddressCountry" ;
                              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1846,7 +2015,7 @@ Alignment:
 
 Alignment:
 - *GeoNames*: *ADM2*, *ADM3* or *ADM4* annotations may correspond to this property, depending on the considered country."""@en ;
-                                rdfs:isDefinedBy :LocationOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "sitePrincipalAddressPostalCode" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                                 <http://www.w3.org/2004/02/skos/core#changeNote> "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." .
@@ -1857,7 +2026,7 @@ Alignment:
                             rdfs:subPropertyOf :sitePrincipalAddress ;
                             rdfs:domain <https://w3id.org/bot#Site> ;
                             rdfs:comment "Street for a Site."@en ;
-                            rdfs:isDefinedBy :LocationOntology ;
+                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                             rdfs:label "sitePrincipalAddressStreet" ;
                             <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1866,7 +2035,7 @@ Alignment:
 :siteType rdf:type owl:DatatypeProperty ;
           rdfs:domain <https://w3id.org/bot#Site> ;
           rdfs:comment "The type of a Site."@en ;
-          rdfs:isDefinedBy :LocationOntology ;
+          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
           rdfs:label "siteType" ;
           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
           <http://www.w3.org/2004/02/skos/core#changeNote> "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
@@ -1877,7 +2046,7 @@ Alignment:
 :structuralElementDistinguishedName rdf:type owl:DatatypeProperty ;
                                     rdfs:subPropertyOf :elementDistinguishedName ;
                                     rdfs:comment "The Distinguished Name of the Structural Element Instance (i.e. unique identifier)."@en ;
-                                    rdfs:isDefinedBy :CoreOntology ;
+                                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                     rdfs:label "structuralElementDistinguishedName"@en ;
                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1891,7 +2060,7 @@ Alignment:
                     rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
                     rdfs:domain :TroubleTicket ;
                     rdfs:comment "The cause(s) defined for the trouble, in plain text."@en ;
-                    rdfs:isDefinedBy :DocumentOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "troubleTicketCause"@en ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                     <http://www.w3.org/2004/02/skos/core#example> "SSH authentication failure due to loss of sync to NTP server and internal clock drift." .
@@ -1902,7 +2071,7 @@ Alignment:
                                            rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
                                            rdfs:domain :TroubleTicket ;
                                            rdfs:comment "The Customer Commitment Deadline Date (calculated on product information)."@en ;
-                                           rdfs:isDefinedBy :DocumentOntology ;
+                                           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                            rdfs:label "troubleTicketCommittedRestorationDateTime" ;
                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1913,7 +2082,7 @@ Alignment:
                                 rdfs:domain :TroubleTicket ;
                                 rdfs:range xsd:dateTime ;
                                 rdfs:comment "The date on which the trouble was discovered."@en ;
-                                rdfs:isDefinedBy :DocumentOntology ;
+                                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                 rdfs:label "troubleTicketDetectionDateTime" ;
                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1923,7 +2092,7 @@ Alignment:
                                    rdfs:domain :TroubleTicket ;
                                    rdfs:range xsd:boolean ;
                                    rdfs:comment "The *enable* or *disable* external notification on trouble ticket events."@en ;
-                                   rdfs:isDefinedBy :DocumentOntology ;
+                                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                    rdfs:label "troubleTicketIsNotificationEnable" ;
                                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1934,7 +2103,7 @@ Alignment:
                                          rdfs:domain :TroubleTicket ;
                                          rdfs:range xsd:dateTime ;
                                          rdfs:comment "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."@en ;
-                                         rdfs:isDefinedBy :DocumentOntology ;
+                                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                          rdfs:label "troubleTicketPlannedRestorationDateTime" ;
                                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -1945,7 +2114,7 @@ Alignment:
                               rdfs:domain :TroubleTicket ;
                               rdfs:range xsd:string ;
                               rdfs:comment "Supervision tool which detected the problem."@en ;
-                              rdfs:isDefinedBy :DocumentOntology ;
+                              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                               rdfs:label "troubleTicketSupervisionTool" ;
                               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -1956,21 +2125,111 @@ Alignment:
                                         rdfs:domain :TroubleTicket ;
                                         rdfs:range xsd:dateTime ;
                                         rdfs:comment "The Customer initial restoration date Estimated Time to Restore (ETR)."@en ;
-                                        rdfs:isDefinedBy :DocumentOntology ;
+                                        rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                         rdfs:label "troubleTicketTargetRestorationDateTime" ;
                                         <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
 
 ###  https://w3id.org/noria/ontology/troubleTicketTrigger
-:troubleTicketTrigger rdfs:subPropertyOf <http://purl.org/dc/terms/source> .
+:troubleTicketTrigger rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf <http://purl.org/dc/terms/source> .
+
+
+###  https://w3id.org/pep/hasSimpleResult
+<https://w3id.org/pep/hasSimpleResult> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/sepses/ns/log#host
+<https://w3id.org/sepses/ns/log#host> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/sepses/ns/log#msg
+<https://w3id.org/sepses/ns/log#msg> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/sepses/ns/log#time
+<https://w3id.org/sepses/ns/log#time> rdf:type owl:DatatypeProperty .
+
+
+###  https://www.geonames.org/ontology#countryCode
+<https://www.geonames.org/ontology#countryCode> rdf:type owl:DatatypeProperty .
+
+
+###  https://www.geonames.org/ontology#postalCode
+<https://www.geonames.org/ontology#postalCode> rdf:type owl:DatatypeProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
+###  http://IBCNServices.github.io/Folio-Ontology/Folio.owl#ControlMethod
+<http://IBCNServices.github.io/Folio-Ontology/Folio.owl#ControlMethod> rdf:type owl:Class .
+
+
+###  http://IBCNServices.github.io/Folio-Ontology/Folio.owl#FailureMode
+<http://IBCNServices.github.io/Folio-Ontology/Folio.owl#FailureMode> rdf:type owl:Class .
+
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> rdf:type owl:Class .
+
+
 ###  http://w3id.org/devops-infra/product#ServiceInstance
-<http://w3id.org/devops-infra/product#ServiceInstance> owl:equivalentClass :Service .
+<http://w3id.org/devops-infra/product#ServiceInstance> rdf:type owl:Class ;
+                                                       owl:equivalentClass :Service .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/org#Organization
+<http://www.w3.org/ns/org#Organization> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/org#OrganizationalUnit
+<http://www.w3.org/ns/org#OrganizationalUnit> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/OnlineAccount
+<http://xmlns.com/foaf/0.1/OnlineAccount> rdf:type owl:Class .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#Application
+<https://unifiedcyberontology.org/ontology/uco/observable#Application> rdf:type owl:Class .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#Device
+<https://unifiedcyberontology.org/ontology/uco/observable#Device> rdf:type owl:Class .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#EventRecord
+<https://unifiedcyberontology.org/ontology/uco/observable#EventRecord> rdf:type owl:Class .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#NetworkInterface
+<https://unifiedcyberontology.org/ontology/uco/observable#NetworkInterface> rdf:type owl:Class .
+
+
+###  https://unifiedcyberontology.org/ontology/uco/observable#UserAccount
+<https://unifiedcyberontology.org/ontology/uco/observable#UserAccount> rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Element
+<https://w3id.org/bot#Element> rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Site
+<https://w3id.org/bot#Site> rdf:type owl:Class .
+
+
+###  https://w3id.org/bot#Space
+<https://w3id.org/bot#Space> rdf:type owl:Class .
 
 
 ###  https://w3id.org/noria/ontology/ActionPostCondition
@@ -1980,7 +2239,7 @@ Alignment:
 
 From the *ChangeRequest* perspective this enables to declare what to observe in order to confirm that the Procedure reached its goal; from the *TroubleTicket* perspective this enables to capitalize on expectations and outcomes for a given Procedure."""@en ;
                      rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ,
-                                      :DocumentOntology ;
+                                      <https://w3id.org/noria/ontology/> ;
                      rdfs:label "ActionPostCondition" ;
                      <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                      <http://www.w3.org/2004/02/skos/core#example> """In an Incident Management context, the materialization to expect, such as:
@@ -1994,7 +2253,7 @@ From the *ChangeRequest* perspective this enables to declare what to observe in 
                     rdfs:subClassOf :ProceduralObject ;
                     rdfs:comment "Set of Pre Conditions or Hypothesis enabling/leading to the potential execution of some OperationPlan."@en ;
                     rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ,
-                                     :DocumentOntology ;
+                                     <https://w3id.org/noria/ontology/> ;
                     rdfs:label "ActionPreCondition" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                     <http://www.w3.org/2004/02/skos/core#example> "In an Incident Management context: when in situation X, shut link may help"@en .
@@ -2005,7 +2264,7 @@ From the *ChangeRequest* perspective this enables to declare what to observe in 
                 rdfs:subClassOf <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#FailureMode> ,
                                 :ProceduralObject ;
                 rdfs:comment "An abstract class for grouping observables and events that, when satisfied by the existence of some instance/value, represents the occurrence of a (complex) fault/failure mode."@en ;
-                rdfs:isDefinedBy :DocumentOntology ;
+                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                 rdfs:label "AnomalyPattern" ;
                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                 <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -2020,7 +2279,7 @@ From the *ChangeRequest* perspective this enables to declare what to observe in 
                              :FunctionalElement ,
                              <https://w3id.org/seas/System> ;
              rdfs:comment "An abstract system based on data processing and presentation."@en ;
-             rdfs:isDefinedBy :ApplicationOntology ;
+             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
              rdfs:label "Application" ;
              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
              <http://www.w3.org/2004/02/skos/core#example> """- RLOGS: Centralization of real time logs.
@@ -2032,10 +2291,14 @@ From the *ChangeRequest* perspective this enables to declare what to observe in 
                    rdfs:subClassOf :FunctionalElement ,
                                    <https://w3id.org/seas/System> ;
                    rdfs:comment "A specific and managed instance of an Application."@en ;
-                   rdfs:isDefinedBy :ApplicationOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "ApplicationModule" ;
                    <http://www.w3.org/2004/02/skos/core#example> """- Development instance of the RLOGS (Centralization of real time logs) Application.
 - B2B instance of the DMZ VoIP (shared management zone / platform for Voice over IP services) Application.""" .
+
+
+###  https://w3id.org/noria/ontology/ChangeAction
+:ChangeAction rdf:type owl:Class .
 
 
 ###  https://w3id.org/noria/ontology/ChangeRequest
@@ -2060,7 +2323,7 @@ Alignment:
 - *PEP*: a ChangeRequest is a context for (potentially) many *ChangeAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`.
 - *BBO*: a ChangeRequest is a DocumentResource in the sense that it is the result of the Change Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a ChangeRequest is a DataObject.
 """@en ;
-               rdfs:isDefinedBy :DocumentOntology ;
+               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                rdfs:label "ChangeRequest" ;
                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -2080,11 +2343,15 @@ Alignment:
   - The `observable:accountLogin` and `observable:accountIdentifier` can be used in parallel to `foaf:accountName` for asserting the the login identifier.
   - The Person (`foaf:Agent`) holding this CUid is also a `observable:Contact`.
 """@en ;
-                         rdfs:isDefinedBy :CoreOntology ;
+                         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                          rdfs:label "CUid" ;
                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                          <http://www.w3.org/2004/02/skos/core#changeNote> """Change in v0.2:
 - alignment with foaf of the previously available noria:employeeId property.""" .
+
+
+###  https://w3id.org/noria/ontology/CorrectiveMaintenanceAction
+:CorrectiveMaintenanceAction rdf:type owl:Class .
 
 
 ###  https://w3id.org/noria/ontology/DocumentAttachment
@@ -2099,7 +2366,7 @@ Alignment:
   - changeRequestAttachment <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.
 - *BBO*: a DocumentAttachment is a DocumentResource in the sense that it is the result of the Incident Management Process (IMP) or Change Management Process (CMP) and can be used as an input for another activity. From the BPMN 2.0 perspective, a DocumentAttachment is a DataObject.
     """@en ;
-                    rdfs:isDefinedBy :DocumentOntology ;
+                    rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                     rdfs:label "DocumentAttachment" ;
                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                     <http://www.w3.org/2004/02/skos/core#example> "Picture of broken device, scanning of a bill or charge, network diagram, operation plan, location map." .
@@ -2109,7 +2376,7 @@ Alignment:
 :DynamicElement rdf:type owl:Class ;
                 rdfs:subClassOf :ManagedElement ;
                 rdfs:comment "Abstract class for time-related entities and their potential chaining (a.k.a. *Dynamic facet*)."@en ;
-                rdfs:isDefinedBy :CoreOntology ;
+                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                 rdfs:label "DynamicElement"@en ;
                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                 <http://www.w3.org/2004/02/skos/core#example> "An alarm with happens_on or followed_by properties" .
@@ -2147,7 +2414,7 @@ Alignment:
 - *PEP*: an EventRecord is an artefact of the realization of a `pep:Procedure`, hence it is a specialization of a `pep:ProcedureExecution` for the NORIA context.
 - *SLOGERT*: an EventRecord is equivalent to a `log:Event`.
 """@en ;
-             rdfs:isDefinedBy :NotificationOntology ,
+             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ,
                               <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ,
                               <https://www.itu.int/rec/T-REC-X.733-199202-I/> ;
              rdfs:label "EventRecord" ;
@@ -2173,6 +2440,7 @@ Alignment:
 :FunctionalElement rdf:type owl:Class ;
                    rdfs:subClassOf :ManagedElement ;
                    rdfs:comment "Abstract class for services and broadcasting zones above the *Structural* facet (a.k.a. *Functional facet*)."@en ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "FunctionalElement"@en ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -2188,7 +2456,7 @@ Alignment:
   - Approximating the geographical coordinates of a Locus is feasible through transitive inference over the `bot:hasZeroPoint` of the parent `bot:Site` (considering the GeoNames database this would to a `(bot:Site)=[bot:hasZeroPoint]=>(gn:Feature)` path towards `wgs84_pos:lat` or `wgs84_pos:long` values).
 - *ORG*: Note that, at instanciation time, `bot:Site` entities may also be `org:Site` (see https://www.w3.org/TR/vocab-org/#org:Site) in order to allow for an Organization (including teams, persons, manufacturers) to be localized (e.g. see `org:basedAt`), and hence allow for intervention distance/time calculus or threat calculus with respect to a given Locus.
 """@en ;
-       rdfs:isDefinedBy :LocationOntology ;
+       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
        rdfs:label "Locus" ;
        rdfs:seeAlso <https://w3id.org/bot#Space> ;
        <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -2201,7 +2469,7 @@ Alignment:
 :ManagedElement rdf:type owl:Class ;
                 rdfs:subClassOf <https://w3id.org/seas/FeatureOfInterest> ;
                 rdfs:comment "Top abstract class of NORIA Cyber/Physical concepts for describing, managing and analyzing ICT systems."@en ;
-                rdfs:isDefinedBy :CoreOntology ;
+                rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                 rdfs:label "ManagedElement"@en ;
                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -2216,7 +2484,7 @@ Alignment:
 Usage notes:
 - The name of the Network Interface (aka. networkInterfaceName, such as `ge-0/0/0.3013` or `ae52.3028`) can be set with the `rdfs:label` property.
 """@en ;
-                  rdfs:isDefinedBy :ResourceOntology ;
+                  rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                   rdfs:label "NetworkInterface" ;
                   <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                   <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -2233,7 +2501,7 @@ Usage notes:
 Usage notes:
 - The organizational unit in charge of the Network Link (i.e. the Support team or Owner of the Network Link) can be set with the `noria:resourceManagedBy` property.
 """@en ;
-             rdfs:isDefinedBy :ResourceOntology ;
+             rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
              rdfs:label "NetworkLink" ;
              <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
              <http://www.w3.org/2004/02/skos/core#example> "Optical fiber, L2TP connection, etc."@en .
@@ -2245,7 +2513,7 @@ Usage notes:
                                :ProceduralObject ,
                                <https://w3id.org/pep/Procedure> ;
                rdfs:comment "An abstract class representing a formal set of operations to be carried out in a standardized/controlled way."@en ;
-               rdfs:isDefinedBy :DocumentOntology ;
+               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                rdfs:label "OperationPlan" ;
                <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
@@ -2258,17 +2526,21 @@ Usage notes:
 :ProceduralElement rdf:type owl:Class ;
                    rdfs:subClassOf :ManagedElement ;
                    rdfs:comment "Abstract class for (predeﬁned/computed) operational process (a.k.a. *Procedural facet*)."@en ;
-                   rdfs:isDefinedBy :CoreOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "ProceduralElement"@en ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#example> "Incident diagnosis procedure, cyber attack scenario, network route fail-over algorithm"@en .
+
+
+###  https://w3id.org/noria/ontology/ProceduralObject
+:ProceduralObject rdf:type owl:Class .
 
 
 ###  https://w3id.org/noria/ontology/ProductModel
 :ProductModel rdf:type owl:Class ;
               rdfs:subClassOf :StructuralProperty ;
               rdfs:comment "The Product Model of some Resource as per the Manufacturer's naming."@en ;
-              rdfs:isDefinedBy :ResourceOntology ;
+              rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
               rdfs:label "ProductModel" ;
               <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
 
@@ -2277,7 +2549,7 @@ Usage notes:
 :Property rdf:type owl:Class ;
           rdfs:subClassOf <https://w3id.org/seas/Property> ;
           rdfs:comment "An abstract representation of qualifiable, quantifiable, observable or operable qualities of some Element."@en ;
-          rdfs:isDefinedBy :CoreOntology ;
+          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
           rdfs:label "Property"@en ;
           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
@@ -2299,7 +2571,7 @@ Alignment:
 - *SLOGERT*: A `noria:Resource` is equivalent to a `log:Host`.
 - *UCO*: A `noria:Resource` is equivalent to an UCO's observable `Device`.
 """@en ;
-          rdfs:isDefinedBy :ResourceOntology ;
+          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
           rdfs:label "Resource" ;
           rdfs:seeAlso <https://w3id.org/noria/kos/Resource/> ;
           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -2320,7 +2592,7 @@ Alignment:
 Alignment:
 - *BOT*: A Room is a specialization of a `bot:Space` for common sense understanding.
 """@en ;
-      rdfs:isDefinedBy :LocationOntology ;
+      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
       rdfs:label "Room" ;
       rdfs:seeAlso <https://w3id.org/bot#Space> ;
       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
@@ -2350,7 +2622,7 @@ Alignment:
   - Using the `noria:serviceType` relates to asserting the `CustomerFacingService` or `ResourceFacingService` Service subclasses notions of the *TMF 638 - Service Inventory* API (i.e. as either being possibly visible and usable by a Customer or not).
 - *IETF*: Assuming a group *Service Functions* (SFs), the `noria:Service` concept relates to the *Service Function Chain (SFC)* definition from the [RFC 7665: SFC Architecture](https://www.rfc-editor.org/rfc/rfc7665) (see also [ITU-T X.1045](https://handle.itu.int/11.1002/1000/14043) for complementary SFC definition).
 """@en ;
-         rdfs:isDefinedBy :ApplicationOntology ;
+         rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
          rdfs:label "Service"@en ;
          rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ,
                       <https://handle.itu.int/11.1002/1000/14043> ,
@@ -2368,7 +2640,7 @@ Alignment:
                    rdfs:subClassOf :ManagedElement ,
                                    <https://w3id.org/seas/System> ;
                    rdfs:comment "Abstract class for physical/logical ICT systems's assets and relations (a.k.a. *Structural facet*)."@en ;
-                   rdfs:isDefinedBy :CoreOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "StructuralElement"@en ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#example> "router xxx, virtual machine yyy, link zzz entities; is_a, connected_to or part_of properties"@en .
@@ -2378,10 +2650,14 @@ Alignment:
 :StructuralObservable rdf:type owl:Class ;
                       rdfs:subClassOf :Property ;
                       rdfs:comment "An abstract class for ICT systems's properties that should be defined as classes for extended description capability."@en ;
-                      rdfs:isDefinedBy :CoreOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "StructuralObservable"@en ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
                       <http://www.w3.org/2004/02/skos/core#example> "Time context of the observable value"@en .
+
+
+###  https://w3id.org/noria/ontology/StructuralProperty
+:StructuralProperty rdf:type owl:Class .
 
 
 ###  https://w3id.org/noria/ontology/TroubleTicket
@@ -2405,9 +2681,9 @@ Alignment:
   - troubleTicketDuration <=> http://purl.org/dc/terms/extent (optional) : The overall duration of the incident management process, typically in ISO 8601 duration format. Can be useful for computing Mean Time To Repair (MTTR) values for a given `problemCategory`.
   - troubleTicketCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicket/TroubleTicketNote.
 - *BBO*: a TroubleTicket is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicket is a DataObject.
-- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
+- *PEP*: a TroubleTicket is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
     """@en ;
-               rdfs:isDefinedBy :DocumentOntology ;
+               rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                rdfs:label "TroubleTicket" ;
                rdfs:seeAlso <https://wiki.en.it-processmaps.com/index.php/Incident_Management> ,
                             <https://www.dublincore.org/specifications/dublin-core/abstract-model/> ,
@@ -2432,7 +2708,7 @@ Alignment:
 - *BBO*: a TroubleTicketNote is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicketNote is a DataObject.
 - *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
 """@en ;
-                   rdfs:isDefinedBy :DocumentOntology ;
+                   rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                    rdfs:label "TroubleTicketNote" ;
                    <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                    <http://www.w3.org/2004/02/skos/core#example> """We shut interface ge-0-0-1 of Router1 in order to force route on Router2.
@@ -2440,61 +2716,240 @@ Alignment:
 Customer has confirmed that the service is restored.""" .
 
 
+###  https://w3id.org/pep/Procedure
+<https://w3id.org/pep/Procedure> rdf:type owl:Class .
+
+
+###  https://w3id.org/pep/ProcedureExecution
+<https://w3id.org/pep/ProcedureExecution> rdf:type owl:Class .
+
+
+###  https://w3id.org/pep/ProcedureExecutionContainer
+<https://w3id.org/pep/ProcedureExecutionContainer> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/CommunicationConnection
+<https://w3id.org/seas/CommunicationConnection> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/CommunicationConnectionPoint
+<https://w3id.org/seas/CommunicationConnectionPoint> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/CommunicationDevice
+<https://w3id.org/seas/CommunicationDevice> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/FeatureOfInterest
+<https://w3id.org/seas/FeatureOfInterest> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/Property
+<https://w3id.org/seas/Property> rdf:type owl:Class .
+
+
+###  https://w3id.org/seas/System
+<https://w3id.org/seas/System> rdf:type owl:Class .
+
+
+###  https://w3id.org/sepses/ns/log#Event
+<https://w3id.org/sepses/ns/log#Event> rdf:type owl:Class .
+
+
+###  https://w3id.org/sepses/ns/log#Host
+<https://w3id.org/sepses/ns/log#Host> rdf:type owl:Class .
+
+
+###  https://www.irit.fr/recherches/MELODI/ontologies/BBO#DocumentResource
+<https://www.irit.fr/recherches/MELODI/ontologies/BBO#DocumentResource> rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
+###  https://w3id.org/noria/Notification/Severity/PerceivedSeverity
+<https://w3id.org/noria/Notification/Severity/PerceivedSeverity> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/ChangeRequest/category
+<https://w3id.org/noria/kos/ChangeRequest/category> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/ChangeRequest/cause
+<https://w3id.org/noria/kos/ChangeRequest/cause> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/ChangeRequest/specification
+<https://w3id.org/noria/kos/ChangeRequest/specification> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/ChangeRequest/status
+<https://w3id.org/noria/kos/ChangeRequest/status> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/ChangeRequest/type
+<https://w3id.org/noria/kos/ChangeRequest/type> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/Resource/AdministrativeState
+<https://w3id.org/noria/kos/Resource/AdministrativeState> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/Resource/LifecycleState
+<https://w3id.org/noria/kos/Resource/LifecycleState> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/Resource/OperationalState
+<https://w3id.org/noria/kos/Resource/OperationalState> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/Resource/type
+<https://w3id.org/noria/kos/Resource/type> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/category
+<https://w3id.org/noria/kos/TroubleTicket/category> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/commentType
+<https://w3id.org/noria/kos/TroubleTicket/commentType> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/operationType
+<https://w3id.org/noria/kos/TroubleTicket/operationType> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/origin
+<https://w3id.org/noria/kos/TroubleTicket/origin> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/priority
+<https://w3id.org/noria/kos/TroubleTicket/priority> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/problemResponsibility
+<https://w3id.org/noria/kos/TroubleTicket/problemResponsibility> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/severity
+<https://w3id.org/noria/kos/TroubleTicket/severity> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/status
+<https://w3id.org/noria/kos/TroubleTicket/status> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/trouble-category
+<https://w3id.org/noria/kos/TroubleTicket/trouble-category> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/type
+<https://w3id.org/noria/kos/TroubleTicket/type> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/TroubleTicket/urgency
+<https://w3id.org/noria/kos/TroubleTicket/urgency> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/application/business-importance
+<https://w3id.org/noria/kos/application/business-importance> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/application/sla-level
+<https://w3id.org/noria/kos/application/sla-level> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/application/status
+<https://w3id.org/noria/kos/application/status> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/application/type
+<https://w3id.org/noria/kos/application/type> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/org/agent-contact-method
+<https://w3id.org/noria/kos/org/agent-contact-method> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/noria/kos/service/type
+<https://w3id.org/noria/kos/service/type> rdf:type owl:NamedIndividual .
+
+
 ###  https://w3id.org/noria/ontology/
 <https://w3id.org/noria/ontology/> rdf:type owl:NamedIndividual ,
-                                            <http://purl.org/vocommons/voaf#Vocabulary> .
+                                            <http://purl.org/vocommons/voaf#Vocabulary> ;
+                                   <http://purl.org/dc/terms/description> """The NORIA-O project is a data model for IT networks, events and operations information.
+The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
+The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
 
-
-###  https://w3id.org/noria/ontology/ApplicationOntology
-:ApplicationOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> .
-
-
-###  https://w3id.org/noria/ontology/CoreOntology
-:CoreOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> .
-
-
-###  https://w3id.org/noria/ontology/DocumentOntology
-:DocumentOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> ;
-                  <http://purl.org/dc/terms/description> """The Document Ontology defines the TroubleTicket and ChangeRequest objects.
-These are data resource (i.e. the result of a process) for efficient Incident Management and Change Management."""@en .
-
-
-###  https://w3id.org/noria/ontology/LocationOntology
-:LocationOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> .
-
-
-###  https://w3id.org/noria/ontology/NotificationOntology
-:NotificationOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> ;
-                      <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0001-5639-1504> ,
-                                                         <https://orcid.org/0000-0001-5887-899X> ,
-                                                         <https://orcid.org/0000-0003-0457-1436> ;
-                      <http://purl.org/dc/terms/title> "The NORIA Notification Ontology"@en .
-
-
-###  https://w3id.org/noria/ontology/ObservableOntology
-:ObservableOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> .
-
-
-###  https://w3id.org/noria/ontology/ResourceOntology
-:ResourceOntology rdf:type <http://purl.org/vocommons/voaf#Vocabulary> .
+Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
+Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
+Alignment holds for the following vocabulary releases:
+- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
+- [BOT](https://w3id.org/bot/) 0.3.2
+- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
+- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
+- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
+- [PEP](https://w3id.org/pep/) 1.1
+- [SEAS](https://w3id.org/seas/) 1.1
+- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
+- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
+"""@en ;
+                                   <http://purl.org/dc/terms/title> "The NORIA Ontology"@en .
 
 
 #################################################################
 #    Annotations
 #################################################################
 
+:networkInterfaceLaserRxHighPowerWarningThreshold rdfs:comment "The high received power notification threshold."@en ;
+                                                  rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                                  rdfs:label "networkInterfaceLaserRxHighPowerWarningThreshold" ;
+                                                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+
+
+:networkInterfaceLaserRxLowPowerWarningThreshold rdfs:comment "The low received power notification threshold."@en ;
+                                                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                                 rdfs:label "networkInterfaceLaserRxLowPowerWarningThreshold" ;
+                                                 <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+
+
+:networkInterfaceLaserRxOpticalPower rdfs:comment "The received optical power measure of the Network Interface, in dBm."@en ;
+                                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                     rdfs:label "networkInterfaceLaserRxOpticalPower" ;
+                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
+                                     <http://www.w3.org/2004/02/skos/core#example> "Rx = -3.58 dBm" .
+
+
+:networkInterfaceLaserRxOpticalPowerAverage rdfs:comment "The average received optical power of the Network Interface, in dBm."@en ;
+                                            rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                            rdfs:label "networkInterfaceLaserRxOpticalPowerAverage" ;
+                                            <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+
+
+:networkInterfaceLaserTxOpticalPower rdfs:comment "The emitted optical power measure of the Network Interface, in dBm."@en ;
+                                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                     rdfs:label "networkInterfaceLaserTxOpticalPower" ;
+                                     <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
+                                     <http://www.w3.org/2004/02/skos/core#example> "Tx = -2.13 dBm" .
+
+
+:networkInterfaceRoutingPriorityMetric rdfs:comment "The metric value associated to the Network Interface for some routing protocol."@en ;
+                                       rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
+                                       rdfs:label "networkInterfaceRoutingPriorityMetric" ;
+                                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
+                                       <http://www.w3.org/2004/02/skos/core#example> "IS-IS route priority=122" .
+
+
 :structuralElementObservableData rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some literal data."@en ;
-                                 rdfs:isDefinedBy :CoreOntology ;
+                                 rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                  rdfs:label "structuralElementObservableData"@en ;
                                  <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 
 
 :troubleTicketTrigger rdfs:comment "The EventRecord at the origin of the creation of the Trouble Ticket."@en ;
-                      rdfs:isDefinedBy :DocumentOntology ;
+                      rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                       rdfs:label "troubleTicketTrigger" ;
                       <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
                       <http://www.w3.org/2004/02/skos/core#example> "EventRecord(<event/LOG_srvz01.dfg0f873c811_C015FWR080_2020-11-25>)" .
