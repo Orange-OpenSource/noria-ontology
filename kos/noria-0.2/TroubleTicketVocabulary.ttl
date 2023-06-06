@@ -40,17 +40,22 @@
 	dcterms:title "The NORIA Trouble Ticket vocabulary" ;
 	dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
 	dcterms:issued "2022-05-10"^^xsd:date ;
-	dcterms:modified "2022-12-15"^^xsd:date ;
-	skos:changeNote """Changes in 2022-12-15:
-  - Added <TroubleTicket/type> scheme
-  - Added <TroubleTicket/trouble-category> scheme
-  - Added <TroubleTicket/urgency> scheme
-  - Added <TroubleTicket/origin> scheme
-  - Added <TroubleTicket/severity> scheme
-  - Added <TroubleTicket/problemResponsibility> scheme
-  - Added <TroubleTicket/commentType> scheme
-  - Added <TroubleTicket/operationType> scheme
-  - Release for NORIA-O v0.2
+	dcterms:modified "2023-03-24"^^xsd:date ;
+	skos:changeNote """2022-12-15:
+
+- Added <TroubleTicket/type> scheme
+- Added <TroubleTicket/trouble-category> scheme
+- Added <TroubleTicket/urgency> scheme
+- Added <TroubleTicket/origin> scheme
+- Added <TroubleTicket/severity> scheme
+- Added <TroubleTicket/problemResponsibility> scheme
+- Added <TroubleTicket/commentType> scheme
+- Added <TroubleTicket/operationType> scheme
+- Release for NORIA-O v0.2
+
+2023-03-24:
+
+- Added altLabels to <TroubleTicket/type/assistance>
 """@en ;
 .
 
@@ -234,14 +239,16 @@ Typical next status : []."""@en;
 .
 
 <TroubleTicket/type/assistance>
-    a skos:Concept;
-    skos:definition "Assistance.";
-    skos:inScheme <TroubleTicket/type>;
-    skos:notation "assistance";
-    skos:prefLabel "Assistance"@en ;
-    skos:prefLabel "Demande d'assistance"@fr ;
-    skos:altLabel "Demande d'information"@fr ;
-    skos:altLabel "Demande de renseignements"@fr ;
+	a skos:Concept;
+	skos:definition "Assistance.";
+	skos:inScheme <TroubleTicket/type>;
+	skos:notation "assistance";
+	skos:prefLabel "Assistance"@en ;
+	skos:prefLabel "Demande d'assistance"@fr ;
+	skos:altLabel  "Request for information"@en ;
+	skos:altLabel "Information request"@en ;
+	skos:altLabel "Demande d'information"@fr ;
+	skos:altLabel "Demande de renseignements"@fr ;
 .
 
 # =============================================================================
@@ -380,6 +387,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
     skos:inScheme <TroubleTicket/origin> ;
     skos:notation "smc";
     skos:prefLabel "Service Management Center"@en ;
+	skos:altLabel "SMC" ;
     skos:exactMatch <imp/groups/smc> ;
 .
 
@@ -389,6 +397,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
     skos:inScheme <TroubleTicket/origin> ;
     skos:notation "tmc";
     skos:prefLabel "Technical Management Center"@en ;
+	skos:altLabel "TMC" ;
     skos:exactMatch <imp/groups/tmc> ;
 .
 
@@ -423,6 +432,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
     skos:prefLabel "Client Entreprise"@fr ;
     skos:prefLabel "Business Customer"@en ;
     skos:altLabel "Client PRO"@fr ;
+	skos:altLabel "Corporate Customer"@en ;
 .
 
 # =============================================================================
