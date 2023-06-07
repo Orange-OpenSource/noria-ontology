@@ -26,8 +26,8 @@ When releasing a new version of the ontology,
 * update the `noria-latest.ttl` symbolic link for targeting the latest ontology version:
   ```shell
   # From the ontology directory
-  ln -s -f noria-<MAJOR.MINOR>/noria.ttl noria-latest.ttl
-  # e.g. ln -s -f noria-0.3/noria.ttl noria-latest.ttl
+  ln -s -f noria-<MAJOR.MINOR>/noria-kos.ttl noria-kos-latest.ttl
+  # e.g. ln -s -f noria-0.3/noria-kos.ttl noria-kos-latest.ttl
   ```
 
 Direct reference to a versioned vocabulary implementation also makes use of the *noria* identifier.
