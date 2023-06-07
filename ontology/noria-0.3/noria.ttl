@@ -62,9 +62,9 @@
 
 # =============================================================================
 
-noria:
+<https://w3id.org/noria/ontology/>
 	a voaf:Vocabulary, owl:Ontology ;
-    dcterms:title "The NORIA Ontology"@en ;
+	dcterms:title "The NORIA Ontology"@en ;
     dcterms:description """The NORIA-O project is a data model for IT networks, events and operations information.
 The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
 The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
@@ -93,11 +93,11 @@ Alignment holds for the following vocabulary releases:
     vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
     dcterms:issued "2022-05-10"^^xsd:date ;
 	dcterms:modified "2023-06-06"^^xsd:date ;
-	skos:changeNote """Changes in v0.3:
-
-- Changed the ontology architecture from micro-architecture to single file.
-- Removed owl:imports for NORIA foundations.
-"""@en ;
+#	skos:changeNote """Changes in v0.3:
+#
+#- Changed the ontology architecture from micro-architecture to single file.
+#- Removed owl:imports for NORIA foundations.
+#"""@en ;
 	owl:versionInfo "v0.3" ;
 	owl:versionIRI <ontology/noria-0.3> ;
 	owl:priorVersion <ontology/noria-0.2> ;
@@ -714,9 +714,10 @@ Alignment:
 	rdfs:subClassOf seas:System ;
 	owl:equivalentClass devopsprod:ServiceInstance ;
 	rdfs:isDefinedBy noria: ;
-	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory>,
-	<https://www.rfc-editor.org/rfc/rfc7665>,
-	<https://handle.itu.int/11.1002/1000/14043>;
+	rdfs:seeAlso
+		<https://github.com/tmforum-apis/TMF638_ServiceInventory> ,
+		<https://www.rfc-editor.org/rfc/rfc7665> ,
+		<https://handle.itu.int/11.1002/1000/14043> ;
 .
 
 # -----------------------------------------------------------------------------
@@ -1087,7 +1088,7 @@ noria:troubleTicketCause
 	rdfs:comment "The cause(s) defined for the trouble, in plain text."@en ;
 	skos:example """SSH authentication failure due to loss of sync to NTP server and internal clock drift.""" ;
 	rdfs:domain noria:TroubleTicket ;
-	rdfs:subPropertyOf dcterms:description ;
+	rdfs:subPropertyOf dcterms:description ;  # HACK: comment to override Widoco rendering issue of the Abstract, see https://github.com/dgarijo/Widoco/issues/530
 	vs:term_status "stable" ;
 	rdfs:isDefinedBy noria: ;
 .
@@ -1137,7 +1138,7 @@ noria:troubleTicketTargetRestorationDateTime
 noria:troubleTicketPlannedRestorationDateTime
 	a owl:DatatypeProperty ;
 	rdfs:label "troubleTicketPlannedRestorationDateTime" ;
-	rdfs:comment "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."@en ;
+	rdfs:comment "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."@en ;
 	rdfs:domain noria:TroubleTicket ;
 	rdfs:range xsd:dateTime ;
 	rdfs:subPropertyOf dcterms:date ;
@@ -1713,7 +1714,7 @@ noria:locusLine
 
 noria:locusRow
 	a owl:DatatypeProperty ;
-	rdfs:label "locusLine" ;
+	rdfs:label "locusRow" ;
 	rdfs:comment "The row identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
 	skos:example "Column:6, in Room:Server room 314."@en ;
 	rdfs:domain noria:Locus ;
@@ -1863,12 +1864,13 @@ Alignment:
 """ ;
 	rdfs:subClassOf noria:DynamicElement ;
 	rdfs:subClassOf BBO:DocumentResource ,
-	pep:ProcedureExecution ,
-	observable:EventRecord ,
-	log:Event ;
+					pep:ProcedureExecution ,
+					observable:EventRecord ,
+					log:Event ;
 	vs:term_status "stable" ;
-	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
-	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ;
+	rdfs:isDefinedBy
+		<https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ;
 	rdfs:isDefinedBy noria: ;
 .
 
@@ -1942,8 +1944,9 @@ noria:logOriginatingAgent
 - Adding rdfs:subPropertyOf prov:wasAttributedTo.
 - Merging the noria:alarmServiceUser.
 """ ;
-	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-sourceIndicator> ,
-	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ;
+	rdfs:isDefinedBy
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-sourceIndicator> ,
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ;
 	rdfs:isDefinedBy noria: ;
 .
 
@@ -1954,14 +1957,12 @@ noria:logText
 	# HACK: discarding this property lead to the following comment in the noria:EventRecord alignment => - *logText* <=> http://purl.org/dc/terms/title : Textual information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText>.
 	rdfs:domain noria:EventRecord ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf dcterms:title ,
-	pep:hasSimpleResult ,
-	log:msg ;
+#	rdfs:subPropertyOf dcterms:title ;  # TODO: using dcterms:title entails Widoco rendering issue of the ontology name, see https://github.com/dgarijo/Widoco/issues/530
+	rdfs:subPropertyOf pep:hasSimpleResult ;
+	rdfs:subPropertyOf log:msg ;
 	vs:term_status "stable" ;
-	skos:changeNote """Changes in v0.2:
-- Adding rdfs:subPropertyOf dcterms:title.
-- Adding rdfs:subPropertyOf pep:hasSimpleResult.
-- Adding rdfs:subPropertyOf log:msg.
+	skos:changeNote """Changes in v0.3:
+- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).
 """ ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
 	rdfs:isDefinedBy noria: ;
@@ -2216,10 +2217,10 @@ Alignment:
 	rdfs:seeAlso <kos/Resource/> ;
 	rdfs:subClassOf noria:StructuralElement ;
 	rdfs:subClassOf
-		seas:System, 
-		seas:CommunicationDevice, 
-		bot:Element , 
-		observable:Device , 
+		seas:System,
+		seas:CommunicationDevice,
+		bot:Element ,
+		observable:Device ,
 		log:Host ;
 	vs:term_status "stable" ;
 	skos:changeNote """Changes in v0.2:

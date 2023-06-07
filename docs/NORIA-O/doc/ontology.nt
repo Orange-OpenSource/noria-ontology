@@ -3,17 +3,18 @@
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/creator> "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/creator> "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/creator> "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" .
+<https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/description> "The NORIA-O project is a data model for IT networks, events and operations information.\nThe ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.\nThe model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.\n\nAlignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).\nDirections for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.\nAlignment holds for the following vocabulary releases:\n- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0\n- [BOT](https://w3id.org/bot/) 0.3.2\n- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0\n- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0\n- [ORG](https://www.w3.org/TR/vocab-org/) 0.8\n- [PEP](https://w3id.org/pep/) 1.1\n- [SEAS](https://w3id.org/seas/) 1.1\n- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0\n- [UCO](https://github.com/ucoProject/uco) Release-0.8.0\n"@en .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/issued> "2022-05-10"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/license> <https://spdx.org/licenses/BSD-4-Clause> .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/modified> "2023-06-06"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/publisher> <https://www.orange.com/> .
+<https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/title> "The NORIA Ontology"@en .
 <https://w3id.org/noria/ontology/> <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/nonPeerReviewed> .
 <https://w3id.org/noria/ontology/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "noria" .
 <https://w3id.org/noria/ontology/> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/noria/ontology/" .
 <https://w3id.org/noria/ontology/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://w3id.org/noria/doc/> .
 <https://w3id.org/noria/ontology/> <http://www.w3.org/2002/07/owl#priorVersion> <https://w3id.org/noria/ontology/noria-0.2> .
 <https://w3id.org/noria/ontology/> <http://www.w3.org/2002/07/owl#versionInfo> "v0.3" .
-<https://w3id.org/noria/ontology/> <http://www.w3.org/2004/02/skos/core#changeNote> "Changes in v0.3:\n\n- Changed the ontology architecture from micro-architecture to single file.\n- Removed owl:imports for NORIA foundations.\n"@en .
 <https://w3id.org/noria/ontology/> <http://xmlns.com/foaf/0.1/depiction> <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> .
 # 
 # 
@@ -23,6 +24,9 @@
 # #
 # #################################################################
 # 
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://purl.org/dc/terms/issued
 <http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -35,6 +39,9 @@
 # 
 # http://purl.org/dc/terms/publisher
 <http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # http://purl.org/ontology/bibo/status
 <http://purl.org/ontology/bibo/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
@@ -1409,9 +1416,6 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # http://purl.org/dc/terms/date
 <http://purl.org/dc/terms/date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
-# http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-# 
 # http://purl.org/dc/terms/extent
 <http://purl.org/dc/terms/extent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
@@ -1420,9 +1424,6 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # http://purl.org/dc/terms/source
 <http://purl.org/dc/terms/source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-# 
-# http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 # 
 # http://www.w3.org/2006/time#inXSDDateTimeStamp
 <http://www.w3.org/2006/time#inXSDDateTimeStamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -1659,14 +1660,13 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/noria/ontology/Locus> .
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2000/01/rdf-schema#comment> "The row identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en .
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/noria/ontology/> .
-<https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2000/01/rdf-schema#label> "locusLine" .
+<https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2000/01/rdf-schema#label> "locusRow" .
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2004/02/skos/core#changeNote> "Addition in v0.2." .
 <https://w3id.org/noria/ontology/locusRow> <http://www.w3.org/2004/02/skos/core#example> "Column:6, in Room:Server room 314."@en .
 # 
 # https://w3id.org/noria/ontology/logText
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/noria/ontology/logText> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/title> .
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/pep/hasSimpleResult> .
 <https://w3id.org/pep/hasSimpleResult> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/sepses/ns/log#msg> .
@@ -1678,7 +1678,7 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> .
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/2000/01/rdf-schema#label> "logText" .
 <https://w3id.org/noria/ontology/logText> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
-<https://w3id.org/noria/ontology/logText> <http://www.w3.org/2004/02/skos/core#changeNote> "Changes in v0.2:\n- Adding rdfs:subPropertyOf dcterms:title.\n- Adding rdfs:subPropertyOf pep:hasSimpleResult.\n- Adding rdfs:subPropertyOf log:msg.\n" .
+<https://w3id.org/noria/ontology/logText> <http://www.w3.org/2004/02/skos/core#changeNote> "Changes in v0.3:\n- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).\n" .
 # 
 # https://w3id.org/noria/ontology/loggingTime
 <https://w3id.org/noria/ontology/loggingTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -1885,7 +1885,6 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # 
 # https://w3id.org/noria/ontology/troubleTicketCause
 <https://w3id.org/noria/ontology/troubleTicketCause> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/noria/ontology/troubleTicketCause> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/description> .
 <https://w3id.org/noria/ontology/troubleTicketCause> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/noria/ontology/TroubleTicket> .
 <https://w3id.org/noria/ontology/troubleTicketCause> <http://www.w3.org/2000/01/rdf-schema#comment> "The cause(s) defined for the trouble, in plain text."@en .
 <https://w3id.org/noria/ontology/troubleTicketCause> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/noria/ontology/> .
@@ -1926,7 +1925,7 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/date> .
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/noria/ontology/TroubleTicket> .
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."@en .
+<https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."@en .
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/noria/ontology/> .
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2000/01/rdf-schema#label> "troubleTicketPlannedRestorationDateTime" .
 <https://w3id.org/noria/ontology/troubleTicketPlannedRestorationDateTime> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
@@ -2410,8 +2409,6 @@ _:genid116 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/
 # https://w3id.org/noria/ontology/
 <https://w3id.org/noria/ontology/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/noria/ontology/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
-<https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/description> "The NORIA-O project is a data model for IT networks, events and operations information.\nThe ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.\nThe model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.\n\nAlignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).\nDirections for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.\nAlignment holds for the following vocabulary releases:\n- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0\n- [BOT](https://w3id.org/bot/) 0.3.2\n- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0\n- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0\n- [ORG](https://www.w3.org/TR/vocab-org/) 0.8\n- [PEP](https://w3id.org/pep/) 1.1\n- [SEAS](https://w3id.org/seas/) 1.1\n- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0\n- [UCO](https://github.com/ucoProject/uco) Release-0.8.0\n"@en .
-<https://w3id.org/noria/ontology/> <http://purl.org/dc/terms/title> "The NORIA Ontology"@en .
 # 
 # 
 # 

@@ -11,26 +11,43 @@
                                     <http://purl.org/dc/terms/creator> "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ,
                                                                        "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ,
                                                                        "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;
+                                    <http://purl.org/dc/terms/description> """The NORIA-O project is a data model for IT networks, events and operations information.
+The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
+The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
+
+Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
+Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
+Alignment holds for the following vocabulary releases:
+- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
+- [BOT](https://w3id.org/bot/) 0.3.2
+- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
+- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
+- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
+- [PEP](https://w3id.org/pep/) 1.1
+- [SEAS](https://w3id.org/seas/) 1.1
+- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
+- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
+"""@en ;
                                     <http://purl.org/dc/terms/issued> "2022-05-10"^^xsd:date ;
                                     <http://purl.org/dc/terms/license> <https://spdx.org/licenses/BSD-4-Clause> ;
                                     <http://purl.org/dc/terms/modified> "2023-06-06"^^xsd:date ;
                                     <http://purl.org/dc/terms/publisher> <https://www.orange.com/> ;
+                                    <http://purl.org/dc/terms/title> "The NORIA Ontology"@en ;
                                     <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;
                                     <http://purl.org/vocab/vann/preferredNamespacePrefix> "noria" ;
                                     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/noria/ontology/" ;
                                     rdfs:seeAlso <https://w3id.org/noria/doc/> ;
                                     owl:priorVersion :noria-0.2 ;
                                     owl:versionInfo "v0.3" ;
-                                    <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.3:
-
-- Changed the ontology architecture from micro-architecture to single file.
-- Removed owl:imports for NORIA foundations.
-"""@en ;
                                     <http://xmlns.com/foaf/0.1/depiction> <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/terms/issued
 <http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
@@ -46,6 +63,10 @@
 
 ###  http://purl.org/dc/terms/publisher
 <http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/ontology/bibo/status
@@ -1489,10 +1510,6 @@ When the thresholds are exceeded, specific process of escalation may be activate
 <http://purl.org/dc/terms/date> rdf:type owl:DatatypeProperty .
 
 
-###  http://purl.org/dc/terms/description
-<http://purl.org/dc/terms/description> rdf:type owl:DatatypeProperty .
-
-
 ###  http://purl.org/dc/terms/extent
 <http://purl.org/dc/terms/extent> rdf:type owl:DatatypeProperty .
 
@@ -1503,10 +1520,6 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 ###  http://purl.org/dc/terms/source
 <http://purl.org/dc/terms/source> rdf:type owl:DatatypeProperty .
-
-
-###  http://purl.org/dc/terms/title
-<http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty .
 
 
 ###  http://www.w3.org/2006/time#inXSDDateTimeStamp
@@ -1790,7 +1803,7 @@ Alignment:
           rdfs:domain :Locus ;
           rdfs:comment "The row identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
           rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
-          rdfs:label "locusLine" ;
+          rdfs:label "locusRow" ;
           <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" ;
           <http://www.w3.org/2004/02/skos/core#changeNote> "Addition in v0.2." ;
           <http://www.w3.org/2004/02/skos/core#example> "Column:6, in Room:Server room 314."@en .
@@ -1798,8 +1811,7 @@ Alignment:
 
 ###  https://w3id.org/noria/ontology/logText
 :logText rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf <http://purl.org/dc/terms/title> ,
-                            <https://w3id.org/pep/hasSimpleResult> ,
+         rdfs:subPropertyOf <https://w3id.org/pep/hasSimpleResult> ,
                             <https://w3id.org/sepses/ns/log#msg> ;
          rdfs:domain :EventRecord ;
          rdfs:range xsd:string ;
@@ -1808,10 +1820,8 @@ Alignment:
                           <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
          rdfs:label "logText" ;
          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" ;
-         <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.2:
-- Adding rdfs:subPropertyOf dcterms:title.
-- Adding rdfs:subPropertyOf pep:hasSimpleResult.
-- Adding rdfs:subPropertyOf log:msg.
+         <http://www.w3.org/2004/02/skos/core#changeNote> """Changes in v0.3:
+- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).
 """ .
 
 
@@ -2057,7 +2067,6 @@ Alignment:
 
 ###  https://w3id.org/noria/ontology/troubleTicketCause
 :troubleTicketCause rdf:type owl:DatatypeProperty ;
-                    rdfs:subPropertyOf <http://purl.org/dc/terms/description> ;
                     rdfs:domain :TroubleTicket ;
                     rdfs:comment "The cause(s) defined for the trouble, in plain text."@en ;
                     rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
@@ -2102,7 +2111,7 @@ Alignment:
                                          rdfs:subPropertyOf <http://purl.org/dc/terms/date> ;
                                          rdfs:domain :TroubleTicket ;
                                          rdfs:range xsd:dateTime ;
-                                         rdfs:comment "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."@en ;
+                                         rdfs:comment "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."@en ;
                                          rdfs:isDefinedBy <https://w3id.org/noria/ontology/> ;
                                          rdfs:label "troubleTicketPlannedRestorationDateTime" ;
                                          <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "stable" .
@@ -2878,25 +2887,7 @@ Customer has confirmed that the service is restored.""" .
 
 ###  https://w3id.org/noria/ontology/
 <https://w3id.org/noria/ontology/> rdf:type owl:NamedIndividual ,
-                                            <http://purl.org/vocommons/voaf#Vocabulary> ;
-                                   <http://purl.org/dc/terms/description> """The NORIA-O project is a data model for IT networks, events and operations information.
-The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
-
-Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
-Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
-Alignment holds for the following vocabulary releases:
-- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
-- [BOT](https://w3id.org/bot/) 0.3.2
-- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
-- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
-- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
-- [PEP](https://w3id.org/pep/) 1.1
-- [SEAS](https://w3id.org/seas/) 1.1
-- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
-- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
-"""@en ;
-                                   <http://purl.org/dc/terms/title> "The NORIA Ontology"@en .
+                                            <http://purl.org/vocommons/voaf#Vocabulary> .
 
 
 #################################################################

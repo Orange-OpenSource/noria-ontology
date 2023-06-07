@@ -575,7 +575,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/description",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/extent",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
@@ -605,7 +605,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/title",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/type",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
@@ -844,10 +844,6 @@
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
     "@value" : "v0.3"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#changeNote" : [ {
-    "@language" : "en",
-    "@value" : "Changes in v0.3:\n\n- Changed the ontology architecture from micro-architecture to single file.\n- Removed owl:imports for NORIA foundations.\n"
   } ],
   "http://xmlns.com/foaf/0.1/depiction" : [ {
     "@id" : "https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png"
@@ -3083,7 +3079,7 @@
     "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "locusLine"
+    "@value" : "locusRow"
   } ],
   "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status" : [ {
     "@value" : "unstable"
@@ -3246,8 +3242,6 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://purl.org/dc/terms/title"
-  }, {
     "@id" : "https://w3id.org/pep/hasSimpleResult"
   }, {
     "@id" : "https://w3id.org/sepses/ns/log#msg"
@@ -3256,7 +3250,7 @@
     "@value" : "stable"
   } ],
   "http://www.w3.org/2004/02/skos/core#changeNote" : [ {
-    "@value" : "Changes in v0.2:\n- Adding rdfs:subPropertyOf dcterms:title.\n- Adding rdfs:subPropertyOf pep:hasSimpleResult.\n- Adding rdfs:subPropertyOf log:msg.\n"
+    "@value" : "Changes in v0.3:\n- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).\n"
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/loggingTime",
@@ -4430,9 +4424,6 @@
     "@language" : "en",
     "@value" : "troubleTicketCause"
   } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://purl.org/dc/terms/description"
-  } ],
   "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status" : [ {
     "@value" : "stable"
   } ],
@@ -4752,7 +4743,7 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."
+    "@value" : "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"

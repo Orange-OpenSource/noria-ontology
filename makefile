@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Orange. All rights reserved.
+# Copyright (c) 2022-2023 Orange. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -17,6 +17,7 @@ PYTHON_BIN=/usr/bin/python3
 export PYTHONPATH := ./:${SRC_FOLDER}:$(PYTHONPATH)
 
 WIDOCO_BIN=./lib/widoco/java-17-widoco-1.4.17-jar-with-dependencies.jar
+# WIDOCO_BIN=./lib/widoco/widoco-1.4.19-jar-with-dependencies_JDK-17.jar
 
 # Loading (optional) environment variables from file.
 -include ./.env
@@ -32,6 +33,20 @@ check-ontology:	## Check syntax of ontology files
 	@find ontology/ -type f -name *.ttl -printf "\n%f\n" -exec /usr/local/bin/ttl {} \;
 	@echo -e "\033[35m > Done  \033[0m"
 
+check-skos:	## Check quality of SKOS files
+	@echo -e "\033[35m > Run qSkos \033[0m (see https://github.com/cmader/qSKOS , requires Internet connection)"
+	@find kos/ -type f -name *.ttl \
+	  -printf "\n%f\n" \
+	  -exec java \
+		  -Dhttp.proxyHost=${PROXY_SRV} \
+		  -Dhttp.proxyPort=${PROXY_PORT} \
+		  -jar lib/qskos/qSKOS-cmd.jar \
+			analyze \
+			-dc bl,mil \
+			{} \
+			-o doc/qskos/{}.qskos.txt \;
+	@echo -e "\033[35m > Done  \033[0m"
+
 check-orsd:	## Check syntax of model files (ORSD)
 	@echo -e "\033[35m > Check yaml syntax  \033[0m - requires yamllint (see https://pypi.org/project/yamllint/)"
 	@yamllint -d relaxed cqs/*.yaml
@@ -42,7 +57,7 @@ check-filesystem:	## Check project's filesystem content for clean commit and sha
 	@! find | egrep '/[^/]{100,}$$'
 	@echo -e "\033[35m > Done  \033[0m"
 
-doc-ontology:	## Compile documentation (this task relies on both local and remote files)
+doc-widoco:	## Compile documentation (this task relies on both local and remote files)
 
 	@echo -e "\033[35m > Remove any previous local doc \033[0m (docs/NORIA-O)"
 	@rm -rf docs/NORIA-O/doc
@@ -64,5 +79,43 @@ doc-ontology:	## Compile documentation (this task relies on both local and remot
 	  -webVowl \
 	  -noPlaceHolderText \
 	  -uniteSections
+
+	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
+
+doc-ontotool:	## Compile documentation with the ontology-toolkit
+
+	@echo -e "\033[35m > Create the directory structure \033[0m (docs/onto-tool)"
+	@mkdir -p docs/onto-tool
+
+	@echo -e "\033[35m > Call the ontology-toolkit graphic \033[0m (see https://github.com/semanticarts/ontology-toolkit)"
+	@onto_tool graphic -t NORIA-O -o docs/onto-tool/ ontology/noria-latest.ttl
+
+	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
+
+doc-ontology: doc-widoco doc-ontotool
+
+	@echo -e "\033[35m > Remove any previous local doc \033[0m (docs/NORIA-O)"
+	@rm -rf docs/NORIA-O/doc
+
+	@echo -e "\033[35m > Call the WIDOCO documentation framework \033[0m (see https://github.com/dgarijo/Widoco)"
+	@echo -e "WIDOCO_BIN = ${WIDOCO_BIN}"
+	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
+	@java \
+	  -Dhttps.proxyHost=${PROXY_SRV} \
+	  -Dhttps.proxyPort=${PROXY_PORT} \
+	  -jar ${WIDOCO_BIN} \
+	  -ontFile ontology/noria-latest.ttl \
+	  -outFolder docs/NORIA-O \
+	  -saveConfig docs/noria-ontology.widoco \
+	  -rewriteAll \
+	  -getOntologyMetadata \
+	  -includeImportedOntologies \
+	  -ignoreIndividuals \
+	  -webVowl \
+	  -noPlaceHolderText \
+	  -uniteSections
+
+	@echo -e "\033[35m > Call the ontology-toolkit graphic \033[0m (see https://github.com/semanticarts/ontology-toolkit)"
+	@onto_tool graphic -t NORIA-O -o docs/onto-tool/ ontology/noria-latest.ttl
 
 	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
