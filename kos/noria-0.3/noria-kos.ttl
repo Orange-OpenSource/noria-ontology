@@ -28,7 +28,7 @@
 
 # === Basic scheme ============================================================
 
-<https://w3id.org/noria/kos/>
+<https://w3id.org/noria/kos>
 	a skos:ConceptScheme;
 	skos:notation "noria-kos" ;
 	# --- Vocab metadata ---
@@ -54,9 +54,10 @@
 
 <alarm>
   a skos:ConceptScheme;
-  skos:definition "A message event, related to some Facility and with a Severity value.";
+  skos:definition "A message event, related to some Facility and with a Severity value."@en ;
   skos:notation "alarm" ;
-  skos:inScheme <https://w3id.org/noria/kos/> ;
+  skos:prefLabel "Alarm"@en ;
+  skos:inScheme <https://w3id.org/noria/kos> ;
   rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
 .
 
@@ -68,15 +69,16 @@
 
 <alarm/severity>
   a skos:ConceptScheme;
-  skos:definition "Severity of alarm events";
+  skos:definition "Severity of alarm events."@en ;
   skos:inScheme <alarm> ;
   skos:notation "alarm-severity" ;
+  skos:prefLabel "Alarm Severity"@en ;
   rdfs:isDefinedBy <https://datatracker.ietf.org/doc/html/rfc5424> ;
 .
 
 <alarm/severity/critical>
   a skos:Concept;
-  skos:definition "A CRITICAL event.";
+  skos:definition "A CRITICAL event."@en;
   skos:inScheme <alarm/severity>;
   skos:notation "critical";
   skos:prefLabel "Critical"@en ;
@@ -85,7 +87,7 @@
 
 <alarm/severity/info>
   a skos:Concept;
-  skos:definition "An INFORMATION event.";
+  skos:definition "An INFORMATION event."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "info";
   skos:prefLabel "Info"@en ;
@@ -95,7 +97,7 @@
 
 <alarm/severity/major>
   a skos:Concept;
-  skos:definition "An MAJOR event.";
+  skos:definition "An MAJOR event."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "major";
   skos:prefLabel "Major"@en ;
@@ -103,7 +105,7 @@
 
 <alarm/severity/minor>
   a skos:Concept;
-  skos:definition "An MINOR event.";
+  skos:definition "An MINOR event."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "minor";
   skos:prefLabel "Minor"@en ;
@@ -111,7 +113,7 @@
 
 <alarm/severity/ok>
   a skos:Concept;
-  skos:definition "An OK state event.";
+  skos:definition "An OK state event."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "ok";
   skos:prefLabel "OK"@en ;
@@ -119,7 +121,7 @@
 
 <alarm/severity/unknown>
   a skos:Concept;
-  skos:definition "An UNKNOWN state.";
+  skos:definition "An UNKNOWN state."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "unknown";
   skos:prefLabel "Unknown"@en ;
@@ -127,7 +129,7 @@
 
 <alarm/severity/warning>
   a skos:Concept;
-  skos:definition "An WARNING event.";
+  skos:definition "An WARNING event."@en ;
   skos:inScheme <alarm/severity>;
   skos:notation "warning";
   skos:prefLabel "Warning"@en ;
@@ -143,7 +145,8 @@
 	skos:definition "Set of computer programs used by some group of users for fulfilling some specific task or activity."@en ;
 	skos:definition "Ensemble de programmes dont se servent les utilisateurs afin d'accomplir une tâche ou une activité particulière."@fr ;
 	skos:notation "application" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "Application"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
@@ -153,6 +156,7 @@
 	skos:definition "Status of an Application"@en;
 	skos:inScheme <application> ;
 	skos:notation "status" ;
+	skos:prefLabel "Application Status"@en;
 	skos:topConceptOf <application> ;
 .
 
@@ -215,9 +219,10 @@
 
 <application/sla-level>
 	a skos:ConceptScheme;
-	skos:definition "SLA Level of any Application";
+	skos:definition "SLA Level of any Application."@en ;
 	skos:inScheme <application> ;
 	skos:notation "sla-level" ;
+	skos:prefLabel "SLA level"@en ;
 .
 
 <application/sla-level/gold>
@@ -260,14 +265,15 @@
 
 <application/type>
 	a skos:ConceptScheme;
-	skos:definition "The nature (type) of the Application"@en;
+	skos:definition "The nature (type) of the Application."@en;
 	skos:notation "type";
+	skos:prefLabel "Application Type"@en;
 	skos:inScheme <application> ;
 .
 
 <application/type/application>
 	a skos:Concept;
-	skos:definition "Application" ;
+	skos:definition "Application."@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "application";
 	skos:prefLabel "Application"@en;
@@ -276,7 +282,7 @@
 
 <application/type/third-party>
 	a skos:Concept;
-	skos:definition "Third Party" ;
+	skos:definition "Third party application."@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "third-party";
 	skos:prefLabel "Third Party"@en;
@@ -285,7 +291,7 @@
 
 <application/type/sla>
 	a skos:Concept;
-	skos:definition "SLA" ;
+	skos:definition "Service Level Agreement (SLA)."@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "sla";
 	skos:prefLabel "SLA"@en;
@@ -294,7 +300,7 @@
 
 <application/type/infrastructure-service>
 	a skos:Concept;
-	skos:definition "Infrastructure service" ;
+	skos:definition "Infrastructure service"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "infrastructure-service";
 	skos:prefLabel "Infrastructure service"@en;
@@ -303,7 +309,7 @@
 
 <application/type/application-group>
 	a skos:Concept;
-	skos:definition "Application Group" ;
+	skos:definition "Application Group"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "application-group";
 	skos:prefLabel "Application Group"@en;
@@ -312,7 +318,7 @@
 
 <application/type/network-equipment>
 	a skos:Concept;
-	skos:definition "Network equipment" ;
+	skos:definition "Network equipment"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "network-equipment";
 	skos:prefLabel "Network equipment"@en;
@@ -321,7 +327,7 @@
 
 <application/type/infrastructure>
 	a skos:Concept;
-	skos:definition "Infrastructure" ;
+	skos:definition "Infrastructure"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "infrastructure";
 	skos:prefLabel "Infrastructure"@en;
@@ -330,7 +336,7 @@
 
 <application/type/service-platform>
 	a skos:Concept;
-	skos:definition "Service Platform" ;
+	skos:definition "Service Platform"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "service-platform";
 	skos:prefLabel "Service Platform"@en;
@@ -339,7 +345,7 @@
 
 <application/type/it-tool>
 	a skos:Concept;
-	skos:definition "IT Tool" ;
+	skos:definition "IT Tool"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "it-tool";
 	skos:prefLabel "IT Tool"@en;
@@ -348,7 +354,7 @@
 
 <application/type/infrastructure-area>
 	a skos:Concept;
-	skos:definition "Infrastructure area" ;
+	skos:definition "Infrastructure area"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "infrastructure-area";
 	skos:prefLabel "Infrastructure area"@en;
@@ -357,7 +363,7 @@
 
 <application/type/service-platform-model>
 	a skos:Concept;
-	skos:definition "Service Platform Model" ;
+	skos:definition "Service Platform Model"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "service-platform-model";
 	skos:prefLabel "Service Platform Model"@en;
@@ -366,7 +372,7 @@
 
 <application/type/special-group>
 	a skos:Concept;
-	skos:definition "Special Group" ;
+	skos:definition "Special Group"@en ;
 	skos:inScheme <application/type> ;
 	skos:notation "special-group";
 	skos:prefLabel "Special Group"@en;
@@ -379,12 +385,13 @@
 	a skos:ConceptScheme;
 	skos:definition "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en;
 	skos:notation "business-importance";
+	skos:prefLabel "Application business importance."@en ;
 	skos:inScheme <application> ;
 .
 
 <application/business-importance/high-critical>
 	a skos:Concept;
-	skos:definition "Highly critical application." ;
+	skos:definition "Highly critical application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "high-critical";
 	skos:prefLabel "High critical"@en
@@ -392,7 +399,7 @@
 
 <application/business-importance/critical>
 	a skos:Concept;
-	skos:definition "Critical application." ;
+	skos:definition "Critical application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "critical";
 	skos:prefLabel "Critical"@en
@@ -400,7 +407,7 @@
 
 <application/business-importance/standard>
 	a skos:Concept;
-	skos:definition "Standard criticality application." ;
+	skos:definition "Standard criticality application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "standard";
 	skos:prefLabel "Standard"@en
@@ -408,7 +415,7 @@
 
 <application/business-importance/low>
 	a skos:Concept;
-	skos:definition "Low criticality application." ;
+	skos:definition "Low criticality application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "low";
 	skos:prefLabel "Low"@en
@@ -416,7 +423,7 @@
 
 <application/business-importance/not-defined>
 	a skos:Concept;
-	skos:definition "The business importance is not defined yet for the application." ;
+	skos:definition "The business importance is not defined yet for the application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "not-defined";
 	skos:prefLabel "Not defined"@en
@@ -424,7 +431,7 @@
 
 <application/business-importance/not-applicable>
 	a skos:Concept;
-	skos:definition "Defining the business importance is not relevant for the application." ;
+	skos:definition "Defining the business importance is not relevant for the application."@en ;
 	skos:inScheme <application/business-importance> ;
 	skos:notation "not-applicable";
 	skos:prefLabel "Not applicable"@en
@@ -438,7 +445,8 @@
 	a skos:ConceptScheme;
 	skos:definition "A Change Request"@en;
 	skos:notation "change-request" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "Change Request"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
@@ -447,6 +455,7 @@
 	a skos:ConceptScheme;
 	skos:definition "It identifies the status of any Change Request ticket within the Change Request workflow."@en;
 	skos:notation "status" ;
+	skos:prefLabel "Change Request status"@en ;
 	skos:inScheme <ChangeRequest> ;
 .
 
@@ -540,7 +549,8 @@ Typical next status : []."""@en;
 <ChangeRequest/type>
 	a skos:ConceptScheme;
 	skos:definition "It identifies the type of risk involved by any Change Request ticket."@en;
-	skos:notation "status" ;
+	skos:notation "type" ;
+	skos:prefLabel "Change Request type"@en ;
 	skos:inScheme <ChangeRequest> ;
 .
 
@@ -563,9 +573,9 @@ Typical next status : []."""@en;
 	skos:definition "Operation With Risk (OWR) - Major mitigation effort."@en ;
 	skos:definition "Operation A Risque (OAR) - Effort d'atténuation élevé."@fr ;
 	skos:inScheme <ChangeRequest/type> ;
-	skos:notation "owr-standard";
-	skos:prefLabel "OWR Standard"@en ;
-	skos:prefLabel "OAR Standard"@fr ;
+	skos:notation "owr-major";
+	skos:prefLabel "OWR Major"@en ;
+	skos:prefLabel "OAR Majeur"@fr ;
 	skos:altLabel "OWR_Major"@en ;
 	skos:altLabel "OAR_Majeur"@fr ;
 .
@@ -608,27 +618,33 @@ Typical next status : []."""@en;
 <ChangeRequest/category>
 	a skos:ConceptScheme;
 	skos:definition "It identifies the nature of the operations for a change request."@en ;
-	skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer, etc." ;
+	skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer, etc."@en ;
 	skos:inScheme <ChangeRequest> ;
-	skos:notation "category" .
+	skos:notation "category" ;
+	skos:prefLabel "Change Request category"@en ;
+.
 
 # -----------------------------------------------------------------------------
 
 <ChangeRequest/cause>
 	a skos:ConceptScheme;
 	skos:definition "It identifies the cause or motivations at the origin of a change request."@en ;
-	skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc." ;
+	skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc."@en ;
 	skos:inScheme <ChangeRequest> ;
-	skos:notation "cause" .
+	skos:notation "cause" ;
+	skos:prefLabel "Change Request cause"@en ;
+.
 
 # -----------------------------------------------------------------------------
 
 <ChangeRequest/specification>
 	a skos:ConceptScheme;
 	skos:definition "The catalog of standard operation plans for recurring activities."@en ;
-	skos:example "Software upgrade, Resilience check, etc." ;
+	skos:example "Software upgrade, Resilience check, etc."@en ;
 	skos:inScheme <ChangeRequest> ;
-	skos:notation "specification" .
+	skos:notation "specification" ;
+	skos:prefLabel "Change Request specification"@en ;
+.
 
 # =============================================================================
 # Incident Management Process (IMP) vocabulary
@@ -636,36 +652,39 @@ Typical next status : []."""@en;
 
 <imp>
 	a skos:ConceptScheme;
-	skos:definition "Incident Management Process (IMP).";
+	skos:definition "Incident Management Process (IMP)."@en;
 	skos:notation "imp" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "IMP"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
 
 <imp/groups>
 	a skos:ConceptScheme;
-	skos:definition "It identifies the the Users, throughout the Groups they belong to, involved in the Incident Management process.";
+	skos:definition "It identifies the the Users, throughout the Groups they belong to, involved in the Incident Management process."@en ;
 	skos:inScheme <imp> ;
-	skos:notation "groups" .
+	skos:notation "groups" ;
+	skos:prefLabel "IMP Group"@en ;
+.
 
 <imp/groups/tmc>
 	a skos:Concept;
-	skos:definition "Technical Management Center (TMC).";
+	skos:definition "Technical Management Center (TMC)."@en;
 	skos:inScheme <imp/groups>;
 	skos:notation "tmc";
 	skos:prefLabel "Technical Management Center"@en .
 
 <imp/groups/smc>
 	a skos:Concept;
-	skos:definition "Service Management Centers (SMC).";
+	skos:definition "Service Management Centers (SMC)."@en;
 	skos:inScheme <imp/groups>;
 	skos:notation "smc";
 	skos:prefLabel "Service Management Center"@en .
 
 <imp/groups/fm>
 	a skos:Concept;
-	skos:definition "Field managements.";
+	skos:definition "Field managements."@en;
 	skos:inScheme <imp/groups>;
 	skos:notation "fm";
 	skos:prefLabel "Field management"@en ;
@@ -674,21 +693,21 @@ Typical next status : []."""@en;
 
 <imp/groups/osc>
 	a skos:Concept;
-	skos:definition "Operational Skill Centers (OSC) related to material suppliers.";
+	skos:definition "Operational Skill Centers (OSC) related to material suppliers."@en;
 	skos:inScheme <imp/groups>;
 	skos:notation "osc";
 	skos:prefLabel "Operational Skill Center"@en .
 
 <imp/groups/ccc>
 	a skos:Concept;
-	skos:definition "Customer Care Centers (CCC).";
+	skos:definition "Customer Care Centers (CCC)."@en ;
 	skos:inScheme <imp/groups>;
 	skos:notation "ccc";
 	skos:prefLabel "Customer Care Center"@en .
 
 <imp/groups/supplier>
 	a skos:Concept;
-	skos:definition "Suppliers.";
+	skos:definition "Suppliers."@en ;
 	skos:inScheme <imp/groups>;
 	skos:notation "supplier";
 	skos:prefLabel "Supplier"@en .
@@ -697,69 +716,71 @@ Typical next status : []."""@en;
 
 <imp/milestones>
 	a skos:ConceptScheme;
-	skos:definition "Milestones of the Incident Management Process.";
+	skos:definition "Milestones of the Incident Management Process."@en ;
 	skos:inScheme <imp> ;
-	skos:notation "milestones" .
+	skos:notation "milestones" ;
+	skos:prefLabel "IMP milestones"@en ;
+.
 
 <imp/milestones/t0>
 	a skos:Concept;
-	skos:definition "The Event Appearance, reported by the customer or a partner application, starts the Incident Management process.";
+	skos:definition "The Event Appearance, reported by the customer or a partner application, starts the Incident Management process."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t0";
 	skos:prefLabel "Event Appearance"@en .
 
 <imp/milestones/t1>
 	a skos:Concept;
-	skos:definition "The Registration is the event of entering in Orange internal process and the information due to the Customer.";
+	skos:definition "The Registration is the event of entering in Orange internal process and the information due to the Customer."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t1";
 	skos:prefLabel "Registration"@en .
 
 <imp/milestones/t2>
 	a skos:Concept;
-	skos:definition "The Customer Information ensures that the customer is aware of the progress of the Incident Management.";
+	skos:definition "The Customer Information ensures that the customer is aware of the progress of the Incident Management."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t2";
 	skos:prefLabel "Customer Information"@en .
 
 <imp/milestones/t3>
 	a skos:Concept;
-	skos:definition "The Diagnosis Activation marks the entry in the active analysis part of the process.";
+	skos:definition "The Diagnosis Activation marks the entry in the active analysis part of the process."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t3";
 	skos:prefLabel "Diagnosis Activation"@en .
 
 <imp/milestones/t4>
 	a skos:Concept;
-	skos:definition "The Diagnosis milestone is the end of the root cause analysis (RCA) of the incident.";
+	skos:definition "The Diagnosis milestone is the end of the root cause analysis (RCA) of the incident."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t4";
 	skos:prefLabel "Diagnosis"@en .
 
 <imp/milestones/t5>
 	a skos:Concept;
-	skos:definition "The first step after the diagnosis is the Service Restoration, which restores the service (sometimes in degraded mode) to the Customer.";
+	skos:definition "The first step after the diagnosis is the Service Restoration, which restores the service (sometimes in degraded mode) to the Customer."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t5";
 	skos:prefLabel "Service Restoration"@en .
 
 <imp/milestones/t6>
 	a skos:Concept;
-	skos:definition "The Incident Resolution marks the end of the Incident, that is to say that the service works again.";
+	skos:definition "The Incident Resolution marks the end of the Incident, that is to say that the service works again."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t6";
 	skos:prefLabel "Incident Resolution"@en .
 
 <imp/milestones/t7>
 	a skos:Concept;
-	skos:definition "The Incident Repairing indicates that the causes of the Incident are resolved, ensuring that it will not occur again.";
+	skos:definition "The Incident Repairing indicates that the causes of the Incident are resolved, ensuring that it will not occur again."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t7";
 	skos:prefLabel "Incident Repairing"@en .
 
 <imp/milestones/t8>
 	a skos:Concept;
-	skos:definition "The Incident Closure, concluded with the Customer, validates the end of the process.";
+	skos:definition "The Incident Closure, concluded with the Customer, validates the end of the process."@en ;
 	skos:inScheme <imp/milestones> ;
 	skos:notation "t8";
 	skos:prefLabel "Incident Closure"@en .
@@ -775,7 +796,7 @@ Typical next status : []."""@en;
 	skos:prefLabel "Liaison Réseau"@fr;
 	skos:altLabel "Jonction"@fr;
 	skos:altLabel "Lien"@fr;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
@@ -783,6 +804,7 @@ Typical next status : []."""@en;
 <NetworkLink/type>
 	a skos:ConceptScheme;
 	skos:notation "type";
+	skos:prefLabel "Network Link type"@en ;
 	skos:inScheme <NetworkLink> ;
 .
 
@@ -792,30 +814,34 @@ Typical next status : []."""@en;
 
 <Notification>
 	a skos:ConceptScheme;
-	skos:definition "A notification, related to some Facility and with a Severity value.";
+	skos:definition "A notification, related to some Facility and with a Severity value."@en ;
 	skos:notation "notification" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "Notification"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
 
 <Notification/EventType>
 	a skos:ConceptScheme ;
-	skos:notation "eventType" ;
-	skos:inScheme <Notification> ;
 	skos:definition "The Type of the Event."@en ;
+	skos:notation "eventType" ;
+	skos:prefLabel "Notification event type"@en ;
+	skos:inScheme <Notification> ;
 .
 
 <Notification/EventTypeGroup>
 	a skos:ConceptScheme ;
-	skos:notation "eventTypeGroup" ;
-	skos:inScheme <Notification> ;
 	skos:definition "Group of EvenType reflecting some specific alarming situation."@en ;
+	skos:notation "eventTypeGroup" ;
+	skos:prefLabel "Notification event type group"@en ;
+	skos:inScheme <Notification> ;
 .
 
 <Notification/EventTypeGroup/GeneralOperationAlarm>
 	a skos:ConceptScheme ;
 	skos:notation "eventTypeGroup-GeneralOperationAlarm" ;
+	skos:prefLabel "General operation alarm"@en ;
 	skos:inScheme <Notification> ;
 	skos:definition "Group of EvenType reflecting alarming situations about General Operation context issues."@en ;
 	skos:example "The set of communicationAlarm, qualityofServiceAlarm, processingErrorAlarm, equipmentAlarm and environmentalAlarm event type."@en ;
@@ -824,6 +850,7 @@ Typical next status : []."""@en;
 <Notification/EventTypeGroup/SecurityAlarm>
 	a skos:ConceptScheme ;
 	skos:notation "eventTypeGroup-SecurityAlarm" ;
+	skos:prefLabel "Security alarm"@en ;
 	skos:inScheme <Notification> ;
 	skos:definition "Group of EvenType reflecting alarming situations about Security issues."@en ;
 	skos:example "The set of integrityViolation, operationalViolation, physicalViolation, securityServiceOrMechanismViolation and timeDomainViolation event type."@en ;
@@ -831,14 +858,16 @@ Typical next status : []."""@en;
 
 <Notification/EventTypeGroup/ChangeOperation>
 	a skos:ConceptScheme ;
-	skos:notation "eventTypeGroup-ChangeOperation" ;
-	skos:inScheme <Notification> ;
 	skos:definition "Group of EvenType reflecting change operations on the ICT system within a ChangeRequest context."@en ;
+	skos:notation "eventTypeGroup-ChangeOperation" ;
+	skos:prefLabel "Change operation"@en ;
+	skos:inScheme <Notification> ;
 .
 
 <Notification/EventTypeGroup/CorrectiveMaintenanceOperation>
 	a skos:ConceptScheme ;
 	skos:notation "eventTypeGroup-CorrectiveMaintenanceOperation" ;
+	skos:prefLabel "Corrective maintenance operation"@en ;
 	skos:inScheme <Notification> ;
 	skos:definition "Group of EvenType reflecting corrective maintenance operations on the ICT system within a TroubleTicket context."@en ;
 .
@@ -1130,6 +1159,7 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 <Notification/Severity/SecurityAlarmSeverity>
 	a skos:ConceptScheme ;
 	skos:notation "security-alarm-severity" ;
+	skos:prefLabel "Security Alarm Severity"@en ;
 	skos:inScheme <Notification/Severity> ;
 	skos:related <Notification/Severity/PerceivedSeverity> ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmSeverity> ;
@@ -1147,7 +1177,7 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 	a skos:Concept ;
 	skos:inScheme <Notification/Severity/SecurityAlarmSeverity> ;
 	skos:notation "critical" ;
-	skos:prefLabel "critical "@en ;
+	skos:prefLabel "critical"@en ;
 	skos:exactMatch <Notification/Severity/PerceivedSeverity/critical> ;
 .
 
@@ -1179,6 +1209,8 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <Notification/ProbableCause>
 	a skos:ConceptScheme ;
+	skos:notation "probableCause" ;
+	skos:prefLabel "Probable Cause"@en ;
 	skos:inScheme <Notification> ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-probableCause>,
 	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.ProbableCause> ;
@@ -1701,6 +1733,8 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <Notification/SecurityAlarmCause>
 	a skos:ConceptScheme ;
+	skos:notation "SecurityAlarmCause";
+	skos:prefLabel "Security Alarm Cause"@en ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmCause>,
 	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.SecurityAlarmCause> ;
 .
@@ -1873,18 +1907,20 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <org>
 	a skos:ConceptScheme;
-	skos:definition "A vocabulary for standardized information annotation on organizations and organizational structures.";
+	skos:definition "A vocabulary for standardized information annotation on organizations and organizational structures."@en;
 	skos:notation "org" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "Organizations and organizational structures"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
 
 <org/org-classification>
 	a skos:ConceptScheme;
-	skos:definition "A classification scheme for describing an Organization.";
+	skos:definition "A classification scheme for describing an Organization."@en;
 	skos:inScheme <org> ;
 	skos:notation "org-classification" ;
+	skos:prefLabel "Organization classification"@en ;
 	rdfs:seeAlso
 		<https://www.w3.org/TR/vocab-org/#org:classification> ,
 		<https://www.w3.org/TR/vocab-org/#org:Organization> ;
@@ -1892,9 +1928,10 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <org/ou-classification>
 	a skos:ConceptScheme;
-	skos:definition "A classification scheme for describing an Organizational Unit.";
+	skos:definition "A classification scheme for describing an Organizational Unit."@en;
 	skos:inScheme <org> ;
 	skos:notation "ou-classification" ;
+	skos:prefLabel "Organizational Unit Classification"@en ;
 	rdfs:seeAlso
 		<https://www.w3.org/TR/vocab-org/#org:classification> ,
 		<https://www.w3.org/TR/vocab-org/#org:OrganizationalUnit> ;
@@ -1904,7 +1941,7 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <org/org-classification/manufacturer>
 	a skos:Concept;
-	skos:definition "An organization assuming a manufacturing activity of some product." ;
+	skos:definition "An organization assuming a manufacturing activity of some product."@en ;
 	skos:inScheme <org/org-classification> ;
 	skos:notation "manufacturer";
 	skos:prefLabel "Manufacturer"@en .
@@ -1915,7 +1952,7 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 	a skos:Concept;
 	skos:definition """An organizational operational unit (team) with a technical support role; i.e. a group of employees with specific skills or devoted to some specific task/work/project w.r.t. IT Service and Resource management.
 
-The unique identifier of the team (e.g. the operation code) can be instantiated with the `org:identifier` property.""" ;
+The unique identifier of the team (e.g. the operation code) can be instantiated with the `org:identifier` property."""@en ;
 	skos:inScheme <org/ou-classification> ;
 	skos:notation "tsg";
 	skos:prefLabel "Technical Support Group"@en ;
@@ -1927,9 +1964,9 @@ The unique identifier of the team (e.g. the operation code) can be instantiated 
 It is a combination between an application (devices list) and a profile (type of account access, for example: admin, application, db, etc.).
 
 Associations between Business Groups (BGs) and TG define the rights of users to access on Resources.
-Each BG / TG combination is created with *Read* or *Write* right to the operating accounts.""" ;
+Each BG / TG combination is created with *Read* or *Write* right to the operating accounts."""@en ;
 	skos:example """- The user `User5` can access to `Server5` and `Server6` of `Application2` with `write` right to DB accounts (e.g. oracle, bddadmin, etc.) on these servers.
-- AAA RADIUS Profile.""" ;
+- AAA RADIUS Profile."""@en ;
 	skos:inScheme <org/ou-classification> ;
 	skos:notation "aaa-technical-group" ;
 	skos:prefLabel "AAA Technical Group"@en ;
@@ -1938,8 +1975,8 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/ou-classification/aaa-business-group>
 	a skos:Concept;
-	skos:definition "An AAA Business Group (BG) is a users list." ;
-	skos:example "Active Directory (AD) Groups." ;
+	skos:definition "An AAA Business Group (BG) is a users list."@en ;
+	skos:example "Active Directory (AD) Groups."@en ;
 	skos:inScheme <org/ou-classification> ;
 	skos:notation "aaa-business-group" ;
 	skos:prefLabel "AAA Business Group"@en ;
@@ -1949,8 +1986,8 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/ou-classification/company-department>
 	a skos:Concept;
-	skos:definition "An administrative or technical division of a company or organization." ;
-	skos:example "Sales department, human resources department, production department." ;
+	skos:definition "An administrative or technical division of a company or organization."@en ;
+	skos:example "Sales department, human resources department, production department."@en ;
 	skos:inScheme <org/ou-classification> ;
 	skos:notation "company-department" ;
 	skos:prefLabel "Company department - Management entity"@en ;
@@ -1962,9 +1999,10 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/agent-contact-method>
 	a skos:ConceptScheme;
-	skos:definition "A classification scheme for describing the preferred contact method.";
+	skos:definition "A classification scheme for describing the preferred contact method."@en;
 	skos:inScheme <org> ;
 	skos:notation "agent-contact-method" ;
+	skos:prefLabel "Agent Contact Method"@en ;
 	rdfs:seeAlso <http://xmlns.com/foaf/spec/#term_Agent> ;
 .
 
@@ -1972,7 +2010,7 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/agent-contact-method/no-pref>
 	a skos:Concept;
-	skos:definition "The agent have no preferred contact method." ;
+	skos:definition "The agent have no preferred contact method."@en ;
 	skos:inScheme <org/agent-contact-method> ;
 	skos:notation "no-pref";
 	skos:prefLabel "No preference"@en ;
@@ -1980,7 +2018,7 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/agent-contact-method/phone>
 	a skos:Concept;
-	skos:definition "The agent should preferably be contacted by phone." ;
+	skos:definition "The agent should preferably be contacted by phone."@en ;
 	skos:inScheme <org/agent-contact-method> ;
 	skos:notation "phone";
 	skos:prefLabel "Phone"@en ;
@@ -1989,19 +2027,19 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/agent-contact-method/e-mail>
 	a skos:Concept;
-	skos:definition "The agent should preferably be contacted by e-mail." ;
+	skos:definition "The agent should preferably be contacted by e-mail."@en ;
 	skos:inScheme <org/agent-contact-method> ;
 	skos:notation "e-mail";
-	skos:prefLabel "e-mail" ;
+	skos:prefLabel "e-mail"@en ;
 	skos:altLabel "email" ;
 	skos:altLabel "E-mail" ;
-	skos:altLabel "Electronic mail" ;
+	skos:altLabel "Electronic mail"@en ;
 	rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q9158> ;  # HACK: <https://en.wikipedia.org/wiki/Email>
 .
 
 <org/agent-contact-method/p-mail>
 	a skos:Concept;
-	skos:definition "The agent should preferably be contacted by postal mail." ;
+	skos:definition "The agent should preferably be contacted by postal mail."@en ;
 	skos:inScheme <org/agent-contact-method> ;
 	skos:notation "p-mail";
 	skos:prefLabel "p-mail"@en ;
@@ -2014,7 +2052,7 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <org/agent-contact-method/sms>
 	a skos:Concept;
-	skos:definition "The agent should preferably be contacted by SMS message." ;
+	skos:definition "The agent should preferably be contacted by SMS message."@en ;
 	skos:inScheme <org/agent-contact-method> ;
 	skos:notation "sms";
 	skos:prefLabel "SMS" ;
@@ -2035,22 +2073,25 @@ Each BG / TG combination is created with *Read* or *Write* right to the operatin
 
 <oss>
 	a skos:ConceptScheme;
-	skos:definition "Operation Support System (OSS).";
+	skos:definition "Operation Support System (OSS)."@en ;
 	skos:notation "oss" ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:prefLabel "OSS"@en ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
 
 <oss/process>
 	a skos:ConceptScheme;
-	skos:definition "Process recommended by the OSS (Operation Support System) Group Solution.";
+	skos:definition "Process recommended by the OSS (Operation Support System) Group Solution."@en ;
 	skos:inScheme <oss> ;
-	skos:notation "process" .
+	skos:notation "process" ;
+	skos:prefLabel "OSS process"@en;
+.
 
 <oss/process/change-management>
 	a skos:Concept;
-	skos:definition "Change management.";
+	skos:definition "Change management."@en ;
 	skos:inScheme <oss/process>;
 	skos:notation "change-management";
 	skos:prefLabel "Change Management Process"@en .
@@ -2077,7 +2118,7 @@ The problem is a middle / long term situation calling for deep analysis and reli
 
 <oss/process/anomaly-report>
 	a skos:Concept;
-	skos:definition "Anomaly report.";
+	skos:definition "Anomaly report."@en;
 	skos:inScheme <oss/process>;
 	skos:notation "anomaly-report";
 	skos:prefLabel "Anomaly Report"@en .
@@ -2086,9 +2127,11 @@ The problem is a middle / long term situation calling for deep analysis and reli
 
 <oss/gnoc-roles>
 	a skos:ConceptScheme;
-	skos:definition "Users roles involved in GNOC (Global Network Operation Center) processes (i.e. incident management and change management).";
+	skos:definition "Users roles involved in GNOC (Global Network Operation Center) processes (i.e. incident management and change management)."@en ;
 	skos:inScheme <oss> ;
-	skos:notation "gnoc-roles" .
+	skos:notation "gnoc-roles" ;
+	skos:prefLabel "GNOC roles"@en ;
+.
 
 <oss/gnoc-roles/icr>
 	a skos:Concept;
@@ -2109,14 +2152,14 @@ All changes with high impact/risk are managed by the CCR."""@en;
 
 <oss/gnoc-roles/tir>
 	a skos:Concept;
-	skos:definition "Entity or person identifying the incident and opening the trouble ticket.";
+	skos:definition "Entity or person identifying the incident and opening the trouble ticket."@en;
 	skos:inScheme <oss/gnoc-roles>;
 	skos:notation "tir";
 	skos:prefLabel "Ticket Initiator"@en .
 
 <oss/gnoc-roles/mcc>
 	a skos:Concept;
-	skos:definition "Entity or person to be contacted for feedback or escalation.";
+	skos:definition "Entity or person to be contacted for feedback or escalation."@en ;
 	skos:inScheme <oss/gnoc-roles>;
 	skos:notation "mcc";
 	skos:prefLabel "Main Customer Contact"@en .
@@ -2127,7 +2170,9 @@ All changes with high impact/risk are managed by the CCR."""@en;
 	a skos:ConceptScheme;
 	skos:definition """High-level objects, managed by OSS components, which represent the elements of Orange and the customers’ networks and services."""@en;
 	skos:inScheme <oss> ;
-	skos:notation "technical-objects" .
+	skos:notation "technical-objects";
+	skos:prefLabel "OSS technical objects"@en ;
+.
 
 <oss/technical-objects/product>
 	a skos:Concept;
@@ -2167,7 +2212,7 @@ These two points make the difference between Resource and Product."""@en;
 	skos:altLabel "Computer resource"@fr;
 	skos:altLabel "Elément structurant"@fr;
 	skos:exactMatch <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8364924> ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
@@ -2176,6 +2221,7 @@ These two points make the difference between Resource and Product."""@en;
 	a skos:ConceptScheme;
 	skos:definition "The nature (type) of the resource"@en;
 	skos:notation "type";
+	skos:prefLabel "Resource type"@en ;
 	skos:inScheme <Resource> ;
 .
 
@@ -2265,7 +2311,7 @@ These two points make the difference between Resource and Product."""@en;
 	skos:definition "Equipment rack."@en;
 	rdfs:isDefinedBy <https://gdt.oqlf.gouv.qc.ca/ficheOqlf.aspx?Id_Fiche=8357314>;
 	skos:inScheme <Resource/type> ;
-	skos:notation "server";
+	skos:notation "rack";
 	skos:prefLabel "Rack"@en;
 	skos:prefLabel "Conteneur"@fr;
 .
@@ -2277,6 +2323,8 @@ These two points make the difference between Resource and Product."""@en;
 	skos:definition "The life cycle state of the resource."@en ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.LifecycleState> ;
 	rdfs:seeAlso <https://github.com/tmforum-apis/TMF639_ResourceInventory> ;
+	skos:notation "resource-lifecyclestate";
+	skos:prefLabel "Resource life cycle state"@en ;
 .
 
 <Resource/LifecycleState/planned>
@@ -2312,8 +2360,7 @@ These two points make the difference between Resource and Product."""@en;
 	skos:prefLabel "Instantiated"@en ;
 	skos:altLabel "Running"@en ;
 	skos:altLabel "Work in progress"@en ;
-	skos:altLabel "Instantiated"@en ;
-	skos:altLabel "Production"@fr ;
+	skos:prefLabel "Production"@fr ;
 	rdfs:isDefinedBy <https://github.com/project-emco/emco-base/blob/main/docs/design/Resource_Lifecycle_and_Status.md> ;
 .
 
@@ -2341,6 +2388,8 @@ These two points make the difference between Resource and Product."""@en;
 
 <Resource/OperationalState>
 	a skos:ConceptScheme ;
+	skos:notation "resource-operationalstate" ;
+	skos:prefLabel "Resource Operational State"@en ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
 .
 
@@ -2366,6 +2415,8 @@ These two points make the difference between Resource and Product."""@en;
 
 <Resource/AdministrativeState>
 	a skos:ConceptScheme ;
+	skos:notation "resource-administrativestate";
+	skos:prefLabel "Resource Administrative State"@en ;
 	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/Attribute-ASN1Module.html#Attribute-ASN1Module.OperationalState> ;
 .
 
@@ -2403,8 +2454,9 @@ These two points make the difference between Resource and Product."""@en;
 	a skos:ConceptScheme;
 	skos:definition """Service is an abstract base class for defining the Service hierarchy, i.e. the composition of assets (a.k.a. asset chain, service function chain) for providing a end-to-end data path or processing for some specific Customer or purpose."""@en ;
 	skos:notation "service" ;
+	skos:prefLabel "Service"@en ;
 	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # -----------------------------------------------------------------------------
@@ -2414,6 +2466,7 @@ These two points make the difference between Resource and Product."""@en;
 	skos:definition """All Services are characterized as either being possibly visible and usable by a Customer or not.
 This gives rise to the two subclasses of Service: CustomerFacingService and ResourceFacingService."""@en;
 	skos:notation "type";
+	skos:prefLabel "Service Type"@en ;
 	skos:inScheme <service> ;
 	rdfs:seeAlso <https://github.com/tmforum-apis/TMF638_ServiceInventory> ;
 .
@@ -2444,9 +2497,12 @@ This gives rise to the two subclasses of Service: CustomerFacingService and Reso
 
 <TroubleTicket>
 	a skos:ConceptScheme;
+	skos:notation "troubleticket";
+	skos:prefLabel "Trouble Ticket"@en ;
+	skos:altLabel "Incident Ticket"@en ;
 	skos:definition "A Trouble Ticket."@en ;
 	skos:definition "Un Ticket d'Incident."@fr ;
-	skos:inScheme <https://w3id.org/noria/kos/> ;
+	skos:inScheme <https://w3id.org/noria/kos> ;
 .
 
 # =============================================================================
@@ -2454,9 +2510,11 @@ This gives rise to the two subclasses of Service: CustomerFacingService and Reso
 
 <TroubleTicket/status>
 	a skos:ConceptScheme;
-	skos:definition "It identifies the status of any Trouble Ticket or Incident Ticket";
+	skos:definition "It identifies the status of any Trouble Ticket or Incident Ticket"@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "status" .
+	skos:notation "status";
+	skos:prefLabel "Trouble Ticket status"@en;
+.
 
 <TroubleTicket/status/initialised>
 	a skos:Concept;
@@ -2567,13 +2625,15 @@ Typical next status : []."""@en;
 
 <TroubleTicket/priority>
 	a skos:ConceptScheme;
-	skos:definition "Priority definitions of any Trouble Ticket or Incident Ticket for a standard Operating Level Agreement (OLA)";
+	skos:definition "Priority definitions of any Trouble Ticket or Incident Ticket for a standard Operating Level Agreement (OLA)."@en;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "priority" .
+	skos:notation "priority";
+	skos:prefLabel "Trouble Ticket priority"@en ;
+.
 
 <TroubleTicket/priority/0>
 	a skos:Concept;
-	skos:definition "A problem or error subject to official request.";
+	skos:definition "A problem or error subject to official request."@en ;
 	skos:inScheme <TroubleTicket/priority>;
 	skos:notation "P0";
 	skos:prefLabel "P0"@en .
@@ -2614,14 +2674,16 @@ Typical next status : []."""@en;
 
 <TroubleTicket/type>
 	a skos:ConceptScheme;
-	skos:definition "The ticket type." ;
+	skos:definition "The ticket type."@en ;
 	skos:example "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc." ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "type" .
+	skos:notation "type";
+	skos:prefLabel "Trouble Ticket type"@en ;
+.
 
 <TroubleTicket/type/failure>
 	a skos:Concept;
-	skos:definition "Failure.";
+	skos:definition "Failure."@en;
 	skos:inScheme <TroubleTicket/type>;
 	skos:notation "failure";
 	skos:prefLabel "Failure"@en ;
@@ -2630,7 +2692,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/type/assistance>
 	a skos:Concept;
-	skos:definition "Assistance.";
+	skos:definition "Assistance."@en;
 	skos:inScheme <TroubleTicket/type>;
 	skos:notation "assistance";
 	skos:prefLabel "Assistance"@en ;
@@ -2645,14 +2707,16 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category>
 	a skos:ConceptScheme;
-	skos:definition "It identifies the nature (product ticket class) or technical impact (resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket" ;
-	skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+	skos:definition "It identifies the nature (product ticket class) or technical impact (resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
+	skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc."@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "trouble-category" .
+	skos:notation "trouble-category";
+	skos:prefLabel "Trouble Ticket category"@en ;
+.
 
 <TroubleTicket/trouble-category/isolated-customer-site>
 	a skos:Concept;
-	skos:definition "Isolated customer site.";
+	skos:definition "Isolated customer site."@en;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "isolated-customer-site";
 	skos:prefLabel "Isolated customer site"@en ;
@@ -2661,7 +2725,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category/no-service-impact>
 	a skos:Concept;
-	skos:definition "An issue has been raised but no service impact has been observed.";
+	skos:definition "An issue has been raised but no service impact has been observed."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "no-service-impact";
 	skos:prefLabel "No service impact"@en ;
@@ -2672,7 +2736,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category/resilience-impaired>
 	a skos:Concept;
-	skos:definition "Failover mechanisms or resources are broken or unavailable.";
+	skos:definition "Failover mechanisms or resources are broken or unavailable."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "resilience-impaired";
 	skos:prefLabel "Degraded resilience"@en ;
@@ -2684,7 +2748,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category/service-with-standby-activated>
 	a skos:Concept;
-	skos:definition "Switchover to the hot/cold standby has been observed/done and no service impact is observed.";
+	skos:definition "Switchover to the hot/cold standby has been observed/done and no service impact is observed."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "service-with-standby-activated";
 	skos:prefLabel "Failover activated with no service impact"@en ;
@@ -2694,7 +2758,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category/service-breakdown>
 	a skos:Concept;
-	skos:definition "The service is interrupted.";
+	skos:definition "The service is interrupted."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "service-breakdown";
 	skos:prefLabel "Interrupted service"@en ;
@@ -2704,7 +2768,7 @@ Typical next status : []."""@en;
 
 <TroubleTicket/trouble-category/service-impaired>
 	a skos:Concept;
-	skos:definition "Quality of Service is degraded.";
+	skos:definition "Quality of Service is degraded."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "service-impaired";
 	skos:prefLabel "Degraded QoS"@en ;
@@ -2717,7 +2781,7 @@ Typical next status : []."""@en;
 	a skos:Concept;
 	skos:definition """Packet loss occurs when one or more packets of data travelling across a computer network fail to reach their destination.
 Packet loss is either caused by errors in data transmission, typically across wireless networks, or network congestion.
-Packet loss is measured as a percentage of packets lost with respect to packets sent.""";
+Packet loss is measured as a percentage of packets lost with respect to packets sent."""@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "packet-loss";
 	skos:prefLabel "Packet loss"@en ;
@@ -2727,7 +2791,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/trouble-category/timeout>
 	a skos:Concept;
-	skos:definition "The resource or service is unreachable.";
+	skos:definition "The resource or service is unreachable."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "timeout";
 	skos:prefLabel "Connection timeout"@en ;
@@ -2736,7 +2800,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/trouble-category/supervision-loss>
 	a skos:Concept;
-	skos:definition "Supervision of the resource or service is unavailable.";
+	skos:definition "Supervision of the resource or service is unavailable."@en ;
 	skos:inScheme <TroubleTicket/trouble-category>;
 	skos:notation "supervision-loss";
 	skos:prefLabel "Supervision loss"@en ;
@@ -2748,22 +2812,26 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/urgency>
 	a skos:ConceptScheme;
-	skos:definition "The priority level of the incident." ;
-	skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." ;
+	skos:definition "The priority level of the incident."@en ;
+	skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc."@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "urgency" .
+	skos:notation "urgency";
+	skos:prefLabel "Trouble Ticket urgency"@en ;
+.
 
 # =============================================================================
 
 <TroubleTicket/origin>
 	a skos:ConceptScheme;
-	skos:definition "The person or group family at the origin of the creation of a given Trouble Ticket.";
+	skos:definition "The person or group family at the origin of the creation of a given Trouble Ticket."@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "origin" .
+	skos:notation "origin";
+	skos:prefLabel "Trouble Ticket origin"@en ;
+.
 
 <TroubleTicket/origin/int>
 	a skos:Concept;
-	skos:definition "Internal user.";
+	skos:definition "Internal user."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "int";
 	skos:prefLabel "Interne"@fr ;
@@ -2773,7 +2841,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/origin/smc>
 	a skos:Concept;
-	skos:definition "Service Management Centers (SMC).";
+	skos:definition "Service Management Centers (SMC)."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "smc";
 	skos:prefLabel "Service Management Center"@en ;
@@ -2783,7 +2851,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/origin/tmc>
 	a skos:Concept;
-	skos:definition "Technical Management Center (TMC).";
+	skos:definition "Technical Management Center (TMC)."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "tmc";
 	skos:prefLabel "Technical Management Center"@en ;
@@ -2793,19 +2861,20 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/origin/clt>
 	a skos:Concept;
-	skos:definition "Customer.";
+	skos:definition "Customer."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "clt";
 	skos:prefLabel "Client"@fr ;
 	skos:prefLabel "Customer"@en ;
-	skos:broader <TroubleTicket/origin/clt-gp> ,
-	<TroubleTicket/origin/clt-pro> ;
-	skos:related <imp/groups/csc> ;
+	skos:broader
+		<TroubleTicket/origin/clt-gp> ,
+		<TroubleTicket/origin/clt-pro> ;
+	skos:related <imp/groups/ccc> ;
 .
 
 <TroubleTicket/origin/clt-gp>
 	a skos:Concept;
-	skos:definition "General public customer.";
+	skos:definition "General public customer."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "clt-gp";
 	skos:prefLabel "Client Grand Public"@fr ;
@@ -2816,7 +2885,7 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 <TroubleTicket/origin/clt-pro>
 	a skos:Concept;
-	skos:definition "Business customer.";
+	skos:definition "Business customer."@en;
 	skos:inScheme <TroubleTicket/origin> ;
 	skos:notation "clt-pro";
 	skos:prefLabel "Client Entreprise"@fr ;
@@ -2833,13 +2902,15 @@ Packet loss is measured as a percentage of packets lost with respect to packets 
 
 The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
 The thresholds of Incident resolution depend on standards defined per service type.
-When the thresholds are exceeded, specific process of escalation may be activated.""";
+When the thresholds are exceeded, specific process of escalation may be activated."""@en;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "severity" .
+	skos:notation "severity";
+	skos:prefLabel "Trouble Ticket severity"@en;
+.
 
 <TroubleTicket/severity/minor>
 	a skos:Concept;
-	skos:definition "Minor incident.";
+	skos:definition "Minor incident."@en;
 	skos:inScheme <TroubleTicket/severity> ;
 	skos:notation "minor";
 	skos:prefLabel "Minor"@en;
@@ -2847,7 +2918,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/severity/major>
 	a skos:Concept;
-	skos:definition "Major incident.";
+	skos:definition "Major incident."@en ;
 	skos:inScheme <TroubleTicket/severity> ;
 	skos:notation "major";
 	skos:prefLabel "Major"@en;
@@ -2855,7 +2926,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/severity/blocking-minor>
 	a skos:Concept;
-	skos:definition "Blocking incident with minor effect.";
+	skos:definition "Blocking incident with minor effect."@en;
 	skos:inScheme  <TroubleTicket/severity> ;
 	skos:notation "blocking-minor";
 	skos:prefLabel "Blocking"@en;
@@ -2865,7 +2936,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/severity/blocking-major>
 	a skos:Concept;
-	skos:definition "Blocking incident with major effect.";
+	skos:definition "Blocking incident with major effect."@en;
 	skos:inScheme  <TroubleTicket/severity> ;
 	skos:notation "blocking-major";
 	skos:prefLabel "Blocking/Major"@en;
@@ -2875,14 +2946,16 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility>
 	a skos:ConceptScheme;
-	skos:definition "The area of responsibility identified for an incident." ;
-	skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc." ;
+	skos:definition "The area of responsibility identified for an incident."@en ;
+	skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc."@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "problemResponsibility" .
+	skos:notation "problemResponsibility";
+	skos:prefLabel "Trouble Ticket problem responsibility"@en ;
+.
 
 <TroubleTicket/problemResponsibility/customer>
 	a skos:Concept;
-	skos:definition "Issue induced by customer action.";
+	skos:definition "Issue induced by customer action."@en ;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "customer";
 	skos:prefLabel "Customer"@en ;
@@ -2891,7 +2964,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility/managed-access-equipment>
 	a skos:Concept;
-	skos:definition "Managed access equipment on customer's premises.";
+	skos:definition "Managed access equipment on customer's premises."@en ;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "managed-access-equipment";
 	skos:prefLabel "Managed access equipment on customer's premises"@en ;
@@ -2901,7 +2974,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility/managed-backbone-networks>
 	a skos:Concept;
-	skos:definition "Managed backbone networks.";
+	skos:definition "Managed backbone networks."@en;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "managed-backbone-networks";
 	skos:prefLabel "Managed backbone networks"@en ;
@@ -2910,7 +2983,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility/managed-specific-networks>
 	a skos:Concept;
-	skos:definition "Managed specific networks.";
+	skos:definition "Managed specific networks."@en;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "managed-specific-networks";
 	skos:prefLabel "Managed specific networks"@en ;
@@ -2919,7 +2992,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility/contract-application-hosting-services>
 	a skos:Concept;
-	skos:definition "Contract application-hosting services.";
+	skos:definition "Contract application-hosting services."@en;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "contract-application-hosting-services";
 	skos:prefLabel "Contract application-hosting services"@en ;
@@ -2928,7 +3001,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/problemResponsibility/ill-defined>
 	a skos:Concept;
-	skos:definition "Ill-defined.";
+	skos:definition "Ill-defined."@en;
 	skos:inScheme <TroubleTicket/problemResponsibility>;
 	skos:notation "ill-defined";
 	skos:prefLabel "Ill-defined"@en ;
@@ -2940,13 +3013,15 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/commentType>
 	a skos:ConceptScheme;
-	skos:definition "The comment type describes the origin of a given comment.";
+	skos:definition "The comment type describes the origin of a given comment."@en;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "commentType" .
+	skos:notation "commentType" ;
+	skos:prefLabel "Trouble Ticket comment type"@en ;
+.
 
 <TroubleTicket/commentType/clt>
 	a skos:Concept;
-	skos:definition "The comment originates from a customer.";
+	skos:definition "The comment originates from a customer."@en;
 	skos:inScheme <TroubleTicket/commentType> ;
 	skos:notation "clt";
 	skos:prefLabel "Client"@fr ;
@@ -2955,7 +3030,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/commentType/ent>
 	a skos:Concept;
-	skos:definition "The comment originates from an internal technical support team.";
+	skos:definition "The comment originates from an internal technical support team."@en;
 	skos:inScheme <TroubleTicket/commentType> ;
 	skos:notation "ent";
 	skos:prefLabel "EDS"@fr ;
@@ -2968,7 +3043,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/commentType/int>
 	a skos:Concept;
-	skos:definition "The comment originates from an internal user." ;
+	skos:definition "The comment originates from an internal user."@en ;
 	skos:inScheme <TroubleTicket/commentType> ;
 	skos:notation "int";
 	skos:prefLabel "Interne"@fr ;
@@ -2978,8 +3053,8 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/commentType/sys>
 	a skos:Concept;
-	skos:definition "The comment originates from an automated system." ;
-	skos:example "Operation Support System (OSS), Alert Bot, Support Bot." ;
+	skos:definition "The comment originates from an automated system."@en ;
+	skos:example "Operation Support System (OSS), Alert Bot, Support Bot."@en ;
 	skos:inScheme <TroubleTicket/commentType> ;
 	skos:notation "sys";
 	skos:prefLabel "Système"@fr ;
@@ -2993,10 +3068,12 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 <TroubleTicket/operationType>
 	a skos:ConceptScheme;
-	skos:definition "The Operation type of (described by) the note." ;
-	skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc.";
+	skos:definition "The Operation type of (described by) the note."@en ;
+	skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc."@en ;
 	skos:inScheme <TroubleTicket> ;
-	skos:notation "operationType" .
+	skos:notation "operationType" ;
+	skos:prefLabel "Trouble Ticket operation type"@en ;
+.
 
 <TroubleTicket/operationType/comment-addition>
 	a skos:Concept;
@@ -3010,7 +3087,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 	a skos:Concept;
 	skos:inScheme <TroubleTicket/operationType> ;
 	skos:notation "inward-customer-contact";
-	skos:prefLabel "Inward Customer contact"@fr ;
+	skos:prefLabel "Inward Customer contact"@en ;
 	skos:prefLabel "Contact Client entrant"@fr ;
 .
 
@@ -3018,7 +3095,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
 	a skos:Concept;
 	skos:inScheme <TroubleTicket/operationType> ;
 	skos:notation "outward-customer-contact";
-	skos:prefLabel "Outward Customer contact"@fr ;
+	skos:prefLabel "Outward Customer contact"@en ;
 	skos:prefLabel "Contact Client sortant"@fr ;
 .
 

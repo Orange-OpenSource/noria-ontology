@@ -19,6 +19,8 @@ export PYTHONPATH := ./:${SRC_FOLDER}:$(PYTHONPATH)
 WIDOCO_BIN=./lib/widoco/java-17-widoco-1.4.17-jar-with-dependencies.jar
 # WIDOCO_BIN=./lib/widoco/widoco-1.4.19-jar-with-dependencies_JDK-17.jar
 
+SKOSPLAY_BIN=./lib/skos-play/skos-play-cli-0.9.1-onejar.jar
+
 # Loading (optional) environment variables from file.
 -include ./.env
 
@@ -92,30 +94,25 @@ doc-ontotool:	## Compile documentation with the ontology-toolkit
 
 	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
 
-doc-ontology: doc-widoco doc-ontotool
+doc-skos:	## Compile KOS documentation
 
-	@echo -e "\033[35m > Remove any previous local doc \033[0m (docs/NORIA-O)"
-	@rm -rf docs/NORIA-O/doc
+	@echo -e "\033[35m > Create the directory structure \033[0m (docs/NORIA-O-KOS)"
+	@mkdir -p docs/NORIA-O-KOS
 
-	@echo -e "\033[35m > Call the WIDOCO documentation framework \033[0m (see https://github.com/dgarijo/Widoco)"
-	@echo -e "WIDOCO_BIN = ${WIDOCO_BIN}"
+	@echo -e "\033[35m > Call the skos-play documentation framework \033[0m (see https://github.com/sparna-git/skos-play)"
+	@echo -e "SKOSPLAY_BIN = ${SKOSPLAY_BIN}"
 	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
-	@java \
-	  -Dhttps.proxyHost=${PROXY_SRV} \
-	  -Dhttps.proxyPort=${PROXY_PORT} \
-	  -jar ${WIDOCO_BIN} \
-	  -ontFile ontology/noria-latest.ttl \
-	  -outFolder docs/NORIA-O \
-	  -saveConfig docs/noria-ontology.widoco \
-	  -rewriteAll \
-	  -getOntologyMetadata \
-	  -includeImportedOntologies \
-	  -ignoreIndividuals \
-	  -webVowl \
-	  -noPlaceHolderText \
-	  -uniteSections
 
-	@echo -e "\033[35m > Call the ontology-toolkit graphic \033[0m (see https://github.com/semanticarts/ontology-toolkit)"
-	@onto_tool graphic -t NORIA-O -o docs/onto-tool/ ontology/noria-latest.ttl
+	@echo -e "\033[35m > Call the skos-play documentation framework \033[0m (alphabetical)"
+	@java \
+	  -jar ${SKOSPLAY_BIN} \
+	  complete \
+	  --format pdf \
+	  --lang en \
+	  --multilingual \
+	  --input ./kos/noria-kos-latest.ttl \
+	  --output ./docs/NORIA-O-KOS/noria-kos-latest.pdf
 
 	@echo -e "\033[35m > Done  \033[0m (you may now browse the doc locally or push it to the repository)"
+
+doc-ontology: doc-widoco doc-skos doc-ontotool
