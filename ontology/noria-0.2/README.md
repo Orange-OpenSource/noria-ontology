@@ -11,12 +11,11 @@ Details below provide directions for the ontology implementation.
 
 ## Naming convention
 
-Each ontology document must be in [Turtle](https://www.w3.org/TR/turtle/) syntax, and saved in a folder whose name corresponds to the version of the data model:
+Every ontology document must be a Turtle document, and be named as follows:
 
 ```
-NAME-MAJOR.MINOR/DOCUMENT.ttl
+NAME-MAJOR.MINOR.ttl
 ```
-
 where:
 
 - NAME matches `^[a-z]*$`
@@ -25,15 +24,15 @@ where:
 
 see http://semver.org/ for semantic versioning specification.
 
-When releasing a new version of the ontology,
+When a new release of the core ontology is released,
 
-* create a `noria-<major>.<minor>` folder,
-* update the `noria-latest.ttl` symbolic link for targeting the latest ontology version:
+* please update the `noria-latest.ttl` symbolic link for targeting the latest core file version:
 	```shell
 	# From the ontology directory
-	ln -s -f noria-<MAJOR.MINOR>/noria.ttl noria-latest.ttl
-	# e.g. ln -s -f noria-0.3/noria.ttl noria-latest.ttl
+	ln -s -f noria-<MAJOR.MINOR>.ttl noria-latest.ttl
+	# e.g. ln -s -f noria-0.2.ttl noria-latest.ttl
 	```
+* move older release files to a `noria-<major>.<minor>` subfolder.
 
 Direct reference to a versioned ontology implementation also makes use of the *noria* identifier.
 For example, the v0.1 main ontology file is available at: [https://w3id.org/noria/ontology/noria-0.1](https://w3id.org/noria/ontology/noria-0.1).
@@ -41,6 +40,7 @@ Using this approach rely on rewriting rules defined at the [perma-id/w3id.org](h
 
 ## Ontology metadata
 
+NORIA ontologies are modularized and versioned.
 An ontology instance uses the following metadata:
 
 - type `owl:Ontology`;
@@ -49,7 +49,8 @@ An ontology instance uses the following metadata:
 - potentially, a `owl:priorVersion`;
 - zero or more `owl:import`s that point to other ontologies (potentially ontology version IRIs) to be imported.
 
-Then each ontology instance must have the following recommended metadata:
+
+Then every ontology instance must have the following recommended metadata:
 
 - type `voaf:Vocabulary`;
 - at least one `dcterms:title` with a language tag;
@@ -69,7 +70,7 @@ Every other resource in the ontology `<https://w3id.org/noria/ontology/SOME_RESO
 - at least one `rdfs:label`;
 - at least one `rdfs:comment` with a language tag (it SHOULD use the [Markdown](https://www.markdownguide.org/) syntax);
 - a `vs:term_status`: one of `"unstable"`, `"testing"`, or `"stable"`;
-- a `rdfs:isDefinedBy` equal to `noria:`.
+- a `rdfs:isDefinedBy` equal to `noria:ONTOLOGY_NAME`.
 
 ## Alignment to other data models
 

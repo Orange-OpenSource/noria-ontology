@@ -550,16 +550,248 @@
     "@id" : "http://www.w3.org/2004/02/skos/core#inScheme"
   } ]
 }, {
+  "@id" : "http://IBCNServices.github.io/Folio-Ontology/Folio.owl#ControlMethod",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://IBCNServices.github.io/Folio-Ontology/Folio.owl#FailureMode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://IBCNServices.github.io/Folio-Ontology/Folio.owl#happenedAt",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://IBCNServices.github.io/Folio-Ontology/Folio.owl#hasCriticality",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/contributor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/created",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/creator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/date",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/description",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/extent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/identifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/issued",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/license",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/modified",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/publisher",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/references",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/relation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/source",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://purl.org/ontology/bibo/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocommons/voaf#Vocabulary",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://w3id.org/devops-infra/product#ServiceInstance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
     "@id" : "https://w3id.org/noria/ontology/Service"
   } ]
 }, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#date",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#duration",
+  "@type" : [ "http://www.w3.org/2000/01/rdf-schema#Datatype" ]
+}, {
+  "@id" : "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#Concept",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#altLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#changeNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#example",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#inScheme",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2006/time#inXSDDateTimeStamp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "http://www.w3.org/ns/org#Organization",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/org#OrganizationalUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#wasAttributedTo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Agent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/OnlineAccount",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://xmlns.com/foaf/0.1/depiction",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://xmlns.com/foaf/0.1/topic_interest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#Application",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#Device",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#EventRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#NetworkInterface",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#UserAccount",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#hostname",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#ipAddress",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://unifiedcyberontology.org/ontology/uco/observable#location",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/bot#Element",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/bot#Site",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/bot#Space",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/noria/Notification/Severity/PerceivedSeverity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/ChangeRequest/category",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/ChangeRequest/cause",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/ChangeRequest/specification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/ChangeRequest/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/ChangeRequest/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/Resource/AdministrativeState",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/Resource/LifecycleState",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/Resource/OperationalState",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/Resource/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/category",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/commentType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/operationType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/origin",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/priority",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/problemResponsibility",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/severity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/trouble-category",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/TroubleTicket/urgency",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/application/business-importance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/application/sla-level",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/application/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/application/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/org/agent-contact-method",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
+  "@id" : "https://w3id.org/noria/kos/service/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual", "http://purl.org/vocommons/voaf#Vocabulary" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
   "http://purl.org/dc/terms/creator" : [ {
     "@value" : "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)"
   }, {
@@ -580,7 +812,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2022-12-15"
+    "@value" : "2023-06-06"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
     "@id" : "https://www.orange.com/"
@@ -598,38 +830,23 @@
   "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
     "@value" : "https://w3id.org/noria/ontology/"
   } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/vocommons/voaf#Vocabulary"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
     "@id" : "https://w3id.org/noria/doc/"
   } ],
-  "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology-0.2"
-  }, {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology-0.2"
-  } ],
-  "http://www.w3.org/2002/07/owl#incompatibleWith" : [ {
-    "@id" : "https://w3id.org/noria/ontology/noria-0.1"
-  } ],
   "http://www.w3.org/2002/07/owl#priorVersion" : [ {
-    "@id" : "https://w3id.org/noria/ontology/noria-0.1"
-  } ],
-  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
     "@id" : "https://w3id.org/noria/ontology/noria-0.2"
   } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/noria/ontology/noria-0.3"
+  } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "v0.2"
+    "@value" : "v0.3"
   } ],
   "http://xmlns.com/foaf/0.1/depiction" : [ {
-    "@id" : "https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.pnghttps://raw.githubusercontent.com/Orange-OpenSource/noria-ontology/master/dataset/noria-0.2/noria-ontology-UC.png"
+    "@id" : "https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png"
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/ActionPostCondition",
@@ -641,7 +858,7 @@
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "https://en.wikipedia.org/wiki/Hoare_logic"
   }, {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "ActionPostCondition"
@@ -665,7 +882,7 @@
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "https://en.wikipedia.org/wiki/Hoare_logic"
   }, {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "ActionPreCondition"
@@ -688,7 +905,7 @@
     "@value" : "An abstract class for grouping observables and events that, when satisfied by the existence of some instance/value, represents the occurrence of a (complex) fault/failure mode."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "AnomalyPattern"
@@ -712,7 +929,7 @@
     "@value" : "An abstract system based on data processing and presentation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Application"
@@ -738,7 +955,7 @@
     "@value" : "A specific and managed instance of an Application."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "ApplicationModule"
@@ -752,8 +969,8 @@
     "@value" : "- Development instance of the RLOGS (Centralization of real time logs) Application.\n- B2B instance of the DMZ VoIP (shared management zone / platform for Voice over IP services) Application."
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/ApplicationOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ]
+  "@id" : "https://w3id.org/noria/ontology/ChangeAction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/ChangeRequest",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
@@ -762,7 +979,7 @@
     "@value" : "A Change Request represents a record used for reporting and managing change activities on services and resources. It is a key artefact to the Change Management process. Change Management process is to respond to the customer’s changing business requirements while maximizing value and reducing incidents, disruption and network.\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a ChangeRequest is a described resource, hence DC terms apply:\n  - changeRequestId <=> http://purl.org/dc/terms/identifier : Identifier of the ChangeRequest.\n  - changeRequestCreationDateTime <=> http://purl.org/dc/terms/created : The Date and time on which the ChangeRequest was created in the system.\n  - changeRequestLastUpdate <=> http://purl.org/dc/terms/modified : The date and time on which the ChangeRequest was last updated.\n  - changeRequestDescription <=> http://purl.org/dc/terms/description : Extended description of the change to be made.\n  - changeRequestNote <=> http://purl.org/dc/terms/hasPart : A list of customer or internal comments.\n  - changeRequestAttachment <=> http://purl.org/dc/terms/hasPart : DocumentAttachment(s) that are associated to the ChangeRequest.\n  - changeRequestDuration <=> http://purl.org/dc/terms/extent (optional)\n  - changeRequestRelatedParty <=> http://purl.org/dc/terms/contributor : Party playing a role in the ChangeRequest, whether it be an unqualified role (i.e. direct usage of dcterms:contributor) or a qualified role (i.e. sub-properties such as noria:changeRequestInitiatorParty).\n  - changeRequestCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this ChangeRequest.\n- *PEP*: a ChangeRequest is a context for (potentially) many *ChangeAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`.\n- *BBO*: a ChangeRequest is a DocumentResource in the sense that it is the result of the Change Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a ChangeRequest is a DataObject.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "ChangeRequest"
@@ -781,9 +998,6 @@
     "@value" : "stable"
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/CoreOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ]
-}, {
   "@id" : "https://w3id.org/noria/ontology/CorporateUserIdentifier",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -791,7 +1005,7 @@
     "@value" : "The Corporate User Identifier (CUid) is the unique identifier of a Person as a member of Organization (i.e. an Employee). It is also the main account of this Person for connecting to the organization's IT resources, including to its personal computer (PC).\n\nAlignment:\n- *FOAF*:\n  - The `foaf:accountName` allows for asserting the login identifier of an instance of this class.\n  - The `foaf:holdsAccount` property allows for relating an employee entity to an instance of this class.\n- *UCO*:\n  - A CUid is equivalent to a `observable:UserAccount`.\n  - The `observable:accountLogin` and `observable:accountIdentifier` can be used in parallel to `foaf:accountName` for asserting the the login identifier.\n  - The Person (`foaf:Agent`) holding this CUid is also a `observable:Contact`.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "CUid"
@@ -808,6 +1022,9 @@
     "@value" : "Change in v0.2:\n- alignment with foaf of the previously available noria:employeeId property."
   } ]
 }, {
+  "@id" : "https://w3id.org/noria/ontology/CorrectiveMaintenanceAction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/DocumentAttachment",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -815,7 +1032,7 @@
     "@value" : "A file attachment.\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a DocumentAttachment is a described resource, hence DC terms apply:\n  - troubleTicketAttachmentForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.\n  - changeRequestAttachment <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.\n- *BBO*: a DocumentAttachment is a DocumentResource in the sense that it is the result of the Incident Management Process (IMP) or Change Management Process (CMP) and can be used as an input for another activity. From the BPMN 2.0 perspective, a DocumentAttachment is a DataObject.\n    "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "DocumentAttachment"
@@ -832,13 +1049,6 @@
     "@value" : "Picture of broken device, scanning of a bill or charge, network diagram, operation plan, location map."
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/DocumentOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ],
-  "http://purl.org/dc/terms/description" : [ {
-    "@language" : "en",
-    "@value" : "The Document Ontology defines the TroubleTicket and ChangeRequest objects.\nThese are data resource (i.e. the result of a process) for efficient Incident Management and Change Management."
-  } ]
-}, {
   "@id" : "https://w3id.org/noria/ontology/DynamicElement",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -846,7 +1056,7 @@
     "@value" : "Abstract class for time-related entities and their potential chaining (a.k.a. *Dynamic facet*)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -869,7 +1079,7 @@
     "@value" : "This managed object represents the information stored in the log as a result of receiving notifications or incoming event reports.\n\nIn that sense it is an abstract object with basic properties (e.g. event type, logging time, provenance system, message) to interpret in the context of its properties and relationships.\nFor example, an *EventRecord* instance `log1` originating from the managed resource `R1` and describing a network interface state change on the Resource is fetched from a syslog-ng platform `Mon1` (i.e. the originating management system).\nA related *EventRecord* instance `alarm1` with `noria:alarmSeverity = Critical` and originating managed resource `R1` is triggered by a Network Monitoring System `NMS1` (i.e. the originating management system) for presentation to the Technical Support Center.\n\nConsidering possible combinations of properties' objects and values, a `noria:EventRecord` allows for describing:\n- both informational and alarm notifications (this rely on `skos:ConceptScheme` over the `dcterms:type` of the `noria:EventRecord`),\n- notifications that affect both the network infrastructure (e.g. network interface down), network applications/services (e.g. timeout, k-out-of-n) and the Operation Support System (OSS) itself (e.g. updating a `noria:TroubleTicketNote`),\n- notifications originating from both onboard signaling (e.g. [SNMP Trap](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol)), probes (e.g. [NIDS](https://en.wikipedia.org/wiki/Intrusion_detection_system)), the monitoring system (e.g. threshold overrun, business rules) and inference engines (e.g. NORIA-AD).\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a EventRecord is a described resource, hence DC terms apply:\n  - *logRecordId* <=> http://purl.org/dc/terms/identifier : Identifier of notification or log record, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-logRecordId>.\n  - *logInformation* <=> http://purl.org/dc/terms/description : Additional information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalInformation>.\n  - *logType* <=> http://purl.org/dc/terms/type : The Type of the Event (e.g. General Operation Alarm, State Change, etc.), as defined by the NORIA `kos/Notification/EventType` concept scheme.\n  - *alarmCorrelatedNotifications* <=> http://purl.org/dc/terms/relation : EventRecord instances or identifiers that are considered to be correlated to this EventRecord, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-correlatedNotifications>.\n  - *alarmOwner* <=> http://purl.org/dc/terms/mediator : The Support team member who acknowledged an Alarm Event Record.\n  - *alarmProbableCause* <=> http://purl.org/dc/terms/conformsTo : The asserted or inferred cause of the Alarm Event Record, as defined by the NORIA `kos/Notification/ProbableCause` and `kos/Notification/SecurityAlarmCause` concept schemes.\n    Asserting the Alarm cause is equivalent to directly connecting the Alarm, as a fault (issue, incident) artefact, to some phenomenon interpretation.\n    Inferring the Alarm cause is equivalent to guessing the phenomenon origin through Root Cause Analysis (RCA) or some probabilistic approach.\n- *BBO*: an EventRecord is a `BBO:DocumentResource` in the sense that it is the result of the Event Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, an EventRecord is a `DataObject`.\n- *PEP*: an EventRecord is an artefact of the realization of a `pep:Procedure`, hence it is a specialization of a `pep:ProcedureExecution` for the NORIA context.\n- *SLOGERT*: an EventRecord is equivalent to a `log:Event`.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord"
   }, {
@@ -906,6 +1116,9 @@
     "@language" : "en",
     "@value" : "Abstract class for services and broadcasting zones above the *Structural* facet (a.k.a. *Functional facet*)."
   } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/noria/ontology/"
+  } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "FunctionalElement"
@@ -917,9 +1130,6 @@
     "@value" : "stable"
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/LocationOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ]
-}, {
   "@id" : "https://w3id.org/noria/ontology/Locus",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -927,7 +1137,7 @@
     "@value" : "A uniquely identified space for Resources within a given Room.\n\nAlignment:\n- *BOT*:\n  - The relationship to the Locus of a Room is available with the `bot:containsZone` property.\n  - Approximating the geographical coordinates of a Locus is feasible through transitive inference over the `bot:hasZeroPoint` of the parent `bot:Site` (considering the GeoNames database this would to a `(bot:Site)=[bot:hasZeroPoint]=>(gn:Feature)` path towards `wgs84_pos:lat` or `wgs84_pos:long` values).\n- *ORG*: Note that, at instanciation time, `bot:Site` entities may also be `org:Site` (see https://www.w3.org/TR/vocab-org/#org:Site) in order to allow for an Organization (including teams, persons, manufacturers) to be localized (e.g. see `org:basedAt`), and hence allow for intervention distance/time calculus or threat calculus with respect to a given Locus.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Locus"
@@ -959,7 +1169,7 @@
     "@value" : "Top abstract class of NORIA Cyber/Physical concepts for describing, managing and analyzing ICT systems."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -979,7 +1189,7 @@
     "@value" : "A Network Interface of some Resource (e.g. server, router, virtual routing and forwarding (VRF) instance), and of some type (e.g. physical, virtual).\n\nUsage notes:\n- The name of the Network Interface (aka. networkInterfaceName, such as `ge-0/0/0.3013` or `ae52.3028`) can be set with the `rdfs:label` property.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "NetworkInterface"
@@ -1005,7 +1215,7 @@
     "@value" : "A physical or logical Link between Resources.\n\nUsage notes:\n- The organizational unit in charge of the Network Link (i.e. the Support team or Owner of the Network Link) can be set with the `noria:resourceManagedBy` property.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "NetworkLink"
@@ -1023,23 +1233,6 @@
     "@value" : "Optical fiber, L2TP connection, etc."
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/NotificationOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ],
-  "http://purl.org/dc/terms/creator" : [ {
-    "@id" : "https://orcid.org/0000-0001-5639-1504"
-  }, {
-    "@id" : "https://orcid.org/0000-0001-5887-899X"
-  }, {
-    "@id" : "https://orcid.org/0000-0003-0457-1436"
-  } ],
-  "http://purl.org/dc/terms/title" : [ {
-    "@language" : "en",
-    "@value" : "The NORIA Notification Ontology"
-  } ]
-}, {
-  "@id" : "https://w3id.org/noria/ontology/ObservableOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ]
-}, {
   "@id" : "https://w3id.org/noria/ontology/OperationPlan",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1047,7 +1240,7 @@
     "@value" : "An abstract class representing a formal set of operations to be carried out in a standardized/controlled way."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "OperationPlan"
@@ -1077,7 +1270,7 @@
     "@value" : "Abstract class for (predeﬁned/computed) operational process (a.k.a. *Procedural facet*)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1094,6 +1287,9 @@
     "@value" : "Incident diagnosis procedure, cyber attack scenario, network route fail-over algorithm"
   } ]
 }, {
+  "@id" : "https://w3id.org/noria/ontology/ProceduralObject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/ProductModel",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1101,7 +1297,7 @@
     "@value" : "The Product Model of some Resource as per the Manufacturer's naming."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "ProductModel"
@@ -1120,7 +1316,7 @@
     "@value" : "An abstract representation of qualifiable, quantifiable, observable or operable qualities of some Element."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1140,7 +1336,7 @@
     "@value" : "General resource record of the Communication Device kind from the logistics park. It is a managed entity that can be either Physical or Virtual.\n\nAlignment:\n- *SEAS*: Whenever a Resource individual is an assembly of other resources (e.g. a server rack) or is part of an assembly (e.g. a server blade), the Resource individual can also be declared as a `seas:System` in order to benefit of the `seas:subSystemOf` relation.\n  For example, Resources may be grouped in some `noria:Service` class for providing both an end-to-end analysis of the data path (i.e. Communication Devices + Connections) and an abstract object linked to some end user (e.g. Customer).\n- *BOT*: A `noria:Resource` is a sub-class of `bot:Element` for setting instances in the context of a physical environment (e.g. in a building).\n- *SLOGERT*: A `noria:Resource` is equivalent to a `log:Host`.\n- *UCO*: A `noria:Resource` is equivalent to an UCO's observable `Device`.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Resource"
@@ -1175,9 +1371,6 @@
     "@value" : "Changes in v0.2:\n- Adding rdfs:subClassOf bot:Element.\n- Adding rdfs:subClassOf observable:Device.\n- Adding rdfs:subClassOf log:Host.\n"
   } ]
 }, {
-  "@id" : "https://w3id.org/noria/ontology/ResourceOntology",
-  "@type" : [ "http://purl.org/vocommons/voaf#Vocabulary" ]
-}, {
   "@id" : "https://w3id.org/noria/ontology/Room",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1185,7 +1378,7 @@
     "@value" : "A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in.\n\nAlignment:\n- *BOT*: A Room is a specialization of a `bot:Space` for common sense understanding.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "Room"
@@ -1214,7 +1407,7 @@
     "@value" : "Service is an abstract base class for defining the Service hierarchy, i.e. the composition of assets (a.k.a. asset chain, service function chain) for providing a end-to-end data path or processing for some specific Customer or purpose.\n\nUsage notes:\n- The `noria:Service` is loosely defined as per the way to group underpinning assets. The typical usage is to assert `noria:ApplicationModule` entities as `seas:subSystemOf` a given `noria:Service`.\n- The network topology related to a given `noria:Service` is inferred from the set of resources, network interfaces and network links included in each Application that is part of the Service.\n  We remark here that, although deterministic, the data path granularity calculus for some communication session (e.g. a time-bounded IP/http query with its response) depends on the specificity of the resources included in `ApplicationModule` instances.\n  For example, the resulting granularity for a \"national IP backbone infrastructure\" application instance will correspond to the [routing domain](https://en.wikipedia.org/wiki/Routing_domain).\n\nAlignment:\n- *SEAS*: A `noria:Service` allows for grouping components, hence it is a subclass of `seas:System`.\n- *DevOps-Infra*:\n  - The `noria:Service` is a concrete instance of a set of deployment models, hence it relates to `devopsprod:ServiceInstance`.\n  - A `noria:Service.serviceType(<kos/service/type/CustomerFacingService>)` relates to the `devopsprod:BusinessProductInstance` concept.\n- *tmforum*:\n  - The `noria:Service` is equivalent to the `Service` object from the *[TMF 638 - Service Inventory](https://github.com/tmforum-apis/TMF638_ServiceInventory)* API.\n  - Using the `noria:serviceType` relates to asserting the `CustomerFacingService` or `ResourceFacingService` Service subclasses notions of the *TMF 638 - Service Inventory* API (i.e. as either being possibly visible and usable by a Customer or not).\n- *IETF*: Assuming a group *Service Functions* (SFs), the `noria:Service` concept relates to the *Service Function Chain (SFC)* definition from the [RFC 7665: SFC Architecture](https://www.rfc-editor.org/rfc/rfc7665) (see also [ITU-T X.1045](https://handle.itu.int/11.1002/1000/14043) for complementary SFC definition).\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1250,7 +1443,7 @@
     "@value" : "Abstract class for physical/logical ICT systems's assets and relations (a.k.a. *Structural facet*)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1276,7 +1469,7 @@
     "@value" : "An abstract class for ICT systems's properties that should be defined as classes for extended description capability."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1293,14 +1486,17 @@
     "@value" : "Time context of the observable value"
   } ]
 }, {
+  "@id" : "https://w3id.org/noria/ontology/StructuralProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/TroubleTicket",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "A trouble ticket represents a record used for reporting and managing the resolution of resource problems. Main trouble ticket attributes are its description, severity, type, priority, related dates (created, target resolution, resolution, etc.), state and related information (change reason, change date), related parties (originator, owner, pilot), notes, trouble causes and impacts.\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicket is a described resource, hence DC terms apply:\n  - troubleTicketId <=> http://purl.org/dc/terms/identifier : Identifier of the trouble ticket.\n  - troubleTicketCreationDateTime <=> http://purl.org/dc/terms/created : The Date on which the TroubleTicket was created in the ticketing system.\n  - troubleTicketLastUpdate <=> http://purl.org/dc/terms/modified : The date and time that the TroubleTicket was last updated.\n  - troubleTicketName <=> http://purl.org/dc/terms/title : Name of the TroubleTicket, typically a short description provided by the user that create the ticket or complementary data\n  - troubleTicketDescription <=> http://purl.org/dc/terms/description : Extended description of the trouble or issue.\n  - troubleTicketNote <=> http://purl.org/dc/terms/hasPart : The TroubleTicketNote(s) that are associated to the TroubleTicket.\n  - troubleTicketAttachment <=> http://purl.org/dc/terms/hasPart : The DocumentAttachment(s) that are associated to the TroubleTicket.\n  - troubleTicketRelationshipParentOf <=> http://purl.org/dc/terms/hasPart : The TroubleTicket(s) this ticket is parent of (TicketRelationship).\n  - troubleTicketRelationshipChildOf <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this ticket is the child of (TicketRelationship).\n  - troubleTicketDuration <=> http://purl.org/dc/terms/extent (optional) : The overall duration of the incident management process, typically in ISO 8601 duration format. Can be useful for computing Mean Time To Repair (MTTR) values for a given `problemCategory`.\n  - troubleTicketCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicket/TroubleTicketNote.\n- *BBO*: a TroubleTicket is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicket is a DataObject.\n- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.\n    "
+    "@value" : "A trouble ticket represents a record used for reporting and managing the resolution of resource problems. Main trouble ticket attributes are its description, severity, type, priority, related dates (created, target resolution, resolution, etc.), state and related information (change reason, change date), related parties (originator, owner, pilot), notes, trouble causes and impacts.\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicket is a described resource, hence DC terms apply:\n  - troubleTicketId <=> http://purl.org/dc/terms/identifier : Identifier of the trouble ticket.\n  - troubleTicketCreationDateTime <=> http://purl.org/dc/terms/created : The Date on which the TroubleTicket was created in the ticketing system.\n  - troubleTicketLastUpdate <=> http://purl.org/dc/terms/modified : The date and time that the TroubleTicket was last updated.\n  - troubleTicketName <=> http://purl.org/dc/terms/title : Name of the TroubleTicket, typically a short description provided by the user that create the ticket or complementary data\n  - troubleTicketDescription <=> http://purl.org/dc/terms/description : Extended description of the trouble or issue.\n  - troubleTicketNote <=> http://purl.org/dc/terms/hasPart : The TroubleTicketNote(s) that are associated to the TroubleTicket.\n  - troubleTicketAttachment <=> http://purl.org/dc/terms/hasPart : The DocumentAttachment(s) that are associated to the TroubleTicket.\n  - troubleTicketRelationshipParentOf <=> http://purl.org/dc/terms/hasPart : The TroubleTicket(s) this ticket is parent of (TicketRelationship).\n  - troubleTicketRelationshipChildOf <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this ticket is the child of (TicketRelationship).\n  - troubleTicketDuration <=> http://purl.org/dc/terms/extent (optional) : The overall duration of the incident management process, typically in ISO 8601 duration format. Can be useful for computing Mean Time To Repair (MTTR) values for a given `problemCategory`.\n  - troubleTicketCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicket/TroubleTicketNote.\n- *BBO*: a TroubleTicket is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicket is a DataObject.\n- *PEP*: a TroubleTicket is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.\n    "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "TroubleTicket"
@@ -1330,7 +1526,7 @@
     "@value" : "A trouble ticket note represents a record used for reporting and information sharing during the incident management process for a given Trouble Ticket.\n\nAlignment:\n- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicketNote is a described resource, hence DC terms apply:\n  - troubleTicketNoteDate <=> http://purl.org/dc/terms/created : The recording date of the TroubleTicketNote.\n  - troubleTicketNoteAuthor <=> http://purl.org/dc/terms/creator : The Author of the TroubleTicketNote.\n  - troubleTicketNoteText <=> http://purl.org/dc/terms/description : The content of the TroubleTicketNote.\n  - troubleTicketNoteForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this note is part of.\n  - troubleTicketNoteCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicketNote.\n- *BBO*: a TroubleTicketNote is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicketNote is a DataObject.\n- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.\n"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "TroubleTicketNote"
@@ -1361,7 +1557,7 @@
     "@id" : "https://w3id.org/noria/ontology/CorrectiveMaintenanceAction"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "actionCorrelatedOperationPlan"
@@ -1386,7 +1582,7 @@
     "@id" : "http://xmlns.com/foaf/0.1/Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "agentInstructions"
@@ -1415,7 +1611,7 @@
     "@id" : "http://xmlns.com/foaf/0.1/Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "agentManagesResource"
@@ -1443,7 +1639,7 @@
     "@id" : "http://xmlns.com/foaf/0.1/Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "agentPreferredContactMethod"
@@ -1472,7 +1668,7 @@
     "@id" : "http://xmlns.com/foaf/0.1/Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "agentWorkingHours"
@@ -1504,7 +1700,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "alarmMitigatedBy"
@@ -1529,7 +1725,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-monitoredAttributes"
   }, {
@@ -1552,7 +1748,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-proposedRepairActions"
   }, {
@@ -1582,7 +1778,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-perceivedSeverity"
   }, {
@@ -1622,7 +1818,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationBusinessImportance"
@@ -1647,7 +1843,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.tmforum.org/oda/information-systems/information-framework-sid/"
   } ],
@@ -1674,7 +1870,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.tmforum.org/oda/information-systems/information-framework-sid/"
   } ],
@@ -1701,7 +1897,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModelIdentifier"
@@ -1726,7 +1922,7 @@
     "@value" : "Responsable de l'entité exploitante."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleAdministrationLeader"
@@ -1754,7 +1950,7 @@
     "@value" : "Entité exploitante."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleAdministrationTeam"
@@ -1785,7 +1981,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleHotlineEnabled"
@@ -1807,7 +2003,7 @@
     "@value" : "Hotline team."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleHotlineGroup"
@@ -1835,7 +2031,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -1861,7 +2057,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleName"
@@ -1890,7 +2086,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleOf"
@@ -1912,7 +2108,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleRelatedParty"
@@ -1940,7 +2136,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleSlaLevel"
@@ -1965,7 +2161,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleSlaLevelDate"
@@ -1990,7 +2186,7 @@
     "@id" : "https://w3id.org/noria/ontology/ApplicationModule"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleStatus"
@@ -2019,7 +2215,7 @@
     "@value" : "Level 1 support team."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleSupportGroup"
@@ -2044,7 +2240,7 @@
     "@value" : "Support leader."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleSupportLeader"
@@ -2072,7 +2268,7 @@
     "@value" : "Level 2 Support Team."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationModuleSupportTeam"
@@ -2100,7 +2296,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationNumericalIdentifier"
@@ -2125,7 +2321,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationShortIdentifier"
@@ -2152,7 +2348,7 @@
     "@id" : "https://w3id.org/noria/ontology/Application"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "applicationType"
@@ -2177,7 +2373,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestActorParty"
@@ -2204,7 +2400,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestActualEndTime"
@@ -2229,7 +2425,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestActualStartTime"
@@ -2254,7 +2450,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestCategory"
@@ -2283,7 +2479,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestChangeCause"
@@ -2312,7 +2508,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestImpact"
@@ -2349,7 +2545,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestInitiatorParty"
@@ -2376,7 +2572,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestIsRegulated"
@@ -2398,7 +2594,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestOutageDuration"
@@ -2423,7 +2619,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestPilotParty"
@@ -2450,7 +2646,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestPlannedEndTime"
@@ -2475,7 +2671,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestPlannedStartTime"
@@ -2490,6 +2686,9 @@
     "@value" : "stable"
   } ]
 }, {
+  "@id" : "https://w3id.org/noria/ontology/changeRequestRelatedParty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/changeRequestSpecification",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -2500,7 +2699,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestSpecification"
@@ -2525,7 +2724,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestStatusCurrent"
@@ -2547,7 +2746,7 @@
     "@id" : "https://w3id.org/noria/ontology/ChangeRequest"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "changeRequestType"
@@ -2572,7 +2771,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "clusterController"
@@ -2605,7 +2804,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "documentExternalId"
@@ -2636,7 +2835,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "documentHRef"
@@ -2663,7 +2862,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "documentStatusHistory"
@@ -2688,7 +2887,7 @@
     "@value" : "The Distinguished Name of the Element Instance (i.e. unique identifier)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2708,7 +2907,7 @@
     "@id" : "https://w3id.org/noria/ontology/ManagedElement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "elementManagedBy"
@@ -2730,7 +2929,7 @@
     "@value" : "An abstract representation of a relationship between some Element instance and some Property instance."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2753,7 +2952,7 @@
     "@id" : "https://w3id.org/noria/ontology/DynamicElement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "eventRelatedElement"
@@ -2777,7 +2976,7 @@
     "@id" : "https://w3id.org/noria/ontology/DynamicElement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "eventRelatedParty"
@@ -2793,7 +2992,7 @@
     "@value" : "The Distinguished Name of the Functional Element Instance (i.e. unique identifier)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -2816,7 +3015,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "locatedAtLocus"
@@ -2851,7 +3050,7 @@
     "@id" : "https://w3id.org/noria/ontology/Locus"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "locusLine"
@@ -2877,10 +3076,10 @@
     "@id" : "https://w3id.org/noria/ontology/Locus"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "locusLine"
+    "@value" : "locusRow"
   } ],
   "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status" : [ {
     "@value" : "unstable"
@@ -2903,7 +3102,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser"
   }, {
@@ -2945,7 +3144,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-SecurityAlarmDetector"
   }, {
@@ -2997,7 +3196,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "logOriginatingManagementSystem"
@@ -3032,7 +3231,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText"
   } ],
@@ -3043,8 +3242,6 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://purl.org/dc/terms/title"
-  }, {
     "@id" : "https://w3id.org/pep/hasSimpleResult"
   }, {
     "@id" : "https://w3id.org/sepses/ns/log#msg"
@@ -3053,7 +3250,7 @@
     "@value" : "stable"
   } ],
   "http://www.w3.org/2004/02/skos/core#changeNote" : [ {
-    "@value" : "Changes in v0.2:\n- Adding rdfs:subPropertyOf dcterms:title.\n- Adding rdfs:subPropertyOf pep:hasSimpleResult.\n- Adding rdfs:subPropertyOf log:msg.\n"
+    "@value" : "Changes in v0.3:\n- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).\n"
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/loggingTime",
@@ -3065,7 +3262,7 @@
     "@id" : "https://w3id.org/noria/ontology/EventRecord"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/NotificationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   }, {
     "@id" : "https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime"
   } ],
@@ -3097,7 +3294,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceAdministrativeStatus"
@@ -3125,7 +3322,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceConnects"
@@ -3150,7 +3347,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceDescription"
@@ -3163,7 +3360,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceLaserRxHighPowerWarningThreshold",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The high received power notification threshold."
@@ -3172,7 +3369,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceLaserRxHighPowerWarningThreshold"
@@ -3188,7 +3385,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceLaserRxLowPowerWarningThreshold",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The low received power notification threshold."
@@ -3197,7 +3394,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceLaserRxLowPowerWarningThreshold"
@@ -3213,7 +3410,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPower",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The received optical power measure of the Network Interface, in dBm."
@@ -3222,7 +3419,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceLaserRxOpticalPower"
@@ -3241,7 +3438,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceLaserRxOpticalPowerAverage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The average received optical power of the Network Interface, in dBm."
@@ -3250,7 +3447,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceLaserRxOpticalPowerAverage"
@@ -3266,7 +3463,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceLaserTxOpticalPower",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The emitted optical power measure of the Network Interface, in dBm."
@@ -3275,7 +3472,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceLaserTxOpticalPower"
@@ -3303,7 +3500,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceOf"
@@ -3328,7 +3525,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceOperationalStatus"
@@ -3347,7 +3544,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/networkInterfaceRoutingPriorityMetric",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The metric value associated to the Network Interface for some routing protocol."
@@ -3356,7 +3553,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceRoutingPriorityMetric"
@@ -3384,7 +3581,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkInterface"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkInterfaceType"
@@ -3407,7 +3604,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkLink"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkLinkId"
@@ -3432,7 +3629,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkLink"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkLinkInstallationDate"
@@ -3454,7 +3651,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkLink"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkLinkTerminationResource"
@@ -3479,7 +3676,7 @@
     "@id" : "https://w3id.org/noria/ontology/NetworkLink"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "networkLinkType"
@@ -3501,7 +3698,7 @@
     "@id" : "https://w3id.org/noria/ontology/OperationPlan"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "operationPlanPostCondition"
@@ -3531,7 +3728,7 @@
     "@id" : "https://w3id.org/noria/ontology/OperationPlan"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "operationPlanPreCondition"
@@ -3561,7 +3758,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3593,7 +3790,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -3625,7 +3822,7 @@
     "@id" : "https://w3id.org/noria/ontology/ProductModel"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "productManufacturedBy"
@@ -3650,7 +3847,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceForApplication"
@@ -3679,7 +3876,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceHostName"
@@ -3716,7 +3913,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceInstallationDate"
@@ -3738,7 +3935,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceLogisticId"
@@ -3760,7 +3957,7 @@
     "@value" : "The Support team or Owner of the Network Element (IT Resource)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceManagedBy"
@@ -3788,7 +3985,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceManagementIPAddress"
@@ -3817,7 +4014,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceProductModel"
@@ -3839,7 +4036,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceSerialNumber"
@@ -3864,7 +4061,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceType"
@@ -3886,7 +4083,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ResourceOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "resourceUsageState"
@@ -3908,7 +4105,7 @@
     "@id" : "https://w3id.org/noria/ontology/Service"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ApplicationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "serviceType"
@@ -3936,7 +4133,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "siteId"
@@ -3961,7 +4158,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "sitePrincipalAddress"
@@ -3983,7 +4180,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "sitePrincipalAddressCityName"
@@ -4008,7 +4205,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "sitePrincipalAddressCountry"
@@ -4032,7 +4229,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "sitePrincipalAddressPostalCode"
@@ -4059,7 +4256,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "sitePrincipalAddressStreet"
@@ -4081,7 +4278,7 @@
     "@id" : "https://w3id.org/bot#Site"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/LocationOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "siteType"
@@ -4103,7 +4300,7 @@
     "@value" : "The Distinguished Name of the Structural Element Instance (i.e. unique identifier)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4123,7 +4320,7 @@
     "@value" : "An abstract representation of a relationship between some StructuralElement instance and some StructuralObservable instance."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4137,13 +4334,13 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/structuralElementObservableData",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "An abstract representation of a relationship between some StructuralElement instance and some literal data."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4156,6 +4353,9 @@
     "@value" : "unstable"
   } ]
 }, {
+  "@id" : "https://w3id.org/noria/ontology/structuralElementProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
   "@id" : "https://w3id.org/noria/ontology/structuralObservableOf",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -4163,7 +4363,7 @@
     "@value" : "Relates some `StructuralObservable` instance to some `StructuralElement` instance."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/CoreOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4186,7 +4386,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4218,14 +4418,11 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
     "@value" : "troubleTicketCause"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://purl.org/dc/terms/description"
   } ],
   "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status" : [ {
     "@value" : "stable"
@@ -4244,7 +4441,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketCharacteristic"
@@ -4263,7 +4460,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketCommittedRestorationDateTime"
@@ -4285,7 +4482,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4315,7 +4512,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketDetectionDateTime"
@@ -4340,7 +4537,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4366,7 +4563,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4397,7 +4594,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketIsNotificationEnable"
@@ -4419,7 +4616,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicketNote"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketNoteCommentType"
@@ -4448,7 +4645,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicketNote"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketNoteCorrelatedExecution"
@@ -4475,7 +4672,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicketNote"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketNoteOperationType"
@@ -4504,7 +4701,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketOrigin"
@@ -4532,7 +4729,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4546,13 +4743,13 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
-    "@value" : "Confirmed to customer planned restoration date ATR (Actual Time to Restore (ATR))."
+    "@value" : "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketPlannedRestorationDateTime"
@@ -4577,7 +4774,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
@@ -4606,7 +4803,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketRelatedParty"
@@ -4631,7 +4828,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketRelatedResource"
@@ -4658,7 +4855,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketRelatedService"
@@ -4692,7 +4889,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketSeverity"
@@ -4721,7 +4918,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketStatusCurrent"
@@ -4746,7 +4943,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketSupervisionTool"
@@ -4771,7 +4968,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketTargetRestorationDateTime"
@@ -4787,7 +4984,7 @@
   } ]
 }, {
   "@id" : "https://w3id.org/noria/ontology/troubleTicketTrigger",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",
     "@value" : "The EventRecord at the origin of the creation of the Trouble Ticket."
@@ -4796,7 +4993,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketTrigger"
@@ -4824,7 +5021,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketType"
@@ -4853,7 +5050,7 @@
     "@id" : "https://w3id.org/noria/ontology/TroubleTicket"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/DocumentOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "troubleTicketUrgency"
@@ -4881,7 +5078,7 @@
     "@id" : "https://w3id.org/noria/ontology/Resource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
-    "@id" : "https://w3id.org/noria/ontology/ObservableOntology"
+    "@id" : "https://w3id.org/noria/ontology/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "virtualServerStatus"
@@ -4895,4 +5092,94 @@
   "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status" : [ {
     "@value" : "unstable"
   } ]
+}, {
+  "@id" : "https://w3id.org/pep/Procedure",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pep/ProcedureExecution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pep/ProcedureExecutionContainer",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pep/hasInput",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/pep/hasOutput",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/pep/hasSimpleResult",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://w3id.org/pep/madeBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/pep/usedProcedure",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/seas/CommunicationConnection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/CommunicationConnectionPoint",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/CommunicationDevice",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/FeatureOfInterest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/Property",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/System",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/seas/connectionPointOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/seas/connectsSystem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/seas/connectsSystemAt",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/seas/hasProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/seas/subSystemOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#Event",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#Host",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#hasSourceHost",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#host",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#msg",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://w3id.org/sepses/ns/log#time",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://www.geonames.org/ontology#countryCode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://www.geonames.org/ontology#postalCode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
+}, {
+  "@id" : "https://www.irit.fr/recherches/MELODI/ontologies/BBO#DocumentResource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_activationCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://www.irit.fr/recherches/MELODI/ontologies/BBO#has_completionCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
 } ]
