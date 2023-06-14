@@ -93,11 +93,11 @@ Alignment holds for the following vocabulary releases:
     vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
     dcterms:issued "2022-05-10"^^xsd:date ;
 	dcterms:modified "2023-06-06"^^xsd:date ;
-#	skos:changeNote """Changes in v0.3:
-#
-#- Changed the ontology architecture from micro-architecture to single file.
-#- Removed owl:imports for NORIA foundations.
-#"""@en ;
+	skos:changeNote """Changes in v0.3:
+
+- Changed the ontology architecture from micro-architecture to single file.
+- Removed owl:imports for NORIA foundations.
+"""@en ;
 	owl:versionInfo "v0.3" ;
 	owl:versionIRI <ontology/noria-0.3> ;
 	owl:priorVersion <ontology/noria-0.2> ;
