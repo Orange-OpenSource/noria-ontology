@@ -2,7 +2,7 @@
 
 This folder contains the **NORIA Competency Questions** (CQs) in relation to the Ontology Requirement Specification Design (ORSD).
 
-* [NORIA-O CQs](cqs-noria-0.3.yaml) list, which contains 26 different items. 
+* [NORIA-O CQs](cqs-noria-0.3.yaml) list, which contains 26 different items.
 
 Competency Questions follows this template:
 ```yaml
