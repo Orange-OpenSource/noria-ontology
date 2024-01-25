@@ -2557,6 +2557,28 @@ noria:networkLinkTerminationResource
 	rdfs:isDefinedBy noria: ;
 .
 
+noria:networkLinkTerminationResourceOrigin
+	a owl:ObjectProperty ;
+	rdfs:label "networkLinkTerminationResourceOrigin" ;
+	rdfs:comment "Link termination Resource, the Resource at the origin of a Network Link for a unidirectional link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range noria:Resource ;
+	vs:term_status "unstable" ;
+	rdfs:subPropertyOf noria:networkLinkTerminationResource ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkTerminationResourceDestination
+	a owl:ObjectProperty ;
+	rdfs:label "networkLinkTerminationResourceDestination" ;
+	rdfs:comment "Link termination Resource, the Resource at the destination of a Network Link for a unidirectional link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range noria:Resource ;
+	vs:term_status "unstable" ;
+	rdfs:subPropertyOf noria:networkLinkTerminationResource ;
+	rdfs:isDefinedBy noria: ;
+.
+
 noria:networkLinkInstallationDate
 	a owl:DatatypeProperty ;
 	rdfs:label "networkLinkInstallationDate" ;

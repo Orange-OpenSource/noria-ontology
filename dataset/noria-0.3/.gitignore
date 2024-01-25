@@ -1,0 +1,8 @@
+# mapping engine
+engine/*.class
+
+# mapping results
+output/noria-full.ttl
+
+# virtdb database folder
+virtdb/

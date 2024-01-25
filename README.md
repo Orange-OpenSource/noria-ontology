@@ -5,6 +5,7 @@ The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is in
 The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
 
 Cite:
+
 ```bibtex
 @inproceedings{noria-o-2022,
   title = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems},
@@ -12,6 +13,10 @@ Cite:
   year = {2022}
 }
 ```
+
+Overview of the data model:
+
+![NORIA-O diagram](docs/diagrams/noria-ontology-overview.png)
 
 ## Usage
 
@@ -41,7 +46,7 @@ noria-ontology
 
 ## Copyright
 
-Copyright (c) 2020-2023, Orange / EURECOM. All rights reserved.
+Copyright (c) 2020-2024, Orange / EURECOM. All rights reserved.
 
 ## License
 
