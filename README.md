@@ -17,6 +17,7 @@ Cite:
 Overview of the data model:
 
 ![NORIA-O diagram](docs/diagrams/noria-ontology-overview.png)
+
 ## Usage
 
 We provide a direct access to the NORIA-O resources with the **noria** [w3id.org](https://w3id.org/) identifier:
