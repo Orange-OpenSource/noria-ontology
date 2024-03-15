@@ -33,7 +33,7 @@ Alignment holds for the following vocabulary releases:
                                     <http://purl.org/dc/terms/modified> "2023-06-06"^^xsd:date ;
                                     <http://purl.org/dc/terms/publisher> <https://www.orange.com/> ;
                                     <http://purl.org/dc/terms/title> "The NORIA Ontology"@en ;
-                                    <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;
+                                    <http://purl.org/ontology/bibo/status> <http://purl.org/ontology/bibo/status/accepted> ;
                                     <http://purl.org/vocab/vann/preferredNamespacePrefix> "noria" ;
                                     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/noria/ontology/" ;
                                     rdfs:seeAlso <https://w3id.org/noria/doc/> ;

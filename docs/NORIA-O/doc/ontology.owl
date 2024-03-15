@@ -17,26 +17,9 @@
         <terms:creator>Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)</terms:creator>
         <terms:creator>Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)</terms:creator>
         <terms:creator>Yoan Chabot (https://orcid.org/0000-0001-5639-1504)</terms:creator>
-        <terms:description xml:lang="en">The NORIA-O project is a data model for IT networks, events and operations information.
-The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
-
-Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
-Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
-Alignment holds for the following vocabulary releases:
-- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
-- [BOT](https://w3id.org/bot/) 0.3.2
-- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
-- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
-- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
-- [PEP](https://w3id.org/pep/) 1.1
-- [SEAS](https://w3id.org/seas/) 1.1
-- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
-- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
-</terms:description>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-05-10</terms:issued>
         <terms:license rdf:resource="https://spdx.org/licenses/BSD-4-Clause"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-06-06</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-15</terms:modified>
         <terms:publisher rdf:resource="https://www.orange.com/"/>
         <terms:title xml:lang="en">The NORIA Ontology</terms:title>
         <bibo:status rdf:resource="http://purl.org/ontology/bibo/status/accepted"/>
@@ -45,6 +28,15 @@ Alignment holds for the following vocabulary releases:
         <rdfs:seeAlso rdf:resource="https://w3id.org/noria/doc/"/>
         <owl:priorVersion rdf:resource="https://w3id.org/noria/ontology/noria-0.2"/>
         <owl:versionInfo>v0.3</owl:versionInfo>
+        <skos:changeNote xml:lang="en">Changes in v0.3:
+
+- Changed the ontology architecture from micro-architecture to single file.
+- Removed owl:imports for NORIA foundations.
+
+2024-03-15:
+
+- Changed bibo:status
+</skos:changeNote>
         <foaf:depiction rdf:resource="https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png"/>
     </owl:Ontology>
     
@@ -59,13 +51,6 @@ Alignment holds for the following vocabulary releases:
      -->
 
 
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
     
 
 
@@ -1259,6 +1244,36 @@ Alignment:
     
 
 
+    <!-- https://w3id.org/noria/ontology/networkLinkTerminationResourceDestination -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/noria/ontology/networkLinkTerminationResourceDestination">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/noria/ontology/networkLinkTerminationResource"/>
+        <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/NetworkLink"/>
+        <rdfs:range rdf:resource="https://w3id.org/noria/ontology/Resource"/>
+        <rdfs:comment xml:lang="en">Link termination Resource, the Resource at the destination of a Network Link for a unidirectional link.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
+        <rdfs:label>networkLinkTerminationResourceDestination</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/networkLinkTerminationResourceOrigin -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/noria/ontology/networkLinkTerminationResourceOrigin">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/noria/ontology/networkLinkTerminationResource"/>
+        <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/NetworkLink"/>
+        <rdfs:range rdf:resource="https://w3id.org/noria/ontology/Resource"/>
+        <rdfs:comment xml:lang="en">Link termination Resource, the Resource at the origin of a Network Link for a unidirectional link.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
+        <rdfs:label>networkLinkTerminationResourceOrigin</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/noria/ontology/operationPlanPostCondition -->
 
 
@@ -2107,6 +2122,13 @@ When the thresholds are exceeded, specific process of escalation may be activate
     
 
 
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
     <!-- http://purl.org/dc/terms/extent -->
 
 
@@ -2872,6 +2894,7 @@ Alignment:
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/noria/ontology/troubleTicketCause">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
         <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/TroubleTicket"/>
         <rdfs:comment xml:lang="en">The cause(s) defined for the trouble, in plain text.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
@@ -4044,6 +4067,25 @@ Customer has confirmed that the service is restored.</skos:example>
 
     <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+        <terms:description xml:lang="en">
+The NORIA-O project is a data model for IT networks, events and operations information.
+The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
+The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
+
+Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
+Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
+Alignment holds for the following vocabulary releases:
+
+- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
+- [BOT](https://w3id.org/bot/) 0.3.2
+- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
+- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
+- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
+- [PEP](https://w3id.org/pep/) 1.1
+- [SEAS](https://w3id.org/seas/) 1.1
+- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
+- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
+</terms:description>
     </owl:NamedIndividual>
     
 
