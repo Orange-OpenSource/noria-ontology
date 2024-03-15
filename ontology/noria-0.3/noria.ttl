@@ -83,7 +83,7 @@ Alignment holds for the following vocabulary releases:
 - [UCO](https://github.com/ucoProject/uco) Release-0.8.0
 """@en ;
     foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> ;
-    bibo:status <http://purl.org/ontology/bibo/status/nonPeerReviewed> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+    bibo:status <http://purl.org/ontology/bibo/status/accepted> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
 	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
 	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
 	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
@@ -92,11 +92,15 @@ Alignment holds for the following vocabulary releases:
     vann:preferredNamespacePrefix "noria" ;
     vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
     dcterms:issued "2022-05-10"^^xsd:date ;
-	dcterms:modified "2023-06-06"^^xsd:date ;
+	dcterms:modified "2024-03-15"^^xsd:date ;
 	skos:changeNote """Changes in v0.3:
 
 - Changed the ontology architecture from micro-architecture to single file.
 - Removed owl:imports for NORIA foundations.
+
+2024-03-15:
+
+- Changed bibo:status
 """@en ;
 	owl:versionInfo "v0.3" ;
 	owl:versionIRI <ontology/noria-0.3> ;
