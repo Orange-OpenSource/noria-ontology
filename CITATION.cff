@@ -44,3 +44,21 @@ keywords:
 license: BSD-4-Clause
 version: v0.3.0
 date-released: '2023-06-06'
+preferred-citation:
+  type: conference-paper
+  authors:
+  - orcid: 'https://orcid.org/0000-0001-5887-899X'
+    affiliation: Orange
+    given-names: Lionel
+    family-names: Tailhardat
+  - orcid: 'https://orcid.org/0000-0001-5639-1504'
+    given-names: Yoan
+    family-names: Chabot
+    affiliation: Orange
+  - orcid: 'https://orcid.org/0000-0003-0457-1436'
+    affiliation: EURECOM
+    given-names: Raphaël
+    family-names: Troncy
+  journal: "Semantic Web - 21st International Conference, ESWC 2024, Hersonissos, Crete, Greece, May 26 - 30, 2024, Proceedings"
+  title: "NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems"
+  year: 2024

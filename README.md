@@ -7,10 +7,11 @@ The model has been developed in collaboration with operational teams, and in con
 Cite:
 
 ```bibtex
-@inproceedings{noria-o-2022,
-  title = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems},
-  author = {{Lionel Tailhardat} and {Yoan Chabot} and {Rapha\"el Troncy}},
-  year = {2022}
+@inproceedings{noria-o-2024,
+  title     = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems},
+  author    = {{Lionel Tailhardat} and {Yoan Chabot} and {Rapha\"el Troncy}},
+  booktitle = {Semantic Web - 21st International Conference, ESWC 2024, Hersonissos, Crete, Greece, May 26 - 30, 2024, Proceedings},
+  year      = {2024}
 }
 ```
 
