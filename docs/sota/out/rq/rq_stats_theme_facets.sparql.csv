@@ -1,0 +1,21 @@
+theme,facetName,facetCount
+CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic,7
+CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional,6
+CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural,9
+CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural,6
+Generic,https://w3id.org/noria/ontology-bib/FacetDynamic,10
+Generic,https://w3id.org/noria/ontology-bib/FacetFunctional,2
+Generic,https://w3id.org/noria/ontology-bib/FacetProcedural,7
+Health Science,https://w3id.org/noria/ontology-bib/FacetProcedural,1
+Net-IT,https://w3id.org/noria/ontology-bib/FacetDynamic,2
+Net-IT,https://w3id.org/noria/ontology-bib/FacetFunctional,3
+Net-IT,https://w3id.org/noria/ontology-bib/FacetProcedural,2
+Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural,5
+Process modeling,https://w3id.org/noria/ontology-bib/FacetDynamic,3
+Process modeling,https://w3id.org/noria/ontology-bib/FacetFunctional,1
+Process modeling,https://w3id.org/noria/ontology-bib/FacetProcedural,4
+Process modeling,https://w3id.org/noria/ontology-bib/FacetStructural,2
+SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic,5
+SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional,6
+SE-SI,https://w3id.org/noria/ontology-bib/FacetProcedural,4
+SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural,8

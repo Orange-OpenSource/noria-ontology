@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.opengis.net/ont/geosparql#"
+     xml:base="http://www.opengis.net/ont/geosparql"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:spec11="http://www.opengis.net/spec/geosparql/1.1/specification.html#"
+     xmlns:sdo="https://schema.org/">
+    <owl:Ontology rdf:about="http://www.opengis.net/ont/geosparql">
+        <owl:versionIRI rdf:resource="http://www.opengis.net/ont/geosparql/1.1"/>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-9499-5840</sdo:url>
+                <sdo:affiliation>Mainz University Of Applied Sciences</sdo:affiliation>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">timo.homburg@hs-mainz.de</sdo:email>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:name>Timo Homburg</sdo:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-10-27</dcterms:modified>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0001-5075-6234</sdo:url>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">joseph.abhayaratna@geoscape.com.au</sdo:email>
+                <sdo:affiliation>Geoscape Australia</sdo:affiliation>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:name>Joseph Abhayaratna</sdo:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0003-3789-2260</sdo:url>
+                <sdo:name>Frans Knibbe</sdo:name>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">fjknibbe@gmail.com</sdo:email>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:name>Simon J D Cox</sdo:name>
+                <sdo:affiliation>CSIRO Australia</sdo:affiliation>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">simon.cox@csiro.au</sdo:email>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-3884-3420</sdo:url>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:title>GeoSPARQL Ontology</dcterms:title>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:name>Matthew Perry</sdo:name>
+                <sdo:affiliation>Oracle Corporation</sdo:affiliation>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">matthew.perry@oracle.com</sdo:email>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0003-1988-462X</sdo:url>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:license rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.ogc.org/license</dcterms:license>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-8742-7730</sdo:url>
+                <sdo:name>Nicholas J. Car</sdo:name>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">nicholas.car@surroundaustralia.com</sdo:email>
+                <sdo:affiliation>SURROUND Australia Pty Ltd</sdo:affiliation>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:affiliation>Australian National University</sdo:affiliation>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:affiliation>Oracle Corporation</sdo:affiliation>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">john.herring@oracle.com</sdo:email>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+                <sdo:name>John Herring</sdo:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-09-09</dcterms:created>
+        <dcterms:contributor>
+            <rdf:Description>
+                <sdo:affiliation>Neanex Technologies</sdo:affiliation>
+                <sdo:name>Mathias Bonduel</sdo:name>
+                <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">mathias.bonduel@neanex.com</sdo:email>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-3313-924X</sdo:url>
+                <sdo:affiliation>KU Leuven</sdo:affiliation>
+                <rdf:type rdf:resource="https://schema.org/Person"/>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:replaces rdf:resource="http://www.opengis.net/ont/geosparql/1.0"/>
+        <owl:versionInfo>OGC GeoSPARQL 1.1</owl:versionInfo>
+        <dcterms:publisher>
+            <rdf:Description>
+                <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.ogc.org</sdo:url>
+                <rdf:type rdf:resource="https://schema.org/Organization"/>
+                <sdo:name>Open Geospatial Consortium</sdo:name>
+            </rdf:Description>
+        </dcterms:publisher>
+        <dcterms:source rdf:resource="http://www.opengis.net/doc/IS/geosparql/1.1"/>
+        <dcterms:description xml:lang="en">An RDF/OWL vocabulary for representing spatial information</dcterms:description>
+        <dcterms:source xml:lang="en">OGC GeoSPARQL - A Geographic Query Language for RDF Data OGC 11-052r5</dcterms:source>
+        <rdfs:seeAlso rdf:resource="http://www.opengis.net/doc/IS/geosparql/1.1"/>
+        <dcterms:creator>OGC GeoSPARQL Standards Working Group</dcterms:creator>
+        <dcterms:rights>(c) 2021 Open Geospatial Consortium</dcterms:rights>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#note"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    
+
+
+    <!-- https://schema.org/affiliation -->
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/affiliation"/>
+    
+
+
+    <!-- https://schema.org/email -->
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/email"/>
+    
+
+
+    <!-- https://schema.org/name -->
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/name"/>
+    
+
+
+    <!-- https://schema.org/url -->
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/url"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#dggsLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#dggsLiteral">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/dggs-literal"/>
+        <rdfs:seeAlso rdf:resource="http://www.opengis.net/doc/AS/dggs/2.0"/>
+        <skos:definition xml:lang="en">A textual serialization of a Discrete Global Grid (DGGS) Geometry object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:example> &quot;&lt;https://w3id.org/dggs/auspix&gt; OrdinateList (R3234)&quot;^^&lt;http://www.opengis.net/ont/geosparql#dggsLiteral&gt;</skos:example>
+        <skos:prefLabel xml:lang="en">DGGS Literal</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">This datatype is not expected to be used directly but to serve as an abstract datatype for a series of specific DGGS literal types, for specific DGGS implementations</skos:scopeNote>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#geoJSONLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#geoJSONLiteral">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geojson-literal"/>
+        <rdfs:seeAlso rdf:resource="https://tools.ietf.org/html/rfc7946"/>
+        <skos:definition xml:lang="en">A GeoJSON serialization of a Geometry object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">GeoJSON Literal</skos:prefLabel>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#gmlLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#gmlLiteral">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/gml-literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/gml-literal"/>
+        <rdfs:seeAlso rdf:resource="https://portal.ogc.org/files/?artifact_id=20509"/>
+        <skos:definition xml:lang="en">A GML serialization of a Geometry object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">GML Literal</skos:prefLabel>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#kmlLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#kmlLiteral">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/kml-literal"/>
+        <rdfs:seeAlso rdf:resource="https://www.ogc.org/standards/kml/"/>
+        <skos:definition xml:lang="en">A KML serialization of a Geometry object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">KML Literal</skos:prefLabel>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#wktLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#wktLiteral">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/wkt-literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/wkt-literal"/>
+        <rdfs:seeAlso rdf:resource="https://portal.ogc.org/files/?artifact_id=25355"/>
+        <skos:definition xml:lang="en">A Well-known Text serialization of a Geometry object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.2.2"/>
+        <skos:prefLabel xml:lang="en">Well-known Text Literal</skos:prefLabel>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#defaultGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#defaultGeometry">
+        <owl:equivalentProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasDefaultGeometry"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">The default Geometry to be used in spatial calculations. It is usually the most detailed Geometry.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.1"/>
+        <skos:note xml:lang="en">Duplicate properties defaultGeometry and hasDefaultGeometry exist because of an inconsistency between ontology and documentation in GeoSPARQL 1.0. Only hasDefaultGeometry is described in the documention.</skos:note>
+        <skos:prefLabel xml:lang="en">default geometry</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehContains -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehContains">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*TFF*FF*</skos:definition>
+        <skos:prefLabel xml:lang="en">contains</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehCoveredBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehCoveredBy">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially covered by the object SpatialObject. DE-9IM: TFF*TFT**</skos:definition>
+        <skos:prefLabel xml:lang="en">covered by</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehCovers -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehCovers">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially covers the object SpatialObject. DE-9IM: T*TFT*FF*</skos:definition>
+        <skos:prefLabel xml:lang="en">covers</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehDisjoint -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehDisjoint">
+        <owl:equivalentProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfDisjoint"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FF*FF****</skos:definition>
+        <skos:prefLabel xml:lang="en">disjoint</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehEquals -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehEquals">
+        <owl:equivalentProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfEquals"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT</skos:definition>
+        <skos:prefLabel xml:lang="en">equals</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehInside -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehInside">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially inside the object SpatialObject. DE-9IM: TFF*FFT**</skos:definition>
+        <skos:prefLabel xml:lang="en">inside</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehMeet -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehMeet">
+        <owl:equivalentProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfTouches"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially meets the object SpatialObject. DE-9IM: FT******* ^ F**T***** ^ F***T****</skos:definition>
+        <skos:prefLabel xml:lang="en">meet</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#ehOverlap -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#ehOverlap">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/eh-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: T*T***T**</skos:definition>
+        <skos:prefLabel xml:lang="en">overlap</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasArea -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The area of a Spatial Object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has area</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasBoundingBox -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasBoundingBox">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">The minimum or smallest bounding or enclosing box of a given Feature.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has bounding box</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The target is a Geometry that defines a rectilinear region whose edges are aligned with the axes of the coordinate reference system, which exactly contains the Feature, for example an instance of http://www.opengis.net/ont/sf#envelope.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasCentroid -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasCentroid">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">The arithmetic mean position of all the Geometry points of a given Feature.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has centroid</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The target Geometry shall describe a point, for example an instance of http://www.opengis.net/ont/sf#Point.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasDefaultGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasDefaultGeometry">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/feature-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">The default Geometry to be used in spatial calculations. It is usually the most detailed Geometry.</skos:definition>
+        <skos:note xml:lang="en">Duplicate properties defaultGeometry and hasDefaultGeometry exist because of an inconsistency between ontology and documentation in GeoSPARQL 1.0. Only hasDefaultGeometry is described in the documention.</skos:note>
+        <skos:prefLabel xml:lang="en">has default geometry</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/feature-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">A spatial representation for a given Feature.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2"/>
+        <skos:prefLabel xml:lang="en">has geometry</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasLength -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The length of a Spatial Object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.7"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has length</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasPerimeterLength -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasPerimeterLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The length of the perimeter of a Spatial Object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.1.2"/>
+        <skos:prefLabel xml:lang="en">has perimeter length</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasSize -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasSize">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/spatial-object-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">Subproperties of this property are used to indicate the size of a Spatial Object as a measurement or estimate of one or more dimensions of the Spatial Object&apos;s spatial presence.</skos:definition>
+        <skos:note xml:lang="en">The recommended way to specify size is by using a subproperty of hasMetricSize. Subproperties of hasSize can be used if more complex expressions are necessary, for example if the unit of length can not be converted to meter, or if additional data are needed to describe the measurement or estimate.</skos:note>
+        <skos:prefLabel xml:lang="en">has size</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasSpatialAccuracy -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasSpatialAccuracy">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The positional accuracy of the coordinates of a Geometry.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:note xml:lang="en">Spatial accuracy is applicable when a Geometry is used to represent a Feature. It is expressed as a distance that indicates the truthfullness of the positions (coordinates) that define the Geometry. In this case accuracy defines a zone surrounding each coordinate within wich the real positions are known to be. The accuracy value defines this zone as a distance from the coordinate(s) in all directions (e.g. a line, a circle or a sphere, depending on spatial dimension).</skos:note>
+        <skos:prefLabel xml:lang="en">has spatial accuracy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasSpatialResolution -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasSpatialResolution">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/feature-properties"/>
+        <skos:definition xml:lang="en">The spatial resolution of a Geometry.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:note xml:lang="en">Spatial resolution specifies the level of detail of a Geometry. It the smallest distinguishable distance between spatially adjacent coordinates.</skos:note>
+        <skos:prefLabel xml:lang="en">has spatial resolution</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasVolume -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasVolume">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The volume of a three-dimensional Spatial Object.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has volume</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8dc -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8dc">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FFTFFTTTT</skos:definition>
+        <skos:prefLabel xml:lang="en">disconnected</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ec -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ec">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially meets the object SpatialObject. DE-9IM: FFTFTTTTT</skos:definition>
+        <skos:prefLabel xml:lang="en">externally connected</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8eq -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8eq">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT</skos:definition>
+        <skos:prefLabel xml:lang="en">equals</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntpp -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntpp">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially inside the object SpatialObject. DE-9IM: TFFTFFTTT</skos:definition>
+        <skos:prefLabel xml:lang="en">non-tangential proper part</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8ntppi -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8ntppi">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: TTTFFTFFT</skos:definition>
+        <skos:prefLabel xml:lang="en">non-tangential proper part inverse</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8po -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8po">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: TTTTTTTTT</skos:definition>
+        <skos:prefLabel xml:lang="en">partially overlapping</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tpp -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tpp">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially covered by the object SpatialObject. DE-9IM: TFFTTFTTT</skos:definition>
+        <skos:prefLabel xml:lang="en">tangential proper part</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#rcc8tppi -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#rcc8tppi">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially covers the object SpatialObject. DE-9IM: TTTFTTFFT</skos:definition>
+        <skos:prefLabel xml:lang="en">tangential proper part inverse</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfContains -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfContains">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/rcc8-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially contains the object SpatialObject. DE-9IM: T*****FF*</skos:definition>
+        <skos:prefLabel xml:lang="en">contains</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfCrosses -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfCrosses">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially crosses the object SpatialObject. DE-9IM: T*T******</skos:definition>
+        <skos:prefLabel xml:lang="en">crosses</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfDisjoint -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfDisjoint">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially disjoint from the object SpatialObject. DE-9IM: FF*FF****</skos:definition>
+        <skos:prefLabel xml:lang="en">disjoint</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfEquals -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfEquals">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially equals the object SpatialObject. DE-9IM: TFFFTFFFT</skos:definition>
+        <skos:prefLabel xml:lang="en">equals</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfIntersects -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfIntersects">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is not spatially disjoint from the object SpatialObject. DE-9IM: T******** ^ *T******* ^ ***T***** ^ ****T****</skos:definition>
+        <skos:prefLabel xml:lang="en">intersects</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfOverlaps -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfOverlaps">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially overlaps the object SpatialObject. DE-9IM: T*T***T**</skos:definition>
+        <skos:prefLabel xml:lang="en">overlaps</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfTouches -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfTouches">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject spatially touches the object SpatialObject. DE-9IM: FT******* ^ F**T***** ^ F***T****</skos:definition>
+        <skos:prefLabel xml:lang="en">touches</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#sfWithin -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#sfWithin">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/topology-vocab-extension/sf-spatial-relations"/>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/DE-9IM"/>
+        <skos:definition xml:lang="en">States that the subject SpatialObject is spatially within the object SpatialObject. DE-9IM: T*F**F***</skos:definition>
+        <skos:prefLabel xml:lang="en">within</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#member"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asDGGS -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asDGGS">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#dggsLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-dggs-literal"/>
+        <skos:definition xml:lang="en">The Discrete Global Grid System (DGGS) serialization of a Geometry</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">as DGGS</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asGML -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asGML">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#gmlLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-gml-literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-gml-literal"/>
+        <skos:definition xml:lang="en">The GML serialization of a Geometry</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">as GML</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asGeoJSON -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asGeoJSON">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#geoJSONLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-geojson-literal"/>
+        <rdfs:seeAlso rdf:resource="https://tools.ietf.org/html/rfc7946"/>
+        <skos:definition xml:lang="en">The GeoJSON serialization of a Geometry</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">as GeoJSON</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asKML -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asKML">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#kmlLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-kml-literal"/>
+        <rdfs:seeAlso rdf:resource="https://www.ogc.org/standards/kml"/>
+        <skos:definition xml:lang="en">The KML serialization of a Geometry</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:prefLabel xml:lang="en">as KML</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asWKT -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asWKT">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#wktLiteral"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-as-wkt-literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-as-wkt-literal"/>
+        <skos:definition xml:lang="en">The WKT serialization of a Geometry</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.1"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.1"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.2.2.4"/>
+        <skos:prefLabel xml:lang="en">as WKT</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#coordinateDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#coordinateDimension">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The number of measurements or axes needed to describe the position of this Geometry in a coordinate system.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">coordinate dimension</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#dimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#dimension">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The topological dimension of this geometric object, which must be less than or equal to the coordinate dimension. In non-homogeneous collections, this will return the largest topological dimension of the contained objects.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">dimension</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricArea">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasMetricSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The area of a Spatial Object in square meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.9"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has area in square meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasMetricSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The length of a Spatial Object in meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has length in meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricPerimeterLength -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricPerimeterLength">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasMetricSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The length of the perimeter of a Spatial Object in meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.1.2"/>
+        <skos:prefLabel xml:lang="en">has perimeter length in meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricSize">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">Subproperties of this property are used to indicate the size of a Spatial Object, as a measurement or estimate of one or more dimensions of the Spatial Object&apos;s spatial presence. Units are always metric (meter, square meter or cubic meter).</skos:definition>
+        <skos:prefLabel xml:lang="en">has metric size</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricSpatialAccuracy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricSpatialAccuracy">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The positional accuracy of the coordinates of a Geometry in meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:note xml:lang="en">Spatial accuracy is applicable when a Geometry is used to represent a Feature. It is expressed as a distance that indicates the truthfullness of the positions (coordinates) that define the Geometry. In this case accuracy defines a zone surrounding each coordinate within wich the real positions are known to be. The accuracy value defines this zone as a distance from the coordinate(s) in all directions (e.g. a line, a circle or a sphere, depending on spatial dimension).</skos:note>
+        <skos:prefLabel xml:lang="en">has spatial accuracy in meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricSpatialResolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricSpatialResolution">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The spatial resolution of a Geometry in meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:note xml:lang="en">Spatial resolution specifies the level of detail of a Geometry. It the smallest dinstinguishable distance between spatially adjacent coordinates.</skos:note>
+        <skos:prefLabel xml:lang="en">has spatial resolution in meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasMetricVolume -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasMetricVolume">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasMetricSize"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/spatial-object-properties"/>
+        <skos:definition xml:lang="en">The volume of a Spatial Object in cubic meters.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.9"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:prefLabel xml:lang="en">has volume in cubic meters</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasSerialization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasSerialization">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">Connects a Geometry object with its text-based serialization.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">has serialization</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#isEmpty -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#isEmpty">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">(true) if this geometric object is the empty Geometry. If true, then this geometric object represents the empty point set for the coordinate space.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">is empty</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#isSimple -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#isSimple">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <rdfs:seeAlso rdf:resource="https://portal.ogc.org/files/?artifact_id=25355"/>
+        <skos:definition xml:lang="en">(true) if this geometric object has no anomalous geometric points, such as self intersection or self tangency.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">is simple</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#spatialDimension -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#spatialDimension">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-properties"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-properties"/>
+        <skos:definition xml:lang="en">The number of measurements or axes needed to describe the spatial position of this Geometry in a coordinate system.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:prefLabel xml:lang="en">spatial dimension</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/core/feature-class"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/core/feature-class"/>
+        <skos:definition xml:lang="en">A discrete spatial phenomenon in a universe of discourse.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.1"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.7"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.9"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:note xml:lang="en">A Feature represents a uniquely identifiable phenomenon, for example a river or an apple. While such phenomena (and therefore the Features used to represent them) are bounded, their boundaries may be crisp (e.g., the declared boundaries of a state), vague (e.g., the delineation of a valley versus its neighboring mountains), and change with time (e.g., a storm front). While discrete in nature, Features may be created from continuous observations, such as an isochrone that determines the region that can be reached by ambulance within 5 minutes.</skos:note>
+        <skos:prefLabel xml:lang="en">Feature</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#FeatureCollection -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#FeatureCollection">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObjectCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#member"/>
+                <owl:allValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/core/feature-collection-class"/>
+        <skos:definition xml:lang="en">A collection of individual Features.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.6"/>
+        <skos:prefLabel xml:lang="en">Feature Collection</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/geometry-extension/geometry-class"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/geometry-extension/geometry-class"/>
+        <skos:definition xml:lang="en">A coherent set of direct positions in space. The positions are held within a Spatial Reference System (SRS).</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.4"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.5"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.6"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.2.8"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.1"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.3.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.2"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.3"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.2.4"/>
+        <skos:note xml:lang="en">Geometry can be used as a representation of the shape, extent or location of a Feature and may exist as a self-contained entity.</skos:note>
+        <skos:prefLabel xml:lang="en">Geometry</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#GeometryCollection -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#GeometryCollection">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObjectCollection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#member"/>
+                <owl:allValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/core/geometry-collection-class"/>
+        <skos:definition xml:lang="en">A collection of individual Geometries.</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.7"/>
+        <skos:prefLabel xml:lang="en">Geometry Collection</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#SpatialObject -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#SpatialObject">
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0/req/core/spatial-object-class"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/core/spatial-object-class"/>
+        <skos:definition xml:lang="en">Anything spatial (being or having a shape, position or an extent).</skos:definition>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.1.1"/>
+        <skos:example rdf:resource="http://www.opengis.net/spec/geosparql/1.1/specification.html#B.1.1.1.2"/>
+        <skos:note xml:lang="en">Subclasses of this class are expected to be used for instance data.</skos:note>
+        <skos:prefLabel xml:lang="en">Spatial Object</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#SpatialObjectCollection -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#SpatialObjectCollection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Container"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#member"/>
+                <owl:allValuesFrom rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.1/req/core/spatial-object-collection-class"/>
+        <skos:definition xml:lang="en">A collection of individual Spatial Objects.</skos:definition>
+        <skos:note xml:lang="en">This is the superclass of Feature Collection and Geometry Collection.</skos:note>
+        <skos:prefLabel xml:lang="en">Spatial Object Collection</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Container -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Container"/>
+    
+
+
+    <!-- https://schema.org/Organization -->
+
+    <owl:Class rdf:about="https://schema.org/Organization"/>
+    
+
+
+    <!-- https://schema.org/Person -->
+
+    <owl:Class rdf:about="https://schema.org/Person"/>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Organization"/>
+        <sdo:name>Open Geospatial Consortium</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.ogc.org</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>Oracle Corporation</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">matthew.perry@oracle.com</sdo:email>
+        <sdo:name>Matthew Perry</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0003-1988-462X</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>Oracle Corporation</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">john.herring@oracle.com</sdo:email>
+        <sdo:name>John Herring</sdo:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>Australian National University</sdo:affiliation>
+        <sdo:affiliation>SURROUND Australia Pty Ltd</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">nicholas.car@surroundaustralia.com</sdo:email>
+        <sdo:name>Nicholas J. Car</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-8742-7730</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>Geoscape Australia</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">joseph.abhayaratna@geoscape.com.au</sdo:email>
+        <sdo:name>Joseph Abhayaratna</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0001-5075-6234</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>Mainz University Of Applied Sciences</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">timo.homburg@hs-mainz.de</sdo:email>
+        <sdo:name>Timo Homburg</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-9499-5840</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>CSIRO Australia</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">simon.cox@csiro.au</sdo:email>
+        <sdo:name>Simon J D Cox</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-3884-3420</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">fjknibbe@gmail.com</sdo:email>
+        <sdo:name>Frans Knibbe</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0003-3789-2260</sdo:url>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="https://schema.org/Person"/>
+        <sdo:affiliation>KU Leuven</sdo:affiliation>
+        <sdo:affiliation>Neanex Technologies</sdo:affiliation>
+        <sdo:email rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">mathias.bonduel@neanex.com</sdo:email>
+        <sdo:name>Mathias Bonduel</sdo:name>
+        <sdo:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://orcid.org/0000-0002-3313-924X</sdo:url>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

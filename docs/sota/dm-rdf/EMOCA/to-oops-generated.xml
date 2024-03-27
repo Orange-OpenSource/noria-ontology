@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ns.inria.fr/emoca#"
+     xml:base="http://ns.inria.fr/emoca"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:emotion="http://ns.inria.fr/emoca#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://ns.inria.fr/emoca">
+        <voaf:classNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</voaf:classNumber>
+        <dcterms:modified>2013-11-26</dcterms:modified>
+        <dcterms:created>2013-08-30</dcterms:created>
+        <dcterms:contributor>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                <foaf:name>Peter Sander</foaf:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <foaf:homepage rdf:resource="http://ns.inria.fr/emoca"/>
+        <dcterms:contributor>
+            <rdf:Description>
+                <foaf:name>Fabien Gandon</foaf:name>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:contributor>
+            <rdf:Description>
+                <foaf:name>Ghislain Atemezing</foaf:name>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+            </rdf:Description>
+        </dcterms:contributor>
+        <vann:preferredNamespacePrefix>emotion</vann:preferredNamespacePrefix>
+        <dcterms:title xml:lang="en">Emotion ontology for context awareness</dcterms:title>
+        <cc:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+        <dcterms:description xml:lang="en">EmOCA is used to contextualize dimensional emotion and to categorize it for human readability</dcterms:description>
+        <dcterms:creator>
+            <rdf:Description>
+                <foaf:name>Franck Berthelon</foaf:name>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+            </rdf:Description>
+        </dcterms:creator>
+        <vann:preferredNamespaceUri rdf:resource="http://ns.inria.fr/emoca#"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <voaf:propertyNumber rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</voaf:propertyNumber>
+        <dcterms:publisher rdf:resource="http://dbpedia.org/resource/INSEE"/>
+        <owl:versionInfo>Version 1.0 - 2013-11-26</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ns.inria.fr/emoca#involves -->
+
+    <owl:AnnotationProperty rdf:about="http://ns.inria.fr/emoca#involves">
+        <rdfs:label xml:lang="en">involves</rdfs:label>
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Stimulus"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#relatesTo -->
+
+    <owl:AnnotationProperty rdf:about="http://ns.inria.fr/emoca#relatesTo">
+        <rdfs:label xml:lang="en">relates to</rdfs:label>
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Trait"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ns.inria.fr/emoca#hasImpact -->
+
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/emoca#hasImpact">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Trait"/>
+        <rdfs:range rdf:resource="http://ns.inria.fr/emoca#Impact"/>
+        <rdfs:label xml:lang="en">has impact</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#hasTrait -->
+
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/emoca#hasTrait">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Person"/>
+        <rdfs:range rdf:resource="http://ns.inria.fr/emoca#Trait"/>
+        <rdfs:label xml:lang="en">has trait</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#isDefinedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/emoca#isDefinedBy">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:range rdf:resource="http://ns.inria.fr/emoca#Coordinate"/>
+        <rdfs:label xml:lang="en">is defined by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#pertainsTo -->
+
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/emoca#pertainsTo">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Impact"/>
+        <rdfs:range rdf:resource="http://ns.inria.fr/emoca#Component"/>
+        <rdfs:label xml:lang="en">pertains to </rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ns.inria.fr/emoca#hasEffect -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/emoca#hasEffect">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Impact"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:label xml:lang="en">has effect</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#hasMaximum -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/emoca#hasMaximum">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Coordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:label xml:lang="en">has maximum</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#hasMinimum -->
+
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/emoca#hasMinimum">
+        <rdfs:domain rdf:resource="http://ns.inria.fr/emoca#Coordinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:label xml:lang="en">has minimum</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Anger -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Anger">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Anger</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Arousal -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Arousal">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Component"/>
+        <rdfs:label xml:lang="en">Arousal</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Component -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Component">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Coordinate"/>
+        <rdfs:label xml:lang="en">Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Coordinate -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Coordinate">
+        <rdfs:label xml:lang="en">Coordinate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Disgust -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Disgust">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Disgust</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Emotion -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Emotion">
+        <rdfs:label xml:lang="en">Emotion</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Fear -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Fear">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Fear</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Impact -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Impact">
+        <rdfs:label xml:lang="en">Impact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Joy -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Joy">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Joy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Person -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Person">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Radius -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Radius">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Coordinate"/>
+        <rdfs:label xml:lang="en">Radius</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Sadness -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Sadness">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Sadness</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Stimulus -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Stimulus">
+        <rdfs:label xml:lang="en">Stimulus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Surprise -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Surprise">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Emotion"/>
+        <rdfs:label xml:lang="en">Surprise</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Trait -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Trait">
+        <rdfs:label xml:lang="en">Trait</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ns.inria.fr/emoca#Valence -->
+
+    <owl:Class rdf:about="http://ns.inria.fr/emoca#Valence">
+        <rdfs:subClassOf rdf:resource="http://ns.inria.fr/emoca#Component"/>
+        <rdfs:label xml:lang="en">Valence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ns.inria.fr/emoca -->
+
+    <owl:NamedIndividual rdf:about="http://ns.inria.fr/emoca">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Franck Berthelon</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Peter Sander</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Ghislain Atemezing</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Fabien Gandon</foaf:name>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

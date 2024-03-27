@@ -1,0 +1,10 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/b363152b-fbdb-473d-8b78-6deaa9657dcf,P04,24,Minor,Creating unconnected ontology elements
+http://oops.linkeddata.es/data/2f4d9907-cba0-4fe4-b738-1eaef6775199,P08,194,Minor,Missing annotations
+http://oops.linkeddata.es/data/7cc5da7e-6522-4be5-9931-e3f7152371b3,P11,228,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/850dc7bf-47f1-48e3-b529-3d0dda069877,P12,8,Important,Equivalent properties not explicitly declared
+http://oops.linkeddata.es/data/ac09f83d-69ce-4304-9e91-10a94a083afe,P13,98,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/306befc4-fc3a-41da-b5dc-03f3bf050e8d,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/b0005df5-8e65-46be-b2f7-1a1560dd03a7,P24,4,Important,Using recursive definitions
+http://oops.linkeddata.es/data/1485df3d-c484-4fca-8a0b-21faeaf9c8ad,P25,1,Important,Defining a relationship as inverse to itself
+http://oops.linkeddata.es/data/081c0ede-699b-4568-96dc-699233c567b7,P26,1,Important,Defining inverse relationships for a symmetric one

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://ontology.caseontology.org/case/case#"
+     xml:base="https://ontology.caseontology.org/case/case"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:uco-role="https://ontology.unifiedcyberontology.org/uco/role/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:uco-core="https://ontology.unifiedcyberontology.org/uco/core/"
+     xmlns:vocabulary="https://ontology.caseontology.org/case/vocabulary/"
+     xmlns:uco-action="https://ontology.unifiedcyberontology.org/uco/action/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sh="http://www.w3.org/ns/shacl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:investigation="https://ontology.caseontology.org/case/investigation/">
+    <owl:Ontology rdf:about="https://ontology.caseontology.org/case/case">
+        <owl:versionIRI rdf:resource="https://ontology.caseontology.org/case/vocabulary/1.1.0"/>
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="https://ontology.unifiedcyberontology.org/uco/uco/1.1.0"/>-->
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="https://ontology.unifiedcyberontology.org/uco/role/1.1.0"/>-->
+        <owl:imports rdf:resource="https://ontology.caseontology.org/case/vocabulary/1.1.0"/>
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="https://ontology.unifiedcyberontology.org/uco/action/1.1.0"/> -->
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="https://ontology.caseontology.org/case/investigation/1.1.0"/> -->
+        <owl:priorVersion rdf:resource="https://ontology.caseontology.org/case/vocabulary/1.0.0"/>
+        <owl:backwardCompatibleWith rdf:resource="https://ontology.caseontology.org/case/case/1.0.0"/>
+        <rdfs:label xml:lang="en">vocabularies</rdfs:label>
+        <owl:backwardCompatibleWith rdf:resource="https://ontology.caseontology.org/case/vocabulary/1.0.0"/>
+        <owl:versionInfo>1.1.0</owl:versionInfo>
+        <rdfs:label xml:lang="en">case-master</rdfs:label>
+        <rdfs:comment>This ontology defines key concepts, and their associated properties and relationships, for characterizing cyber-investigations in the broadest range of contexts, including security incidents, criminal investigations, civil and regulatory matters, intelligence operations, international disputes, accident inquiries, policy violations, and others.</rdfs:comment>
+        <dct:title xml:lang="en">Cyber-investigation Analysis Standard Expression (CASE)</dct:title>
+        <owl:priorVersion rdf:resource="https://ontology.caseontology.org/case/case/1.0.0"/>
+        <rdfs:comment xml:lang="en">The Cyber-investigation Analysis Standard Expression (CASE) ontology is a community-developed standard that defines concepts used in a broad range of cyber-investigation domains, including digital forensic science, incident response, counter-terrorism, criminal justice, forensic intelligence, and situational awareness. CASE includes all aspects of the digital forensic process, from evidence-gathering and chain of custody, to generating a final report. The goal is to increase sharing and interoperability of cyber-investigation information among organizations and between forensic analytic tools. CASE aligns with and extends the Unified Cyber Ontology (UCO). The preferred namespace abbreviation for this ontology is: case-master.</rdfs:comment>
+        <owl:priorVersion rdf:resource="https://ontology.caseontology.org/case/investigation/1.0.0"/>
+        <owl:backwardCompatibleWith rdf:resource="https://ontology.caseontology.org/case/investigation/1.0.0"/>
+        <rdfs:label xml:lang="en">investigation</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#class -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#class"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#datatype -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#datatype"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#in -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#in"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#maxCount -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#maxCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#message -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#message"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#minCount -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#minCount"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#nodeKind -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#nodeKind"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#or -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#or"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#path -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#path"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#property -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#property"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#severity -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#severity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#targetClass -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/shacl#targetClass"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab -->
+
+    <rdfs:Datatype rdf:about="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab">
+        <rdfs:comment xml:lang="en-us">Defines an open-vocabulary of investigation forms.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Investigation Form Vocabulary</rdfs:label>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab">case</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab">incident</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab">suspicious-activity</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/relevantAuthorization -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.caseontology.org/case/investigation/relevantAuthorization">
+        <rdfs:range rdf:resource="https://ontology.caseontology.org/case/investigation/Authorization"/>
+        <rdfs:comment xml:lang="en">Specifies an authorization relevant to a particular investigation.</rdfs:comment>
+        <rdfs:label xml:lang="en">relevantAuthorization</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/wasDerivedFrom -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.caseontology.org/case/investigation/wasDerivedFrom">
+        <rdfs:domain rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/UcoObject"/>
+        <rdfs:range rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/UcoObject"/>
+        <rdfs:comment xml:lang="en">A re-implementation of the wasDerivedFrom property in W3C PROV-O.  The definition of this property is &apos;A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.&apos; [Ref: https://www.w3.org/TR/prov-o/#wasDerivedFrom]</rdfs:comment>
+        <rdfs:label xml:lang="en">wasDerivedFrom</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/wasInformedBy -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.caseontology.org/case/investigation/wasInformedBy">
+        <rdfs:domain rdf:resource="https://ontology.caseontology.org/case/investigation/InvestigativeAction"/>
+        <rdfs:range rdf:resource="https://ontology.caseontology.org/case/investigation/InvestigativeAction"/>
+        <rdfs:comment xml:lang="en">A re-implementation of the wasInformedBy property in W3C PROV-O, where an entity is exchanged by two activities, &apos;one activity using the entity generated by the other&apos;. [Ref: https://www.w3.org/TR/prov-o/#wasInformedBy]</rdfs:comment>
+        <rdfs:label xml:lang="en">wasInformedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/authorizationIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/authorizationIdentifier">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The identifier for a particular authorization (e.g. warrant number)</rdfs:comment>
+        <rdfs:label xml:lang="en">authorizationIdentifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/authorizationType -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/authorizationType">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A label categorizing a type of authorization (e.g. warrant)</rdfs:comment>
+        <rdfs:label xml:lang="en">authorizationType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/exhibitNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/exhibitNumber">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The exhibit number specifies an identifier assigned to a set of objects, unique within the scope of an investigation.</rdfs:comment>
+        <rdfs:label xml:lang="en">exhibitNumber</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/focus -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/focus">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Specifies the topical focus of an investigation.</rdfs:comment>
+        <rdfs:label xml:lang="en">focus</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/investigationForm -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/investigationForm">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+                    <rdf:Description rdf:about="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab"/>
+                </owl:unionOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment xml:lang="en">A label categorizing a type of investigation (case, incident, suspicious-activity, etc.)</rdfs:comment>
+        <rdfs:label xml:lang="en">investigationForm</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/investigationStatus -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/investigationStatus">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A label characterizing the status of an investigation (open, closed, etc.).</rdfs:comment>
+        <rdfs:label xml:lang="en">investigationStatus</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/rootExhibitNumber -->
+
+    <owl:DatatypeProperty rdf:about="https://ontology.caseontology.org/case/investigation/rootExhibitNumber">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The root exhibit number specifies a unique identifier assigned to a set of objects at the start of their treatment as part of an investigation. When found on a provenance record that comes after initial investigative treatment, the root exhibit number is a reference to the initial provenance record.</rdfs:comment>
+        <rdfs:label xml:lang="en">rootExhibitNumber</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/shacl#NodeShape -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/shacl#NodeShape"/>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Attorney -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Attorney">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/role/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Authorization -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Authorization">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/UcoObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Examiner -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Examiner">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/role/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/ExaminerActionLifecycle -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/ExaminerActionLifecycle">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/action/ActionLifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Investigation -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Investigation">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/ContextualCompilation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/InvestigativeAction -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/InvestigativeAction">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/action/Action"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Investigator -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Investigator">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/role/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/ProvenanceRecord -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/ProvenanceRecord">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/ContextualCompilation"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Subject -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/Subject">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/role/Role"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/action/ActionLifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/VictimActionLifecycle -->
+
+    <owl:Class rdf:about="https://ontology.caseontology.org/case/investigation/VictimActionLifecycle">
+        <rdfs:subClassOf rdf:resource="https://ontology.unifiedcyberontology.org/uco/action/ActionLifecycle"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.unifiedcyberontology.org/uco/action/Action -->
+
+    <owl:Class rdf:about="https://ontology.unifiedcyberontology.org/uco/action/Action"/>
+    
+
+
+    <!-- https://ontology.unifiedcyberontology.org/uco/action/ActionLifecycle -->
+
+    <owl:Class rdf:about="https://ontology.unifiedcyberontology.org/uco/action/ActionLifecycle"/>
+    
+
+
+    <!-- https://ontology.unifiedcyberontology.org/uco/core/ContextualCompilation -->
+
+    <owl:Class rdf:about="https://ontology.unifiedcyberontology.org/uco/core/ContextualCompilation"/>
+    
+
+
+    <!-- https://ontology.unifiedcyberontology.org/uco/core/UcoObject -->
+
+    <owl:Class rdf:about="https://ontology.unifiedcyberontology.org/uco/core/UcoObject"/>
+    
+
+
+    <!-- https://ontology.unifiedcyberontology.org/uco/role/Role -->
+
+    <owl:Class rdf:about="https://ontology.unifiedcyberontology.org/uco/role/Role"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Attorney -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Attorney">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Authorization -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Authorization">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Examiner -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Examiner">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/ExaminerActionLifecycle -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/ExaminerActionLifecycle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Investigation -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Investigation">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/InvestigativeAction -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/InvestigativeAction">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Investigator -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Investigator">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/ProvenanceRecord -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/ProvenanceRecord">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/Subject -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/Subject">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.caseontology.org/case/investigation/VictimActionLifecycle -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.caseontology.org/case/investigation/VictimActionLifecycle">
+        <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab"/>
+        <sh:in>
+            <rdf:Description/>
+        </sh:in>
+    </rdf:Description>
+    <rdf:Description>
+        <sh:datatype rdf:resource="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Attorney">
+        <rdfs:label xml:lang="en">Attorney</rdfs:label>
+        <rdfs:comment xml:lang="en">Attorney is a role involved in preparing, interpreting, and applying law.</rdfs:comment>
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Attorney"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Authorization">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Authorization"/>
+        <rdfs:label xml:lang="en">Authorization</rdfs:label>
+        <rdfs:comment xml:lang="en">An authorization is a grouping of characteristics unique to some form of authoritative permission identified for investigative action.</rdfs:comment>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/startTime"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/authorizationType"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/endTime"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/authorizationIdentifier"/>
+            </rdf:Description>
+        </sh:property>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Examiner">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Examiner"/>
+        <rdfs:label xml:lang="en">Examiner</rdfs:label>
+        <rdfs:comment xml:lang="en">Examiner is a role involved in providing scientific evaluations of evidence that are used to aid law enforcement investigations and court cases.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/ExaminerActionLifecycle">
+        <rdfs:label xml:lang="en">ExaminerActionLifecycle</rdfs:label>
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/ExaminerActionLifecylce"/>
+        <rdfs:comment xml:lang="en">An examiner action lifecycle is an action pattern consisting of an ordered set of actions or subordinate action-lifecycles performed by an entity acting in a role involved in providing scientific evaluations of evidence that is used to aid law enforcement investigations and court cases.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Investigation">
+        <rdfs:label xml:lang="en">Investigation</rdfs:label>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/focus"/>
+            </rdf:Description>
+        </sh:property>
+        <rdfs:comment xml:lang="en">An investigation is a grouping of characteristics unique to an exploration of the facts involved in a cyber-relevant set of suspicious activity.</rdfs:comment>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/investigationStatus"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/startTime"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Investigation"/>
+        <sh:property>
+            <rdf:Description>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:or>
+                    <rdf:Description/>
+                </sh:or>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/investigationForm"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.unifiedcyberontology.org/uco/core/endTime"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:class rdf:resource="https://ontology.caseontology.org/case/investigation/Authorization"/>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#BlankNodeOrIRI"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/relevantAuthorization"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="https://ontology.caseontology.org/case/vocabulary/InvestigationFormVocab"/>
+                <sh:message>Value is outside the default vocabulary InvestigationFormVocab.</sh:message>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/investigationForm"/>
+                <sh:severity rdf:resource="http://www.w3.org/ns/shacl#Info"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:message>Value is not member of the vocabulary InvestigationFormVocab.</sh:message>
+                <sh:or>
+                    <rdf:Description/>
+                </sh:or>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/investigationForm"/>
+            </rdf:Description>
+        </sh:property>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/InvestigativeAction">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/InvestigativeAction"/>
+        <sh:property>
+            <rdf:Description>
+                <sh:class rdf:resource="https://ontology.caseontology.org/case/investigation/InvestigativeAction"/>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#BlankNodeOrIRI"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/wasInformedBy"/>
+            </rdf:Description>
+        </sh:property>
+        <rdfs:comment xml:lang="en">An investigative action is something that may be done or performed within the context of an investigation, typically to examine or analyze evidence or other data.</rdfs:comment>
+        <rdfs:label xml:lang="en">InvestigativeAction</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Investigator">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Investigator"/>
+        <rdfs:label xml:lang="en">Investigator</rdfs:label>
+        <rdfs:comment xml:lang="en">Investigator is a role involved in coordinating an investigation.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/ProvenanceRecord">
+        <rdfs:label xml:lang="en">ProvenanceRecord</rdfs:label>
+        <rdfs:comment xml:lang="en">A provenance record is a grouping of characteristics unique to the provenantial (chronology of the ownership, custody or location) connection between an investigative action and a set of observations (items and/or actions) or interpretations that result from it.</rdfs:comment>
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/ProvenanceRecord"/>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:minCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</sh:minCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/rootExhibitNumber"/>
+            </rdf:Description>
+        </sh:property>
+        <sh:property>
+            <rdf:Description>
+                <sh:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                <sh:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</sh:maxCount>
+                <sh:nodeKind rdf:resource="http://www.w3.org/ns/shacl#Literal"/>
+                <sh:path rdf:resource="https://ontology.caseontology.org/case/investigation/exhibitNumber"/>
+            </rdf:Description>
+        </sh:property>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/Subject">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/Subject"/>
+        <rdfs:comment xml:lang="en">Subject is a role whose conduct is within the scope of an investigation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle">
+        <rdfs:label xml:lang="en">SubjectActionLifecycle</rdfs:label>
+        <rdfs:comment xml:lang="en">A subject action lifecycle is an action pattern consisting of an ordered set of multiple actions or subordinate action-lifecycles performed by an entity acting in a role whose conduct may be within the scope of an investigation.</rdfs:comment>
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/SubjectActionLifecycle"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://ontology.caseontology.org/case/investigation/VictimActionLifecycle">
+        <sh:targetClass rdf:resource="https://ontology.caseontology.org/case/investigation/VictimActionLifecycle"/>
+        <rdfs:comment xml:lang="en">A victim action lifecycle is an action pattern consisting of an ordered set of multiple actions or subordinate action-lifecycles performed by an entity acting in a role characterized by its potential to be harmed as a result of a crime, accident, or other event or action.</rdfs:comment>
+        <rdfs:label xml:lang="en">VictimActionLifecycle</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

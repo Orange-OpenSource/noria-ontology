@@ -1,0 +1,7 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/ff97e002-45cf-4fa5-bd2d-501f10df14a3,P08,144,Minor,Missing annotations
+http://oops.linkeddata.es/data/9a34226f-c5b7-4220-9869-3f05ff593110,P10,1,Important,Missing disjointness
+http://oops.linkeddata.es/data/064a02cb-ca6a-421a-be97-a9986afcbd8b,P11,7,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/c8dd2bac-b027-4fae-8ed4-2d06d299b253,P13,24,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/25374b8f-09b7-4f70-a67a-a8f951c2d89e,P19,16,Critical,Defining multiple domains or ranges in properties
+http://oops.linkeddata.es/data/81529366-d79b-4eba-8af9-618da110c8ef,P34,1,Important,Untyped class

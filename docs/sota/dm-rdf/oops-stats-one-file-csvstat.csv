@@ -1,0 +1,76 @@
+  1. "group"
+
+	Type of data:          Text
+	Contains null values:  False
+	Unique values:         45
+	Longest value:         35 characters
+	Most common values:    ./ICAS/oops-stats.csv (15x)
+	                       ./ForensicOntology/oops-stats.csv (11x)
+	                       ./UCO/oops-stats.csv (11x)
+	                       ./OM/oops-stats.csv (10x)
+	                       ./DogOnt/oops-stats.csv (10x)
+
+  2. "pit"
+
+	Type of data:          Text
+	Contains null values:  False
+	Unique values:         308
+	Longest value:         67 characters
+	Most common values:    http://oops.linkeddata.es/data/c589c65a-74fb-42be-bf5a-a2474bb4bf26 (1x)
+	                       http://oops.linkeddata.es/data/50411aff-b655-4e13-8cae-b9f8ee8e36fb (1x)
+	                       http://oops.linkeddata.es/data/ab6cc3c1-c780-4b4a-8bfd-fd36e1ce6239 (1x)
+	                       http://oops.linkeddata.es/data/d9216b85-991b-419c-a439-0a22bc0040e0 (1x)
+	                       http://oops.linkeddata.es/data/38149acb-749d-4eb1-b3cf-835d7695c53a (1x)
+
+  3. "pit_code"
+
+	Type of data:          Text
+	Contains null values:  False
+	Unique values:         26
+	Longest value:         3 characters
+	Most common values:    P13 (43x)
+	                       P11 (42x)
+	                       P08 (41x)
+	                       P04 (29x)
+	                       P10 (20x)
+
+  4. "pit_count"
+
+	Type of data:          Number
+	Contains null values:  False
+	Unique values:         76
+	Smallest value:        1
+	Largest value:         1 802
+	Sum:                   12 178
+	Mean:                  39,539
+	Median:                5
+	StDev:                 138,648
+	Most common values:    1 (94x)
+	                       2 (29x)
+	                       3 (17x)
+	                       4 (13x)
+	                       6 (11x)
+
+  5. "pit_importance"
+
+	Type of data:          Text
+	Contains null values:  False
+	Unique values:         3
+	Longest value:         9 characters
+	Most common values:    Minor (156x)
+	                       Important (135x)
+	                       Critical (17x)
+
+  6. "pit_name"
+
+	Type of data:          Text
+	Contains null values:  False
+	Unique values:         26
+	Longest value:         133 characters
+	Most common values:    Inverse relationships not explicitly declared (43x)
+	                       Missing domain or range in properties (42x)
+	                       Missing annotations (41x)
+	                       Creating unconnected ontology elements (29x)
+	                       Missing disjointness (20x)
+
+Row count: 308

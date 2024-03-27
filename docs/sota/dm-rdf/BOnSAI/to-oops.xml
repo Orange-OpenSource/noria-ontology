@@ -1,0 +1,1021 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl-s="http://www.daml.org/services/owl-s/1.2/Service.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:CoDAMoS="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:sqwrl="http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns="http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+  xml:base="http://lpis.csd.auth.gr/ontologies/bonsai/BOnSAI.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionIRI rdf:resource=""/>
+    <owl:imports rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl"/>
+    <owl:imports rdf:resource="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#Resource"/>
+  <rdfs:Class rdf:about="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#User"/>
+  <owl:Class rdf:ID="Parameter"/>
+  <owl:Class rdf:ID="SmartPlug">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ActuatorSensor"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="returnsParameter"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="PowerConsumption"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="performsAction"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="SwitchAction"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Point">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="WirelessCommunicationProtocol">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Wireless</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="type"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CommunicationProtocol"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SwitchAction">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      A Switch Action turns an electric Appliance On or Off (i.e. switches</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Action"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="causesFact"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="PowerState"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ActuatorOperation">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SensoryOperation"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Operation"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Operation that results in a change of the world's state
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      i.e. hasEffect object property has a value 
+    &lt;/p&gt;</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#causesFact"/>
+            </owl:onProperty>
+            <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >1</owl:minCardinality>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >0</owl:cardinality>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#causesFact"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Building">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="X10">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="PLC"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Z-Wave">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="frequency"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+        >868.42</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#WirelessCommunicationProtocol"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Computer">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Appliance"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SensoryOperation">
+    <owl:disjointWith rdf:resource="#ActuatorOperation"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Operation"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasOutput"/>
+        </owl:onProperty>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Operation that returns a parameter.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Hardware"/>
+  <owl:Class rdf:ID="Temperature">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="EnvironmentalParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="measuringUnit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >celcius</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PowerConsumption">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      A Power amount
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >watt</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Date">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PlugwiseCircle">
+    <rdfs:subClassOf rdf:resource="#SmartPlug"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Context">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="User"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models tha current situation surrounding an entity, at a certain time.
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      Thus, is a set of Location, Time, and many environmental parameters.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Room">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Device">
+    <rdfs:subClassOf rdf:resource="#Hardware"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models Smart Devices, usually classified as either Sensors or Actuators.
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      These devices can be service-enabled.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Pressure">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EnvironmentalParameter"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Atm</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#PLC">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Power Line Communications, wired communication protocol for smart devices
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="WiredCommunicationProtocol"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PrismaQuax">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="MultiSensor"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+              <owl:Class rdf:ID="Humidity"/>
+              <owl:Class rdf:ID="Luminance"/>
+              <owl:Class rdf:about="#Temperature"/>
+            </owl:unionOf>
+          </owl:Class>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#returnsParameter"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CCSmartClamper">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SmartClamper"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Service">
+    <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl#Service"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:maxCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="hasServiceModel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Appliance">
+    <rdfs:subClassOf rdf:resource="#Hardware"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Operation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      A Service Operation is an actual function that can be invoked as an RPC.
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      It has inherently Input and Output types.
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      In the model it also has Preconditions and Effects.
+    &lt;/p&gt;</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#User"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Time">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ActuatorSensor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sensor"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Actuator"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models devices that can partially perceive the state of the world 
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      and change it as well (are both Sensors and Actuators)
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ID">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="OWLSmartClamper">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SmartClamper"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Noise">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >dB</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#EnvironmentalParameter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Zigbee">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#frequency"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >868</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#WirelessCommunicationProtocol"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentalParameter">
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Humidity">
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >percentage</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Insteon">
+    <rdfs:subClassOf rdf:resource="#PLC"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CO2level">
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >ppm</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#MultiSensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models arrays of (single) Sensors (e.g. Sensor boards)
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Server">
+    <rdfs:subClassOf rdf:resource="#Computer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#WiredCommunicationProtocol">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CommunicationProtocol"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Wired</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#type"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Floor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Location"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lighting">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Luminance"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="affectsEnvironmentalParameter"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Actuator">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models devices that take actions and alter the state of the world
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      (but are not Sensors)
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Radiator">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Temperature"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#affectsEnvironmentalParameter"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fact">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Fact models a known literal or predicate that is valid
+ for the World Model.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#CommunicationProtocol">
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#WirelessCommunicationProtocol"/>
+          <owl:Class rdf:about="#WiredCommunicationProtocol"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PowerState">
+    <rdfs:comment xml:lang="en">A PowerState models the current supply for an Electric Appliance.
+A PowerState has a value. e.g. off value means that the Appliance that has 
+    this PowerState is off.
+PowerState is also a subclass of Fact.
+e.g. a PowerState of value off, means that the connected Appliance is 
+    currently off.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Fact"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Luminance">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >lm/m^2</owl:hasValue>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#measuringUnit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#EnvironmentalParameter"/>
+  </owl:Class>
+  <owl:Class rdf:about="#User">
+    <rdfs:subClassOf rdf:resource="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#User"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Energy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      An Energy amount
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Parameter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AirCondition">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#affectsEnvironmentalParameter"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Temperature"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Appliance"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Sensor">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Models devices that can partially perceive the state of the world
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      (but cannot change it i.e. are not Actuators)
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Device"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SmartClamper">
+    <rdfs:subClassOf rdf:resource="#Sensor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Location">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Location models the abstract notion of whereabouts.
+    &lt;/p&gt;
+    &lt;p style="margin-top: 0"&gt;
+      It can be specified further through subclasses.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="isOutputOf">
+    <rdfs:range rdf:resource="#Operation"/>
+    <rdfs:domain rdf:resource="#Parameter"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#hasOutput"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPrecondition">
+    <rdfs:range rdf:resource="#Fact"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isPreconditionOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Operation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isPowerStateOf">
+    <rdfs:domain rdf:resource="#PowerState"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="hasPowerState"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Appliance"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Shows the Appliance that the PowerState belongs to
+    &lt;/p&gt;</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="exposesDevice">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isExposedByService"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Device"/>
+    <rdfs:domain rdf:resource="#Service"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasOutput">
+    <rdfs:domain rdf:resource="#Operation"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Parameter"/>
+          <owl:Class rdf:about="#Fact"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <owl:inverseOf rdf:resource="#isOutputOf"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isPreconditionOf">
+    <owl:inverseOf rdf:resource="#hasPrecondition"/>
+    <rdfs:range rdf:resource="#Operation"/>
+    <rdfs:domain rdf:resource="#Fact"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasCommunicationProtocol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdfs:range rdf:resource="#CommunicationProtocol"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasFloor">
+    <rdfs:domain rdf:resource="#Building"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="isInBuilding"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Floor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isInputOf">
+    <rdfs:range rdf:resource="#Operation"/>
+    <rdfs:domain rdf:resource="#Parameter"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="hasInput"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isCausedByAction">
+    <rdfs:range rdf:resource="#Action"/>
+    <rdfs:domain rdf:resource="#Fact"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#causesFact"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="consumes">
+    <rdfs:range rdf:resource="#PowerConsumption"/>
+    <rdfs:domain rdf:resource="#Appliance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasParameter">
+    <rdfs:range rdf:resource="#Parameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="offersResource">
+    <rdfs:domain rdf:resource="#Computer"/>
+    <rdfs:range rdf:resource="http://lpis.csd.auth.gr/ontologies/CoDAMoS/CoDAMoS.owl#Resource"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#performsAction">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isPerformedByActuator"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Actuator"/>
+    <rdfs:range rdf:resource="#Action"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasContext">
+    <rdfs:range rdf:resource="#Context"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#User"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEnvironmentalParameter">
+    <rdfs:range rdf:resource="#Parameter"/>
+    <rdfs:domain rdf:resource="#Context"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#causesFact">
+    <owl:inverseOf rdf:resource="#isCausedByAction"/>
+    <rdfs:domain rdf:resource="#Action"/>
+    <rdfs:range rdf:resource="#Fact"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasServiceProfile">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceProfile"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasServiceGrounding">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceGrounding"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasEffect">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="isEffectOf"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Operation"/>
+    <rdfs:range rdf:resource="#Fact"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isPerformedByActuator">
+    <rdfs:domain rdf:resource="#Action"/>
+    <owl:inverseOf rdf:resource="#performsAction"/>
+    <rdfs:range rdf:resource="#Actuator"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasInput">
+    <owl:inverseOf rdf:resource="#isInputOf"/>
+    <rdfs:domain rdf:resource="#Operation"/>
+    <rdfs:range rdf:resource="#Parameter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#affectsEnvironmentalParameter">
+    <rdfs:range rdf:resource="#EnvironmentalParameter"/>
+    <rdfs:domain rdf:resource="#Appliance"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isExposedByService">
+    <rdfs:domain rdf:resource="#Device"/>
+    <owl:inverseOf rdf:resource="#exposesDevice"/>
+    <rdfs:range rdf:resource="#Service"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPoint">
+    <rdfs:range rdf:resource="#Point"/>
+    <rdfs:domain rdf:resource="#Room"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="isInRoom"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasRoom">
+    <rdfs:domain rdf:resource="#Floor"/>
+    <rdfs:range rdf:resource="#Room"/>
+    <owl:inverseOf>
+      <owl:FunctionalProperty rdf:ID="isOnFloor"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#hasServiceModel">
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl#ServiceModel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="manifestatesDevice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#Device"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inverse_of_hasFloor"/>
+  <owl:ObjectProperty rdf:ID="hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="isLocationOf"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Location"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Context"/>
+          <owl:Class rdf:about="#Hardware"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#isEffectOf">
+    <rdfs:domain rdf:resource="#Fact"/>
+    <owl:inverseOf rdf:resource="#hasEffect"/>
+    <rdfs:range rdf:resource="#Operation"/>
+  </owl:ObjectProperty>
+  <rdf:Property rdf:ID="range">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </rdf:Property>
+  <owl:DatatypeProperty rdf:ID="value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Parameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="y_value">
+    <rdfs:domain rdf:resource="#Point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="energyClass">
+    <rdfs:domain rdf:resource="#Appliance"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >A</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:parseType="Resource">
+                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >D</rdf:first>
+                <rdf:rest rdf:parseType="Resource">
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >E</rdf:first>
+                  <rdf:rest rdf:parseType="Resource">
+                    <rdf:rest rdf:parseType="Resource">
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                      >G</rdf:first>
+                    </rdf:rest>
+                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >F</rdf:first>
+                  </rdf:rest>
+                </rdf:rest>
+              </rdf:rest>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >C</rdf:first>
+            </rdf:rest>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >B</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="parameter"/>
+  <owl:DatatypeProperty rdf:ID="email">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#CommunicationProtocol"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Wired</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Wireless</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="phone">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#User"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="x_value">
+    <rdfs:domain rdf:resource="#Point"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#measuringUnit">
+    <rdfs:domain rdf:resource="#Parameter"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="name">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#User"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="latency">
+    <rdfs:domain rdf:resource="#CommunicationProtocol"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="maxNodesPerNetwork">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#CommunicationProtocol"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="dataRate">
+    <rdfs:domain rdf:resource="#CommunicationProtocol"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#frequency">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#WirelessCommunicationProtocol"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="macID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#PlugwiseCircle"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="PowerStateValue">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >On</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Off</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#PowerState"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isAttachedToAppliance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#SmartPlug"/>
+    <rdfs:range rdf:resource="#Appliance"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="coverRange">
+    <rdfs:domain rdf:resource="#WirelessCommunicationProtocol"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isInBuilding">
+    <rdfs:domain rdf:resource="#Floor"/>
+    <rdfs:range rdf:resource="#Building"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasFloor"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sensorName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="model">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Hardware"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#hasPowerState">
+    <owl:inverseOf rdf:resource="#isPowerStateOf"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#PowerState"/>
+    <rdfs:domain rdf:resource="#Appliance"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="belongsToService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasOperation"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Operation"/>
+    <rdfs:range rdf:resource="#Service"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="DeviceInterface">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >WiFi</rdf:first>
+            <rdf:rest rdf:parseType="Resource">
+              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >Ethernet</rdf:first>
+            </rdf:rest>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >USB</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#Device"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isInRoom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Point"/>
+    <owl:inverseOf rdf:resource="#hasPoint"/>
+    <rdfs:range rdf:resource="#Room"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="manufacturer">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Hardware"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#returnsParameter">
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Parameter"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="isReturnedBy"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="belongsToMultiSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#MultiSensor"/>
+    <rdfs:domain rdf:resource="#Sensor"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hasSensor"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="isHostedAt">
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="hostsService"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Service"/>
+    <rdfs:range rdf:resource="#Server"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="FloorNo">
+    <rdfs:domain rdf:resource="#Floor"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Context"/>
+    <rdfs:range rdf:resource="#Time"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="dateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#Time"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#isOnFloor">
+    <rdfs:range rdf:resource="#Floor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasRoom"/>
+    <rdfs:domain rdf:resource="#Room"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sentFromSensor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="#Sensor"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#isReturnedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#returnsParameter"/>
+    <rdfs:domain rdf:resource="#Parameter"/>
+    <rdfs:range rdf:resource="#Sensor"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:ID="hasID">
+    <rdfs:range rdf:resource="#ID"/>
+    <rdfs:domain rdf:resource="#Device"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasSensor">
+    <owl:inverseOf rdf:resource="#belongsToMultiSensor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Sensor"/>
+    <rdfs:domain rdf:resource="#MultiSensor"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hostsService">
+    <owl:inverseOf rdf:resource="#isHostedAt"/>
+    <rdfs:domain rdf:resource="#Server"/>
+    <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.2/Service.owl#Service"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#isLocationOf">
+    <rdfs:domain rdf:resource="#Location"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#hasLocation"/>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Context"/>
+          <owl:Class rdf:about="#Hardware"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#hasOperation">
+    <rdfs:range rdf:resource="#Operation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Service"/>
+    <owl:inverseOf rdf:resource="#belongsToService"/>
+  </owl:InverseFunctionalProperty>
+  <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.2/Service.owl#describedBy">
+    <owl:equivalentProperty rdf:resource="#hasServiceModel"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.2/Service.owl#presents">
+    <owl:equivalentProperty rdf:resource="#hasServiceProfile"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.2/Service.owl#supports">
+    <owl:equivalentProperty rdf:resource="#hasServiceGrounding"/>
+  </rdf:Description>
+  <Service rdf:ID="SmartPlugService"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->

@@ -1,0 +1,787 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/noria/ontologies/merge/INDL#"
+     xml:base="http://www.example.org/noria/ontologies/merge/INDL"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/noria/ontologies/merge/INDL">
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="file:nml-base.owl"/>-->
+        <rdfs:label>NML Schema</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#adaptationFunction -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#adaptationFunction">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#AdaptationService"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#DeadaptationService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#address -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#address">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#canProvidePort -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#canProvidePort">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#encoding -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#encoding">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#SwitchingService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#existsDuring -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#existsDuring">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Lifetime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasInboundPort -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasInboundPort">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasLabel -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasLabel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Label"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasLabelGroup -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasLabelGroup">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#LabelGroup"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasLink -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasLink">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasNode -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasNode">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasOutboundPort">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasPort -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasPort">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasService -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasService">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#hasTopology -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#hasTopology">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Topology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#implementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#implementedBy">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#isAlias -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#isAlias">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#isSerialCompoundLink -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#isSerialCompoundLink">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#ListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#isSink -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#isSink">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#isSource -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#isSource">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#item -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#item">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#ListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#labeltype -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#labeltype">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Label"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LabelGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#locatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#locatedAt">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#next -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#next">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#ListItem"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/2013/05/base#ListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#providesLink -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#providesLink">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#providesPort -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#providesPort">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/base/2013/02#implementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://schemas.ogf.org/nml/base/2013/02#implementedBy">
+        <owl:inverseOf rdf:resource="http://www.science.uva.nl/research/sne/indl#implements"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.science.uva.nl/research/sne/indl#hasComponent">
+        <owl:inverseOf rdf:resource="http://www.science.uva.nl/research/sne/indl#partOf"/>
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/base/2013/02#Node"/>
+        <rdfs:range rdf:resource="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#implements -->
+
+    <owl:ObjectProperty rdf:about="http://www.science.uva.nl/research/sne/indl#implements">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/base/2013/02#Node"/>
+        <rdfs:range rdf:resource="http://www.science.uva.nl/research/sne/indl#VirtualNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.science.uva.nl/research/sne/indl#partOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+        <rdfs:range rdf:resource="http://schemas.ogf.org/nml/base/2013/02#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#alt -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#alt">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#end -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#end">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Lifetime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#labelSwapping -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#labelSwapping">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#SwitchingService"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#lat -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#lat">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#long -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#long">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#name -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#name">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+                    <rdf:Description rdf:about="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#noReturnTraffic -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#noReturnTraffic">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Link"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#parameter -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#parameter">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#start -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#start">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Lifetime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#unlocode -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#unlocode">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Location"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#value -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#value">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Label"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#values -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#values">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#LabelGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#version -->
+
+    <owl:DatatypeProperty rdf:about="http://schemas.ogf.org/nml/2013/05/base#version">
+        <rdfs:domain rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#cores -->
+
+    <owl:DatatypeProperty rdf:about="http://www.science.uva.nl/research/sne/indl#cores">
+        <rdfs:domain rdf:resource="http://www.science.uva.nl/research/sne/indl#ProcessingComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>the number of cores on a CPU</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#cpuarch -->
+
+    <owl:DatatypeProperty rdf:about="http://www.science.uva.nl/research/sne/indl#cpuarch">
+        <rdfs:domain rdf:resource="http://www.science.uva.nl/research/sne/indl#ProcessingComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>cpu architecture</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#cpuspeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.science.uva.nl/research/sne/indl#cpuspeed">
+        <rdfs:domain rdf:resource="http://www.science.uva.nl/research/sne/indl#ProcessingComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>the speed per core in GHz</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#size -->
+
+    <owl:DatatypeProperty rdf:about="http://www.science.uva.nl/research/sne/indl#size">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.science.uva.nl/research/sne/indl#MemoryComponent"/>
+                    <rdf:Description rdf:about="http://www.science.uva.nl/research/sne/indl#StorageComponent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>size of storage or memory in GB</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#AdaptationService -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#AdaptationService">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#BidirectionalLink -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#BidirectionalLink">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#BidirectionalPort -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#BidirectionalPort">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#DeadaptationService -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#DeadaptationService">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Group -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Group">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Label -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Label"/>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#LabelGroup -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#LabelGroup">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Lifetime -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Lifetime"/>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Link -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Link">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#LinkGroup -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#LinkGroup">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#ListItem -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#ListItem">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Location -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Location">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#NetworkObject -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Node -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Node">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Port -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Port">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#PortGroup -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#PortGroup">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Service -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Service">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#SwitchingService -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#SwitchingService">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/2013/05/base#Topology -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/2013/05/base#Topology">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/2013/05/base#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schemas.ogf.org/nml/base/2013/02#Node -->
+
+    <owl:Class rdf:about="http://schemas.ogf.org/nml/base/2013/02#Node"/>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#MemoryComponent -->
+
+    <owl:Class rdf:about="http://www.science.uva.nl/research/sne/indl#MemoryComponent">
+        <rdfs:subClassOf rdf:resource="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#NodeComponent -->
+
+    <owl:Class rdf:about="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#ProcessingComponent -->
+
+    <owl:Class rdf:about="http://www.science.uva.nl/research/sne/indl#ProcessingComponent">
+        <rdfs:subClassOf rdf:resource="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#StorageComponent -->
+
+    <owl:Class rdf:about="http://www.science.uva.nl/research/sne/indl#StorageComponent">
+        <rdfs:subClassOf rdf:resource="http://www.science.uva.nl/research/sne/indl#NodeComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.science.uva.nl/research/sne/indl#VirtualNode -->
+
+    <owl:Class rdf:about="http://www.science.uva.nl/research/sne/indl#VirtualNode">
+        <rdfs:subClassOf rdf:resource="http://schemas.ogf.org/nml/base/2013/02#Node"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

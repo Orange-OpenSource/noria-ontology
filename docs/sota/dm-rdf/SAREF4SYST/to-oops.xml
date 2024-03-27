@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://saref.etsi.org/saref4syst/"
+     xml:base="https://saref.etsi.org/saref4syst/"
+     xmlns:schema="http://schema.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:s4syst="https://saref.etsi.org/saref4syst/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/">
+    <owl:Ontology rdf:about="https://saref.etsi.org/saref4syst/">
+        <owl:versionIRI rdf:resource="https://saref.etsi.org/saref4syst/v1.1.2/"/>
+        <dcterms:creator rdf:resource="http://maxime-lefrancois.info/me#"/>
+        <owl:versionInfo>v1.1.2</owl:versionInfo>
+        <vann:preferredNamespacePrefix>s4syst</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://saref.etsi.org/saref4syst/</vann:preferredNamespaceUri>
+        <dcterms:publisher rdf:resource="https://www.etsi.org/"/>
+        <dcterms:title xml:lang="en">SAREF4SYST: an extension of SAREF for typology of systems and their inter-connections</dcterms:title>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-06-06</dcterms:issued>
+        <rdfs:seeAlso rdf:resource="http://www.etsi.org/deliver/etsi_ts/103500_103599/103548/01.01.02_60/ts_103548v010102p.pdf"/>
+        <dcterms:source rdf:resource="https://saref.etsi.org/sources/saref4syst/"/>
+        <dcterms:description rdf:datatype="https://www.iana.org/assignments/media-types/text/markdown">The present document is the technical specification of SAREF4SYST, a generic extension of [ETSI TS 103 264 SAREF](https://www.etsi.org/deliver/etsi_ts/103200_103299/103264/02.01.01_60/ts_103264v020101p.pdf) that defines an ontology pattern which can be instantiated for different domains. SAREF4SYST defines Systems, Connections between systems, and Connection Points at which systems may be connected. These core concepts can be used generically to define the topology of features of interest, and can be specialized for multiple domains. The topology of features of interest is highly important in many use cases. If a room holds a lighting device, and if it is adjacent with an open window to a room whose luminosity is low, then by turning on the lighting device in the former room one may expect that the luminosity in the latter room will rise.
+
+The SAREF4SYST ontology pattern can be instantiated for different domains. For example to describe zones inside a building (systems), that share a frontier (connections). Properties of systems are typically state variables (e.g. agent population, temperature), whereas properties of connections are typically flows (e.g. heat flow).
+
+SAREF4SYST has two main aims: on the one hand, to extend SAREF with the capability or representing general topology of systems and how they are connected or interact and, on the other hand, to exemplify how ontology patterns may help to ensure an homogeneous structure of the overall SAREF ontology and speed up the development of extensions.
+
+SAREF4SYST consists both of a core ontology, and guidelines to create ontologies following the SAREF4SYST ontology pattern. The core ontology is a lightweight OWL-DL ontology that defines 3 classes and 9 object properties.
+
+Use cases for ontology patterns are described extensively in  [ETSI TR 103 549 Clauses 4.2 and 4.3](https://www.etsi.org/deliver/etsi_tr/103500_103599/103549/01.01.01_60/tr_103549v010101p.pdf).
+
+For the Smart Energy domain:
+
+- Electric power systems can exchange electricity with other electric power systems. The electric energy can flow both ways in some cases (from the Public Grid to a Prosumer), or in only one way (from the Public Grid to a Load). Electric power systems can be made up of different sub-systems. Generic sub-types of electric power systems include producers, consumers, storage systems, transmission systems. 
+- Electric power systems may be connected one to another through electrical connection points. An Electric power system may have multiple connection points (Multiple Winding Transformer generally have one single primary winding with two or more secondary windings). Generic sub-types of electrical connection points include plugs, sockets, direct-current, single-phase, three-phase, connection points. 
+- An Electrical connection may exist between two Electric power systems at two of their respective connection points. Generic sub-types of electrical connections include Single-phase Buses, Three-phase Buses. A single-phase electric power system can be connected using different configurations at a three-phase bus (RN, SN, TN types).
+
+For the Smart Building domain:
+
+- Buildings, Storeys, Spaces, are different sub-types of Zones. Zones can contain sub-zones. Zones can be adjacent or intersect with other zones. 
+- Two zones may share one or more connections. For example some fresh air may be created inside a storey if it has two controllable openings to the exterior at different cardinal points. 
+
+A graphical overview of the SAREF4SYST ontology is provided in Figure 1. In such figure:
+
+- Rectangles are used to denote Classes. The label of the rectangle is the identifier of the Class.
+- Plain arrows are used to represent Object Properties between Classes. The label of the arrow is the identifier of the Object Property. The origin of the arrow is the domain Class of the property, and the target of the arrow is the range Class of the property.
+- Dashed arrows with identifiers between stereotype signs (i.e. &quot;`&lt;&lt; &gt;&gt;`&quot;) refer to OWL axioms that are applied to some property. Four pairs of properties are inverse one of the other; the property `s4syst:connectedTo` is symmetric, and properties `s4syst:hasSubSystem` and `s4syst:hasSubSystem` are transitive.
+- A symbol =1 near the target of an arrow denotes that the associated property is functional. A symbol ∃ denotes a local existential restriction.
+
+
+![SAREF4SYST overview](diagrams/overview.png)
+</dcterms:description>
+        <dcterms:abstract rdf:datatype="https://www.iana.org/assignments/media-types/text/markdown">The present document specifies a new reference ontology pattern for the [SAREF semantic model](https://saref.etsi.org/), which leverages the experience of the [EUREKA ITEA 12004 SEAS (Smart Energy Aware Systems) project](http://w3id.org/seas/), and the development of the [OGC&amp;W3C SSN (Semantic Sensor Network) ontology](https://www.w3.org/TR/vocab-ssn/). It also defines how this pattern may be instantiated for the verticals, and point to examples for the Smart Energy and the Smart Building domains. The present document is based on the requirements and guidelines defined in the associated [ETSI TS 103 549 document](https://www.etsi.org/deliver/etsi_tr/103500_103599/103549/01.01.01_60/tr_103549v010101p.pdf).</dcterms:abstract>
+        <dcterms:license rdf:resource="https://forge.etsi.org/etsi-software-license"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2020-06-14</dcterms:modified>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectedThrough -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectedThrough">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/saref4syst/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/Connection"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://saref.etsi.org/saref4syst/connectsAt"/>
+            <rdf:Description rdf:about="https://saref.etsi.org/saref4syst/connectsSystemThrough"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Links a system to one of its connections to other systems.</rdfs:comment>
+        <rdfs:label xml:lang="en">connected through</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectedTo -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectedTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">Links a system to a system it is connected to. Connected systems interact in some way. The exact meaning of &quot;interact&quot; is defined by sub properties of s4syst:connectedTo. Property s4syst:connectedTo is symmetric. This property can be qualified using class s4syst:Connection, which connects the two systems. If there is a connection between several systems, then one may infer these systems are pairwise connected.</rdfs:comment>
+        <rdfs:label xml:lang="en">connected to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectionPointOf -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectionPointOf">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/saref4syst/connectsAt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">Links a connection point to the one and only one system it belongs to.</rdfs:comment>
+        <rdfs:label xml:lang="en">connection point to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectsAt -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectsAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a system to one of the connection points at which it connects.</rdfs:comment>
+        <rdfs:label xml:lang="en">connects at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectsSystem -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectsSystem">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/Connection"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://saref.etsi.org/saref4syst/connectsSystemAt"/>
+            <rdf:Description rdf:about="https://saref.etsi.org/saref4syst/connectionPointOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Links a connection to one of the systems it connects.</rdfs:comment>
+        <rdfs:label xml:lang="en">connects system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectsSystemAt -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectsSystemAt">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/saref4syst/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/Connection"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a connection to one of the connection points at which it connects a system.</rdfs:comment>
+        <rdfs:label xml:lang="en">connects system at</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/connectsSystemThrough -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/connectsSystemThrough">
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/Connection"/>
+        <rdfs:comment xml:lang="en">Links a connection point to one of the connections through which it connects its system.</rdfs:comment>
+        <rdfs:label xml:lang="en">connects system through</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/hasSubSystem -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/hasSubSystem">
+        <owl:inverseOf rdf:resource="https://saref.etsi.org/saref4syst/subSystemOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">Links a system to one of its sub systems.</rdfs:comment>
+        <rdfs:label xml:lang="en">has sub system</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/subSystemOf -->
+
+    <owl:ObjectProperty rdf:about="https://saref.etsi.org/saref4syst/subSystemOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:range rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">Links a system to its super system. Properties of subsystems somehow contribute to the properties of the super system. The exact meaning of &quot;contribute is defined by sub properties of s4syst:subSystemOf. Property s4syst:subSystemOf is transitive.</rdfs:comment>
+        <rdfs:label xml:lang="en">sub system of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/Connection -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/Connection">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4syst/connectsSystem"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4syst/connectsSystemAt"/>
+                <owl:someValuesFrom rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://saref.etsi.org/saref4syst/ConnectionPoint"/>
+        <owl:disjointWith rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">The class of connections between systems. This class qualifies property s4syst:connectedTo. A connection describes potential interactions between systems. Any two connected systems are connected through a connection. A connection can connect more than two systems at the same time.</rdfs:comment>
+        <rdfs:label xml:lang="en">Connection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/ConnectionPoint -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/ConnectionPoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://saref.etsi.org/saref4syst/connectionPointOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://saref.etsi.org/saref4syst/System"/>
+        <rdfs:comment xml:lang="en">The class of connection points of systems, at which they may be connected to other systems. This class qualifies properties s4syst:connectsSystem and s4syst:connectedThrough. A connection point belongs to exactly one system. Any system connected through a connection is connected at one of its connection points to the connection. The system of a connection point that is connected through a connection is itself connected through the connection.</rdfs:comment>
+        <rdfs:label xml:lang="en">Connection Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://saref.etsi.org/saref4syst/System -->
+
+    <owl:Class rdf:about="https://saref.etsi.org/saref4syst/System">
+        <rdfs:comment xml:lang="en">The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled. Systems can be connected to other systems. Connected systems interact in some ways. Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem.</rdfs:comment>
+        <rdfs:label xml:lang="en">System</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

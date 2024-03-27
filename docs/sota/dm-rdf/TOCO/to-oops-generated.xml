@@ -1,0 +1,1944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:units="https://sweet.jpl.nasa.gov/"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos/"
+     xmlns:toco="http://purl.org/toco/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:vann="http://purl.org/vacob/vann/"
+     xmlns:om="http://purl.oclc.org/net/unis/ontology/sensordata.owl/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/terms/">
+    <Ontology rdf:about="http://purl.org/toco/">
+        <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</versionInfo>
+        <vann:preferredNamespacePrefix>toco</vann:preferredNamespacePrefix>
+        <dc:contributor rdf:resource="http://www.macs.hw.ac.uk/~ajg33/"/>
+        <vann:preferredNamespaceUri>http://purl.org/toco/</vann:preferredNamespaceUri>
+        <dc:description>A ontology developed for telecommunciation network systems with hybrid technologies, e.g., WiFi, LiFi, LTE, 2G/3G, optical, etc.</dc:description>
+        <dc:creator rdf:resource="https://www.gla.ac.uk/schools/computing/staff/qianruzhou/"/>
+        <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-3-29</dc:modified>
+        <dc:contributor rdf:resource="https://www.hw.ac.uk/staff/uk/eps/stephen-mclaughlin.htm"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <rdfs:comment xml:lang="en">Version 1.1: creation</rdfs:comment>
+        <dc:title xml:lang="en">Toucan Ontology</dc:title>
+        <dc:publisher rdf:resource="http://hw.ac.uk"/>
+        <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-3-1</dc:issued>
+        <dc:rights>Copyright  © 2015 Qianru Zhou</dc:rights>
+        <dc:contributor rdf:resource="https://www.eng.ed.ac.uk/about/people/mr-mohammad-dehghani-soltani"/>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/toco/contributor -->
+
+    <AnnotationProperty rdf:about="http://purl.org/toco/contributor"/>
+    
+
+
+    <!-- http://purl.org/toco/license -->
+
+    <AnnotationProperty rdf:about="http://purl.org/toco/license"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasUnits -->
+
+    <ObjectProperty rdf:about="http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasUnits">
+        <rdfs:domain rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the unit of an observation or measurement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/apsInRange -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/apsInRange">
+        <rdfs:domain rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/belongsTo -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/belongsTo">
+        <inverseOf rdf:resource="http://purl.org/toco/hasDevice"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/User"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/from -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/from">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the source node that the link is transmit from.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasAssociatedStations -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasAssociatedStations">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in wireless networks, the user equipments (mobile stations in another term, e.g., phones, laptops, tablets, etc.) that are associated to the access point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasBandwidth -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasBandwidth">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the bandwidth of the link</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasDatarate -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasDatarate">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasDevice -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasDevice">
+        <rdfs:domain rdf:resource="http://purl.org/toco/User"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasDistance -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasDistance">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAssociationProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasFlow -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasFlow">
+        <rdfs:domain rdf:resource="http://purl.org/toco/SystemDevice"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasFlowAction -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasFlowAction">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Action"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasIncidentAngle -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasIncidentAngle">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAssociationProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasInterface -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasInterface">
+        <inverseOf rdf:resource="http://purl.org/toco/isIn"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the fact that a device has a interface.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLTEAssociation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLTEAssociation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWirelessAssociation"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/LTEAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiAssociation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLiFiAssociation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWirelessAssociation"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiWLAN"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/LiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiAssociationProperty -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLiFiAssociationProperty">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWirelessLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiWLAN -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLiFiWLAN">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWLAN"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/LiFiWLAN"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLink -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLink">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLinkProperty -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasLinkProperty">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasPort -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasPort">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasInterface"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Interface"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasRadianceAngle -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasRadianceAngle">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAssociationProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasRoundTripTime -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasRoundTripTime">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the round trip time of a link, which is the time taken for signal travel a round trip via this link.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasSatelliteAssociation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasSatelliteAssociation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWirelessAssociation"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/SatelliteAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasService -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasService">
+        <rdfs:domain rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasStandardDeviation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasStandardDeviation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After multiple round trip time tested on a link, the deviation of these test results.</rdfs:comment>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasThroughPut -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasThroughPut">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasTransmitPower -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasTransmitPower">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasTxpower -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasTxpower">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasUserDeviceStatus -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasUserDeviceStatus">
+        <rdfs:domain rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/UserDeviceStatus"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWLAN -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWLAN">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasInterface"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/WLAN"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWiFiAssociation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWiFiAssociation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWirelessAssociation"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/WiFiWLAN"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/WiFiAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWiFiWLAN -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWiFiWLAN">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasWLAN"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/WiFiWLAN"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWiredLink -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWiredLink">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLink"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/WiredLink"/>
+        <propertyDisjointWith rdf:resource="http://purl.org/toco/hasWirelessAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWirelessAssociation -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWirelessAssociation">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLink"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/WLAN"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWirelessLinkProperty -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/hasWirelessLinkProperty">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLinkProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/isIn -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/isIn">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the relation that a interface belongs to a device. A device can have multiple interfaces, but a interface can be in one and only one device.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/range -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/range">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the signal range of wireless devices, such as WiFi access point, LiFi access point, WiFi mobile station, and LiFi mobile station.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/stationsInRange -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/stationsInRange">
+        <rdfs:domain rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/UserEquipment"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in wireless networks (WiFi/LiFi), the mobile stations in the range of the access points.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://purl.org/toco/to -->
+
+    <ObjectProperty rdf:about="http://purl.org/toco/to">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the destination node of the link.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing"/>
+        <rdfs:comment>The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasUnit -->
+
+    <DatatypeProperty rdf:about="http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasUnit">
+        <rdfs:domain rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reused from SENSEI Observation and Measurement Ontology.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasValue -->
+
+    <DatatypeProperty rdf:about="http://purl.oclc.org/net/unis/ontology/sensordata.owl/hasValue">
+        <rdfs:domain rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the value of an observation or measurement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/channel -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/channel">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the channel id of a interface.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/cookie -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/cookie">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/dlDst -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/dlDst">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the Ethernet destination address of the flow. It should be an MAC address, with 6 pairs of hexadecimal digits.</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/dlSrc -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/dlSrc">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the Ethernet source address of the flow. It should be an MAC address with 6 pairs of hexadecimal digits</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/driver -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/driver">
+        <rdfs:domain rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/flags -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/flags">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/frequency -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/frequency">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the frequency of the radio wave transmitted by a wireless interface (WLAN).</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hardTimeout -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hardTimeout">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasAntennaGain -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasAntennaGain">
+        <rdfs:domain rdf:resource="http://purl.org/toco/WLAN"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the gain of an antenna on the wireless interface.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasAntennaHeight -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasAntennaHeight">
+        <rdfs:domain rdf:resource="http://purl.org/toco/WLAN"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the height of the antenna of a wireless interface</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasDistance -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasDistance">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasErrorCode -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasErrorCode">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the error code of a service.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasFieldOfView -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasFieldOfView">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiUserEquipmentProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiUserEquipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Field of view (FOV) is the open observable area where a LiFi user equipment could receive visiable light signal. It is defined by let the incident angle of the LiFi user equipment equals to Pi/2.
+
+If the incident angle larger than Pi/2, the light ray is out of the FOV, thus cannot be received by the LiFi user equipment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasFlowProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasFlowProperty">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasGainOfConcentrator -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasGainOfConcentrator">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiUserEquipmentProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiUserEquipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The gain of the concentrator on the LiFi user equipment, usually equals to 1.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasGainofOpticalFilter -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasGainofOpticalFilter">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAccessPointProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gain of optical filter on LiFi access point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasHalfIntensityAngle -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasHalfIntensityAngle">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAccessPointProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The angle of half intensity of the LED light transmiting visible light signal in a LiFi access point. 
+
+A fixed value. It is the angle where the radiated intensity will be half as intense as it would be at 0 degrees, or pointing straight ahead.
+
+Factors that contribute to the angle of half intensity include the amount of diffusing material in the epoxy, the shape of the reflector cup which surrounds the LED chip, the shape of the LED lens, the distance from the LED to the tip of the lens, and the type of emitter chip.
+
+The most common value is Pi/3.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasIP -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasIP">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the IP address of the interface.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasIncidentAngle -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasIncidentAngle">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasInterfaceName -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasInterfaceName">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the port number of an interface</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasJoinDate -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasJoinDate">
+        <rdfs:domain rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>the join date of the user device</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiAccessPointProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasLiFiAccessPointProperty">
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">datatype properties dedicated for LiFi access points</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiAssociationProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasLiFiAssociationProperty">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLiFiUserEquipmentProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasLiFiUserEquipmentProperty">
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiUserEquipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">properties of LiFi user equipments.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasLinkProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasLinkProperty">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasMAC -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasMAC">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the MAC address of the interface.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasOpticalTransmittedPower -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasOpticalTransmittedPower">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAccessPointProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the transmitted power of the LED on the LiFi access point</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasPacketLoss -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasPacketLoss">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the packet loss rate of a link, usually in percentage.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasRadianceAngle -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasRadianceAngle">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasRespansivity -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasRespansivity">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasLiFiAccessPointProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/LiFiAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasServiceEndTime -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasServiceEndTime">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the time that a service ends.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasServiceStartTime -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasServiceStartTime">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the start time of a service.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasServiceStatus -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasServiceStatus">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the status of the service.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasServiceType -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasServiceType">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Service"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the type of communication services, e.g., video, audio, file transmit, text transmiting, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasUserID -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasUserID">
+        <rdfs:domain rdf:resource="http://purl.org/toco/User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the user ID of the user</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/hasWirelessLinkProperty -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/hasWirelessLinkProperty">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/idleTimeout -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/idleTimeout">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/inPort -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/inPort">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the port number of the in port of the flow, or could be a keyword, such as &quot;LOCAL&quot;</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/isUP -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/isUP">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>indicate whether a interface is up or not.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/mode -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/mode">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/nwProtocol -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/nwProtocol">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>network protocol. The nw_proto property of a flow.</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/nwTos -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/nwTos">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>network type of service. the nw_tos property of a flow. It should be a decimal number with the value between 0-255.</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/priority -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/priority">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/ssid -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/ssid">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in wireless networks, the ssid of the network this device belongs to.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/tableId -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/tableId">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/toco/hasFlowProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/toco/Flow"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/toco/toPort -->
+
+    <DatatypeProperty rdf:about="http://purl.org/toco/toPort">
+        <rdfs:domain rdf:resource="http://purl.org/toco/Action"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>the port number of the port forward to defined by the to_port property of the flow action OUTPUT.</rdfs:comment>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+
+    <DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#alt">
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>the altitude of a spartial thing, i.e., a point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:isDefinedBy>the latitude of a point</rdfs:isDefinedBy>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:isDefinedBy>the longitude of a spartial thing, i.e., a point.</rdfs:isDefinedBy>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/firstName -->
+
+    <DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/firstName">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>the first name of a user.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/gender -->
+
+    <DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/gender">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>the gender of a user, reused from foaf</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/lastName -->
+
+    <DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/lastName">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>the last name of a person.
+Reused from foaf</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000001 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000001">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>length unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000003 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000003">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>time unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000008 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000008">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000001"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>meter</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000010 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000010">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>second</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000016 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000016">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000001"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>millimeter</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000017 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000017">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000001"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>micrometer</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000028 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000028">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>millisecond</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000031 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000031">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>minute</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000032 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000032">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>hour</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000034 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000034">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>week</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000035 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000035">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>month</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000036 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000036">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000003"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>year</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000058 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000058">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000105"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>rotational frequency unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000060 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000060">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>speed/velocity unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000092 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000092">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000058"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>turns per second</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000094 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000094">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000060"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>meter per second</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000105 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000105">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:label>frequency unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000106 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000106">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000105"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>hertz</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000111 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000111">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>energy unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000113 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000113">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:label>power unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000114 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000114">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000113"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>watt</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000223 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000223">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000111"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>watt-hour</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000224 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000224">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000111"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>kilowatt-hour</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000231 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000231">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/uo.owl/unit"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>information unit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000232 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000232">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000231"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>bit</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000233 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000233">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000231"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>byte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000235 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000235">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000231"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>megabyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000325 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000325">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000105"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>megaHertz</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000331 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000331">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000231"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>gigabyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0000332 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0000332">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000231"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>terabyte</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010005 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0010005">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000060"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>millimeters per day</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/UO_0010008 -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/UO_0010008">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/UO_0000060"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+        <rdfs:label>kilometer per hour</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/uo.owl/unit -->
+
+    <Class rdf:about="http://purl.obolibrary.org/obo/uo.owl/unit">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reused from Units of measurement Ontology</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.obolibrary.org/obo/uo.owl"/>
+    </Class>
+    
+
+
+    <!-- http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement -->
+
+    <Class rdf:about="http://purl.oclc.org/net/unis/ontology/sensordata.owl/ObervationAndMeasurement">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reused from SenSei Observation And Measurement Ontology (http://purl.oclc.org/net/unis/ontology/sensordata.owl).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.oclc.org/net/unis/ontology/sensordata.owl"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/AccessPoint -->
+
+    <Class rdf:about="http://purl.org/toco/AccessPoint">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/SystemDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a wireless access point, or more generally just access point (AP), is a networking hardware device that allows a Wi-Fi/Li-Fi device to connect to a wired network. The AP usually connects to a router (via a wired network) as a standalone device, but it can also be an integral component of the router itself. An AP is differentiated from a hotspot, which is the physical location where Wi-Fi access to a WLAN is available.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Action -->
+
+    <Class rdf:about="http://purl.org/toco/Action">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:comment>the action of a flow defined in OpenFlow protocol</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Attached -->
+
+    <Class rdf:about="http://purl.org/toco/Attached">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserDeviceStatus"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/AudioService -->
+
+    <Class rdf:about="http://purl.org/toco/AudioService">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Service"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/AudioSession -->
+
+    <Class rdf:about="http://purl.org/toco/AudioSession">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Session"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/BaseStation -->
+
+    <Class rdf:about="http://purl.org/toco/BaseStation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/SystemDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a &quot;land station in the land mobile service.&quot; -- according to the International Telecommunication Union&apos;s (ITU) Radio Regulations (RR).
+
+it is a transceiver connecting a number of other devices to one another and/or to a wider area. In LTE, it is also known as eNodeB.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/CellularUserEquipment -->
+
+    <Class rdf:about="http://purl.org/toco/CellularUserEquipment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserEquipment"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">User deivce in a Cellular network.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/ConceptEntities -->
+
+    <Class rdf:about="http://purl.org/toco/ConceptEntities">
+        <disjointWith rdf:resource="http://purl.org/toco/PhysicalInfrastructure"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Detached -->
+
+    <Class rdf:about="http://purl.org/toco/Detached">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserDeviceStatus"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Device -->
+
+    <Class rdf:about="http://purl.org/toco/Device">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/PhysicalInfrastructure"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">represent all the devices in the physical infrastructure of telecommunciation system. 
+
+According to its user, could be divided into UserDevice and SystemDevice.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Drop -->
+
+    <Class rdf:about="http://purl.org/toco/Drop">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Action"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/FileTransferService -->
+
+    <Class rdf:about="http://purl.org/toco/FileTransferService">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Service"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Flow -->
+
+    <Class rdf:about="http://purl.org/toco/Flow">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:comment>the flow entry in a flow table inside a switch or route. Defined by OpenFlow protocol.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Forward -->
+
+    <Class rdf:about="http://purl.org/toco/Forward">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Action"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Host -->
+
+    <Class rdf:about="http://purl.org/toco/Host">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A host is a computer or other device connected to a computer network. It is a network node that is assigned a network address.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Interface -->
+
+    <Class rdf:about="http://purl.org/toco/Interface">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/PhysicalInfrastructure"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/LTEAssociation -->
+
+    <Class rdf:about="http://purl.org/toco/LTEAssociation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the electromagnetic wave carring modulated signal between LTE base station, or eNodeB, and user equipment</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/LiFiAccessPoint -->
+
+    <Class rdf:about="http://purl.org/toco/LiFiAccessPoint">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The access point in Li-Fi network. Li-Fi is a wireless optical networking technology that uses light-emitting diodes (LEDs) for data transmission.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/LiFiAssociation -->
+
+    <Class rdf:about="http://purl.org/toco/LiFiAssociation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the visiable light carring modulated signals in Li-Fi network. Transmited and received by LiFi user equipment and LiFi access point.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/LiFiUserEquipment -->
+
+    <Class rdf:about="http://purl.org/toco/LiFiUserEquipment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserEquipment"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">any device used directly by an end-user to communicate. It can be a hand-held telephone, a laptop computer equipped with a mobile broadband adapter, or any other device.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/LiFiWLAN -->
+
+    <Class rdf:about="http://purl.org/toco/LiFiWLAN">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WLAN"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WLAN interface on the devices in LIFi network, e.g., LiFi user equipment, LiFi access point.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Link -->
+
+    <Class rdf:about="http://purl.org/toco/Link">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/PhysicalInfrastructure"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Output -->
+
+    <Class rdf:about="http://purl.org/toco/Output">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Action"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/PathFlow -->
+
+    <Class rdf:about="http://purl.org/toco/PathFlow">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Flow"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/PhysicalInfrastructure -->
+
+    <Class rdf:about="http://purl.org/toco/PhysicalInfrastructure">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describe all the physical resources in a telecommunication network system, which is divided into three main modules, namely, device, interface, link. 
+
+Please be reminded the electromagnetic wave (which is the links of all wireless communication netwoks), even if it is invisable, physically exists. Thus, it is also described in the subclass of &quot;net;PhysicalInfrastructure&quot;.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/SatelliteAssociation -->
+
+    <Class rdf:about="http://purl.org/toco/SatelliteAssociation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the milli-meter electromagnetic wave carring modulated signal between satellite base stations and ground station.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/SatelliteGroundStation -->
+
+    <Class rdf:about="http://purl.org/toco/SatelliteGroundStation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserEquipment"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">used in satellite network. Also known as earth station, or earth terminal, it is a terrestrial radio station designed for extraplanetary telecommunication with spacecraft (constituting part of the ground segment of the spacecraft system), or reception of radio waves from astronomical radio sources. Ground stations may be located either on the surface of the Earth, or in its atmosphere.[1] Earth stations communicate with spacecraft by transmitting and receiving radio waves in the super high frequency or extremely high frequency bands (e.g., microwaves). When a ground station successfully transmits radio waves to a spacecraft (or vice versa), it establishes a telecommunications link. A principal telecommunications device of the ground station is the parabolic antenna.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/SatelliteRelayStation -->
+
+    <Class rdf:about="http://purl.org/toco/SatelliteRelayStation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/SystemDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An artificial satellite, that relays and amplifies radio telecommunications signals via a transponder; it creates a communication channel between a source transmitter and a receiver at different locations on Earth. Communications satellites are used for television, telephone, radio, internet, and military applications.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Service -->
+
+    <Class rdf:about="http://purl.org/toco/Service">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a communication service, e.g., voice, video, file uploading/downloading, etc.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Session -->
+
+    <Class rdf:about="http://purl.org/toco/Session">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Switch -->
+
+    <Class rdf:about="http://purl.org/toco/Switch">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/SystemDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A network switch (also called switching hub, bridging hub, officially MAC bridge) is a computer networking device that connects devices together on a computer network by using packet switching to receive, process, and forward data to the destination device.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/SystemDevice -->
+
+    <Class rdf:about="http://purl.org/toco/SystemDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">All the physical facilities in the telecommunication system that provide the communication service to uses. For example: base station towers, Wi-Fi access points, switches, servers, etc.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/Text -->
+
+    <Class rdf:about="http://purl.org/toco/Text">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Service"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/User -->
+
+    <Class rdf:about="http://purl.org/toco/User">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reused from foaf (http://xmlns.com/foaf/0.1/). Represent a user in the telecommunication system.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/UserDevice -->
+
+    <Class rdf:about="http://purl.org/toco/UserDevice">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Device"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">User Devices, requiring connectivity services, e.g., phones, tablets, laptops, wearable devices, etc.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/UserDeviceStatus -->
+
+    <Class rdf:about="http://purl.org/toco/UserDeviceStatus">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/UserEquipment -->
+
+    <Class rdf:about="http://purl.org/toco/UserEquipment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserDevice"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">any device used directly by an end-user to communicate. It can be a hand-held telephone, a laptop computer equipped with a mobile broadband adapter, or any other device.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/VideoService -->
+
+    <Class rdf:about="http://purl.org/toco/VideoService">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Service"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/VideoSession -->
+
+    <Class rdf:about="http://purl.org/toco/VideoSession">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Session"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WLAN -->
+
+    <Class rdf:about="http://purl.org/toco/WLAN">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Interface"/>
+        <rdfs:comment>A wireless local area network (WLAN) interface, also known as WLAN, is the interface of a wireless computer network that links two or more devices using wireless communication within a limited area such as a home, school, computer laboratory, or office building.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WiFiAccessPoint -->
+
+    <Class rdf:about="http://purl.org/toco/WiFiAccessPoint">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/AccessPoint"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An access point in a WiFi network</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WiFiAssociation -->
+
+    <Class rdf:about="http://purl.org/toco/WiFiAssociation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the electromagnetic wave carring modulated signal between LTE base station, or eNodeB, and user equipment</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WiFiUserEquipment -->
+
+    <Class rdf:about="http://purl.org/toco/WiFiUserEquipment">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserEquipment"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a user quipment in Wi-Fi network</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WiFiWLAN -->
+
+    <Class rdf:about="http://purl.org/toco/WiFiWLAN">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/WLAN"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WLAN interface on the devices in LIFi network, e.g., LiFi user equipment, LiFi access point.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WiredLink -->
+
+    <Class rdf:about="http://purl.org/toco/WiredLink">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Link"/>
+        <disjointWith rdf:resource="http://purl.org/toco/WirelessAssociation"/>
+        <rdfs:comment>wired link through twisted cable, optical fiber, etc.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/WirelessAssociation -->
+
+    <Class rdf:about="http://purl.org/toco/WirelessAssociation">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/Link"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the electromeganetic radio transmiting through wireless channels in wireless network, carring communication data. Depend on its frequency, it could be visiable light, micro waves, radio waves.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- http://purl.org/toco/unReachable -->
+
+    <Class rdf:about="http://purl.org/toco/unReachable">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/UserDeviceStatus"/>
+    </Class>
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+    <Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#Point">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing"/>
+        <rdfs:comment>The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+        <rdfs:label>location</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing -->
+
+    <Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpartialThing">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    </Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://purl.org/toco/ConceptEntities"/>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/toco/ -->
+
+    <NamedIndividual rdf:about="http://purl.org/toco/">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/toco/hasDistance">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the Euclidean distance between the LiFi user equipment and access point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/toco/hasIncidentAngle">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The angle of incidence of the LED receiver on LiFi user equipment, which is the angle between the visiable light ray incident on a surface and the line perpendicular to the surface at the point of incidence, called the normal.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/toco/hasLiFiAssociationProperty">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The properties of the visiable light association between the LED on LiFi access point and LiFi user equipment.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/toco/hasLinkProperty">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/toco/hasRadianceAngle">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the radiance angle of the light ray transmitted from LED on LiFi access point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/toco/"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

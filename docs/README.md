@@ -6,7 +6,8 @@ See sub-folders for specific content:
 noria-ontology/docs/
 ├───diagrams <shared diagrams and figures>
 ├───NORIA-O <Widoco generated documentation for NORIA-O>
-└───NORIA-O-KOS <sparna-git/skos-play generated documentation for NORIA-O KOS>
+├───NORIA-O-KOS <sparna-git/skos-play generated documentation for NORIA-O KOS>
+└───sota <State of the Art of ontologies related to the NORIA-O field prior to the design of NORIA-O>
 ```
 
 Useful references:

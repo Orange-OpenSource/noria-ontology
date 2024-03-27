@@ -1,0 +1,101 @@
+theme,title,bibRefCite,FS,FF,FD,FP,expressivity,classCount,objectPropertyCount,dataPropertyCount,individualCount
+CyberSec,Academic Cloud Computing Threat Patterns (ACCTP),\cite{andreibrazhukThreatModelingCloud2021b},"","","",X,ALEROI+(D),117,52,20,160
+CyberSec,Cyber-investigation Analysis Standard Expression (CASE),\cite{eoghancaseyAdvancingCoordinatedCyberinvestigations2017},"","","",X,AL(D),17,3,7,11
+CyberSec,Cyber-investigation Analysis Standard Expression (CASE),\cite{eoghancaseyAdvancingCoordinatedCyberinvestigations2017},"","",X,"",AL(D),17,3,7,11
+CyberSec,D3FEND,\cite{petere.kaloroumakisKnowledgeGraphCybersecurity2021},X,"","","",SROIQ(D),1568,198,41,1740
+CyberSec,D3FEND,\cite{petere.kaloroumakisKnowledgeGraphCybersecurity2021},"","","",X,SROIQ(D),1568,198,41,1740
+CyberSec,D3FEND,\cite{petere.kaloroumakisKnowledgeGraphCybersecurity2021},"",X,"","",SROIQ(D),1568,198,41,1740
+CyberSec,D3FEND,\cite{petere.kaloroumakisKnowledgeGraphCybersecurity2021},"","",X,"",SROIQ(D),1568,198,41,1740
+CyberSec,ICAS ontology,\cite{malekbensalemEnablingNewTechnologies2015},X,"","","",SROIN(D),559,385,144,256
+CyberSec,ICAS ontology,\cite{malekbensalemEnablingNewTechnologies2015},"","","",X,SROIN(D),559,385,144,256
+CyberSec,ICAS ontology,\cite{malekbensalemEnablingNewTechnologies2015},"",X,"","",SROIN(D),559,385,144,256
+CyberSec,ICAS ontology,\cite{malekbensalemEnablingNewTechnologies2015},"","",X,"",SROIN(D),559,385,144,256
+CyberSec,MALOnt,\cite{nidhirastogiMALOntOntologyMalware2020},"","","",X,ALH(D),76,11,13,265
+CyberSec,ORD2I,\cite{yoanchabotConstructionEnrichmentSemantic2015},X,"","","",SHOI(D),67,49,82,14
+CyberSec,ORD2I,\cite{yoanchabotConstructionEnrichmentSemantic2015},"","","",X,SHOI(D),67,49,82,14
+CyberSec,ORD2I,\cite{yoanchabotConstructionEnrichmentSemantic2015},"",X,"","",SHOI(D),67,49,82,14
+CyberSec,ORD2I,\cite{yoanchabotConstructionEnrichmentSemantic2015},"","",X,"",SHOI(D),67,49,82,14
+CyberSec,OWASP OdTM,\cite{andreibrazhukSecurityPatternsBased2020},"","","",X,ALCROI(D),100,42,4,30
+CyberSec,SLOGERT log extraction ontology,\cite{fajarj.ekaputraSLOGERTSemanticLOG},X,"","","",AL(D),5,6,4,98
+CyberSec,SLOGERT log extraction ontology,\cite{fajarj.ekaputraSLOGERTSemanticLOG},"",X,"","",AL(D),5,6,4,98
+CyberSec,The SLOGERT (Semantic LOG ExtRaction Template) log event ontology,\cite{fajarj.ekaputraSLOGERTSemanticLOG},"","",X,"",ALH(D),12,15,45,0
+CyberSec,Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,\cite{faranaksobhaniForensicEventOntology2019},X,"","","",SHIQ(D),483,148,51,1800
+CyberSec,Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,\cite{faranaksobhaniForensicEventOntology2019},"","","",X,SHIQ(D),483,148,51,1800
+CyberSec,Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,\cite{faranaksobhaniForensicEventOntology2019},"",X,"","",SHIQ(D),483,148,51,1800
+CyberSec,Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,\cite{faranaksobhaniForensicEventOntology2019},"","",X,"",SHIQ(D),483,148,51,1800
+CyberSec,UCO: A unified cybersecurity ontology,\cite{zareensyedUCOUnifiedCybersecurity2016},X,"","","",SRIN(D),422,177,574,455
+CyberSec,UCO: A unified cybersecurity ontology,\cite{zareensyedUCOUnifiedCybersecurity2016},"","","",X,SRIN(D),422,177,574,455
+CyberSec,UCO: A unified cybersecurity ontology,\cite{zareensyedUCOUnifiedCybersecurity2016},"",X,"","",SRIN(D),422,177,574,455
+CyberSec,UCO: A unified cybersecurity ontology,\cite{zareensyedUCOUnifiedCybersecurity2016},"","",X,"",SRIN(D),422,177,574,455
+Generic,A Core Pattern for Events,\cite{krisnadhiCorePatternEvents2016},"","",X,"",ALERI,5,7,0,0
+Generic,Basic geo Ontology,\cite{williamr.hoganGeographicalEntityOntology2016},"","",X,"",SROIQ(D),61,22,1,4
+Generic,EmOCA,\cite{franckberthelonEmotionOntologyContext2013},"","","",X,AL(D),18,4,3,1
+Generic,Event Ontology,\cite{yvesraimondEventOntology2007},"","","",X,ALCHI(D),8,17,5,2
+Generic,Event Ontology,\cite{yvesraimondEventOntology2007},"","",X,"",ALCHI(D),8,17,5,2
+Generic,EventKG,\cite{simongottschalkEventKGMultilingualEventCentric2018a},"","","",X,AL(D),10,3,2,2
+Generic,EventKG,\cite{simongottschalkEventKGMultilingualEventCentric2018a},"","",X,"",AL(D),10,3,2,2
+Generic,FARO,\cite{youssrarebboudCausalityRepresentingEvent2022},"","","",X,ALRI+,5,32,0,4
+Generic,FARO,\cite{youssrarebboudCausalityRepresentingEvent2022},"","",X,"",ALRI+,5,32,0,4
+Generic,FOAF,\cite{danbrickleyFOAFVocabularySpecification2004},"","","","",ALCHIF(D),22,36,15,0
+Generic,GeoSPARQL,\cite{nicholasj.carOGCGeoSPARQLGeographic2022},"","","","",ALCH(D),9,37,18,0
+Generic,Geonames,\cite{harrychenGeonames2006},"","","","",ALEROIN+(D),15,33,17,701
+Generic,Mining Minds Context Ontology,\cite{claudiavillalongaOntologyBasedHighLevelContext2016},"","","","",ALCF(D),52,4,2,0
+Generic,OM,\cite{hajorijgersbergOntologyUnitsMeasure2013},"","","","",ALCON(D),815,23,11,2242
+Generic,OWL-S,\cite{davidmartinOWLSSemanticMarkup2004a},"","","",X,ALCHOIN(D),86,88,41,13
+Generic,OWL-S,\cite{davidmartinOWLSSemanticMarkup2004a},"",X,"","",ALCHOIN(D),86,88,41,13
+Generic,OWL-Time,\cite{simoncoxTimeOntologyOWL2020},"","",X,"",SROIN(D),21,33,25,15
+Generic,PROV-O,\cite{timothyleboPROVOPROVOntology2013},"","",X,"",ALCRIN(D),31,44,6,1
+Generic,Procedure Execution Platform,\cite{lefrancoisD2SEASKnowledge2016},"","","",X,ALCRIF(D),6,10,2,1
+Generic,Procedure Execution Platform,\cite{lefrancoisD2SEASKnowledge2016},"","",X,"",ALCRIF(D),6,10,2,1
+Generic,QUDT,\cite{ralphhodgsonQUDTQuantitiesUnits2011},"","",X,"",SHOIQ(D),138,132,102,78
+Generic,Semantic Sensor Network Ontology,\cite{arminhallerSemanticSensorNetwork2017},"","","",X,ALRIN,39,34,0,1
+Generic,Semantic Sensor Network Ontology,\cite{arminhallerSemanticSensorNetwork2017},"",X,"","",ALRIN,39,34,0,1
+Generic,Semantic Sensor Network Ontology,\cite{arminhallerSemanticSensorNetwork2017},"","",X,"",ALRIN,39,34,0,1
+Generic,Vocabulary Status Vocabulary,\cite{danbrickleyTermcentricSemanticWeb2009},"","","","",n.a.,,,,
+Health Science,HeLiS,\cite{maurodragoniHeLiSOntologySupporting2018},"","","",X,ALCIQ(D),281,23,31,30005
+Net-IT,A Semantic-Web Approach for Modeling Computing Infrastructures (INDL),\cite{m.ghijsenSemanticwebApproachModeling2013},X,"","","",ALUIF(D),26,29,17,0
+Net-IT,A Semantic-Web Approach for Modeling Computing Infrastructures (INDL),\cite{m.ghijsenSemanticwebApproachModeling2013},"","","",X,ALUIF(D),26,29,17,0
+Net-IT,Devops Infrastructure,\cite{oscarcorchoHighLevelOntologyNetwork2021},"","","","",ALCHOIQ(D),77,105,148,15
+Net-IT,Devops Infrastructure: network,\cite{oscarcorchoHighLevelOntologyNetwork2021},X,"","","",ALH(D),17,15,25,0
+Net-IT,Devops Infrastructure: network,\cite{oscarcorchoHighLevelOntologyNetwork2021},"",X,"","",ALH(D),17,15,25,0
+Net-IT,Devops Infrastructure: product,\cite{oscarcorchoHighLevelOntologyNetwork2021},X,"","","",ALCHOQ(D),22,20,3,2
+Net-IT,Devops Infrastructure: workflow,\cite{oscarcorchoHighLevelOntologyNetwork2021},"","","",X,ALCHOQ(D),13,16,8,2
+Net-IT,The SEAS Communication ontology,\cite{lefrancoisD2SEASKnowledge2016},X,"","","",ALCRIN(D),69,46,5,6
+Net-IT,The SEAS Communication ontology,\cite{lefrancoisD2SEASKnowledge2016},"",X,"","",ALCRIN(D),69,46,5,6
+Net-IT,ToCo,\cite{qianruzhouToCoOntologyRepresenting2019},X,"","","",ALCRI(D),85,41,54,1
+Net-IT,ToCo,\cite{qianruzhouToCoOntologyRepresenting2019},"",X,"","",ALCRI(D),85,41,54,1
+Net-IT,ToCo,\cite{qianruzhouToCoOntologyRepresenting2019},"","",X,"",ALCRI(D),85,41,54,1
+Net-IT,Vers une ontologie des interactions HTTP,\cite{mathieulirzinVersOntologieInteractions2020},"","",X,"",ALH(D),15,26,13,0
+Process modeling,Activity Ontology,\cite{megankatsumiDefiningActivitySpecifications2017},X,"","","",SRIQ(D),21,70,12,0
+Process modeling,Activity Ontology,\cite{megankatsumiDefiningActivitySpecifications2017},"","","",X,SRIQ(D),21,70,12,0
+Process modeling,Activity Ontology,\cite{megankatsumiDefiningActivitySpecifications2017},"","",X,"",SRIQ(D),21,70,12,0
+Process modeling,BPMN ontology,\cite{marcorospocherOntologyBusinessProcess2014},"","","",X,ALCRIQ(D),158,103,34,0
+Process modeling,BPMN ontology,\cite{marcorospocherOntologyBusinessProcess2014},"","",X,"",ALCRIQ(D),158,103,34,0
+Process modeling,FOLIO,\cite{bramsteenwinckelAdaptiveAnomalyDetection2018},"","","",X,ALEQ(D),29,19,3,0
+Process modeling,gist,\cite{philblackwoodGistJumpstart2023},X,"","","",SROIQ(D),138,71,39,15
+Process modeling,gist,\cite{philblackwoodGistJumpstart2023},"","","",X,SROIQ(D),138,71,39,15
+Process modeling,gist,\cite{philblackwoodGistJumpstart2023},"",X,"","",SROIQ(D),138,71,39,15
+Process modeling,gist,\cite{philblackwoodGistJumpstart2023},"","",X,"",SROIQ(D),138,71,39,15
+SE-SI,BOnSAI,\cite{thanosg.stavropoulosBOnSAISmartBuilding2012},X,"","","",ALCHIN(D),99,76,41,1
+SE-SI,BOnSAI,\cite{thanosg.stavropoulosBOnSAISmartBuilding2012},"","","",X,ALCHIN(D),99,76,41,1
+SE-SI,DogOnt,\cite{darioboninoDogOntOntologyModeling2008},X,"","","",ALCHOIN(D),167,18,26,0
+SE-SI,DogOnt,\cite{darioboninoDogOntOntologyModeling2008},"",X,"","",ALCHOIN(D),167,18,26,0
+SE-SI,DogOnt,\cite{darioboninoDogOntOntologyModeling2008},"","",X,"",ALCHOIN(D),167,18,26,0
+SE-SI,IoT-Lite,\cite{mariabermudez-edoIoTLiteLightweightSemantic2017},X,"","","",ALUI(D),20,13,9,0
+SE-SI,IoT-Lite,\cite{mariabermudez-edoIoTLiteLightweightSemantic2017},"","",X,"",ALUI(D),20,13,9,0
+SE-SI,RAMI Ontology,\cite{irlangrangel-gonzalezSemanticAdministrativeShell2016},X,"","","",ALH+ (D),35,47,19,3
+SE-SI,RAMI Ontology,\cite{irlangrangel-gonzalezSemanticAdministrativeShell2016},"",X,"","",ALH+ (D),35,47,19,3
+SE-SI,SAREF,\cite{maximelefrancoisSmartApplicationsREFerence2020},X,"","","",ALCIQ(D),81,35,5,10
+SE-SI,SAREF,\cite{maximelefrancoisSmartApplicationsREFerence2020},"","","",X,ALCIQ(D),81,35,5,10
+SE-SI,SAREF,\cite{maximelefrancoisSmartApplicationsREFerence2020},"",X,"","",ALCIQ(D),81,35,5,10
+SE-SI,SAREF,\cite{maximelefrancoisSmartApplicationsREFerence2020},"","",X,"",ALCIQ(D),81,35,5,10
+SE-SI,SAREF4SYST,\cite{maximelefrancoisSmartApplicationsREFerence2020},X,"","","",SRIN,4,9,0,0
+SE-SI,SAREF4SYST,\cite{maximelefrancoisSmartApplicationsREFerence2020},"",X,"","",SRIN,4,9,0,0
+SE-SI,SOSA,\cite{janowiczSOSALightweightOntology2018},"","","",X,ALI(D),16,21,2,1
+SE-SI,SOSA,\cite{janowiczSOSALightweightOntology2018},"",X,"","",ALI(D),16,21,2,1
+SE-SI,SOSA,\cite{janowiczSOSALightweightOntology2018},"","",X,"",ALI(D),16,21,2,1
+SE-SI,The Building Topology Ontology (BOT),\cite{madsholtenrasmussenBOTBuildingTopology2021},X,"","","",SRIN,10,16,1,5
+SE-SI,mIO! Ontology Network,\cite{mariapoveda-villalonContextOntologyMobile2010},X,"","","",SROIQ(D),624,364,310,520
+SE-SI,mIO! Ontology Network,\cite{mariapoveda-villalonContextOntologyMobile2010},"","","",X,SROIQ(D),624,364,310,520
+SE-SI,mIO! Ontology Network,\cite{mariapoveda-villalonContextOntologyMobile2010},"",X,"","",SROIQ(D),624,364,310,520
+SE-SI,mIO! Ontology Network,\cite{mariapoveda-villalonContextOntologyMobile2010},"","",X,"",SROIQ(D),624,364,310,520
