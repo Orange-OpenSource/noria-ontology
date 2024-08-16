@@ -5,13 +5,12 @@ This folder contains the **NORIA-O SotA resources**: a state of the art (SotA) o
 This work has been published in:
 
 ```bibtex
-@phdthesis{CitekeyPhdthesis,
+@phdthesis{LTailhardat-noria-thesis-2024,
   author  = "Lionel Tailhardat",
-  title   = "Anomaly Detection and Explainability using Knowledge Graph Embeddings: Application to Cyber Security",
-  school  = "Sorbonne University",
+  title   = "Anomaly Detection using Knowledge Graphs and Synergistic Reasoning: Application to Network Management and Cyber Security",
+  school  = "EURECOM, Sorbonne University",
   address = "France",
-  year    = 2024,
-  month   = jun
+  year    = 2024
 }
 ```
 
