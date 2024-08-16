@@ -1,0 +1,11 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/1a26fe84-3882-4869-94a2-0ef92b0a133e,P04,3,Minor,Creating unconnected ontology elements
+http://oops.linkeddata.es/data/fbfd0472-7f4c-4db4-8a39-58e59e77bd44,P07,11,Minor,Merging different concepts in the same class
+http://oops.linkeddata.es/data/364c8711-2447-4f02-8372-e5c065e159f7,P08,956,Minor,Missing annotations
+http://oops.linkeddata.es/data/9324a221-b818-43a8-9ec3-8557b488e5e8,P11,12,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/c262ebd6-9269-4d11-a0a3-b8e19798396e,P13,12,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/5f4b31cf-72ab-4684-8dfb-f58f1bfe8986,P20,1,Minor,Misusing ontology annotations
+http://oops.linkeddata.es/data/547944a7-8743-45ec-b1b1-61b3583f035b,P21,1,Minor,Using a miscellaneous class
+http://oops.linkeddata.es/data/b7a3654a-b392-41ca-b2a5-5788c66b1037,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/e266863d-7a52-4c94-857a-080adcc4751c,P30,4,Important,Equivalent classes not explicitly declared
+http://oops.linkeddata.es/data/86c5f103-f677-4efd-9ca5-7a7c45909b64,P31,1,Critical,Defining wrong equivalent classes

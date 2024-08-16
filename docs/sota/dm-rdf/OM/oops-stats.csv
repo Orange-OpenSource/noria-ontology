@@ -1,0 +1,11 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/338614d6-d629-4e61-9eac-254579155c50,P07,5,Minor,Merging different concepts in the same class
+http://oops.linkeddata.es/data/888eec18-22bb-4857-98c9-47362765d163,P08,507,Minor,Missing annotations
+http://oops.linkeddata.es/data/9d8cb5ee-878d-439e-a997-c6ae00f5d709,P10,1,Important,Missing disjointness
+http://oops.linkeddata.es/data/7d6f1379-a559-4a34-869a-1683badd87f0,P11,4,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/b6d43255-ed1e-4724-bf05-768f03fb46bc,P13,23,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/d5c59721-8c97-4873-97a3-38b11e02d726,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/04df2fb5-7773-4311-a96d-6b94a69bd70a,P24,1,Important,Using recursive definitions
+http://oops.linkeddata.es/data/4efa19e2-2b35-49b0-b452-43d9d1500ce5,P30,11,Important,Equivalent classes not explicitly declared
+http://oops.linkeddata.es/data/98bc2b5e-f460-4b0d-8ba0-fb09255e9b7c,P32,48,Minor,Several classes with the same label
+http://oops.linkeddata.es/data/1f18997c-b6bb-44fe-9d1f-f1d7809d93fc,P34,10,Important,Untyped class

@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/sepses/ns/logex#"
+     xml:base="https://w3id.org/sepses/ns/logex"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="https://w3id.org/sepses/ns/logex">
+        <owl:versionIRI rdf:resource="https://w3id.org/sepses/ns/logex/1.1.0"/>
+        <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+        <dc:description xml:lang="en">An ontology to capture SLOGERT extraction components</dc:description>
+        <vann:preferredNamespacePrefix>logex</vann:preferredNamespacePrefix>
+        <dc:creator>Fajar J. Ekaputra</dc:creator>
+        <dc:title xml:lang="en">SLOGERT log extraction ontology</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrower"/>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#associatedLogSourceType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/logex#associatedLogSourceType">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#SourceType"/>
+        <rdfs:comment>logex:LogEventTemplate can be associated with one or more log:SourceType.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#hasAnnotation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/logex#hasAnnotation">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment>property that links a :LogEventTemplate and its linked CEE-based concept annotation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#hasParameterList -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/logex#hasParameterList">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+        <rdfs:comment>a list of parameter types (as strings) extracted from slogert engine. the default parameter type is &apos;unknown&apos;, and a set of predefined parameter type is defined in the slogert configuration file.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#isLogEventTemplateOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/logex#isLogEventTemplateOf">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Event"/>
+        <rdfs:comment>relation between logex:LogEventTemplate and log:Event that conforms to it.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#example -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/logex#example">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>(random) example patterns from this template</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#keyword -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/logex#keyword">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>keywords extracted from Stanford NER engine from the template patterns</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#pattern -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/logex#pattern">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/logex#LogEventTemplate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>patterns of log events as extracted from LogPai</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Event -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Event"/>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#SourceType -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#SourceType"/>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/logex#LogEventTemplate -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/logex#LogEventTemplate">
+        <rdfs:comment>A class to represent a LogEventTemplate, which contains information about patterns of log:Event.</rdfs:comment>
+        <rdfs:label>LogEventTemplate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The primary type of action that was undertaken as part of the event. The status or result of the action should be detailed in the status field.</rdfs:comment>
+        <rdfs:label>action</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_access -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_access">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Access Event</skos:prefLabel>
+        <rdfs:comment>A file, user account, network share, or other object has been accessed. If more is known regarding the access, use a more precise action such as read, write, or execute.</rdfs:comment>
+        <rdfs:label>access</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_alert -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_alert">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Alert Event</skos:prefLabel>
+        <rdfs:label>alert</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_allocate -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_allocate">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Memory/Space Allocation Event</skos:prefLabel>
+        <rdfs:label>allocate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_allow -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_allow">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Allow/Permit Event</skos:prefLabel>
+        <rdfs:label>allow</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_audit -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_audit">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Audit Event</skos:prefLabel>
+        <rdfs:label>audit</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_backup -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_backup">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Backup Event</skos:prefLabel>
+        <rdfs:label>backup</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_bind -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_bind">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Bind Event</skos:prefLabel>
+        <rdfs:label>bind</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_block -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_block">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Block Event</skos:prefLabel>
+        <rdfs:label>block</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_clean -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_clean">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Clean/Scrub Infected Object Event</skos:prefLabel>
+        <rdfs:label>clean</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_close -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_close">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Close Event</skos:prefLabel>
+        <rdfs:label>close</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_compress -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_compress">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Compress Event</skos:prefLabel>
+        <rdfs:label>compress</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_connect -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_connect">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>connect</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_copy -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_copy">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Copy Event</skos:prefLabel>
+        <rdfs:comment>An object was duplicated or copied. Commonly copied objects include files, partitions, and database tables.</rdfs:comment>
+        <rdfs:label>copy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_create -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_create">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Create Event</skos:prefLabel>
+        <rdfs:comment>An object was created. Commonly created objects include files, accounts, and roles. If the object is a stream or session, then the action [open] must be used.</rdfs:comment>
+        <rdfs:label>create</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_decode -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_decode">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>decode</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_decompress -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_decompress">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Decompress Event</skos:prefLabel>
+        <rdfs:label>decompress</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_decrypt -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_decrypt">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>decrypt</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_depress -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_depress">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>depress</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_detect -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_detect">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Detect Event</skos:prefLabel>
+        <rdfs:comment>Finding evidence of something as it is occurring, usually through the use of sensors or triggers. For example, an attack or exploit can be detected as it is occurring, or evidence of the event can be found through later searches.</rdfs:comment>
+        <rdfs:label>detect</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_disconnect -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_disconnect">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>disconnect</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_download -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_download">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>download</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_encode -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_encode">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>encode</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_encrypt -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_encrypt">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>encrypt</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_execute -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_execute">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Execute Event</skos:prefLabel>
+        <rdfs:comment>An object (usually a file or memory) was run or executed.</rdfs:comment>
+        <rdfs:label>execute</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_filter -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_filter">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>filter</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_find -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_find">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Find Event</skos:prefLabel>
+        <rdfs:comment>An object was found, usually as a result of a search or scan, such as an anti-virus product found malware or an IDS found suspicious packets.</rdfs:comment>
+        <rdfs:label>find</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_free -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_free">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Free Event</skos:prefLabel>
+        <rdfs:comment>The deallocation or freeing of memory</rdfs:comment>
+        <rdfs:label>free</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_get -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_get">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>get</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_initialize -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_initialize">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Initialize Event</skos:prefLabel>
+        <rdfs:comment>Initialize memory or set a buffer or variable to their initial values.</rdfs:comment>
+        <rdfs:label>initialize</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_initiate -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_initiate">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Initiate Event</skos:prefLabel>
+        <rdfs:comment>Initiate an external connection, stream, or other object, usually as part of a hand-shake or other initialization process</rdfs:comment>
+        <rdfs:label>initiate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_install -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_install">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>install</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_lock -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_lock">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>lock</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_login -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_login">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Login Event</skos:prefLabel>
+        <rdfs:comment>A user or other entity gains access to a system through a successful authentication or login attempt</rdfs:comment>
+        <rdfs:label>accepted password</rdfs:label>
+        <rdfs:label>login</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_logout -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_logout">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Logout Event</skos:prefLabel>
+        <rdfs:comment>An entity that has already gained access to a system or application (through a login action), ends their user account session. Another session can be established to the user account only through another successful logon action.</rdfs:comment>
+        <rdfs:label>logout</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_modify -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_modify">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>modify</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_move -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_move">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Move Event</skos:prefLabel>
+        <rdfs:comment>An object was moved. Usually &apos;move&apos; describes the moving of a file between directories. A &apos;move&apos; may be implemented as a sequence of [copy] and [remove] actions.</rdfs:comment>
+        <rdfs:label>move</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_open -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_open">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>open</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_quarantine -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_quarantine">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>quarantine</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_read -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_read">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>read</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_release -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_release">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>release</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_remove -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_remove">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>remove</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_replicate -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_replicate">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>replicate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_resume -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_resume">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>resume</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_save -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_save">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>save</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_scan -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_scan">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>scan</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_search -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_search">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Search Event</skos:prefLabel>
+        <rdfs:comment>An actor (user or application) searched or queried for something. For &apos;search&apos; actions, the object should contain the query of what was sought.</rdfs:comment>
+        <rdfs:label>search</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_start -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_start">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Start Event</skos:prefLabel>
+        <rdfs:comment>A service, task, scan, or related object activity has begun.</rdfs:comment>
+        <rdfs:label>start</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_stop -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_stop">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Stop Event</skos:prefLabel>
+        <rdfs:comment>A service, task, scan, or related activity was been stopped, usually by another process or user, or due to an error condition.</rdfs:comment>
+        <rdfs:label>stop</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_suspend -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_suspend">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>suspend</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_uninstall -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_uninstall">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>uninstall</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_unlock -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_unlock">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>unlock</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_update -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_update">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>update</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_upgrade -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_upgrade">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Upgrade Event</skos:prefLabel>
+        <rdfs:comment>A type of [update] that upgrades an entire application, usually involving substantial changes and a change in major version numbers. For example, installing the Microsoft Windows XP Service Pack 2 (SP2) would upgrade a base Windows XP installation.</rdfs:comment>
+        <rdfs:label>upgrade</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_upload -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_upload">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <rdfs:label>upload</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_violate -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_violate">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Violate Event</skos:prefLabel>
+        <rdfs:comment>The infringement or breaking of a policy, rule, or other guideline.</rdfs:comment>
+        <rdfs:label>violate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#action_write -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#action_write">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#action"/>
+        <skos:prefLabel>Write Event</skos:prefLabel>
+        <rdfs:comment>An object (usually a file or memory location) was written to.</rdfs:comment>
+        <rdfs:label>write</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#cee -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#cee"/>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#domain -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#domain">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The environment or domain of the event. Typical event domains include network (net), operating system (os), and application (app).</rdfs:comment>
+        <rdfs:label>domain</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#domain_app -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#domain_app">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#domain"/>
+        <skos:prefLabel>Application-level Event</skos:prefLabel>
+        <rdfs:label>app</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#domain_device -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#domain_device">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#domain"/>
+        <skos:prefLabel>Device-level Event</skos:prefLabel>
+        <rdfs:label>device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#domain_net -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#domain_net">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#domain"/>
+        <skos:prefLabel>Network-based Event</skos:prefLabel>
+        <rdfs:comment>The event is occurs within or is associated with the network</rdfs:comment>
+        <rdfs:label>net</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#domain_os -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#domain_os">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#domain"/>
+        <skos:prefLabel>Operating System Event</skos:prefLabel>
+        <rdfs:label>os</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The type of object that is targeted or otherwise affected by the event</rdfs:comment>
+        <rdfs:label>object</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_account -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_account">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>User Account</skos:prefLabel>
+        <rdfs:label>account</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_app -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_app">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Application</skos:prefLabel>
+        <rdfs:label>app</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_bios -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_bios">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>System BIOS</skos:prefLabel>
+        <rdfs:label>bios</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_connection -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_connection">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Network Connection</skos:prefLabel>
+        <rdfs:label>connection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_driver -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_driver">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Device Driver</skos:prefLabel>
+        <rdfs:label>driver</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_email -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_email">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>E-mail</skos:prefLabel>
+        <rdfs:label>email</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_event -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_event">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Audit or Event Record</skos:prefLabel>
+        <rdfs:label>event</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_file -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_file">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>File</skos:prefLabel>
+        <rdfs:label>file</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_flow -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_flow">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Network Flow</skos:prefLabel>
+        <rdfs:label>flow</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_memory -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_memory">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <rdfs:label>memory</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_packet -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_packet">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Network Packet</skos:prefLabel>
+        <rdfs:label>packet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_process -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_process">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Process</skos:prefLabel>
+        <rdfs:label>process</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_rule -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_rule">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Firewall, IDS, Malware, or similar Rule</skos:prefLabel>
+        <rdfs:label>rule</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_session -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_session">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>User Session</skos:prefLabel>
+        <rdfs:label>session</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_system -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_system">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>System</skos:prefLabel>
+        <rdfs:label>system</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_thread -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_thread">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Processing Thread</skos:prefLabel>
+        <rdfs:label>thread</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#object_vuln -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#object_vuln">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#object"/>
+        <skos:prefLabel>Vulnerability</skos:prefLabel>
+        <rdfs:label>vuln</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The service the event involves. The service field value provides context to the event action or more precision to the event domain.</rdfs:comment>
+        <rdfs:label>service</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_audit -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_audit">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Audit Service</skos:prefLabel>
+        <rdfs:label>audit</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_auth -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_auth">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Authentication Service</skos:prefLabel>
+        <rdfs:label>auth</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_authorize -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_authorize">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Authorization Service</skos:prefLabel>
+        <rdfs:label>authorize</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_backup -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_backup">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Backup Service</skos:prefLabel>
+        <rdfs:label>backup</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_db -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_db">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Database Service</skos:prefLabel>
+        <rdfs:label>db</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_email -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_email">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>E-mail Service</skos:prefLabel>
+        <rdfs:comment>Event involves an e-mail server or service</rdfs:comment>
+        <rdfs:label>email</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_fw -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_fw">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Firewall Service</skos:prefLabel>
+        <rdfs:label>fw</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#service_web -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#service_web">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#service"/>
+        <skos:prefLabel>Web Service</skos:prefLabel>
+        <rdfs:comment>The event involve a web service, such as an HTTP server</rdfs:comment>
+        <rdfs:label>web</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The end result or status of the event action identified by the action field.</rdfs:comment>
+        <rdfs:label>status</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_cancel -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_cancel">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Canceled</skos:prefLabel>
+        <rdfs:comment>The event action was canceled</rdfs:comment>
+        <rdfs:label>cancel</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_error -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_error">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Errored</skos:prefLabel>
+        <rdfs:comment>The event action terminated with an error</rdfs:comment>
+        <rdfs:label>error</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_failure -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_failure">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Failed</skos:prefLabel>
+        <rdfs:comment>The event failed due to some unmet condition, such as an incorrect password</rdfs:comment>
+        <rdfs:label>failure</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_ongoing -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_ongoing">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Ongoing</skos:prefLabel>
+        <rdfs:comment>The event has started and has yet to complete. Another event should be sent to notify when the event completed and the final status</rdfs:comment>
+        <rdfs:label>ongoing</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_success -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_success">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Success</skos:prefLabel>
+        <rdfs:comment>The event completed successfully. For example, a successful user authentication event would be an instance where the authentication activity was successfully completed and the user was fully authenticated.</rdfs:comment>
+        <rdfs:label>success</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#status_unknown -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#status_unknown">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#status"/>
+        <skos:prefLabel>Event Status Unknown</skos:prefLabel>
+        <rdfs:comment>The result state of an event occurrence was unknown. It was not known to the observer of the event whether or not the event successfully completed.</rdfs:comment>
+        <rdfs:label>unknown</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/sepses/cee#subject -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/sepses/cee#subject">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:broader rdf:resource="https://w3id.org/sepses/cee#cee"/>
+        <rdfs:comment>The type of object that initiated or started the event action identified by the action field.</rdfs:comment>
+        <rdfs:label>subject</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

@@ -1,0 +1,3305 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY wordnet "http://xmlns.com/wordnet/1.6/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY wgs84_pos "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY mIO "http://www.cenitmio.es/ontologies/mIO.owl#" >
+    <!ENTITY Role "http://www.cenitmio.es/ontologies/Role.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY User "http://www.cenitmio.es/ontologies/User.owl#" >
+    <!ENTITY Source "http://www.cenitmio.es/ontologies/Source.owl#" >
+    <!ENTITY Device "http://www.cenitmio.es/ontologies/Device.owl#" >
+    <!ENTITY units "http://sweet.jpl.nasa.gov/ontology/units.owl#" >
+    <!ENTITY Network "http://www.cenitmio.es/ontologies/Network.owl#" >
+    <!ENTITY service "http://www.cenitmio.es/ontologies/service.owl#" >
+    <!ENTITY Service "http://www.cenitmio.es/ontologies/Service.owl#" >
+    <!ENTITY Location "http://www.cenitmio.es/ontologies/Location.owl#" >
+    <!ENTITY Provider "http://www.cenitmio.es/ontologies/Provider.owl#" >
+    <!ENTITY Interface "http://www.cenitmio.es/ontologies/Interface.owl#" >
+    <!ENTITY Environment "http://www.cenitmio.es/ontologies/Environment.owl#" >
+    <!ENTITY space "http://pervasive.semanticweb.org/ont/2004/06/space#" >
+    <!ENTITY reco "http://ontologies.ezweb.morfeo-project.org/reco.owl#" >
+    <!ENTITY context_CODAMOS_mIO "http://www.cenitmio.es/ontologies/context_CODAMOS_mIO.owl#" >
+    <!ENTITY context_Environment "http://www.cenitmio.es/ontologies/context_Environment.owl#" >
+    <!ENTITY DeliveryContext "http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#" >
+    <!ENTITY componency "http://www.ontologydesignpatterns.org/cp/owl/componency.owl#" >
+    <!ENTITY geo-measurement "http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#" >
+    <!ENTITY e_response_buildings "http://e-response.org/ontology/2006/20060815/e_response_buildings#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.cenitmio.es/ontologies/mIO.owl#"
+     xml:base="http://www.cenitmio.es/ontologies/mIO.owl"
+     xmlns:context_CODAMOS_mIO="http://www.cenitmio.es/ontologies/context_CODAMOS_mIO.owl#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:units="http://sweet.jpl.nasa.gov/ontology/units.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:reco="http://ontologies.ezweb.morfeo-project.org/reco.owl#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Service="http://www.cenitmio.es/ontologies/Service.owl#"
+     xmlns:service="http://www.cenitmio.es/ontologies/service.owl#"
+     xmlns:componency="http://www.ontologydesignpatterns.org/cp/owl/componency.owl#"
+     xmlns:Device="http://www.cenitmio.es/ontologies/Device.owl#"
+     xmlns:Interface="http://www.cenitmio.es/ontologies/Interface.owl#"
+     xmlns:geo-measurement="http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:DeliveryContext="http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#"
+     xmlns:e_response_buildings="http://e-response.org/ontology/2006/20060815/e_response_buildings#"
+     xmlns:wordnet="http://xmlns.com/wordnet/1.6/"
+     xmlns:User="http://www.cenitmio.es/ontologies/User.owl#"
+     xmlns:Source="http://www.cenitmio.es/ontologies/Source.owl#"
+     xmlns:space="http://pervasive.semanticweb.org/ont/2004/06/space#"
+     xmlns:mIO="http://www.cenitmio.es/ontologies/mIO.owl#"
+     xmlns:Network="http://www.cenitmio.es/ontologies/Network.owl#"
+     xmlns:Provider="http://www.cenitmio.es/ontologies/Provider.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:context_Environment="http://www.cenitmio.es/ontologies/context_Environment.owl#"
+     xmlns:Role="http://www.cenitmio.es/ontologies/Role.owl#"
+     xmlns:Environment="http://www.cenitmio.es/ontologies/Environment.owl#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:Location="http://www.cenitmio.es/ontologies/Location.owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator
+            >Mari Carmen Su&#225;rez-Figueroa</dc:creator>
+        <dc:creator
+            >Mar&#237;a Poveda-Villal&#243;n</dc:creator>
+        <rdfs:comment
+            >This work has been carried out by the Ontological Engineering Group,  supported by the mIO! project.</rdfs:comment>
+        <owl:versionInfo>4.0</owl:versionInfo>
+        <dct:license>http://creativecommons.org/licenses/by/3.0/</dct:license>
+        <dc:title xml:lang="en"
+            >mIO! Ontology Network</dc:title>
+        <dc:title xml:lang="es"
+            >Red de ontolog&#237;as mIO!</dc:title>
+        <!-- HACK: comment the following lines to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/ontology/units.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Device.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Environment.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Interface.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Location.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Network.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Provider.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Role.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Service.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Source.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/Time.owl"/>-->
+<!--        <owl:imports rdf:resource="http://www.cenitmio.es/ontologies/User.owl"/>-->
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#refinedBy -->
+
+    <owl:ObjectProperty rdf:about="&reco;refinedBy"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#hasChargingMode -->
+
+    <owl:ObjectProperty rdf:about="&Device;hasChargingMode"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#isContextInformationProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="&Source;isContextInformationProvidedBy">
+        <rdfs:subPropertyOf rdf:resource="#isInformationProvidedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#providesContextInformation -->
+
+    <owl:ObjectProperty rdf:about="&Source;providesContextInformation">
+        <rdfs:subPropertyOf rdf:resource="#providesInformation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#affects -->
+
+    <owl:ObjectProperty rdf:about="#affects">
+        <rdfs:label xml:lang="en">affects</rdfs:label>
+        <owl:inverseOf rdf:resource="#isAffectedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Source;ContextInformation"/>
+                    <rdf:Description rdf:about="#Context"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <rdf:Description rdf:about="&wgs84_pos;SpatialThing"/>
+                    <rdf:Description rdf:about="&wordnet;Agent-3"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#belongsToEnviromentInTime -->
+
+    <owl:ObjectProperty rdf:about="#belongsToEnviromentInTime">
+        <rdfs:domain rdf:resource="#NAryRelationBelongsToEnvironmentTemporarily"/>
+        <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#belongsToEnviromentTemporarily -->
+
+    <owl:ObjectProperty rdf:about="#belongsToEnviromentTemporarily">
+        <rdfs:range rdf:resource="#NAryRelationBelongsToEnvironmentTemporarily"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&service;Service"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#belongsToEnvironment -->
+
+    <owl:ObjectProperty rdf:about="#belongsToEnvironment">
+        <rdfs:range rdf:resource="&context_Environment;Environment"/>
+        <rdfs:domain rdf:resource="#NAryRelationBelongsToEnvironmentTemporarily"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#canUseNetworkOperator -->
+
+    <owl:ObjectProperty rdf:about="#canUseNetworkOperator">
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Network;NetworkOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#configuresMIOServiceLevel -->
+
+    <owl:ObjectProperty rdf:about="#configuresMIOServiceLevel">
+        <rdfs:label xml:lang="en"
+            >configuresMIOServiceLevel</rdfs:label>
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#configuresMIOServiceLevelAsAdvanced -->
+
+    <owl:ObjectProperty rdf:about="#configuresMIOServiceLevelAsAdvanced">
+        <rdfs:label xml:lang="en"
+            >configuresMIOServiceLevelAsAdvanced</rdfs:label>
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#configuresMIOServiceLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#configuresMIOServiceLevelAsBasic -->
+
+    <owl:ObjectProperty rdf:about="#configuresMIOServiceLevelAsBasic">
+        <rdfs:label xml:lang="en"
+            >configuresMIOServiceLevelAsBasic</rdfs:label>
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#configuresMIOServiceLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#configuresMIOServiceLevelAsMedium -->
+
+    <owl:ObjectProperty rdf:about="#configuresMIOServiceLevelAsMedium">
+        <rdfs:label xml:lang="en"
+            >configuresMIOServiceLevelAsMedium</rdfs:label>
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#configuresMIOServiceLevel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#consumesContextInformationType -->
+
+    <owl:ObjectProperty rdf:about="#consumesContextInformationType">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&Source;ContextInformation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#createsMIOService -->
+
+    <owl:ObjectProperty rdf:about="#createsMIOService">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <owl:inverseOf rdf:resource="#isMIOServiceCreatedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Provider;ServiceProvider"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#creationDate -->
+
+    <owl:ObjectProperty rdf:about="#creationDate">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&time;DateTimeDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#defines -->
+
+    <owl:ObjectProperty rdf:about="#defines">
+        <rdfs:domain rdf:resource="&Source;ContextSource"/>
+        <rdfs:range rdf:resource="&context_Environment;Environment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#excludedDependency -->
+
+    <owl:ObjectProperty rdf:about="#excludedDependency">
+        <rdfs:label xml:lang="en"
+            >excludedDependency</rdfs:label>
+        <rdfs:domain rdf:resource="&reco;Demand"/>
+        <rdfs:subPropertyOf rdf:resource="&reco;refinedBy"/>
+        <rdfs:range rdf:resource="#Dependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#executes -->
+
+    <owl:ObjectProperty rdf:about="#executes">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#executesAsAnonymously -->
+
+    <owl:ObjectProperty rdf:about="#executesAsAnonymously">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#executes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#executesPrivately -->
+
+    <owl:ObjectProperty rdf:about="#executesPrivately">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#executes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#executesPublicly -->
+
+    <owl:ObjectProperty rdf:about="#executesPublicly">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#executes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasAccessNetworkInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasAccessNetworkInterface">
+        <rdfs:label xml:lang="en"
+            >hasAccessNetworkInterface</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Interface;AccessNetworkInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasAssociatedProperty -->
+
+    <owl:ObjectProperty rdf:about="#hasAssociatedProperty">
+        <rdfs:label xml:lang="en"
+            >hasAssociatedProperty</rdfs:label>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <owl:inverseOf rdf:resource="#isPropertyAssociatedWith"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasCapacity -->
+
+    <owl:ObjectProperty rdf:about="#hasCapacity">
+        <rdfs:label xml:lang="en">hasCapacity</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Service;Capacity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasCompanyNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasCompanyNetworkOwner">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkOwner"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasCompanyNetworkPrivateDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasCompanyNetworkPrivateDomain">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkPrivateDomain"/>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasConnectionInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasConnectionInterface">
+        <rdfs:label xml:lang="en"
+            >hasConnectionInterface</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Interface;ConnectionInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasContextConsumer -->
+
+    <owl:ObjectProperty rdf:about="#hasContextConsumer">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&Source;ContextConsumer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasContextInformation -->
+
+    <owl:ObjectProperty rdf:about="#hasContextInformation">
+        <rdfs:label xml:lang="en"
+            >hasContextInformation</rdfs:label>
+        <rdfs:range rdf:resource="&Source;ContextInformation"/>
+        <rdfs:domain rdf:resource="#Context"/>
+        <owl:inverseOf rdf:resource="#isContextInformationOf"/>
+        <rdfs:subPropertyOf rdf:resource="&componency;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasContextSource -->
+
+    <owl:ObjectProperty rdf:about="#hasContextSource">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&Source;ContextSource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasContextSourceOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasContextSourceOwner">
+        <rdfs:domain rdf:resource="&Source;ContextSource"/>
+        <rdfs:range rdf:resource="&User;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasDependency -->
+
+    <owl:ObjectProperty rdf:about="#hasDependency">
+        <rdfs:label xml:lang="en">hasDependency</rdfs:label>
+        <rdfs:range rdf:resource="&reco;Demand"/>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasEnviromentalItem -->
+
+    <owl:ObjectProperty rdf:about="#hasEnviromentalItem">
+        <rdfs:domain rdf:resource="#NAryRelationBelongsToEnvironmentTemporarily"/>
+        <owl:inverseOf rdf:resource="#belongsToEnviromentTemporarily"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&service;Service"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasEnviromentalItemInTime -->
+
+    <owl:ObjectProperty rdf:about="#hasEnviromentalItemInTime">
+        <rdfs:domain rdf:resource="&context_Environment;Environment"/>
+        <rdfs:range rdf:resource="#NAryRelationBelongsToEnvironmentTemporarily"/>
+        <owl:inverseOf rdf:resource="#belongsToEnvironment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasEnvironmentalConditionInTime -->
+
+    <owl:ObjectProperty rdf:about="#hasEnvironmentalConditionInTime">
+        <rdfs:domain rdf:resource="&Source;EnvironmentalInformation"/>
+        <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasEnvironmentalInformation -->
+
+    <owl:ObjectProperty rdf:about="#hasEnvironmentalInformation">
+        <rdfs:label xml:lang="en"
+            >hasEnvironmentalInformation</rdfs:label>
+        <rdfs:range rdf:resource="&Source;EnvironmentalInformation"/>
+        <rdfs:domain rdf:resource="&context_Environment;Environment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasFrameFormat -->
+
+    <owl:ObjectProperty rdf:about="#hasFrameFormat">
+        <rdfs:label xml:lang="en">hasFrameFormat</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Network;FrameFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasInformationRefresh -->
+
+    <owl:ObjectProperty rdf:about="#hasInformationRefresh">
+        <rdfs:domain rdf:resource="&Source;ContextSource"/>
+        <rdfs:range rdf:resource="#InformationRefreshInterval"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasInputInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasInputInterface">
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+        <rdfs:subPropertyOf rdf:resource="#hasInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasInterface">
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasInterfaceWithModality -->
+
+    <owl:ObjectProperty rdf:about="#hasInterfaceWithModality">
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasLocationInTime -->
+
+    <owl:ObjectProperty rdf:about="#hasLocationInTime">
+        <rdfs:domain rdf:resource="&Location;NAryRelationHasLocation"/>
+        <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkOwner">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Network;NetworkOperator"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&foaf;Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasNetworkPrivateDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkPrivateDomain">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <owl:propertyDisjointWith rdf:resource="#hasNetworkPublicDomain"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Network;NetworkOperator"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&foaf;Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasNetworkPublicDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasNetworkPublicDomain">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasNextPreferredNetworkTypeItem -->
+
+    <owl:ObjectProperty rdf:about="#hasNextPreferredNetworkTypeItem">
+        <rdfs:domain rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+        <rdfs:range rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasOperatorNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasOperatorNetworkOwner">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range rdf:resource="&Network;NetworkOperator"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkOwner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasOperatorNetworkPrivateDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasOperatorNetworkPrivateDomain">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range rdf:resource="&Network;NetworkOperator"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkPrivateDomain"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasOutputInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasOutputInterface">
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+        <rdfs:subPropertyOf rdf:resource="#hasInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasPreferredNetworkType -->
+
+    <owl:ObjectProperty rdf:about="#hasPreferredNetworkType">
+        <rdfs:domain rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+        <rdfs:range rdf:resource="&DeliveryContext;NetworkType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasPreferredNetworkTypeList -->
+
+    <owl:ObjectProperty rdf:about="#hasPreferredNetworkTypeList">
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:range rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasPriority -->
+
+    <owl:ObjectProperty rdf:about="#hasPriority">
+        <rdfs:domain rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+        <rdfs:range rdf:resource="#Priority"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasSpatialMIOServiceValidity -->
+
+    <owl:ObjectProperty rdf:about="#hasSpatialMIOServiceValidity">
+        <rdfs:domain rdf:resource="&Service;MIOServiceValidity"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&geo-measurement;LocationCoordinates"/>
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <rdf:Description rdf:about="&Location;Address"/>
+                    <rdf:Description rdf:about="&wgs84_pos;SpatialThing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasStateOfMind -->
+
+    <owl:ObjectProperty rdf:about="#hasStateOfMind">
+        <rdfs:range rdf:resource="&User;StateOfMind"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasStateOfMindInTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasStateOfMindInTime -->
+
+    <owl:ObjectProperty rdf:about="#hasStateOfMindInTime">
+        <rdfs:domain rdf:resource="#NAryRelationHasStateOfMindInTime"/>
+        <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasStateOfMindInTimeRelation -->
+
+    <owl:ObjectProperty rdf:about="#hasStateOfMindInTimeRelation">
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:range rdf:resource="#NAryRelationHasStateOfMindInTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="#hasTarget">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasTemporalMIOServiceValidity -->
+
+    <owl:ObjectProperty rdf:about="#hasTemporalMIOServiceValidity">
+        <rdfs:domain rdf:resource="&Service;MIOServiceValidity"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&time;DateTimeDescription"/>
+                    <rdf:Description rdf:about="&time;TemporalEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasTemporalUnitOfInformationRefreshInterval -->
+
+    <owl:ObjectProperty rdf:about="#hasTemporalUnitOfInformationRefreshInterval">
+        <rdfs:domain rdf:resource="#InformationRefreshInterval"/>
+        <rdfs:range rdf:resource="&time;TemporalUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasUserNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#hasUserNetworkOwner">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkOwner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasUserNetworkPrivateDomain -->
+
+    <owl:ObjectProperty rdf:about="#hasUserNetworkPrivateDomain">
+        <rdfs:domain rdf:resource="&Network;Network"/>
+        <rdfs:range rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#hasNetworkPrivateDomain"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasVisualizationInterface -->
+
+    <owl:ObjectProperty rdf:about="#hasVisualizationInterface">
+        <rdfs:label xml:lang="en"
+            >hasVisualizationInterface</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#includesDevice -->
+
+    <owl:ObjectProperty rdf:about="#includesDevice">
+        <rdfs:label xml:lang="en">includesDevice</rdfs:label>
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#interactsWith -->
+
+    <owl:ObjectProperty rdf:about="#interactsWith">
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Service;MIOService"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#interactsWithDevice -->
+
+    <owl:ObjectProperty rdf:about="#interactsWithDevice">
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#interactsWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#interactsWithMIOService -->
+
+    <owl:ObjectProperty rdf:about="#interactsWithMIOService">
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#interactsWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#interactsWithUser -->
+
+    <owl:ObjectProperty rdf:about="#interactsWithUser">
+        <rdfs:domain rdf:resource="&User;User"/>
+        <rdfs:range rdf:resource="&User;User"/>
+        <rdfs:subPropertyOf rdf:resource="#interactsWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isAboutEnvironmentalCondition -->
+
+    <owl:ObjectProperty rdf:about="#isAboutEnvironmentalCondition">
+        <rdfs:label xml:lang="en"
+            >isAboutEnvironmentalCondition</rdfs:label>
+        <rdfs:domain rdf:resource="&Source;EnvironmentalInformation"/>
+        <rdfs:range rdf:resource="&context_Environment;EnvironmentalCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isAccessNetworkInterfaceToNetwork -->
+
+    <owl:ObjectProperty rdf:about="#isAccessNetworkInterfaceToNetwork">
+        <rdfs:label xml:lang="en"
+            >isAccessNetworkInterfaceToNetwork</rdfs:label>
+        <rdfs:domain rdf:resource="&Interface;AccessNetworkInterface"/>
+        <rdfs:range rdf:resource="&Network;Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isActiveContextDuring -->
+
+    <owl:ObjectProperty rdf:about="#isActiveContextDuring">
+        <rdfs:label xml:lang="en"
+            >is active context during</rdfs:label>
+        <rdfs:domain rdf:resource="#Context"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&time;DateTimeDescription"/>
+                    <rdf:Description rdf:about="&time;TemporalEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isAffectedBy -->
+
+    <owl:ObjectProperty rdf:about="#isAffectedBy">
+        <rdfs:label xml:lang="en">isAffectedBy</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;GeopoliticalEntity"/>
+                    <rdf:Description rdf:about="&wgs84_pos;SpatialThing"/>
+                    <rdf:Description rdf:about="&wordnet;Agent-3"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Source;ContextInformation"/>
+                    <rdf:Description rdf:about="#Context"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isAvailableThrough -->
+
+    <owl:ObjectProperty rdf:about="#isAvailableThrough">
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isCapacityOf -->
+
+    <owl:ObjectProperty rdf:about="#isCapacityOf">
+        <rdfs:label xml:lang="en">isCapacityOf</rdfs:label>
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&Service;Capacity"/>
+        <owl:inverseOf rdf:resource="#hasCapacity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isCommunicationProtocolUsedBy -->
+
+    <owl:ObjectProperty rdf:about="#isCommunicationProtocolUsedBy">
+        <rdfs:label xml:lang="en"
+            >isCommunicationProtocolUsedBy</rdfs:label>
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&Network;CommunicationProtocol"/>
+        <owl:inverseOf rdf:resource="#usesCommunicationProtocol"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isCompanyNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#isCompanyNetworkOwner">
+        <rdfs:range rdf:resource="&Network;Network"/>
+        <owl:inverseOf rdf:resource="#hasCompanyNetworkOwner"/>
+        <rdfs:subPropertyOf rdf:resource="#isNetworkOwnerOf"/>
+        <rdfs:domain rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isContextInformationOf -->
+
+    <owl:ObjectProperty rdf:about="#isContextInformationOf">
+        <rdfs:label xml:lang="en"
+            >isContextInformationOf</rdfs:label>
+        <rdfs:domain rdf:resource="&Source;ContextInformation"/>
+        <rdfs:range rdf:resource="#Context"/>
+        <rdfs:subPropertyOf rdf:resource="&componency;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isContextSourceOwnerOf -->
+
+    <owl:ObjectProperty rdf:about="#isContextSourceOwnerOf">
+        <rdfs:range rdf:resource="&Source;ContextSource"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <owl:inverseOf rdf:resource="#hasContextSourceOwner"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isDefinedBy -->
+
+    <owl:ObjectProperty rdf:about="#isDefinedBy">
+        <rdfs:range rdf:resource="&Source;ContextSource"/>
+        <rdfs:domain rdf:resource="&context_Environment;Environment"/>
+        <owl:inverseOf rdf:resource="#defines"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isDeviceIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="#isDeviceIncludedIn">
+        <rdfs:label xml:lang="en"
+            >isDeviceIncludedIn</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <owl:inverseOf rdf:resource="#includesDevice"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isExecutedBy -->
+
+    <owl:ObjectProperty rdf:about="#isExecutedBy">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&User;User"/>
+        <owl:inverseOf rdf:resource="#executes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isFrameFormatOf -->
+
+    <owl:ObjectProperty rdf:about="#isFrameFormatOf">
+        <rdfs:label xml:lang="en">isFrameFormatOf</rdfs:label>
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&Network;FrameFormat"/>
+        <owl:inverseOf rdf:resource="#hasFrameFormat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isInformationProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="#isInformationProvidedBy">
+        <rdfs:label xml:lang="en"
+            >isInformationProvidedBy</rdfs:label>
+        <rdfs:domain rdf:resource="#Information"/>
+        <owl:inverseOf rdf:resource="#providesInformation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                    <rdf:Description rdf:about="&Service;MIOService"/>
+                    <rdf:Description rdf:about="&Source;ContextSource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isLocationInformationProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="#isLocationInformationProvidedBy">
+        <rdfs:label xml:lang="en"
+            >isLocationInformationProvidedBy</rdfs:label>
+        <rdfs:domain rdf:resource="&Location;LocationInformation"/>
+        <rdfs:subPropertyOf rdf:resource="#isInformationProvidedBy"/>
+        <owl:inverseOf rdf:resource="#providesLocationInformation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isMIOServiceCreatedBy -->
+
+    <owl:ObjectProperty rdf:about="#isMIOServiceCreatedBy">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Provider;ServiceProvider"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isMeasuredIn -->
+
+    <owl:ObjectProperty rdf:about="#isMeasuredIn">
+        <rdfs:label xml:lang="en">isMeassuredIn</rdfs:label>
+        <rdfs:range rdf:resource="&units;Unit"/>
+        <rdfs:domain rdf:resource="&Source;EnvironmentalInformation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isNaryServiceOfferedBy -->
+
+    <owl:ObjectProperty rdf:about="#isNaryServiceOfferedBy">
+        <rdfs:range rdf:resource="&Provider;ServiceProvider"/>
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <owl:inverseOf rdf:resource="#offersServiceAtPlaceInTimeWithPrice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isNetworkOwnerOf -->
+
+    <owl:ObjectProperty rdf:about="#isNetworkOwnerOf">
+        <rdfs:range rdf:resource="&Network;Network"/>
+        <owl:inverseOf rdf:resource="#hasNetworkOwner"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Network;NetworkOperator"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&foaf;Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isOperatorNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#isOperatorNetworkOwner">
+        <rdfs:range rdf:resource="&Network;Network"/>
+        <rdfs:domain rdf:resource="&Network;NetworkOperator"/>
+        <owl:inverseOf rdf:resource="#hasOperatorNetworkOwner"/>
+        <rdfs:subPropertyOf rdf:resource="#isNetworkOwnerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isPropertyAssociatedWith -->
+
+    <owl:ObjectProperty rdf:about="#isPropertyAssociatedWith">
+        <rdfs:label xml:lang="en"
+            >isPropertyAssociatedWith</rdfs:label>
+        <rdfs:range rdf:resource="&User;User"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isPublishedOn -->
+
+    <owl:ObjectProperty rdf:about="#isPublishedOn">
+        <rdfs:label xml:lang="en">is published on</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >It refers to the time when the context information has been published</rdfs:comment>
+        <rdfs:domain rdf:resource="&Source;ContextInformation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&time;DateTimeDescription"/>
+                    <rdf:Description rdf:about="&time;TemporalEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isServiceOfferedAtPlaceInTimeWithPlaceBy -->
+
+    <owl:ObjectProperty rdf:about="#isServiceOfferedAtPlaceInTimeWithPlaceBy">
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <rdfs:range rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <owl:inverseOf rdf:resource="#offersService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isUsedInSpaceType -->
+
+    <owl:ObjectProperty rdf:about="#isUsedInSpaceType">
+        <rdfs:label xml:lang="en"
+            >isUsedInSpaceType</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Service;SpaceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#isUserNetworkOwner -->
+
+    <owl:ObjectProperty rdf:about="#isUserNetworkOwner">
+        <rdfs:range rdf:resource="&Network;Network"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+        <owl:inverseOf rdf:resource="#hasUserNetworkOwner"/>
+        <rdfs:subPropertyOf rdf:resource="#isNetworkOwnerOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#locationCoordinatesProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="#locationCoordinatesProvidedBy">
+        <rdfs:domain rdf:resource="&geo-measurement;LocationCoordinates"/>
+        <rdfs:subPropertyOf rdf:resource="#isLocationInformationProvidedBy"/>
+        <owl:inverseOf rdf:resource="#providesLocationCoordinates"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#needsDevice -->
+
+    <owl:ObjectProperty rdf:about="#needsDevice">
+        <rdfs:label xml:lang="en">needDevice</rdfs:label>
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:subPropertyOf rdf:resource="#needsToBeExecuted"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#needsInterface -->
+
+    <owl:ObjectProperty rdf:about="#needsInterface">
+        <rdfs:label xml:lang="en">needsInterface</rdfs:label>
+        <rdfs:range rdf:resource="&Interface;Interface"/>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:subPropertyOf rdf:resource="#needsToBeExecuted"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#needsNetworkRequirements -->
+
+    <owl:ObjectProperty rdf:about="#needsNetworkRequirements">
+        <rdfs:label xml:lang="en"
+            >needsNetworkRequisites</rdfs:label>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="#NetworkRequirement"/>
+        <rdfs:subPropertyOf rdf:resource="#needsToBeExecuted"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#needsToBeExecuted -->
+
+    <owl:ObjectProperty rdf:about="#needsToBeExecuted">
+        <rdfs:label xml:lang="en"
+            >needsToBeExecuted</rdfs:label>
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Interface;Interface"/>
+                    <rdf:Description rdf:about="#NetworkRequirement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#negativeDependency -->
+
+    <owl:ObjectProperty rdf:about="#negativeDependency">
+        <rdfs:label xml:lang="en"
+            >negativeDependency</rdfs:label>
+        <rdfs:domain rdf:resource="&reco;Demand"/>
+        <rdfs:subPropertyOf rdf:resource="&reco;refinedBy"/>
+        <rdfs:range rdf:resource="#Dependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offeredFrom -->
+
+    <owl:ObjectProperty rdf:about="#offeredFrom">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersService -->
+
+    <owl:ObjectProperty rdf:about="#offersService">
+        <rdfs:range rdf:resource="&Service;Service"/>
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceAtDevice -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceAtDevice">
+        <rdfs:range rdf:resource="&Device;Device"/>
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:subPropertyOf rdf:resource="#offersServiceAtPlace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceAtLocation -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceAtLocation">
+        <rdfs:range rdf:resource="&space;SpatialThing"/>
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:subPropertyOf rdf:resource="#offersServiceAtPlace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceAtNetwork -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceAtNetwork">
+        <rdfs:range rdf:resource="&Network;Network"/>
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:subPropertyOf rdf:resource="#offersServiceAtPlace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceAtPlace -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceAtPlace">
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&space;SpatialThing"/>
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceAtPlaceInTimeWithPrice -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceAtPlaceInTimeWithPrice">
+        <rdfs:domain rdf:resource="&Provider;ServiceProvider"/>
+        <rdfs:range rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#offersServiceInTime -->
+
+    <owl:ObjectProperty rdf:about="#offersServiceInTime">
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:range rdf:resource="&time;TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#positiveDependency -->
+
+    <owl:ObjectProperty rdf:about="#positiveDependency">
+        <rdfs:label xml:lang="en"
+            >positiveDependency</rdfs:label>
+        <rdfs:domain rdf:resource="&reco;Demand"/>
+        <rdfs:subPropertyOf rdf:resource="&reco;refinedBy"/>
+        <rdfs:range rdf:resource="#Dependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#providesInformation -->
+
+    <owl:ObjectProperty rdf:about="#providesInformation">
+        <rdfs:label xml:lang="en"
+            >providesInformation</rdfs:label>
+        <rdfs:range rdf:resource="#Information"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                    <rdf:Description rdf:about="&Service;MIOService"/>
+                    <rdf:Description rdf:about="&Source;ContextSource"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#providesLocationCoordinates -->
+
+    <owl:ObjectProperty rdf:about="#providesLocationCoordinates">
+        <rdfs:label xml:lang="en"
+            >providesLocationCoordinates</rdfs:label>
+        <rdfs:range rdf:resource="&geo-measurement;LocationCoordinates"/>
+        <rdfs:subPropertyOf rdf:resource="#providesLocationInformation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#providesLocationInformation -->
+
+    <owl:ObjectProperty rdf:about="#providesLocationInformation">
+        <rdfs:label xml:lang="en"
+            >providesLocationInformation</rdfs:label>
+        <rdfs:range rdf:resource="&Location;LocationInformation"/>
+        <rdfs:subPropertyOf rdf:resource="#providesInformation"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Device;Device"/>
+                    <rdf:Description rdf:about="&Network;Network"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#providesService -->
+
+    <owl:ObjectProperty rdf:about="#providesService">
+        <rdfs:domain rdf:resource="&Provider;ServiceProvider"/>
+        <rdfs:range rdf:resource="&Service;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#requests -->
+
+    <owl:ObjectProperty rdf:about="#requests">
+        <rdfs:range rdf:resource="&Service;Service"/>
+        <owl:inverseOf rdf:resource="#serviceRequestedBy"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&wordnet;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#requiredDependency -->
+
+    <owl:ObjectProperty rdf:about="#requiredDependency">
+        <rdfs:label xml:lang="en"
+            >requiredDependency</rdfs:label>
+        <rdfs:domain rdf:resource="&reco;Demand"/>
+        <rdfs:subPropertyOf rdf:resource="&reco;refinedBy"/>
+        <rdfs:range rdf:resource="#Dependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#serviceProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="#serviceProvidedBy">
+        <rdfs:range rdf:resource="&Provider;ServiceProvider"/>
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <owl:inverseOf rdf:resource="#providesService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#serviceRequestedBy -->
+
+    <owl:ObjectProperty rdf:about="#serviceRequestedBy">
+        <rdfs:domain rdf:resource="&Service;Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&User;User"/>
+                    <rdf:Description rdf:about="&wordnet;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#sharesMIOService -->
+
+    <owl:ObjectProperty rdf:about="#sharesMIOService">
+        <rdfs:label xml:lang="en"
+            >sharesMIOService</rdfs:label>
+        <rdfs:range rdf:resource="&Service;MIOService"/>
+        <rdfs:domain rdf:resource="&User;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#supplyDate -->
+
+    <owl:ObjectProperty rdf:about="#supplyDate">
+        <rdfs:domain rdf:resource="&Service;MIOService"/>
+        <rdfs:range rdf:resource="&time;DateTimeDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#usesCommunicationProtocol -->
+
+    <owl:ObjectProperty rdf:about="#usesCommunicationProtocol">
+        <rdfs:label xml:lang="en"
+            >usesCommunicationProtocol</rdfs:label>
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Network;CommunicationProtocol"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#usesNetworkOperator -->
+
+    <owl:ObjectProperty rdf:about="#usesNetworkOperator">
+        <rdfs:domain rdf:resource="&Device;Device"/>
+        <rdfs:range rdf:resource="&Network;NetworkOperator"/>
+        <rdfs:subPropertyOf rdf:resource="#canUseNetworkOperator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#withModality -->
+
+    <owl:ObjectProperty rdf:about="#withModality">
+        <rdfs:range rdf:resource="&Interface;InterfaceModality"/>
+        <rdfs:domain rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#xorComposition -->
+
+    <owl:ObjectProperty rdf:about="#xorComposition">
+        <rdfs:label xml:lang="en">xorComposition</rdfs:label>
+        <rdfs:domain rdf:resource="#CompositeDependency"/>
+        <rdfs:range rdf:resource="#Dependency"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="&componency;hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#isComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&componency;isComponentOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#name -->
+
+    <owl:DatatypeProperty rdf:about="&space;name">
+        <rdfs:subPropertyOf rdf:resource="&foaf;name"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasEnvironmentalConditionValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasEnvironmentalConditionValue">
+        <rdfs:label xml:lang="en"
+            >hasEnvironmentalConditionValue</rdfs:label>
+        <rdfs:domain rdf:resource="&Source;EnvironmentalInformation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasNonSponsoredServicePrice -->
+
+    <owl:DatatypeProperty rdf:about="#hasNonSponsoredServicePrice">
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:subPropertyOf rdf:resource="#hasServicePrice"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasServicePrice -->
+
+    <owl:DatatypeProperty rdf:about="#hasServicePrice">
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasSponsoredServicePrice -->
+
+    <owl:DatatypeProperty rdf:about="#hasSponsoredServicePrice">
+        <rdfs:domain rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+        <rdfs:subPropertyOf rdf:resource="#hasServicePrice"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hasVaueOfInformationRefreshInterval -->
+
+    <owl:DatatypeProperty rdf:about="#hasVaueOfInformationRefreshInterval">
+        <rdfs:domain rdf:resource="#InformationRefreshInterval"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://e-response.org/ontology/2006/20060815/e_response_buildings#Building -->
+
+    <owl:Class rdf:about="&e_response_buildings;Building"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#Demand -->
+
+    <owl:Class rdf:about="&reco;Demand"/>
+    
+
+
+    <!-- http://ontologies.ezweb.morfeo-project.org/reco.owl#ModalDescription -->
+
+    <owl:Class rdf:about="&reco;ModalDescription"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/geo-measurement#LocationCoordinates -->
+
+    <owl:Class rdf:about="&geo-measurement;LocationCoordinates"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#GeopoliticalEntity -->
+
+    <owl:Class rdf:about="&space;GeopoliticalEntity"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#MovableSpatialThing -->
+
+    <owl:Class rdf:about="&space;MovableSpatialThing"/>
+    
+
+
+    <!-- http://pervasive.semanticweb.org/ont/2004/06/space#SpatialThing -->
+
+    <owl:Class rdf:about="&space;SpatialThing"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#Unit -->
+
+    <owl:Class rdf:about="&units;Unit"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ActiveComponent -->
+
+    <owl:Class rdf:about="&Device;ActiveComponent"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Amplifier -->
+
+    <owl:Class rdf:about="&Device;Amplifier"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Antenna -->
+
+    <owl:Class rdf:about="&Device;Antenna"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Balise -->
+
+    <owl:Class rdf:about="&Device;Balise">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;RFConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;VisualConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;ZigbeeConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CO2LevelSensor -->
+
+    <owl:Class rdf:about="&Device;CO2LevelSensor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Location;PublicProperty"/>
+                            <rdf:Description rdf:about="&Location;PublicTransport"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Device;hasChargingMode"/>
+                        <owl:someValuesFrom rdf:resource="&Device;ChargingMode"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Device;Amplifier"/>
+                                    <rdf:Description rdf:about="&Device;Detector"/>
+                                    <rdf:Description rdf:about="&Device;SensorSource"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Cable -->
+
+    <owl:Class rdf:about="&Device;Cable"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Camera -->
+
+    <owl:Class rdf:about="&Device;Camera">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Device;Display"/>
+                                    <rdf:Description rdf:about="&Device;ImageCaptureDevice"/>
+                                    <rdf:Description rdf:about="&Device;ImageProcessingDevice"/>
+                                    <rdf:Description rdf:about="&Device;Lens"/>
+                                    <rdf:Description rdf:about="&Device;LightingDevice"/>
+                                    <rdf:Description rdf:about="&Device;MemoryModule"/>
+                                    <rdf:Description rdf:about="&Device;Microphone"/>
+                                    <rdf:Description rdf:about="&Device;PositioningDevice"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;CompositeVideoConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;FireWireConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;HDMIConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;MicConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;USBConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Casing -->
+
+    <owl:Class rdf:about="&Device;Casing"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ChargingMode -->
+
+    <owl:Class rdf:about="&Device;ChargingMode"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ComputerTerminal -->
+
+    <owl:Class rdf:about="&Device;ComputerTerminal"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#CondenserMicrophone -->
+
+    <owl:Class rdf:about="&Device;CondenserMicrophone">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;Cable"/>
+                            <rdf:Description rdf:about="&Device;Diaphragm"/>
+                            <rdf:Description rdf:about="&Device;PowerSource"/>
+                            <rdf:Description rdf:about="&Device;RearMetallicPlate"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Decoder -->
+
+    <owl:Class rdf:about="&Device;Decoder"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Detector -->
+
+    <owl:Class rdf:about="&Device;Detector"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Device -->
+
+    <owl:Class rdf:about="&Device;Device"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Diaphragm -->
+
+    <owl:Class rdf:about="&Device;Diaphragm"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Display -->
+
+    <owl:Class rdf:about="&Device;Display">
+        <rdfs:subClassOf rdf:resource="&Interface;VisualizationInterface"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&Device;hasChargingMode"/>
+                        <owl:someValuesFrom rdf:resource="&Device;ChargingMode"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom rdf:resource="&Device;PresentationSurface"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&e_response_buildings;Building"/>
+                            <rdf:Description rdf:about="&space;MovableSpatialThing"/>
+                            <rdf:Description rdf:about="&Device;ComputerTerminal"/>
+                            <rdf:Description rdf:about="&Location;ArchitecturalElement"/>
+                            <rdf:Description rdf:about="&Location;ConferenceRoom"/>
+                            <rdf:Description rdf:about="&Location;Gymnasium"/>
+                            <rdf:Description rdf:about="&Location;PublicTransport"/>
+                            <rdf:Description rdf:about="&Location;Shelter"/>
+                            <rdf:Description rdf:about="&Location;ShopWindow"/>
+                            <rdf:Description rdf:about="&Location;SmartShoppingCart"/>
+                            <rdf:Description rdf:about="&Location;TouristInformationPoint"/>
+                            <rdf:Description rdf:about="&Provider;Museum"/>
+                            <rdf:Description rdf:about="&Provider;Supermarket"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;ComponentVideoConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;CompositeVideoConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;DVIConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;DisplayPortConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;FireWireConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;HDMIConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;SVideoConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;USBConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;VGAConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WHDIConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WirelessHDConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WirelessUSBConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#DynamicMicrophone -->
+
+    <owl:Class rdf:about="&Device;DynamicMicrophone">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;Diaphragm"/>
+                            <rdf:Description rdf:about="&Device;InductionCoil"/>
+                            <rdf:Description rdf:about="&Device;PermanentMagnet"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalHumidityPressureSensor -->
+
+    <owl:Class rdf:about="&Device;EnvironmentalHumidityPressureSensor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&Source;providesContextInformation"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Source;InformationAboutHumidity"/>
+                            <rdf:Description rdf:about="&Source;InformationAboutPressure"/>
+                            <rdf:Description rdf:about="&Source;InformationAboutTemperature"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;RFConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;VisualConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;ZigbeeConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#EnvironmentalTemperatureSensor -->
+
+    <owl:Class rdf:about="&Device;EnvironmentalTemperatureSensor">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;MobileDevice"/>
+                            <rdf:Description rdf:about="&Location;PublicProperty"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GPSReceiver -->
+
+    <owl:Class rdf:about="&Device;GPSReceiver">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Device;Antenna"/>
+                                    <rdf:Description rdf:about="&Device;Display"/>
+                                    <rdf:Description rdf:about="&Device;Loudspeaker"/>
+                                    <rdf:Description rdf:about="&Device;Microphone"/>
+                                    <rdf:Description rdf:about="&Device;ProcessingModule"/>
+                                    <rdf:Description rdf:about="&Device;SignalProcessor"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;SerialPortConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;USBConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#GlucoseMeter -->
+
+    <owl:Class rdf:about="&Device;GlucoseMeter">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;DisplayPortConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImageCaptureDevice -->
+
+    <owl:Class rdf:about="&Device;ImageCaptureDevice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ImageProcessingDevice -->
+
+    <owl:Class rdf:about="&Device;ImageProcessingDevice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InductionCoil -->
+
+    <owl:Class rdf:about="&Device;InductionCoil"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#InkContainer -->
+
+    <owl:Class rdf:about="&Device;InkContainer"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Keyboard -->
+
+    <owl:Class rdf:about="&Device;Keyboard">
+        <rdfs:subClassOf rdf:resource="&Interface;TextualInterface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;InfraredConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;PS2ConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;SerialPortConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;USBConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;ComputerTerminal"/>
+                            <rdf:Description rdf:about="&Location;PointOfSale"/>
+                            <rdf:Description rdf:about="&Location;PublicTransportStation"/>
+                            <rdf:Description rdf:about="&Location;TouristInformationPoint"/>
+                            <rdf:Description rdf:about="&Location;VendingMachine"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Lens -->
+
+    <owl:Class rdf:about="&Device;Lens"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#LightingDevice -->
+
+    <owl:Class rdf:about="&Device;LightingDevice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Loudspeaker -->
+
+    <owl:Class rdf:about="&Device;Loudspeaker">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Device;ActiveComponent"/>
+                                    <rdf:Description rdf:about="&Device;Amplifier"/>
+                                    <rdf:Description rdf:about="&Device;Casing"/>
+                                    <rdf:Description rdf:about="&Device;Decoder"/>
+                                    <rdf:Description rdf:about="&Device;SignalProcessor"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;AES3ConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;AnalogMultichannelConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;BasicConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;RCAConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;SPDIFConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;ToslinkConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WirelessConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MemoryModule -->
+
+    <owl:Class rdf:about="&Device;MemoryModule">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Microphone -->
+
+    <owl:Class rdf:about="&Device;Microphone">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;MobileDevice"/>
+                            <rdf:Description rdf:about="&Location;PublicProperty"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#MobileDevice -->
+
+    <owl:Class rdf:about="&Device;MobileDevice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#NavigationSystem -->
+
+    <owl:Class rdf:about="&Device;NavigationSystem"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PaperTray -->
+
+    <owl:Class rdf:about="&Device;PaperTray"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PermanentMagnet -->
+
+    <owl:Class rdf:about="&Device;PermanentMagnet"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PositioningDevice -->
+
+    <owl:Class rdf:about="&Device;PositioningDevice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PowerSource -->
+
+    <owl:Class rdf:about="&Device;PowerSource"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PresentationSurface -->
+
+    <owl:Class rdf:about="&Device;PresentationSurface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Printer -->
+
+    <owl:Class rdf:about="&Device;Printer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Interface;BluetoothConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;ParallelPortConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;SerialPortConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;USBConnectionInterface"/>
+                            <rdf:Description rdf:about="&Interface;WiFiConnectionInterface"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasInterfaceWithModality"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationHasInterfaceWithModality"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&componency;hasComponent"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Device;Display"/>
+                                    <rdf:Description rdf:about="&Device;InkContainer"/>
+                                    <rdf:Description rdf:about="&Device;MemoryModule"/>
+                                    <rdf:Description rdf:about="&Device;PaperTray"/>
+                                    <rdf:Description rdf:about="&Device;Printhead"/>
+                                    <rdf:Description rdf:about="&Device;ProcessingModule"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#Printhead -->
+
+    <owl:Class rdf:about="&Device;Printhead"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#ProcessingModule -->
+
+    <owl:Class rdf:about="&Device;ProcessingModule"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#PulseOximeter -->
+
+    <owl:Class rdf:about="&Device;PulseOximeter">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasConnectionInterface"/>
+                <owl:allValuesFrom rdf:resource="&Interface;WirelessConnectionInterface"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RFIDLabel -->
+
+    <owl:Class rdf:about="&Device;RFIDLabel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&space;SpatialThing"/>
+                            <rdf:Description rdf:about="&componency;Object"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#RearMetallicPlate -->
+
+    <owl:Class rdf:about="&Device;RearMetallicPlate"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SensorSource -->
+
+    <owl:Class rdf:about="&Device;SensorSource"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#SignalProcessor -->
+
+    <owl:Class rdf:about="&Device;SignalProcessor"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Device.owl#TouchScreen -->
+
+    <owl:Class rdf:about="&Device;TouchScreen">
+        <rdfs:subClassOf rdf:resource="&Interface;TouchInterface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isDeviceIncludedIn"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;ComputerTerminal"/>
+                            <rdf:Description rdf:about="&Device;NavigationSystem"/>
+                            <rdf:Description rdf:about="&Location;PointOfSale"/>
+                            <rdf:Description rdf:about="&Location;PublicTransportStation"/>
+                            <rdf:Description rdf:about="&Location;TouristInformationPoint"/>
+                            <rdf:Description rdf:about="&Location;VendingMachine"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#AES3ConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;AES3ConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#AccessNetworkInterface -->
+
+    <owl:Class rdf:about="&Interface;AccessNetworkInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#AnalogMultichannelConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;AnalogMultichannelConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#BasicConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;BasicConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#BluetoothConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;BluetoothConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#ComponentVideoConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;ComponentVideoConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#CompositeVideoConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;CompositeVideoConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#ConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;ConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#DVIConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;DVIConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#DisplayPortConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;DisplayPortConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#FireWireConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;FireWireConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#HDMIConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;HDMIConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#InfraredConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;InfraredConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#Interface -->
+
+    <owl:Class rdf:about="&Interface;Interface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#InterfaceModality -->
+
+    <owl:Class rdf:about="&Interface;InterfaceModality"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#MicConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;MicConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#PS2ConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;PS2ConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#ParallelPortConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;ParallelPortConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#RCAConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;RCAConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#RFConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;RFConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#SPDIFConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;SPDIFConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#SVideoConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;SVideoConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#SerialPortConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;SerialPortConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#TextualInterface -->
+
+    <owl:Class rdf:about="&Interface;TextualInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#ToslinkConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;ToslinkConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#TouchInterface -->
+
+    <owl:Class rdf:about="&Interface;TouchInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#USBConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;USBConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#VGAConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;VGAConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#VisualConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;VisualConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#VisualizationInterface -->
+
+    <owl:Class rdf:about="&Interface;VisualizationInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#WHDIConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;WHDIConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#WiFiConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;WiFiConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#WirelessConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;WirelessConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#WirelessHDConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;WirelessHDConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#WirelessUSBConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;WirelessUSBConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Interface.owl#ZigbeeConnectionInterface -->
+
+    <owl:Class rdf:about="&Interface;ZigbeeConnectionInterface"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Address -->
+
+    <owl:Class rdf:about="&Location;Address"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ArchitecturalElement -->
+
+    <owl:Class rdf:about="&Location;ArchitecturalElement"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ConferenceRoom -->
+
+    <owl:Class rdf:about="&Location;ConferenceRoom"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Gymnasium -->
+
+    <owl:Class rdf:about="&Location;Gymnasium"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#LocationInformation -->
+
+    <owl:Class rdf:about="&Location;LocationInformation">
+        <rdfs:subClassOf rdf:resource="#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#NAryRelationHasLocation -->
+
+    <owl:Class rdf:about="&Location;NAryRelationHasLocation"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PointOfSale -->
+
+    <owl:Class rdf:about="&Location;PointOfSale"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicProperty -->
+
+    <owl:Class rdf:about="&Location;PublicProperty"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicTransport -->
+
+    <owl:Class rdf:about="&Location;PublicTransport"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#PublicTransportStation -->
+
+    <owl:Class rdf:about="&Location;PublicTransportStation"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#Shelter -->
+
+    <owl:Class rdf:about="&Location;Shelter"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#ShopWindow -->
+
+    <owl:Class rdf:about="&Location;ShopWindow"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#SmartShoppingCart -->
+
+    <owl:Class rdf:about="&Location;SmartShoppingCart"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#TouristInformationPoint -->
+
+    <owl:Class rdf:about="&Location;TouristInformationPoint"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Location.owl#VendingMachine -->
+
+    <owl:Class rdf:about="&Location;VendingMachine"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#CommunicationProtocol -->
+
+    <owl:Class rdf:about="&Network;CommunicationProtocol"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#FrameFormat -->
+
+    <owl:Class rdf:about="&Network;FrameFormat"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#Network -->
+
+    <owl:Class rdf:about="&Network;Network"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Network.owl#NetworkOperator -->
+
+    <owl:Class rdf:about="&Network;NetworkOperator"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Museum -->
+
+    <owl:Class rdf:about="&Provider;Museum"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#ServiceProvider -->
+
+    <owl:Class rdf:about="&Provider;ServiceProvider">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&Device;Device"/>
+                            <rdf:Description rdf:about="&foaf;Person"/>
+                            <rdf:Description rdf:about="&wordnet;Organization"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#offersServiceAtPlaceInTimeWithPrice"/>
+                        <owl:someValuesFrom rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Provider.owl#Supermarket -->
+
+    <owl:Class rdf:about="&Provider;Supermarket"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Role.owl#Preference -->
+
+    <owl:Class rdf:about="&Role;Preference"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Capacity -->
+
+    <owl:Class rdf:about="&Service;Capacity"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#LocationFuncionality -->
+
+    <owl:Class rdf:about="&Service;LocationFuncionality">
+        <rdfs:label xml:lang="es"
+            >Funcionalidad de localizaci&#243;n</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOService -->
+
+    <owl:Class rdf:about="&Service;MIOService"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#MIOServiceValidity -->
+
+    <owl:Class rdf:about="&Service;MIOServiceValidity"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#Service -->
+
+    <owl:Class rdf:about="&Service;Service"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Service.owl#SpaceType -->
+
+    <owl:Class rdf:about="&Service;SpaceType"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextConsumer -->
+
+    <owl:Class rdf:about="&Source;ContextConsumer"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextInformation -->
+
+    <owl:Class rdf:about="&Source;ContextInformation">
+        <rdfs:subClassOf rdf:resource="#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#ContextSource -->
+
+    <owl:Class rdf:about="&Source;ContextSource"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#EnvironmentalInformation -->
+
+    <owl:Class rdf:about="&Source;EnvironmentalInformation"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutHumidity -->
+
+    <owl:Class rdf:about="&Source;InformationAboutHumidity"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutPressure -->
+
+    <owl:Class rdf:about="&Source;InformationAboutPressure"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/Source.owl#InformationAboutTemperature -->
+
+    <owl:Class rdf:about="&Source;InformationAboutTemperature"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#StateOfMind -->
+
+    <owl:Class rdf:about="&User;StateOfMind"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/User.owl#User -->
+
+    <owl:Class rdf:about="&User;User"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/context_Environment.owl#Environment -->
+
+    <owl:Class rdf:about="&context_Environment;Environment"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/context_Environment.owl#EnvironmentalCondition -->
+
+    <owl:Class rdf:about="&context_Environment;EnvironmentalCondition"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#AdvertisingInformation -->
+
+    <owl:Class rdf:about="#AdvertisingInformation">
+        <rdfs:label xml:lang="en"
+            >AdvertisingInformation</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n publicitaria</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#CompositeDependency -->
+
+    <owl:Class rdf:about="#CompositeDependency">
+        <rdfs:label xml:lang="en"
+            >CompositeDependency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dependency"/>
+        <rdfs:comment xml:lang="en"
+            >A complex representation of a dependency to express the union or the intersection of two or more dependency using AND, OR and XOR operators. A composite dependency  using several operators should be managed programatically.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Context -->
+
+    <owl:Class rdf:about="#Context">
+        <rdfs:label xml:lang="en">Context</rdfs:label>
+        <rdfs:label xml:lang="es">Contexto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Dependency -->
+
+    <owl:Class rdf:about="#Dependency">
+        <rdfs:label xml:lang="en">Dependency</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&reco;ModalDescription"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#IdentificationInformation -->
+
+    <owl:Class rdf:about="#IdentificationInformation">
+        <rdfs:label xml:lang="en"
+            >IdentificationInformation</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n de identificaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Information -->
+
+    <owl:Class rdf:about="#Information">
+        <rdfs:label xml:lang="en">Information</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#InformationRefreshInterval -->
+
+    <owl:Class rdf:about="#InformationRefreshInterval">
+        <rdfs:label xml:lang="en"
+            >Information refresh interval</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Intervalo de refresco de la informaci&#243;n</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#LastPreferredNetworkTypeItem -->
+
+    <owl:Class rdf:about="#LastPreferredNetworkTypeItem">
+        <rdfs:subClassOf rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasNextPreferredNetworkTypeItem"/>
+                        <owl:allValuesFrom rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasNextPreferredNetworkTypeItem"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#NAryRelationBelongsToEnvironmentTemporarily -->
+
+    <owl:Class rdf:about="#NAryRelationBelongsToEnvironmentTemporarily"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#NAryRelationHasInterfaceWithModality -->
+
+    <owl:Class rdf:about="#NAryRelationHasInterfaceWithModality"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#NAryRelationHasStateOfMindInTime -->
+
+    <owl:Class rdf:about="#NAryRelationHasStateOfMindInTime"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#NAryRelationOffersServiceAtPlaceInTimeWithPrice -->
+
+    <owl:Class rdf:about="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#NetworkRequirement -->
+
+    <owl:Class rdf:about="#NetworkRequirement">
+        <rdfs:subClassOf rdf:resource="&Role;Preference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#PreferredNetworkTypeOrderedListItem -->
+
+    <owl:Class rdf:about="#PreferredNetworkTypeOrderedListItem">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasNextPreferredNetworkTypeItem"/>
+                        <owl:allValuesFrom rdf:resource="#PreferredNetworkTypeOrderedListItem"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasNextPreferredNetworkTypeItem"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasPreferredNetworkType"/>
+                <owl:allValuesFrom rdf:resource="&DeliveryContext;NetworkType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Priority -->
+
+    <owl:Class rdf:about="#Priority">
+        <rdfs:label xml:lang="en">Priority</rdfs:label>
+        <rdfs:label xml:lang="es">Prioridad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#Prosumer -->
+
+    <owl:Class rdf:about="#Prosumer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#executes"/>
+                                <owl:someValuesFrom rdf:resource="&Service;Service"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#requests"/>
+                                <owl:someValuesFrom rdf:resource="&Service;Service"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#offersServiceAtPlaceInTimeWithPrice"/>
+                                <owl:someValuesFrom rdf:resource="#NAryRelationOffersServiceAtPlaceInTimeWithPrice"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="#providesService"/>
+                                <owl:someValuesFrom rdf:resource="&Service;MIOService"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Provider;ServiceProvider"/>
+                    <rdf:Description rdf:about="&User;User"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#URLLinkInformation -->
+
+    <owl:Class rdf:about="#URLLinkInformation">
+        <rdfs:label xml:lang="en"
+            >URLLinkInformation</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >informaci&#243;n de un enlace a una URL</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Information"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/service.owl#Service -->
+
+    <owl:Class rdf:about="&service;Service"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/componency.owl#Object -->
+
+    <owl:Class rdf:about="&componency;Object"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="&wgs84_pos;SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#DateTimeDescription -->
+
+    <owl:Class rdf:about="&time;DateTimeDescription"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+    <owl:Class rdf:about="&time;TemporalEntity"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalUnit -->
+
+    <owl:Class rdf:about="&time;TemporalUnit"/>
+    
+
+
+    <!-- http://www.w3.org/2007/uwa/ontologies/DeliveryContext.owl#NetworkType -->
+
+    <owl:Class rdf:about="&DeliveryContext;NetworkType"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="&foaf;Organization"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person"/>
+    
+
+
+    <!-- http://xmlns.com/wordnet/1.6/Agent -->
+
+    <owl:Class rdf:about="&wordnet;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/wordnet/1.6/Agent-3 -->
+
+    <owl:Class rdf:about="&wordnet;Agent-3"/>
+    
+
+
+    <!-- http://xmlns.com/wordnet/1.6/Organization -->
+
+    <owl:Class rdf:about="&wordnet;Organization"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#hihgPriority -->
+
+    <owl:Thing rdf:about="#hihgPriority">
+        <rdf:type rdf:resource="#Priority"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#lowPriority -->
+
+    <Priority rdf:about="#lowPriority">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Priority>
+    
+
+
+    <!-- http://www.cenitmio.es/ontologies/mIO.owl#mediumPriority -->
+
+    <owl:Thing rdf:about="#mediumPriority">
+        <rdf:type rdf:resource="#Priority"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

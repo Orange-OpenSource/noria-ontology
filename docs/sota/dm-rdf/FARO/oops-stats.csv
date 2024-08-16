@@ -1,0 +1,9 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/704cf01a-4dd3-4f78-91ea-ad94ef2c61d2,P08,32,Minor,Missing annotations
+http://oops.linkeddata.es/data/6d3c8d28-cfa7-4cb1-b56c-4e50d3a0195d,P10,1,Important,Missing disjointness
+http://oops.linkeddata.es/data/e438e662-0401-4ae2-9850-aa6a6c698565,P11,27,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/45f6e9e8-4515-4383-a416-96fca4b5e91d,P13,20,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/e8c8a3cb-88ed-4903-910f-5edd4be59e3f,P24,6,Important,Using recursive definitions
+http://oops.linkeddata.es/data/83237e07-7a97-4c08-9393-ed55e93aade5,P25,6,Important,Defining a relationship as inverse to itself
+http://oops.linkeddata.es/data/f070cf75-fbee-4b75-9390-c91d172dd3bc,P26,6,Important,Defining inverse relationships for a symmetric one
+http://oops.linkeddata.es/data/e6eaa4c4-264c-4675-85af-9ad3d178d6a5,P30,1,Important,Equivalent classes not explicitly declared

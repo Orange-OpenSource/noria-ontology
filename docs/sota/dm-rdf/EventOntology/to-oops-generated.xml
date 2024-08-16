@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://purl.org/NET/c4dm/event.owl#"
+     xml:base="http://purl.org/NET/c4dm/event.owl"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://purl.org/NET/c4dm/event.owl">
+        <owl:imports rdf:resource="http://www.w3.org/2006/time"/>
+        <owl:versionInfo>Revision: 1.01</owl:versionInfo>
+        <rdfs:label>The Event ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#agent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#agent">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#hasAgent"/>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/c4dm/event.owl#agent_in"/>
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>
+		Relates an event to an active agent (a person, a computer, ... :-) )
+		</rdfs:comment>
+        <rdfs:label>agent</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#agent_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#agent_in">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#isAgentIn"/>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#factor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#factor">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#hasFactor"/>
+        <owl:inverseOf rdf:resource="http://purl.org/NET/c4dm/event.owl#factor_of"/>
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:comment>
+		Relates an event to a passive factor (a tool, an instrument, an abstract cause...)
+		</rdfs:comment>
+        <rdfs:label>factor</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#factor_of -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#factor_of">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#isFactorOf"/>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#hasAgent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#hasAgent">
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#hasFactor -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#hasFactor">
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#hasProduct -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#hasProduct">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#product"/>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#hasSubEvent -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#hasSubEvent">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#sub_event"/>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#isAgentIn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#isAgentIn">
+        <rdfs:label>agent in</rdfs:label>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#isFactorOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#isFactorOf">
+        <rdfs:label>factor of</rdfs:label>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#place -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#place">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:comment>
+		Relates an event to a spatial object.
+		</rdfs:comment>
+        <rdfs:label>place</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#producedIn -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#producedIn">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#produced_in"/>
+        <rdfs:label>produced in</rdfs:label>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#produced_in -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#produced_in">
+        <owl:inverseOf rdf:resource="http://purl.org/NET/c4dm/event.owl#product"/>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#product -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#product">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:comment>
+		Relates an event to something produced during the event---a sound, a pie, whatever...
+		</rdfs:comment>
+        <rdfs:label>product</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#sub_event -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#sub_event">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:comment>
+		This property provides a way to split a complex event (for example, a performance involving several 
+		musicians) into simpler ones (one event per musician).
+		</rdfs:comment>
+        <rdfs:label>sub-event</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#time -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/NET/c4dm/event.owl#time">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment>
+		Relates an event to a time object, classifying a time region (either instantaneous or having an extent).
+		By using the Timeline ontology here, you can define event happening on a recorded track or on any 
+		media with a temporal extent.
+		</rdfs:comment>
+        <rdfs:label>time</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/maker -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/maker"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#hasLiteralFactor -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/event.owl#hasLiteralFactor">
+        <owl:equivalentProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#literal_factor"/>
+        <vs:term_status>deprecated</vs:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#literal_factor -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/NET/c4dm/event.owl#literal_factor">
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:comment>
+		Relates an event to a factor which can be described as a literal. This property
+		should not be used as-is, but should be subsumed by other, more specific, properties
+		(like an hypothetic :weatherCelsius, linking an event to a temperature).
+		</rdfs:comment>
+        <rdfs:label>literal factor</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#Event -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Event">
+        <rdfs:comment>
+		An arbitrary classification of a space/time region, by a 
+		cognitive agent. An event may have actively participating agents,
+		passive factors, products, and a location in space/time.
+		</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#Factor -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Factor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#factor_of"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>
+		Everything used as a factor in an event
+		</rdfs:comment>
+        <rdfs:label>Factor</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#Product -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Product">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/NET/c4dm/event.owl#produced_in"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment>
+		Everything produced by an event
+		</rdfs:comment>
+        <rdfs:label>Product</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://moustaki.org/foaf.rdf#moustaki -->
+
+    <owl:NamedIndividual rdf:about="http://moustaki.org/foaf.rdf#moustaki">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl -->
+
+    <owl:Thing rdf:about="http://purl.org/NET/c4dm/event.owl">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <foaf:maker rdf:resource="http://moustaki.org/foaf.rdf#moustaki"/>
+        <dc:date>$Date: 2007/06/29 15:25:11 $</dc:date>
+        <dc:description>
+		This ontology deals with the notion of reified events---
+		events seen as first-class objects. It only defines one
+		concept: Event, which may have agents (actively
+		participating), factors (passively participating), products,
+		and a location in space and time. 
+
+		Regarding the ontological status of event tokens, they are seen
+		as the way cognitive agents classify space/time regions
+	</dc:description>
+        <dc:title>The Event ontology</dc:title>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

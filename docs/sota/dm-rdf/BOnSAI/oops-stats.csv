@@ -1,0 +1,9 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/08227718-d277-4340-acb6-63073cfd7e17,P05,4,Critical,Defining wrong inverse relationships
+http://oops.linkeddata.es/data/c15cd5f8-ad08-4178-861a-8a20019e2691,P08,209,Minor,Missing annotations
+http://oops.linkeddata.es/data/544c248f-e913-44f3-959c-7e9ab13e42f1,P11,16,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/3fea06ff-24b3-4e66-b6cb-d2636f890626,P12,8,Important,Equivalent properties not explicitly declared
+http://oops.linkeddata.es/data/00bf75cc-2747-44a1-83fc-85f2833b9e3c,P13,36,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/7d055a90-2a61-4716-a167-f7987ff7a465,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/11a704e7-f682-44bb-a434-973c41e822a5,P27,3,Critical,Defining wrong equivalent properties
+http://oops.linkeddata.es/data/9d17aa6c-6d53-4b62-a45e-e3c75d039b0b,P30,2,Important,Equivalent classes not explicitly declared

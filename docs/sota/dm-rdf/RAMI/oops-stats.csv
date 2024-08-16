@@ -1,0 +1,8 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/c589c65a-74fb-42be-bf5a-a2474bb4bf26,P04,15,Minor,Creating unconnected ontology elements
+http://oops.linkeddata.es/data/50411aff-b655-4e13-8cae-b9f8ee8e36fb,P08,30,Minor,Missing annotations
+http://oops.linkeddata.es/data/ab6cc3c1-c780-4b4a-8bfd-fd36e1ce6239,P10,1,Important,Missing disjointness
+http://oops.linkeddata.es/data/d9216b85-991b-419c-a439-0a22bc0040e0,P11,48,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/38149acb-749d-4eb1-b3cf-835d7695c53a,P13,46,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/c8d0bbac-36ae-4ff4-bc72-6108badcab04,P30,1,Important,Equivalent classes not explicitly declared
+http://oops.linkeddata.es/data/d4c8ca8a-d5b2-4653-bf52-2e6d99a485f8,P34,1,Important,Untyped class

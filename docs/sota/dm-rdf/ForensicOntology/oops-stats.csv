@@ -1,0 +1,12 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/4e202ed5-9175-4b07-b01d-ca920d981d9d,P03,1,Critical,"Creating the relationship &quot;is&quot; instead of using &quot;rdfs:subClassOf&quot;, &quot;rdf:type&quot; or &quot;owl:sameAs&quot;"
+http://oops.linkeddata.es/data/5715ac7b-8516-4f29-a4eb-4dc493e79496,P04,1,Minor,Creating unconnected ontology elements
+http://oops.linkeddata.es/data/14432867-95e5-43a7-98c2-40433936db83,P08,680,Minor,Missing annotations
+http://oops.linkeddata.es/data/2f7fc2e7-7eea-4aa1-9eaf-f52fce03bc86,P11,180,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/e41ce110-b8f3-4b55-9ef3-302edfa6cb9b,P12,1,Important,Equivalent properties not explicitly declared
+http://oops.linkeddata.es/data/312e9379-c65f-4085-b1ec-20c673d0b246,P13,112,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/e4beecdc-fde4-4038-bfb8-da5f1040011b,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/24e81afa-c868-4017-9d7d-0c6efe1b0f3a,P24,5,Important,Using recursive definitions
+http://oops.linkeddata.es/data/3dad4a26-d114-4d8d-9069-2c4a92c84df1,P25,2,Important,Defining a relationship as inverse to itself
+http://oops.linkeddata.es/data/6ecedbfe-2015-4d0b-8b2b-1c0407e73156,P26,1,Important,Defining inverse relationships for a symmetric one
+http://oops.linkeddata.es/data/fa16f9c5-d4f2-4e88-af89-c245a7084c1e,P30,7,Important,Equivalent classes not explicitly declared

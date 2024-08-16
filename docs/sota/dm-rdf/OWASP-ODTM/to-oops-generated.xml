@@ -1,0 +1,2312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.grsu.by/net/OdTMBaseThreatModel#"
+     xml:base="http://www.grsu.by/net/OdTMBaseThreatModel"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#affects -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#affects">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+        <rdfs:comment xml:lang="en">i.e. Threat affects Target or DataFlow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#agrees -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#agrees">
+        <rdfs:comment xml:lang="en">i.e.  NetworkFlow agrees Protocol</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#contains">
+        <rdfs:comment xml:lang="en">i.e. Target contains Component</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#crosses -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#crosses">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#divides"/>
+        <rdfs:comment xml:lang="en">i.e. DataFlow crosses Boundary</rdfs:comment>
+        <rdfs:label xml:lang="en">crosses</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#divides -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#divides">
+        <rdfs:comment xml:lang="en">i.e. Boundary divides DataFlow</rdfs:comment>
+        <rdfs:label xml:lang="en">divides</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge">
+        <rdfs:comment xml:lang="en">i.e. DataFlow hasEdge (hasSource or hasTarget) Target</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+        <rdfs:comment xml:lang="en">i.e. DataFlow hasSource Target</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+        <rdfs:comment xml:lang="en">i.e. DataFlow hasTarget Target</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#implements -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#implements">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#agrees"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">(i.e. Target implements Protocol)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#includes">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isIncluded"/>
+        <rdfs:comment xml:lang="en">i.e. TrustLineBoundary includesTarget</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy">
+        <rdfs:comment xml:lang="en">i.e. Target or DataFlow isAffectedBy Threat</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTargets">
+        <rdfs:comment xml:lang="en">Flow is affected by a threat through its edges.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf">
+        <rdfs:comment xml:lang="en">i.e. Target isEdgeOf (isSourceOf or isTargerOf) DataFlow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isIncluded -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isIncluded">
+        <rdfs:comment xml:lang="en">i.e. Target isIncluded in TrustLineBoundary</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isMitigatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isMitigatedBy">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#mitigates"/>
+        <rdfs:comment xml:lang="en">i.e. Threat isMitigatedBy Countermeasure</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isProtectedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isProtectedBy">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#protects"/>
+        <rdfs:comment xml:lang="en">i.e. Target or DataFlow isProtectedBy Counterneasure</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isRefToATTCK -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isRefToATTCK">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPEC"/>
+        <rdfs:comment xml:lang="en">CAPEC object refers to ATTCK object</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCAPEC -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCAPEC">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToCWE"/>
+        <rdfs:comment xml:lang="en">CWE object refers to CAPEC entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCWE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isRefToCWE">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToCVE"/>
+        <rdfs:comment xml:lang="en">CVE object refers to CWE entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isRefToThreat -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isRefToThreat">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToATTCK"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+        <rdfs:comment xml:lang="en">i.e. Target isSourceOf DataFlow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+        <rdfs:comment xml:lang="en">i.e. Target isSourceOf DataFlow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO">
+        <rdfs:comment xml:lang="en">i.e. Threat or Countermeasure labelsSO SecurityObjective</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE">
+        <owl:equivalentProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE"/>
+        <rdfs:comment xml:lang="en">i.e. Threat or Countermeasure labelsSTRIDE STRIDE</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#mitigates -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#mitigates">
+        <rdfs:comment xml:lang="en">i.e. Countermeasure mitigates Threat</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#protects -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#protects">
+        <rdfs:comment xml:lang="en">i.e. Countermeasure protects Target or DataFlow</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToATTCK -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToATTCK">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPEC -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPEC">
+        <rdfs:comment xml:lang="en">ATTCK object refers to CAPEC entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPECreasoned -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPECreasoned">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToATTCK"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPEC"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCVE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCVE">
+        <rdfs:comment xml:lang="en">CWE object refers to CVE entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCVEreasoned -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCVEreasoned">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCWEreasoned"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCVE"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCWE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCWE">
+        <rdfs:comment xml:lang="en">CAPEC object refers to CWE entity</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToCWEreasoned -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCWEreasoned">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCAPECreasoned"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToCWE"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#refToTactic -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#refToTactic">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#refToEnum"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#satisfiesThreatRestriction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#satisfiesThreatRestriction"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#suggests -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#suggests">
+        <rdfs:comment xml:lang="en">Target might contain internal component</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreat -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreat">
+        <rdfs:comment xml:lang="en">Target or flow might contain a threat</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory">
+        <rdfs:comment xml:lang="en">Target or flow might suggest a group of threats</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasDescription">
+        <rdfs:comment xml:lang="en">a threat property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasID">
+        <rdfs:comment xml:lang="en">a stencil property for TD json</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasSeverity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasSeverity">
+        <rdfs:comment xml:lang="en">a threat property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#hasTitle">
+        <rdfs:comment xml:lang="en">a threat property</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericDataStoreThreatAsSource -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericDataStoreThreatAsSource">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceDataStore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericDataStoreThreatAsTarget -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericDataStoreThreatAsTarget">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetDataStore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericExternalInteractorThreatAsSource -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericExternalInteractorThreatAsSource">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceExternalInteractor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericExternalInteractorThreatAsTarget -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericExternalInteractorThreatAsTarget">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetExternalInteractor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericFlowThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericFlowThreat">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasEdge"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Target"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreat"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericProcessThreatAsSource -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericProcessThreatAsSource">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceProcess"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericProcessThreatAsTarget -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AffectedByGenericProcessThreatAsTarget">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetProcess"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggestsThreatCategory"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBy"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AgreesApplicationProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesApplicationProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#agrees"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ApplicationProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AgreesDNSProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesDNSProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#agrees"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#agrees"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ApplicationProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ApplicationProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Boundary -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Boundary">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Stencil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Classified -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedHasEdge">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedStencil -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedStencil">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedTarget -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedTarget">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Classified"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#CommonThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#CommonThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Component -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Component"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsClientComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsDNSClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsDNSClientComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesDNSProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DNSClientComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsDNSServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsDNSServerComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesDNSProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DNSServerComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPClientComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isSourceOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPClientComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsHTTPServerComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContainsServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContainsServerComponent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isTargetOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ContextSecurityPattern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ContextSecurityPattern">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Countermeasure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Countermeasure -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Countermeasure"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DNSClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DNSClientComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ApplicationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocolImplementation -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocolImplementation">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DNSServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DNSServerComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Stencil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DataLinkProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DataLinkProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#DataStore -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#DataStore">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Target"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Target"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#FlowThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#FlowThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#TargetThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericDenialOfServiceThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDenialOfServiceThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericElevationOfPrivilegeThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericElevationOfPrivilegeThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#TargetThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#FlowThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericInformationDisclosureThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericInformationDisclosureThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#TargetThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericRepudiationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericRepudiationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericSpoofingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericSpoofingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericExternalInteractorThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericTamperingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericTamperingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDataStoreThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericFlowThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericProcessThreat"/>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#GenericThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#CommonThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HTTPClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPClientComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ApplicationProtocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocolImplementation -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocolImplementation">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HardwareComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HardwareComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasRestrictions -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasRestrictions"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceDataStore -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceDataStore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DataStore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceExternalInteractor -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceExternalInteractor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceProcess -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasSourceProcess">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedBySource"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetDataStore -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetDataStore">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DataStore"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetExternalInteractor -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetExternalInteractor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetProcess -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#HasTargetProcess">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isAffectedByTarget"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsApplicationProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsApplicationProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesApplicationProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsDNSProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsDNSProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesDNSProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocolImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsHTTPProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ImplementsHTTPProtocol">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#isEdgeOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#AgreesHTTPProtocol"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedIsEdge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#suggests"/>
+                <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocolImplementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#IsExternalFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#IsExternalFlow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#IsInboundFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#IsInboundFlow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#IsInternalFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#IsInternalFlow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#IsOutboundFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#IsOutboundFlow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasSource"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Process"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#hasTarget"/>
+                        <owl:someValuesFrom rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ExternalInteractor"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAuthentication -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAuthentication">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authentication"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAuthorization -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAuthorization">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authorization"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAvailability -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsAvailability">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsConfidentiality -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsConfidentiality">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Confidentiality"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsDenialOfService -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsDenialOfService">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsElevationOfPrivilege -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsElevationOfPrivilege">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authorization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsInformationDisclosure -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsInformationDisclosure">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsIntegrity -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsIntegrity">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Integrity"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsNonRepudiation -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsNonRepudiation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_NonRepudiation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsRepudiation -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsRepudiation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_NonRepudiation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsSpoofing -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsSpoofing">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#LabelsTampering -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#LabelsTampering">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSTRIDE"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#ClassifiedLabel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#labelsSO"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#NetworkFlow">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#NetworkProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#NetworkProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#PhysicalProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#PhysicalProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Process -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Process">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Target"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Protocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SecurityMetrics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SecurityMetrics -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SecurityMetrics"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SecurityObjective -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SecurityObjective">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authentication"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authorization"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Confidentiality"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Integrity"/>
+                    <rdf:Description rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_NonRepudiation"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SecurityMetrics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SingleFlow">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DataFlow"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SoftwareComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Stencil -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Stencil"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Stub -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Stub">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Target -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Target">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Stencil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#TargetThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#TargetThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#Threat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#Threat"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#ThreatRestriction -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#ThreatRestriction"/>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#TransportProtocol -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#TransportProtocol">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Protocol"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#TrustBorderBoundary -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#TrustBorderBoundary">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#TrustLineBoundary -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#TrustLineBoundary">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#Boundary"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authentication -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authentication">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authorization -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Authorization">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Availability">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_Confidentiality -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Confidentiality">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_Integrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_Integrity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#SO_NonRepudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#SO_NonRepudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Denial_of_Service">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service"/>
+        <hasTitle xml:lang="en">Denial of service</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege"/>
+        <hasTitle xml:lang="en">Elevation of privilege</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure"/>
+        <hasTitle xml:lang="en">Information disclosure</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation"/>
+        <hasTitle xml:lang="en">Repudiation</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing"/>
+        <hasTitle xml:lang="en">Spoofing</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering"/>
+        <hasTitle xml:lang="en">Tampering</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#component_Apache2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#component_Apache2">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#component_Chrome -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#component_Chrome">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPClientComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#component_Firefox -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#component_Firefox">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPClientComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#component_Nginx -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#component_Nginx">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPServerComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#protocol_DNS -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#protocol_DNS">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#DNSProtocol"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#protocol_HTTP">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#HTTPProtocol"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericDenialOfService">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericDenialOfServiceThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <hasDescription xml:lang="en">A generic DoS threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic DoS threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericElevationOfPrivilege">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericElevationOfPrivilegeThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <labelsSTRIDE rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Elevation_of_Privilege"/>
+        <hasDescription xml:lang="en">A generic elevation threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic elevation threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericInformationDisclosure">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericInformationDisclosureThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <labelsSTRIDE rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Information_Disclosure"/>
+        <hasDescription xml:lang="en">A generic information disclosure threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic information disclosure threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericRepudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericRepudiationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <labelsSTRIDE rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Repudiation"/>
+        <hasDescription xml:lang="en">A generic repudiation threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic repudiation threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericSpoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericSpoofingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <labelsSTRIDE rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Spoofing"/>
+        <hasDescription xml:lang="en">A generic spoofing threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic spoofing threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/OdTMBaseThreatModel#threat_GenericTampering">
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#GenericTamperingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#SchemaInstance"/>
+        <labelsSTRIDE rdf:resource="http://www.grsu.by/net/OdTMBaseThreatModel#STRIDE_Tampering"/>
+        <hasDescription xml:lang="en">A generic tampering threat</hasDescription>
+        <hasSeverity xml:lang="en">Medium</hasSeverity>
+        <hasTitle xml:lang="en">Generic tampering threat</hasTitle>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

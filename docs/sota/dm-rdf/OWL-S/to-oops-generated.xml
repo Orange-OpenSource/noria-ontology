@@ -1,0 +1,3143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/noria/ontologies/2023/9/owl-s#"
+     xml:base="http://www.semanticweb.org/noria/ontologies/2023/9/owl-s"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:Resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/noria/ontologies/2023/9/owl-s">
+        <rdfs:comment>
+  </rdfs:comment>
+        <rdfs:comment>
+    Upper-level OWL ontology for Groundings that employ WSDL.
+    Part of the OWL-S ontology; see http://www.daml.org/services/.
+
+    This version is intended for use with WSDL 1.1.  The OWL-S
+    Coalition plans to produce a future version for use with WSDL 2.0,
+    when it has been finalized (or nearly so).
+
+    Note that other approaches to grounding may be accommodated
+    within the OWL-S framework.  This is the only approach produced
+    to date by the OWL-S Coalition.
+
+    For notes on version history, see 
+        http://www.daml.org/services/owl-s/1.1/status.html.    
+  </rdfs:comment>
+        <rdfs:comment>
+    Ontology elements for capturing conditions, effects
+  </rdfs:comment>
+        <owl:versionInfo>
+      $Id: ProfileDeprecatedElements.owl,v 1.11 2005/03/01 01:29:09 delenius Exp $
+    </owl:versionInfo>
+        <rdfs:comment>
+    Top level of OWL ontology for services.
+    Part of the OWL-S ontology; see http://www.daml.org/services/.  
+  </rdfs:comment>
+        <rdfs:comment>Resource Ontology for OWL-S</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl"/>
+        <owl:versionInfo>no version number yet...</owl:versionInfo>
+        <rdfs:comment>
+      OWL ontology for Advertisements (i.e. Profiles).
+      This file belongs to the OWL-S Release.
+      Initial version created by Terry Payne (trp@ecs.soton.ac.uk).
+      Modified by Massimo Paolucci (paolucci@cs.cmu.edu)
+      Modified by David Martin and other members of the OWL-S Coalition.
+
+    </rdfs:comment>
+        <owl:versionInfo>
+      $Id: ActorDefault.owl,v 1.7 2004/09/28 06:58:52 martin Exp $
+    </owl:versionInfo>
+        <owl:versionInfo>
+      $Id: ProfileAdditionalParameters.owl,v 1.10 2004/09/28 06:58:53 martin Exp $
+    </owl:versionInfo>
+        <owl:versionInfo>
+    $Id: Service.owl,v 1.23 2004/05/12 06:08:50 martin Exp $
+  </owl:versionInfo>
+        <owl:versionInfo>
+    $Id: Expression.owl,v 1.16 2005/02/03 20:04:55 martin Exp $
+  </owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="http://www.daml.org/services"/>
+        <rdfs:comment>
+    Upper-level OWL ontology for Processes.
+    Part of the DAML-S/OWL-S effort; see http://www.daml.org/services/owl-s/.
+  </rdfs:comment>
+        <rdfs:comment>
+      Actor Default Properties
+
+      These were originally defined in previous versions of the DAML-S Profile,
+      and provided a mechanism of declaring actors that were responsible for
+      some given role within a service.
+      
+      -- These properties have now been removed from the DAML-S 0.9 Profile, and defined separately. --
+      
+      The abstraction of these parameters from the Profile ontology facilitates
+      the usage of other ontologies for defining individual parameters, such
+      as the foaf or vCard ontologies.
+
+      See the discussion accompanying the DAML-S 0.9 release for further details.
+
+      Created by Terry Payne (terryp@cs.cmu.edu).
+    </rdfs:comment>
+        <rdfs:comment>
+      Deprecated elements from OWL-S Profile 0.9
+
+      Created by Terry Payne (terryp@cs.cmu.edu).
+      Modified by Massimo Paolucci (paolucci@cs.cmu.edu)
+
+    </rdfs:comment>
+        <rdfs:comment>
+      Process and Service Coalition
+      Additional concepts and definitions that augment the OWL-S Profile
+      ontology.
+      These accompany the OWL-S Release
+      Created by Terry Payne (terryp@cs.cmu.edu).
+      Modified by Massimo Paolucci (paolucci@cs.cmu.edu)
+
+    </rdfs:comment>
+        <owl:versionInfo>
+      $Id: Profile.owl,v 1.51 2004/11/03 03:27:20 martin Exp $
+    </owl:versionInfo>
+        <owl:versionInfo>
+    $Id: ObjectList.owl,v 1.4 2004/05/06 00:08:51 martin Exp $
+  </owl:versionInfo>
+        <owl:versionInfo>
+    $Id: Grounding.owl,v 1.34 2004/09/28 06:58:53 martin Exp $
+  </owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl"/>
+        <owl:versionInfo>
+    $Id: Process.owl,v 1.134 2005/02/03 20:04:54 martin Exp $
+  </owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#capacityGranularity -->
+
+    <owl:AnnotationProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#capacityGranularity">
+        <rdfs:label>capacity granularity</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#damlsParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#damlsParameter">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsParameter"/>
+        <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  owlsParameter should be used.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#hasAtomicProcessGrounding -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#hasAtomicProcessGrounding">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsParameter">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <rdfs:comment>
+    An input or output property of an atomic process.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsProcess">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess"/>
+        <rdfs:comment>
+    The atomic process to which this grounding applies.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInput">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMap"/>
+        <rdfs:comment>
+    There should be one instance of this property for each
+    message part of the WSDL input message.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputMessageParts -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputMessageParts">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputs"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment>
+    Deprecated as of DAML-S 0.9.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputs -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMapList"/>
+        <rdfs:comment>
+    A list of WsdlMessageMap instances, one for each
+    message part of the WSDL input message.
+  </rdfs:comment>
+        <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  wsdlInput should be used.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOperation -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOperation">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOperationRef"/>
+        <rdfs:comment>
+    A WSDL operation to which the atomic process
+    (referenced by owlsProcess) corresponds.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutput">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMap"/>
+        <rdfs:comment>
+    There should be one instance of this property for each
+    output of the atomic process.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputMessageParts -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputMessageParts">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputs"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment>
+    Deprecated as of DAML-S 0.9; wsdlOutputs should now be used.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputs -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMapList"/>
+        <rdfs:comment>
+    A list of WsdlMessageMap instances, one for each
+    output of the atomic process.
+  </rdfs:comment>
+        <rdfs:comment>
+    Deprecated as of OWL-S 1.0.  wsdlOutput should be used.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#collapse -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#collapse">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#collapsesTo"/>
+        <rdfs:comment>This is a deprecated usage; collapsesTo is preferred.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#collapsesTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#collapsesTo">
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#expandsTo"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#components -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#components">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Any-Order"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Choice"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Sequence"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Split"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Split-Join"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:comment> 
+    The components propery of selected control construct subclasses holds
+    a specific arrangement of subprocesses or control constructs. 
+    The range is declared at each relevant subclass of ControlConstruct.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#composedOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#composedOf">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#computedEffect -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#computedEffect">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+    A computed effect is a single expression that characterizes the
+    effects of a composite process, based on the effects
+    of its sub processes. This is not well defined for conditional effects at present. 
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#computedInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#computedInput">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+    A computed input is a single expression that characterizes the
+    inputs required by a composite process, and the conditions under
+    which they are required.  This expression may, if needed, tie
+    together 2 or more inputs; for example, &quot;either a credit card number,
+    or a bank account number must be given&quot;, or &quot;if product
+    id starts with &apos;M&apos;, no shipping method need be given&quot;.
+    Additionally, this expression may refer to things other than inputs;
+    for example; &quot;if user&apos;s credit rating is &apos;excellent&apos; or better,
+    Social Security number is not required&quot;, or &quot;if product weight
+    is less than 1 lb., no shipping myth did need be given&quot;.
+
+    A &quot;computed&quot; input is so named because it is meant to be computed
+    automatically by some tool, by inspecting the makeup of the composite 
+    process.
+
+    The language used to represent a computed input is not specified
+    here, and will be the subject of future work; hence, the use of Thing
+    as range.  It will require expressiveness greater than that of
+    OWL.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#computedOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#computedOutput">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+    A computed output is a single expression that characterizes the
+    outputs required by a composite process, and the conditions under
+    which they are required.  See comment for computedInput.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#computedPrecondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#computedPrecondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+    A computed precondition is a single expression that characterizes the
+    preconditions of a composite process, based on the preconditions
+    of its sub processes.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#else -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#else">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#If-Then-Else"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#expand -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#expand">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#expandsTo"/>
+        <rdfs:comment>This is a deprecated usage; expandsTo is preferred.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#expandsTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#expandsTo">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#fromProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#fromProcess">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ValueOf"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasClient -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasClient">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParticipant"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasDataFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasDataFrom">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:comment>
+    This property has as range a Binding object, which may either indicate
+    constants or values that are derived from the parameters (typically
+    outputs) of other performs in the SAME COMPOSITE PROCESS.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasEffect">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:label>hasEffect</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParameter"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Input"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasLocal -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasLocal">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParameter"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Local"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParameter"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Output"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParameter">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParticipant">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasPrecondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasPrecondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasResult">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+        <rdfs:label>hasResult</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#hasResultVar -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#hasResultVar">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar"/>
+        <rdfs:label>hasResultVar</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ifCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ifCondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#If-Then-Else"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+        <rdfs:comment> The if condition of an if-then-else</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#inCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#inCondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+        <rdfs:label>inCondition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#performedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#performedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasParticipant"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#process -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#process">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#producedBinding -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#producedBinding">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Produce"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#OutputBinding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#realizedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#realizedBy">
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#realizes"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#realizes -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#realizes">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#theVar -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#theVar">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ValueOf"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#then -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#then">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#If-Then-Else"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#timeout -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#timeout">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:range rdf:resource="http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing"/>
+        <rdfs:comment>
+    Interval of time allowed for completion of the process component (relative
+    to the start of process component execution).
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#toParam -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#toParam">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#untilCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#untilCondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-Until"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#untilProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#untilProcess">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-Until"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueSource -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSource">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ValueOf"/>
+        <rdfs:comment>
+    This is the simplest kind of data flow
+  </rdfs:comment>
+        <rdfs:label>valueSource</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#whileCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#whileCondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-While"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#whileProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#whileProcess">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-While"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#withOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#withOutput">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#OutputBinding"/>
+        <rdfs:label>withOutput</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#contactInformation -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#contactInformation">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasInput">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasParameter"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Input"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasParameter"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Output"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasParameter">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasPrecondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasPrecondition">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#hasResult -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#hasResult">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Result"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#has_process -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#has_process">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceCategory -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceCategory">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameter">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#communicationThru -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#communicationThru">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#degreeOfQuality -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#degreeOfQuality">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#domainResource -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#domainResource">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#geographicRadius -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#geographicRadius">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#hasEffect">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ConditionalEffect"/>
+        <rdfs:comment> Deprecated as of version 1.1.  Now hasResult is used.
+    </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#intendedPurpose -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#intendedPurpose">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#providedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#providedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#role"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceProvider"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#qualityGuarantee -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#qualityGuarantee">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#requestedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#requestedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#role"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceRequester"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#role -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#role">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#serviceType -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#serviceType">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#allocationType -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#allocationType">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AllocationType"/>
+        <rdfs:label>allocation type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#capacityType -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#capacityType">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#CapacityType"/>
+        <rdfs:label>capacity type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#describedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#describedBy">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#isDescribedBy"/>
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#describes"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#describes -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#describes">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceModel"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:comment> 
+    There are no cardinality restrictions on this property. That is,
+    the same service model can be used by many different services.
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#isDescribedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#isDescribedBy">
+        <rdfs:comment>deprecated form</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#isPresentedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#isPresentedBy">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#presentedBy"/>
+        <rdfs:comment>deprecated form</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#isSupportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#isSupportedBy">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#supportedBy"/>
+        <rdfs:comment>deprecated form</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#presentedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#presentedBy">
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#presents"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:comment> 
+    There are no cardinality restrictions on this property. 
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#presents -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#presents">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile"/>
+        <rdfs:comment> 
+    There are no cardinality restrictions on this property. 
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#providedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#providedBy">
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#provides"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#provides -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#provides">
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:comment>
+    OWL-S is completely agnostic at present about what kind of thing
+    provides a service (hence, no domain declared here).
+  </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#supportedBy">
+        <owl:inverseOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#supports"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceGrounding"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#supports -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#supports">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#Service"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceGrounding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:range rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:comment>The first item in the subject RDF list.</rdfs:comment>
+        <rdfs:label>first</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest -->
+
+    <owl:ObjectProperty rdf:about="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:comment>The rest of the subject RDF list after the first item.</rdfs:comment>
+        <rdfs:label>rest</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#email">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#fax -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#fax">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#name">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#phone -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#phone">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#physicalAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#physicalAddress">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#title">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#webURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#webURL">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#operation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#operation">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOperationRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#otherReference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#otherReference">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI indicating a relevant standards document (other than that
+    for WSDL).
+    Deprecated as of DAML-S 0.9; no longer recommended or supported.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#portType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#portType">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOperationRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlDocument -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlDocument">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI indicating a WSDL document to
+    which this grounding refers.  This isn&apos;t
+    essential; primarily for convenience as documentation.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputMessage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlInputMessage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for the WSDL input message element corresponding
+    to the inputs of the atomic process.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlMessagePart -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlMessagePart">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for a WSDL message part element.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputMessage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlOutputMessage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for the WSDL message element corresponding
+    to the outputs of the atomic process.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlPort -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlPort">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for a WSDL Port that provides the operation to which 
+    this atomic process is grounded.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlReference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlReference">
+        <owl:equivalentProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlVersion"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    Deprecated as of DAML-S 0.9; wsdlVersion should now be used.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlService -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlService">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for a WSDL Service that provides the operation to which 
+    this atomic process is grounded.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlVersion">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI indicating the version of WSDL being used.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap"/>
+        <rdfs:comment>
+    XSLT Tranformation to transform OWL-S parameters (inputs and outputs) 
+    to and from WSDL messages.  This property exists mainly for declaring
+    a cardinality restriction, and should not be instantiated
+    directly.  Instantiate xsltTransformationString or xsltTransformationURI.
+    (Ranges are specified with the sub properties.)
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformationString -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformationString">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>
+    A string giving an XSLT Tranformation.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformationURI -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformationURI">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment>
+    A URI for an XSLT Tranformation.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#invocable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#invocable">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>
+    Invocable is a flag that tells whether the CompositeProcess bottoms 
+    out in atomic processes.  (If so, it is &quot;invocable&quot;.)
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#name">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#parameterType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#parameterType">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#parameterValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#parameterValue">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+        <rdfs:comment>
+    If an Input parameter has a constant value, or (as in the case of
+    Output) is a description in terms of of some other process parameters,
+    then supply it here. Note that it must be interpreted after reading it
+    as an XMLLiteral.
+
+    In future, the interpretation of this literal may be extended to allow
+    more flexibility, such as functional expressions.
+  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueData -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueData">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:comment>
+    valueData is for specifying constant (XML) data to be bound to a parameter. 
+  
+    Ideally, the valueData property would also be a subproperty of
+    valueSpecifier so that it would be one of the three possible
+    properties used to specify a value for a Binding. But as we cannot do
+    that, we treat it separately, but note that if it is used, the others
+    should not be.
+
+    For now, its range is any XML datatype. 
+  </rdfs:comment>
+        <rdfs:label>valueData</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueForm -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueForm">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+        <rdfs:comment>
+    valueForm is to be used to specify an pseudo-OWL description that is
+    legal OWL except that variables (including process parameters) and
+    ValueOf forms can appear as the object of properties where those
+    things violate the range of the property. The intent is that this be
+    interpreted as a pattern indicating the actual value of the binding
+    after the variables have been substituted for.
+    
+    A similar notation is used with valueFunction to indicate the
+    application of a locally (to the client) available function to convert
+    data (specified by variables or ValueOf) to a correct form.
+  </rdfs:comment>
+        <rdfs:label>valueForm</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueFunction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueFunction">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+        <rdfs:label>valueFunction</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:label>valueSpecifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#valueType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#valueType">
+        <rdfs:subPropertyOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier"/>
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:label>valueType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#categoryName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#categoryName">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#code -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#code">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceClassification -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceClassification">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceName">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameterName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameterName">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceProduct -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceProduct">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#taxonomy -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#taxonomy">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#textDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#textDescription">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#value">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#refURI -->
+
+    <owl:DatatypeProperty rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#refURI">
+        <rdfs:domain rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ActorDefault.owl#Actor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+      Actor represents a Requester or Provider who might request or offer a service.
+      The original Actor definition was provided within DAML-S V0.5, V0.6 and V0.7
+    </rdfs:comment>
+        <rdfs:label>DefaultActor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Country.owl#Country -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Country.owl#Country"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlAtomicProcessGrounding">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsProcess"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A class that relates elements of a OWL-S atomic process to a
+    WSDL specification.
+  </rdfs:comment>
+        <rdfs:comment>
+    Each instance of WsdlAtomicProcessGrounding must have exactly one
+    value for owlsProcess and exactly one for wsdlOperation, which sets up
+    a one-to-one correspondence between an atomic process and a WSDL
+    operation.
+
+    In addition, for each message part of the relevant WSDL input message,
+    there must be exactly one value of wsdlInput.  For each output of the
+    atomic process, there must be exactly one value of wsdlOutput. These
+    property instances show the correspondences between OWL-S
+    inputs/outputs and WSDL message parts.  In addition, single values are
+    recommended (but not required) for wsdlInputMessage and
+    wsdlOutputMessage.
+
+    Note that the value of wsdlOperation may or may not uniquely identify
+    a particular WSDL port with which to interact.  If there are multiple
+    such ports offering the specified operation, an OWL-S enactment engine
+    is free to choose any of these ports.  If it is desired to further
+    constrain the choice of ports, a WsdlAtomicProcessGrounding may do so
+    by specifying any number of values for wsdlService and/or wsdlPort.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlGrounding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlGrounding">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceGrounding"/>
+        <rdfs:comment>
+    A WsdlGrounding is just a collection of WsdlAtomicProcessGrounding
+    instances, one for each atomic process in the process model.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMap -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMap">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsParameter"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlMessagePart"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A class that shows how to derive a WSDL message part from 
+    (one or more) inputs of an atomic process.
+    A WsdlInputMessageMap must have 1 wsdlMessagePart, and 
+    EITHER 1 owlsParameter or 1 xsltTransformation.  (The
+    cardinality restrictions don&apos;t capture the disjunction.)
+    If there is a direct correspondence between a particular
+    OWL-S input and the wsdlMessagePart, use owlsParameter
+    to show that.  Otherwise, use xsltTransformation to give
+    a transformation from the OWL-S input(s) to the
+    wsdlMessagePart.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMapList -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMapList">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMap"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlInputMessageMapList"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> A list of WsdlInputMessageMap instances </rdfs:comment>
+        <rdfs:comment> Deprecated as of version 1.1; no longer needed </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap">
+        <rdfs:comment>
+    Superclass for WsdlInputMessageMap and WsdlOutputMessageMap.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOperationRef -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOperationRef">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#operation"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#portType"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Restricting the cardinality of operation to one
+  </rdfs:comment>
+        <rdfs:comment>
+    Restricting the cardinality of portType to one
+  </rdfs:comment>
+        <rdfs:comment>
+    This class provides a unique specification of a WSDL operation.
+    WSDL 1.1, on which this version of the grounding is based, does 
+    not have a way to uniquely identify an operation with a single URI.  
+    Uniqueness is achieved using a pair (portType, operation).
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMap -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMap">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlMessageMap"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#owlsParameter"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#wsdlMessagePart"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#xsltTransformation"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A class that shows how to derive an atomic process output from 
+    the input message parts of a WSDL operation.
+    A WsdlOutputMessageMap must have 1 owlsParameter, and 
+    EITHER 1 wsdlMessagePart or 1 xsltTransformation.  (The
+    cardinality restrictions don&apos;t capture the disjunction.)
+    If there is a direct correspondence between a particular
+    WSDL message part and the OWL-S output, use wsdlMessagePart
+    to show that.  Otherwise, use xsltTransformation to give
+    a transformation from the message parts to the OWL-S output.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMapList -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMapList">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMap"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Grounding.owl#WsdlOutputMessageMapList"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> A list of WsdlOutputMessageMap instances </rdfs:comment>
+        <rdfs:comment> Deprecated as of version 1.1; no longer needed </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Any-Order -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Any-Order">
+        <owl:equivalentClass rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Unordered"/>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Allows the process components (specified as a bag) to be executed in
+    some unspecified order but not concurrently. Execution and completion
+    of all components is required. The execution of processes in an
+    &quot;Any-Order&quot; construct cannot overlap, i.e.atomic processes cannot be
+    executed concurrently and composite processes cannot be interleaved.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#hasClient"/>
+                <owl:hasValue rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#TheClient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#performedBy"/>
+                <owl:hasValue rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#TheServer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Binding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#toParam"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSource"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueData"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#valueSpecifier"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Choice -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Choice">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Choice calls for the execution of a single control construct from a given bag of control
+    constructs (given by the components property).   Any of the given control constructs
+    may be chosen for execution.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#composedOf"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#computedEffect"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#computedInput"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#computedOutput"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#computedPrecondition"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#invocable"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+        <rdfs:comment>
+    A CompositeProcess can have at most one invocable property. Similarly for
+    computedInput, computedOutput, computedEffect, and
+    computedPrecondition.
+  </rdfs:comment>
+        <rdfs:comment>
+    A CompositeProcess must have exactly 1 composedOf property.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ConditionalEffect -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ConditionalEffect">
+        <rdfs:comment> Deprecated as of version 1.1 </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ConditionalOutput -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ConditionalOutput">
+        <rdfs:comment> Deprecated as of version 1.1 </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct">
+        <owl:equivalentClass rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ProcessComponent"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#timeout"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A ControlConstruct can have at most one instance of timeout.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> A multiset of control constructs </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructList -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructList">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#first"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#rest"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructList"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    OWL does not make any distinction between bags and lists.  We redefine
+    the ControlConstructList class, rather than use equivalentClass, so as
+    to make that distinction.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#If-Then-Else -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#If-Then-Else">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ifCondition"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#then"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#else"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    If-Then-Else Class is a ControlConstruct that consists of a Condition, a
+    then and an optional else process.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Input -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Input">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Local"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Output"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#InputBinding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#InputBinding">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#toParam"/>
+                        <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Input"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:comment>
+    The subClassOf element is redundant, but we keep it because it is
+    helpful to some tools
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Iterate -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Iterate">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:comment>
+    Iterate is an &quot;abstract&quot; class, in the sense that it&apos;s not detailed
+    enough to be instantiated in a process model.  It&apos;s here to serve as
+    the common superclass of Repeat-While, Repeat-Until, and potentially
+    other specific iteration constructs that might be needed in the
+    future.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Local -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Local">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Output"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar"/>
+        <rdfs:comment>
+     A Local parameter is a variable other than an input that is bound 
+    in a precondition of an Atomic Process for use in a result condition
+    or effect expression (or output expression) 
+  
+    THEY CANNOT BE USED IN COMPOSITE PROCESSES AT ALL. 
+    This avoids problems associated with state sharing among
+    asynchronously related sub processes. 
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Output -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Output">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+        <owl:disjointWith rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#OutputBinding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#OutputBinding">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#toParam"/>
+                        <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Output"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Binding"/>
+        <rdfs:comment>
+    The subClassOf element is redundant, but we keep it because it is
+    helpful to some tools
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#parameterType"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> 
+    This is the simplest way to relate parameters to 
+    SWRL (and DRS) variables.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Participant -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Participant"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Perform -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#process"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    The PERFORM construct is how one references a process in a composite
+    process.  This is analogous to a function call in a program body. The
+    inputs to the PERFORM are described using the hasDataFrom property.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Process -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Process">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#AtomicProcess"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#CompositeProcess"/>
+                    <rdf:Description rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceModel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#name"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A Process can have at most one name, but names need not be unique.
+  </rdfs:comment>
+        <rdfs:comment> The most general class of processes </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ProcessComponent -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ProcessComponent">
+        <rdfs:comment> 
+    Deprecated as of v. 1.1.
+    Note: the old concept ProcessComponent is no longer needed. ControlConstruct
+    which includes Perform as a subclass should be used anywhere that 
+    ProcessComponent might have been used (which in the OWL-S 1.0 ontology 
+    was only in describing the relationship to temporal aspects)
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Produce -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Produce">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-Until -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-Until">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Iterate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#untilCondition"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#untilProcess"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> 
+    The Repeat-Until class specializes the ControlConstruct class where
+    the with properties &quot;untilCondition&quot; (range of type Condition) and
+    &quot;untilProcess&quot; (range of type Reapeat).  Repeat-Until does the
+    operation, tests for the condition, exits if it is true, and otherwise
+    loops.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-While -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Repeat-While">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Iterate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#whileCondition"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#whileProcess"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> 
+    The Repeat-While class specializes the ControlConstruct class
+    where the with properties &quot;whileCondition&quot; (range of type Condition)
+    and ``whileProcess&apos;&apos; (range of type Repeat).  Repeat-While tests for 
+    the condition, exits if it is false and does the operation if the
+    condition is true, then loops. 
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Result -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Result">
+        <rdfs:label>Result</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ResultVar">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Sequence -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Sequence">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructList"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Sequence is defined as having a list of component processes that
+    specify the body. The Preconditions, parameters and effects of the
+    sequence are not defined in the minimal version.  An obvious extension
+    would be to define the effect of the sequence to be the union of the
+    effect of the individual members, and the parameters of the sequence
+    to be the union of the parameters of individual members. However, some
+    implementations may decide to use the last event&apos;s effects as the
+    effect of the sequence, etc.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#SimpleProcess">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Split -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Split">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Here the process consists of concurrent execution of a bunch of
+    sub-processes.  No further specification about waiting,
+    synchronization, etc. Similar to other ontologies&apos; use of &quot;Concurrent&quot;
+    or &quot;Parallel&quot;.  
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Split-Join -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Split-Join">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstruct"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#components"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#ControlConstructBag"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    Here the process consists of concurrent execution of a bunch of
+    sub-processes.  with barrier synchroniztion. With Split and Split and
+    Join, we can define processes which have partial synchronization
+    (ex. split all and join some subset).
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#Unordered -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#Unordered">
+        <rdfs:comment>
+     Deprecated.  As of version 1.1, renamed to Any-Order.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ValueOf -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ValueOf">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#theVar"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#fromProcess"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    We allow for the possibility that another parameter of the same process is 
+    referenced, in which case this property is optional (hence maxCard)
+  </rdfs:comment>
+        <rdfs:comment>
+    Within a value form, or when using valueSource, references to
+    parameters of other processes require a tuple of (perform-ref,
+    param-ref, which we represent with ValueOf
+  </rdfs:comment>
+        <rdfs:label>ValueOf</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#Profile">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#textDescription"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+      Definition of Profile
+    </rdfs:comment>
+        <rdfs:comment>
+    A profile can have only one name
+    </rdfs:comment>
+        <rdfs:comment>
+    A profile can have only one text description
+    </rdfs:comment>
+        <rdfs:label>Profile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#categoryName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#code"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#taxonomy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#value"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    a ServiceCategory is restricted to refer to only one taxonomy
+    </rdfs:comment>
+        <rdfs:comment>
+    a ServiceCategory is restricted to refer to only onename
+    </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#serviceParameterName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+    A ServiceParameter should have at most 1 name (more precisely only
+      one serviceParameterName)
+    </rdfs:comment>
+        <rdfs:comment>
+    a Parameter is restricted to refer to only one concept in some
+    ontology
+    </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#AverageResponseTime -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#AverageResponseTime">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#Duration -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#Duration"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#GeographicRadius -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#GeographicRadius">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/Country.owl#Country"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#MaxResponseTime -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#MaxResponseTime">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceParameter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#sParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#Duration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#NAICS -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#NAICS">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#categoryName"/>
+                <owl:hasValue>
+	  NAICS 
+	</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#taxonomy"/>
+                <owl:hasValue>
+	  www.naics.com
+	</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+      Hook to the NAICS taxonomy 
+    </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#UNSPSC -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileAdditionalParameters.owl#UNSPSC">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#ServiceCategory"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#categoryName"/>
+                <owl:hasValue>
+	   UNSPSC
+	</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Profile.owl#taxonomy"/>
+                <owl:hasValue>
+	  www.un-spsc.net
+	</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>
+      Hook to the UNSPSC taxonomy 
+      </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Actor -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Actor"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Location -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Location">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>
+	This class represents the scope or availability
+	of a service to some area.
+    </rdfs:comment>
+        <rdfs:label>Location</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#NeededService -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#NeededService">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile"/>
+        <rdfs:label>NeededService</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#OfferedService -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#OfferedService">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile"/>
+        <rdfs:label>OfferedService</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Profile"/>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceProvider -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceProvider">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Actor"/>
+        <rdfs:comment>
+      ServiceProvider provides general contract details such as address, fax etc.
+    </rdfs:comment>
+        <rdfs:label>ServiceProvider</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceRequester -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#ServiceRequester">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/ProfileDeprecatedElements.owl#Actor"/>
+        <rdfs:comment>
+      ServiceRequester provides general contract details such as address, fax etc.
+    </rdfs:comment>
+        <rdfs:label>ServiceRequester</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#AggregateResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#AggregateResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource"/>
+        <rdfs:label>Aggregate Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#AllocationType -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#AllocationType">
+        <rdfs:label>Allocation Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#AtomicResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#AtomicResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource"/>
+        <rdfs:label>Atomic Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#BatchCapacityResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#BatchCapacityResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AtomicResource"/>
+        <rdfs:label>Batch-capacity Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#CapacityType -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#CapacityType">
+        <rdfs:label>Capacity Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#ConjunctiveAggregateResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#ConjunctiveAggregateResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AggregateResource"/>
+        <rdfs:label>Conjunctive Aggregate Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#DisjunctiveAggregateResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#DisjunctiveAggregateResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AggregateResource"/>
+        <rdfs:label>Disjunctive Aggregate Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#Resource">
+        <rdfs:label>Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#UnitCapacityResource -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#UnitCapacityResource">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AtomicResource"/>
+        <rdfs:label>Unit-capacity Resource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#Service -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#Service">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#describedBy"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> 
+    A service has 0 or 1 models.  (But note that a service with 0 models 
+    does not provide automated online access; it exists only for
+    discovery purposes; that is, it exists so as to provide a Profile.)
+  </rdfs:comment>
+        <rdfs:comment>See comments above</rdfs:comment>
+        <rdfs:label>Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceGrounding -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceGrounding">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/Service.owl#supportedBy"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment> 
+    A Grounding must be associated with exactly one service.
+    (Also, that service must have a model - but that constraint
+    isn&apos;t expressed here.)
+  </rdfs:comment>
+        <rdfs:comment>See comments above</rdfs:comment>
+        <rdfs:label>ServiceGrounding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceModel -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceModel">
+        <rdfs:comment>See comments above</rdfs:comment>
+        <rdfs:label>ServiceModel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/Service.owl#ServiceProfile">
+        <rdfs:comment>See comments above</rdfs:comment>
+        <rdfs:label>ServiceProfile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:label>Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS-Condition -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS-Condition">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS-Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS-Expression -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS-Expression">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage"/>
+                <owl:hasValue rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF-Condition -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF-Condition">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF-Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF-Expression -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF-Expression">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage"/>
+                <owl:hasValue rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage">
+        <rdfs:comment>
+    An instance of this class represents a particular logical formalism,
+    such as KIF, SWRL, or DRS.  At present we allow for zero or more
+    URIs to be specified, which normally are references to public document(s) 
+    that define the formalism.  We anticipate a variety of other properties 
+    will be added as the requirements become better understood.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Condition -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Condition">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Condition"/>
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Expression -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Expression">
+        <rdfs:subClassOf rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionLanguage"/>
+                <owl:hasValue rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#expressionBody"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List -->
+
+    <owl:Class rdf:about="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List">
+        <rdfs:comment>This is intended to provide an OWL-DL compatible version of rdf:List</rdfs:comment>
+        <rdfs:label>List</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing -->
+
+    <owl:Class rdf:about="http://www.isi.edu/~pan/damltime/time-entry.owl#IntervalThing"/>
+    
+
+
+    <!-- http://www.w3.org/2003/11/swrl#AtomList -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/11/swrl#AtomList"/>
+    
+
+
+    <!-- http://www.w3.org/2003/11/swrl#Variable -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/11/swrl#Variable"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#TheClient -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#TheClient">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Participant"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#TheParentPerform -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#TheParentPerform">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform"/>
+        <rdfs:comment>
+    A special-purpose object, used to refer, at runtime, to the execution
+    instance of the enclosing composite process definition.
+  </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#TheServer -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#TheServer">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Participant"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Process.owl#ThisPerform -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Process.owl#ThisPerform">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Process.owl#Perform"/>
+        <rdfs:comment>
+    A special-purpose object, used to refer, at runtime, to the execution
+    instance of the enclosing atomic process definition.
+  </rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#ConsumableAllocation -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#ConsumableAllocation">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AllocationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#ContinuousCapacity -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#ContinuousCapacity">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#CapacityType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#DiscreteCapacity -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#DiscreteCapacity">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#CapacityType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/Resource.owl#ReusableAllocation -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/Resource.owl#ReusableAllocation">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/Resource.owl#AllocationType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#AlwaysTrue -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#AlwaysTrue">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL-Condition"/>
+        <Expression:expressionLanguage rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL"/>
+        <rdfs:comment>
+    An empty AtomList always evaluates to true. Note that this is not equivalent to specifiying no 
+    precondition. Due to open-world semantics of OWL, it would not be possible to distinguish 
+    having no precondition from not knowing the precondition. We would need to specify a
+    cardinality 0 restriction on precondition property to indicate that there is no precondition
+    which would be also valid.
+  </rdfs:comment>
+        <rdfs:label>Always True</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#DRS">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage"/>
+        <Expression:refURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.daml.org/services/owl-s/1.1/generic/drs.owl</Expression:refURI>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#KIF">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage"/>
+        <Expression:refURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://logic.stanford.edu/kif/kif.html</Expression:refURI>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#SWRL">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#LogicLanguage"/>
+        <Expression:refURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/2003/11/swrl</Expression:refURI>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#nil -->
+
+    <owl:NamedIndividual rdf:about="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#nil">
+        <rdf:type rdf:resource="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#List"/>
+        <rdfs:comment>The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it.</rdfs:comment>
+        <rdfs:label>nil</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

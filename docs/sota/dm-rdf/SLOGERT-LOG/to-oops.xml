@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/sepses/ns/log#"
+     xml:base="https://w3id.org/sepses/ns/log"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="https://w3id.org/sepses/ns/log">
+        <owl:versionIRI rdf:resource="https://w3id.org/sepses/ns/log/1.1.0"/>
+        <dc:creator>Elmar Kiesling</dc:creator>
+        <vann:preferredNamespacePrefix>log</vann:preferredNamespacePrefix>
+        <dc:description xml:lang="en">An ontology to represent log events. 
+This ontology is developed based on the CEE core profile (https://cee.mitre.org/language/1.0-beta1/core-profile.html)</dc:description>
+        <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+        <dc:creator>Andreas Ekelhart</dc:creator>
+        <dc:creator>Fajar J. Ekaputra</dc:creator>
+        <dc:title>The SLOGERT (Semantic LOG ExtRaction Template) log event ontology.</dc:title>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasAddress -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasAddress">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Address"/>
+        <rdfs:comment>A relation between an Event and a Network Address (a combination of log:host, log:ipv4, log:ipv6, an log:port)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasApp -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasApp">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#App"/>
+        <rdfs:comment>Relation between an Event and an Application that it contained (log:App)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasEventSourceAddress -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasEventSourceAddress">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasAddress"/>
+        <rdfs:comment>Relation between an Event and its source address</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasFile -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasFile">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#File"/>
+        <rdfs:comment>Relation between an Event and a File that it contained (log:File)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasFormat -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasFormat">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#SourceType"/>
+        <rdfs:comment>A log source type bound to a specific format.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasNetworkDestination -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasNetworkDestination">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasAddress"/>
+        <rdfs:comment>Links between and Event and its Network destination</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasNetworkSource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasNetworkSource">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasAddress"/>
+        <rdfs:comment>Links between and Event and its Network source</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasParameter">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Relation between an Event and Field Objects</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasProc -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasProc">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Proc"/>
+        <rdfs:comment>Relation between an Event and a Process (log:Proc)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasSource -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasSource">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Source"/>
+        <rdfs:comment>Links between an event and the data source of the event (e.g., log file or log stream).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasSourceHost -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasSourceHost">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Event"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#SourceHost"/>
+        <rdfs:comment>links between a log event and the device which produce the event</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasSourceType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasSourceType">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Source"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#SourceType"/>
+        <rdfs:comment>links between a log source and its source type (e.g., apache-access, kernel log)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasSyslog -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasSyslog">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#Syslog"/>
+        <rdfs:comment>Relation between an Event and its Syslog information (log:Syslog)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasURL -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasURL">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#URL"/>
+        <rdfs:comment>URL pointed out in a LogEvent</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#hasUser -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/sepses/ns/log#hasUser">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#hasParameter"/>
+        <rdfs:range rdf:resource="https://w3id.org/sepses/ns/log#User"/>
+        <rdfs:comment>Relation between an Event and a User account that in contained (log:
+            )</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#address.host -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#address.host">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.address"/>
+        <rdfs:comment>hostname</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#address.ipv4 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#address.ipv4">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.address"/>
+        <rdfs:comment>IPv4 address</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#address.ipv6 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#address.ipv6">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.address"/>
+        <rdfs:comment>IPv6 address</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#address.port -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#address.port">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.address"/>
+        <rdfs:comment>port</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#app.name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#app.name">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.app"/>
+        <rdfs:comment>Application name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#app.vend -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#app.vend">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.app"/>
+        <rdfs:comment>Application vendor</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#app.ver -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#app.ver">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.app"/>
+        <rdfs:comment>Application version</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#appname -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#appname">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Name of the application that generated the event</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#ciscoMac -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#ciscoMac">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#mac"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#cmd -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#cmd">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Command</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.hashmd5 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.hashmd5">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File MD5 Hashsum</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.line -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.line">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File line number</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.mode -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.mode">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File mode flags</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.name">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.path -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.path">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File system path</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.perm -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.perm">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File permissions</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#file.size -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#file.size">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.file"/>
+        <rdfs:comment>File size in octets</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#mac -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#mac">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#msg -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#msg">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter">
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.address -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.address">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Address"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.app -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.app">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#App"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.file -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.file">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#File"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.proc -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.proc">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Proc"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.syslog -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.syslog">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#Syslog"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.url -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.url">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#URL"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#parameter.user -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#parameter.user">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:domain rdf:resource="https://w3id.org/sepses/ns/log#User"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#pid -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#pid">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Process ID that generated the event</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#pname -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#pname">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Process name that generated the event</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#pri -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#pri">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Event priority (ERROR|WARN|DEBUG|CRIT)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#proc.id -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#proc.id">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.proc"/>
+        <rdfs:comment>Process ID (pid)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#proc.name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#proc.name">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.proc"/>
+        <rdfs:comment>Process name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#proc.tid -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#proc.tid">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.proc"/>
+        <rdfs:comment>Thread identifier of the process</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#syslog.fac -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#syslog.fac">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.syslog"/>
+        <rdfs:comment>Syslog facility value</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#syslog.pri -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#syslog.pri">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.syslog"/>
+        <rdfs:comment>Syslog priority value</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#syslog.tag -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#syslog.tag">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.syslog"/>
+        <rdfs:comment>Syslog Tag value</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#syslog.ver -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#syslog.ver">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.syslog"/>
+        <rdfs:comment>Syslog Protocol version (0=legacy/RFC3164; 1=RFC5424)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#time -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#time">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter"/>
+        <rdfs:comment>Event Start Time</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#url.param -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#url.param">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.url"/>
+        <rdfs:comment>URL parameter</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#url.url -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#url.url">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.url"/>
+        <rdfs:comment>url</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#user.domain -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#user.domain">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.user"/>
+        <rdfs:comment>User account domain (NT Domain)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#user.gid -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#user.gid">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.user"/>
+        <rdfs:comment>Group ID (gid)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#user.group -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#user.group">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.user"/>
+        <rdfs:comment>Group name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#user.id -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#user.id">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.user"/>
+        <rdfs:comment>User account ID (uid)</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#user.name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/sepses/ns/log#user.name">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/sepses/ns/log#parameter.user"/>
+        <rdfs:comment>User account name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Address -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Address">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Logical address in a network, which consists of hostname, IPv4, IPv6, and port</rdfs:comment>
+        <rdfs:label>Network Address</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#App -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#App">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Application</rdfs:comment>
+        <rdfs:label>Application</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Event -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Event">
+        <rdfs:comment>A representation of a single logline in a log file.</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#File -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#File">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>File information</rdfs:comment>
+        <rdfs:label>File</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Parameter -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Parameter">
+        <rdfs:comment>The superclass of various classes that represent field dictionary items. Most of them are from CEE standard, while several classes are added (e.g., URL).</rdfs:comment>
+        <rdfs:label>Parameter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Proc -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Proc">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Process</rdfs:comment>
+        <rdfs:label>Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Source -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Source">
+        <rdfs:comment>The class represent a single log source. It may represent an aggregation of logs from different applications (e.g., SysLog) or aggregation of several log files from different devices. 
+
+An instance of this class, however, should only represent log data from a single source type (e.g., Syslog), so it can be processed consistently.</rdfs:comment>
+        <rdfs:label>Source</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#SourceHost -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#SourceHost">
+        <rdfs:label>SourceHost</rdfs:label>
+        <rdfs:label>The host/device which produce the source file for this log event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#SourceType -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#SourceType">
+        <rdfs:comment>The type of a log source, e.g., apache-access, kernel, syslog, audit, etc.</rdfs:comment>
+        <rdfs:label>SourceType</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#Syslog -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#Syslog">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Syslog compatibility</rdfs:comment>
+        <rdfs:label>Syslog</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#URL -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#URL">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>Uniform Resource Locator (URL)</rdfs:comment>
+        <rdfs:label>URL</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/sepses/ns/log#User -->
+
+    <owl:Class rdf:about="https://w3id.org/sepses/ns/log#User">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/sepses/ns/log#Parameter"/>
+        <rdfs:comment>User account</rdfs:comment>
+        <rdfs:label>User Account</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

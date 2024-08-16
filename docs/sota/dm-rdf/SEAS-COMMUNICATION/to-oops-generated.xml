@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/seas/CommunicationOntology#"
+     xml:base="https://w3id.org/seas/CommunicationOntology"
+     xmlns:qudt="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:saref="http://ontology.tno.nl/saref#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:qudt-unit="http://data.qudt.org/qudt/owl/1.0.0/unit.owl#"
+     xmlns:ssn="http://www.w3.org/ns/ssn/"
+     xmlns:seas="https://w3id.org/seas/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/">
+    <owl:Ontology rdf:about="https://w3id.org/seas/CommunicationOntology">
+        <owl:versionIRI rdf:resource="https://w3id.org/seas/CommunicationOntology-1.0"/>
+        <!-- HACK: comment the following line to avoid OOPS WebService unexpected_issue -->
+<!--        <owl:imports rdf:resource="https://w3id.org/seas/DeviceOntology"/>-->
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-03-13</dcterms:modified>
+        <vann:preferredNamespacePrefix>seas</vann:preferredNamespacePrefix>
+        <owl:versionInfo>v1.0</owl:versionInfo>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-03-13</dcterms:issued>
+        <dcterms:description xml:lang="en">The SEAS Communication ontology defines:
+
+1. Communication devices that ca connect to exchange information,
+2. Communication connections between Communication devices, where information is exchanged, and
+3. Communication connection points of communication devices, through which information flows in/out the communication device.</dcterms:description>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/seas/"/>
+        <dcterms:title xml:lang="en">The SEAS Communication ontology</dcterms:title>
+        <dcterms:creator rdf:resource="http://www.maxime-lefrancois.info/me#"/>
+        <dcterms:license rdf:resource="https://www.apache.org/licenses/LICENSE-2.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInBLEWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInBLEWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the Bluetooth Low Energy protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in BLE With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInBluetoothWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInBluetoothWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the Bluetooth protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in Bluetooth With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInEnOceanWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInEnOceanWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the EnOcean protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in EnOcean With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInLoRaWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInLoRaWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the LoRa protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in LoRa With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInRadioWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInRadioWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesWirelesslyWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using Radio Waves.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in Radio With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInSerialWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInSerialWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesUsingWireWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using Serial protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in Serial With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInSigFoxWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInSigFoxWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the SigFox protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in SigFox With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInUSBWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInUSBWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesUsingWireWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using USB protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in USB With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInWifiWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInWifiWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the Wifi protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in Wifi With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesInZigBeeWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesInZigBeeWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesInRadioWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using the Zig Bee protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates in Zig Bee With</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesUsingWireWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesUsingWireWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with using some wire.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates using wire with</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesWirelesslyWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesWirelesslyWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/communicatesWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with wirelessly.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SmartMeterOntology"/>
+        <rdfs:label xml:lang="en">communicates wirelessly with</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/communicatesWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/communicatesWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedTo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+        <rdfs:comment xml:lang="en">Links a communication device to another communication device it exchanges information with. 
+
+  For example, for information to flow between a water smart meter and a smart home management system, then they must share a communication connection:
+
+```
+  &lt;waterSmartMeter&gt; a seas:CommunicationDevice .
+  &lt;smartHMS&gt; a seas:CommunicationDevice .
+  &lt;waterSmartMeter&gt; seas:communicatesWith &lt;smartHMS&gt; . 
+```
+
+  This property can be further specialized to describe the communication protocol used. For example, sub property `seas:communicatesIn80211aWith` links a communication device to another communication device it exchanges information with using WiFi 802.11a norm.
+
+  This property can be qualified using class seas:CommunicationConnection, which connects (at least) the two communication systems.
+  If there is a communication connection between several communication devices, then one may infer these communication devices can exchange information.
+
+    SEAS defines a some communicatesWith sub properties used by SEAS partners. If another user requires some addition to this list, please contact us.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">communicates with</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/seas/BLECommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BLECommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BLECommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BLECommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of BLE communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">BLE Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BLECommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BLECommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BLECommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BLECommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of BLE communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">BLE Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BLECommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BLECommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/BLECommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the BLE protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">BLE Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BluetoothCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BluetoothCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BluetoothCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BluetoothCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of Bluetooth communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Bluetooth Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BluetoothCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BluetoothCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BluetoothCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/BluetoothCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of Bluetooth communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Bluetooth Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BluetoothCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BluetoothCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/BluetoothCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the Bluetooth protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Bluetooth Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/CommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/CommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Connection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/CommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of communication connections between communication devices.
+  a communication connection describes the information flows between the communication devices it connects.
+  For example, the following RDF graph states that a 802.11a (WiFi) connection connects two :
+
+```
+  &lt;wifi_connection_12&gt; a seas:CommunicationConnection ;
+    seas:connectsSystem &lt;waterSmartMeter&gt; , &lt;smartHMS&gt; .
+```
+
+  Only communication devices and communication connection points are connected through a communication connection.
+  A connection between communication devices is not necessarily a communication connection.
+
+  Any communication device that exchanges information through a communication connection is connected at least through one of its communication connection points to the communication connection:
+  if:
+
+```
+  &lt;waterSmartMeter&gt; a seas:CommunicationDevice .
+  &lt;wifi_connection_12&gt; a seas:CommunicationConnection .
+  &lt;waterSmartMeter&gt; seas:connectedThrough &lt;wifi_connection_12&gt; .
+```
+
+  then there exists `_:communicationConnectionPoint` such that:
+
+```
+  _:communicationConnectionPoint a seas:CommunicationConnectionPoint ;
+    seas:connectionPointOf &lt;waterSmartMeter&gt; ;
+    seas:connectsSystemThrough &lt;wifi_connection_12&gt; .
+```
+
+    SEAS defines a taxonomy of communication connections used by SEAS partners. If another user requires some addition to this list, please contact us.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/CommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/CommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/CommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of communication connection points of communication devices, at which they may be connected to other systems.
+  For example, a water smart meter may have three communication connection points: Wireless M-Bus, Zigbee and LoRa:
+
+```
+  &lt;waterSmartMeter&gt; a seas:CommunicationDevice ;
+    seas:connectsAt &lt;waterSmartMeter_mbus&gt; , &lt;waterSmartMeter_zigbee&gt; , &lt;waterSmartMeter_lora&gt; .
+```
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/CommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/CommunicationDevice">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Device"/>
+        <rdfs:comment xml:lang="en">The class of communication devices, i.e., devices that exchange information with other communication devices.
+
+  These exchange are only possible through information connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/EnOceanCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/EnOceanCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/EnOceanCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/EnOceanCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of EnOcean communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">EnOcean Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/EnOceanCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/EnOceanCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/EnOceanCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/EnOceanCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of EnOcean communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">EnOcean Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/EnOceanCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/EnOceanCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/EnOceanCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the EnOcean protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">EnOcean Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/LoRaCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/LoRaCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/LoRaCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/LoRaCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of LoRa communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">LoRa Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/LoRaCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/LoRaCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/LoRaCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/LoRaCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of LoRa communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">LoRa Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/LoRaCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/LoRaCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/LoRaCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the LoRa protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">LoRa Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/RadioCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/RadioCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WirelessCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of radio communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Radio Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/RadioCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/RadioCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WirelessCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of Radio communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Radio Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/RadioCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/RadioCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WirelessCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using radio waves.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Radio Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SerialCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SerialCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SerialCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SerialCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of Serial communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Serial Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SerialCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SerialCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SerialCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SerialCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of Serial communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Serial Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SerialCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SerialCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/SerialCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the serial protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Serial Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SigFoxCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SigFoxCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SigFoxCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SigFoxCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of SigFox communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">SigFox Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SigFoxCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SigFoxCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SigFoxCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/SigFoxCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of SigFox communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">SigFox Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SigFoxCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SigFoxCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/SigFoxCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the SigFox protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">SigFox Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/USBCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/USBCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/USBCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/USBCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of USB communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">USB Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/USBCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/USBCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/USBCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/USBCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of USB communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">USB Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/USBCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/USBCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/USBCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/WireCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the USB protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">USB Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WiFiCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WiFiCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WiFiCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WiFiCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of WiFi communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">WiFi Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WiFiCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WiFiCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WiFiCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WiFiCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of WiFi communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">WiFi Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WiFiCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WiFiCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/WiFiCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the WiFi protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">WiFi Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WireCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WireCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WireCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WireCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of wire communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wire Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WireCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WireCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WireCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WireCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of wire communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wire Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WireCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WireCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/WireCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating through a wire.
+
+    SEAS defines a taxonomy of communication devices used by SEAS partners. If another user requires some addition to this list, please contact us.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wire Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WirelessCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WirelessCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WirelessCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WirelessCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of wireless communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wireless Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WirelessCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WirelessCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WirelessCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/WirelessCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of wireless communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wireless Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/WirelessCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/WirelessCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/WirelessCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/CommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating wirelessly.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">Wireless Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ZigBeeCommunicationConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ZigBeeCommunicationConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ZigBeeCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ZigBeeCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of ZigBee communication connections between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">ZigBee Communication Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ZigBeeCommunicationConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ZigBeeCommunicationConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ZigBeeCommunicationDevice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ZigBeeCommunicationConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of ZigBee communication connection points between communication devices.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">ZigBee Communication Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ZigBeeCommunicationDevice -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ZigBeeCommunicationDevice">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ZigBeeCommunicationConnectionPoint"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/RadioCommunicationDevice"/>
+        <rdfs:comment xml:lang="en">The class of communication devices capable of communicating using the ZigBee protocol.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/CommunicationOntology"/>
+        <rdfs:label xml:lang="en">ZigBee Communication Device</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/CommunicationOntology -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/seas/CommunicationOntology">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

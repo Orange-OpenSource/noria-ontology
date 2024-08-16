@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OOPSRequest>
+<OntologyURI></OntologyURI>
+<OntologyContent><![CDATA[
+
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://w3id.org/daselab/onto/event#"
+     xml:base="http://w3id.org/daselab/onto/event"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:event="http://w3id.org/daselab/onto/event#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://w3id.org/daselab/onto/event">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <cpannotationschema:hasIntent>The purpose of this pattern is to provide a minimalistic model of event where it is not always possible to separate its spatial and the temporal aspects, thus can model events that move or possess discontinuous temporal extent. Events according to this model has at least one participant, attached via a participant-role, and may have additional descriptive information through its information object.</cpannotationschema:hasIntent>
+        <dc:creator>Adila Krisnadhi, Pascal Hitzler</dc:creator>
+        <cpannotationschema:hasConsequences>This pattern can model moving events and events with discontinuous temporal extents, provided an appropriate spatiotemporal extent model is used. This pattern, however, does not facilitate modeling complex relationships between events, such as causality, provenance, or correlation</cpannotationschema:hasConsequences>
+        <cpannotationschema:coversRequirements>Where and when did the 1990 World Chess Championship Match take place?,
+Who were involved in the 1990 World Chess Championship Match?</cpannotationschema:coversRequirements>
+        <cpannotationschema:reengineeredFrom>Adila Krisnadhi; Pascal Hitzler : A Core Pattern for Events. Under review at WOP 2016</cpannotationschema:reengineeredFrom>
+        <cpannotationschema:relatedCPs>SpatioTemporalExtent, ParticipantRole, AgentRole, Objectrole, Information realization, InformationObjectsAndRepresentationLanguages, InformationObject, EventProcessing,</cpannotationschema:relatedCPs>
+        <cpannotationschema:scenarios>The 1990 World Chess Championship Match takes place in New York from October 8 to November 7, 1990, and in Lyons, France, from November 26 to December 30, 1990.</cpannotationschema:scenarios>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#DASE_RULE -->
+
+    <owl:AnnotationProperty rdf:about="http://w3id.org/daselab/onto/event#DASE_RULE">
+        <rdfs:comment>Attached to an axiom, this annotation property provides information on the original (SWRL) rule from which the axiom was obtained through translation.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+        <rdfs:label>Core Pattern for Event</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#freshProp1 -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#freshProp1">
+        <rdfs:comment>This property is artificially generated in order to express the following rule in OWL:  :Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p). 
+The rule is translated into two axioms: 
+1. :Event SubClassOf: :freshProp1 some Self 
+2.  inverse (:subEventOf) o :freshProp1 o :providesParticipantRole SubPropertyOf: : :providesParticipantRole</rdfs:comment>
+        <rdfs:label>freshProp1</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#freshProp2 -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#freshProp2">
+        <rdfs:comment>This property is artificially generated in order to express the following rule in OWL:  :Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z).
+The rule is translated into two axioms: 
+1. :Event SubClassOf: :freshProp2 some Self 
+2. inverse (:hasSpatioTemporalExtent) o :freshProp2 o :subEventOf o :freshProp2 o :hasSpatioTemporalExtent SubPropertyOf: :subSpatioTemporalExtentOf</rdfs:comment>
+        <rdfs:label>freshProp2</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#hasInformationObject -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#hasInformationObject">
+        <rdfs:comment>Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event  since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object.</rdfs:comment>
+        <rdfs:label>hasInformationObject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent">
+        <rdfs:comment>Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. Tthe domain is not set to Event as non-Event may also have spatiotemporal extent.</rdfs:comment>
+        <rdfs:label>hasSpatioTemporalExtent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#providesParticipantRole -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp1"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role.</rdfs:comment>
+        <rdfs:label>providesParticipantRole</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp1"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___:Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p)___</DASE_RULE>
+    </owl:Axiom>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#subEventOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#subEventOf">
+        <rdfs:comment>Property expressing partonomic relation between two events. Domain and range are always Event.</rdfs:comment>
+        <rdfs:label>subEventOf</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#subEventOf"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Property indicating partonomic relation between two spatiotemporal extents. The Event pattern only assumes that this is given by the spatiotemporal extent pattern actually used. Thus, domain and range are not explicitly stated and this property is included in axioms resulted by OWL translation of the following rule: :Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)</rdfs:comment>
+        <rdfs:label>subSpatioTemporalExtentOf</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#subEventOf"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R2___:Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)___</DASE_RULE>
+    </owl:Axiom>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#Event -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#SpatioTemporalExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#ParticipantRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp1"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp2"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object.</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp1"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___:Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p)___</DASE_RULE>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp2"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R2___:Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)___</DASE_RULE>
+    </owl:Axiom>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#InformationObject -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#InformationObject">
+        <rdfs:comment>An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern.</rdfs:comment>
+        <rdfs:label>InformationObject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#ParticipantRole -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#ParticipantRole">
+        <rdfs:comment>Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligend to a separate Participant-Role pattern.</rdfs:comment>
+        <rdfs:label>ParticipantRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/daselab/onto/event#SpatioTemporalExtent -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#SpatioTemporalExtent">
+        <rdfs:comment>Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern.</rdfs:comment>
+        <rdfs:label>SpatioTemporalExtent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasInformationObject"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#InformationObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#SpatioTemporalExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#ParticipantRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
+
+]]></OntologyContent>
+<Pitfalls></Pitfalls>
+<OutputFormat>RDF/XML</OutputFormat>
+</OOPSRequest>

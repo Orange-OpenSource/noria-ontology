@@ -1,0 +1,101 @@
+title,topic,theme,facetName
+FOAF,Ontology,Generic,
+GeoSPARQL,Ontology,Generic,
+Geonames,Ontology,Generic,
+Mining Minds Context Ontology,Ontology,Generic,
+OM,Ontology,Generic,
+Vocabulary Status Vocabulary,Ontology,Generic,
+Devops Infrastructure,Ontology,Net-IT,
+Cyber-investigation Analysis Standard Expression (CASE),Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+D3FEND,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+ICAS ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+ORD2I,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+The SLOGERT (Semantic LOG ExtRaction Template) log event ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+UCO: A unified cybersecurity ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetDynamic
+A Core Pattern for Events,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+Basic geo Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+EventKG,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+Event Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+FARO,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+OWL-Time,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+PROV-O,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+Procedure Execution Platform,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+QUDT,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+Semantic Sensor Network Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetDynamic
+ToCo,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetDynamic
+Vers une ontologie des interactions HTTP,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetDynamic
+Activity Ontology,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetDynamic
+BPMN ontology,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetDynamic
+gist,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetDynamic
+DogOnt,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic
+IoT-Lite,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic
+SAREF,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic
+SOSA,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic
+mIO! Ontology Network,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetDynamic
+D3FEND,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+ICAS ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+ORD2I,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+SLOGERT log extraction ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+UCO: A unified cybersecurity ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetFunctional
+OWL-S,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetFunctional
+Semantic Sensor Network Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetFunctional
+Devops Infrastructure: network,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetFunctional
+The SEAS Communication ontology,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetFunctional
+ToCo,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetFunctional
+gist,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetFunctional
+DogOnt,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+RAMI Ontology,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+SAREF,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+SAREF4SYST,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+SOSA,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+mIO! Ontology Network,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetFunctional
+Academic Cloud Computing Threat Patterns (ACCTP),Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+Cyber-investigation Analysis Standard Expression (CASE),Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+D3FEND,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+ICAS ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+MALOnt,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+ORD2I,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+OWASP OdTM,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+UCO: A unified cybersecurity ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetProcedural
+EmOCA,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+EventKG,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+Event Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+FARO,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+OWL-S,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+Procedure Execution Platform,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+Semantic Sensor Network Ontology,Ontology,Generic,https://w3id.org/noria/ontology-bib/FacetProcedural
+HeLiS,Ontology,Health Science,https://w3id.org/noria/ontology-bib/FacetProcedural
+A Semantic-Web Approach for Modeling Computing Infrastructures (INDL),Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetProcedural
+Devops Infrastructure: workflow,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetProcedural
+Activity Ontology,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetProcedural
+BPMN ontology,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetProcedural
+FOLIO,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetProcedural
+gist,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetProcedural
+BOnSAI,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetProcedural
+SAREF,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetProcedural
+SOSA,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetProcedural
+mIO! Ontology Network,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetProcedural
+D3FEND,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+ICAS ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+ORD2I,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+SLOGERT log extraction ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+Towards a Forensic Event Ontology to Assist Video Surveillance-Based Vandalism Detection,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+UCO: A unified cybersecurity ontology,Ontology,CyberSec,https://w3id.org/noria/ontology-bib/FacetStructural
+A Semantic-Web Approach for Modeling Computing Infrastructures (INDL),Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural
+Devops Infrastructure: network,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural
+Devops Infrastructure: product,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural
+The SEAS Communication ontology,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural
+ToCo,Ontology,Net-IT,https://w3id.org/noria/ontology-bib/FacetStructural
+Activity Ontology,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetStructural
+gist,Ontology,Process modeling,https://w3id.org/noria/ontology-bib/FacetStructural
+BOnSAI,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+DogOnt,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+IoT-Lite,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+RAMI Ontology,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+SAREF,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+SAREF4SYST,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+The Building Topology Ontology (BOT),Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural
+mIO! Ontology Network,Ontology,SE-SI,https://w3id.org/noria/ontology-bib/FacetStructural

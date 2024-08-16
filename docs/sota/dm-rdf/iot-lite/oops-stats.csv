@@ -1,0 +1,8 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/1625f05d-e5e1-4c0d-93f6-b23e2e0b3162,P02,1,Minor,Creating synonyms as classes
+http://oops.linkeddata.es/data/ecc9785e-ac3f-4277-8f41-fe00b0c3f00b,P08,42,Minor,Missing annotations
+http://oops.linkeddata.es/data/999c20c0-806c-40a1-a98a-c65a9872690f,P10,1,Important,Missing disjointness
+http://oops.linkeddata.es/data/00379b97-47fa-440b-9c82-2881a0a4577f,P11,2,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/99465f62-238f-44cc-a6dc-fcee348ca72c,P13,9,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/7f5d37d4-75df-419d-b042-339027e55e9d,P19,1,Critical,Defining multiple domains or ranges in properties
+http://oops.linkeddata.es/data/7ed06f27-434b-4100-b667-146e67ce7cc7,P31,1,Critical,Defining wrong equivalent classes

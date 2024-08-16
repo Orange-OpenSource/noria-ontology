@@ -1,0 +1,3576 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#"
+     xml:base="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema">
+        <rdfs:comment xml:lang="en">The Security Pattern Catalog Schema ontology is an ontology-driven model of security patterns. It contains concepts and individuals, needed for creation and maintenance of security pattern catalogs, misuse pattern catalogs, and threat catalogs.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextProperty"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAffectedComponent -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAffectedComponent">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOf"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+        <rdfs:comment xml:lang="en">Tells which common component(s) a pattern affects.</rdfs:comment>
+        <rdfs:label xml:lang="en">Affected component</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAffectedFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAffectedFunction">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedFunctionOf"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function"/>
+        <rdfs:comment xml:lang="en">Tells which system function(s) a pattern affects.</rdfs:comment>
+        <rdfs:label xml:lang="en">Affected function</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressor -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressor">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+        <rdfs:comment xml:lang="en">Possible aggressor</rdfs:comment>
+        <rdfs:label xml:lang="en">Aggressor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressorRole -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasAggressorRole">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AggressorRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasArchitecturalLayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasArchitecturalLayer">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer"/>
+        <rdfs:label xml:lang="en">Architectural layer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasConstraintLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasConstraintLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel"/>
+        <rdfs:label xml:lang="en">Constraint level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasDomain -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasDomain">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdfs:comment xml:lang="en">Tells to which domain(s) a pattern belongs to.</rdfs:comment>
+        <rdfs:label xml:lang="en">Domain</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasFlowLabel -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasFlowLabel"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasFunction">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isFunctionOf"/>
+        <rdfs:comment xml:lang="en">An instance &quot;hasFunction&quot; some function (inverse)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasGroup -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasGroup">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isGroupOf"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Group"/>
+        <rdfs:comment xml:lang="en">Pattern&apos;s group</rdfs:comment>
+        <rdfs:label xml:lang="en">Group</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredSTRIDE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredSTRIDE">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreat"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Pattern&apos;s STRIDE</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredSecurityObjective -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredSecurityObjective">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreat"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Pattern&apos;s SO</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredThreatImpact -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasInferredThreatImpact">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreat"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Pattern&apos;s threat impact</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasLifecycleStage -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasLifecycleStage">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdfs:label xml:lang="en">Lifecycle stage</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasPart">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment xml:lang="en">An instance “hasPart” another instance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasResponseType -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasResponseType">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdfs:label xml:lang="en">Response type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSTRIDE">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSTRIDEof"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdfs:comment xml:lang="en">Related STRIDE item(s)</rdfs:comment>
+        <rdfs:label xml:lang="en">STRIDE</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityConcern -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityConcern">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+        <rdfs:comment xml:lang="en">Tells which security concern(s) a pattern touches.</rdfs:comment>
+        <rdfs:label xml:lang="en">Security concern</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityLevel">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel"/>
+        <rdfs:label xml:lang="en">Security level</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSecurityObjectiveOf"/>
+        <rdfs:comment xml:lang="en">Tells which security objective(s) a pattern touches.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasTemplate -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasTemplate">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Template"/>
+        <rdfs:comment xml:lang="en">Template, used to describe a pattern.</rdfs:comment>
+        <rdfs:label xml:lang="en">Template</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreat -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreat">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatOf"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Threat"/>
+        <rdfs:comment xml:lang="en">Tells what threats (CAPEC attack patterns) a pattern describes with connection to component(s) and function(s</rdfs:comment>
+        <rdfs:label xml:lang="en">Threat (CAPEC-based)</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatImpactOf"/>
+        <rdfs:comment xml:lang="en">Tells which negative impact(s) the threats, described by a pattern, have to component(s) and function(s).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasType -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasType">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type"/>
+        <rdfs:comment xml:lang="en">Type of a pattern</rdfs:comment>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasWeakness -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasWeakness">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Weakness"/>
+        <rdfs:comment xml:lang="en">Possible related weknesses (CWE-based)</rdfs:comment>
+        <rdfs:label xml:lang="en">Weakness (CWE-based)</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#interacts -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#interacts">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">An instance “interacts” with another instance (sym)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOf">
+        <rdfs:comment xml:lang="en">Component is affected by a pattern</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOfViaFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOfViaFunction">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasFunction"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedFunctionOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Component is affected by patterns, which affect its function</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOfViaPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOfViaPart">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasPart"/>
+            <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedComponentOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Component is affected by patterns which affect parts of the component (hasPart is transitive)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedFunctionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isAffectedFunctionOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isChildOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isChildOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isParentOf"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+        <rdfs:comment xml:lang="en">For a concrete pattern shows from which abstract pattern it has been made.</rdfs:comment>
+        <rdfs:label xml:lang="en">Parent pattern</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isFunctionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isFunctionOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isGroupOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isGroupOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isParentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isParentOf">
+        <rdfs:comment xml:lang="en">For an abstract pattern shows all child patterns</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isPartOf">
+        <rdfs:comment xml:lang="en">An instance “isPartOf” another instance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isProducedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isProducedBy">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#produces"/>
+        <rdfs:comment xml:lang="en">An instance “isProducedBy” another instance</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSTRIDEof -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSTRIDEof"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSecurityObjectiveOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isSecurityObjectiveOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatImpactOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatImpactOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isThreatOf"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isUsedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#isUsedBy">
+        <owl:inverseOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#usesPattern"/>
+        <rdfs:comment xml:lang="en">A pattern is used as a part of another</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#produces -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#produces">
+        <rdfs:comment xml:lang="en">An instance “produces” another instance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#relatesTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#relatesTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+        <rdfs:comment xml:lang="en">Enumerates patterns that are related to this one.</rdfs:comment>
+        <rdfs:label xml:lang="en">Related Pattern</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsFunction">
+        <rdfs:comment xml:lang="en">It suggests a component &quot;hasFunction&quot; some function</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsInteraction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsInteraction">
+        <rdfs:comment xml:lang="en">It suggests a component interacts with another component (concept level)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsPart">
+        <rdfs:comment xml:lang="en">It suggests a component consists from other components (concept level)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsProduction -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#suggestsProduction">
+        <rdfs:comment xml:lang="en">It suggests a component produces another component (concept level)</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#usesPattern -->
+
+    <owl:ObjectProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#usesPattern">
+        <rdfs:subPropertyOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationProperty"/>
+        <rdfs:range rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+        <rdfs:comment xml:lang="en">Enumerates patterns that are used by this one.</rdfs:comment>
+        <rdfs:label xml:lang="en">Used pattern</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#imgSolutionDynamics -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#imgSolutionDynamics">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Downloadable URL(s) of a solution dynamics diagram(s)</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution dynamics diagram</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#imgSolutionStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#imgSolutionStructure">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Downloadable URL(s) of a solution structure diagram(s)</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution structure diagram</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textAKAName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textAKAName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Alternative name(s)</rdfs:comment>
+        <rdfs:label xml:lang="en">Alternative name(s)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textAuthor -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textAuthor">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s author(s)</rdfs:comment>
+        <rdfs:label xml:lang="en">Author(s)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textConsequences -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textConsequences">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pattern&apos;s consequences (benefits and liabilities of the solution)</rdfs:comment>
+        <rdfs:label xml:lang="en">Consequences</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textContext -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textContext">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pattern’s Context</rdfs:comment>
+        <rdfs:label xml:lang="en">Context</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textImplementation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textImplementation">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pattern&apos;s implementation. This can be a set of general recommendations, a sequence of what to do to use the pattern, some sample code.</rdfs:comment>
+        <rdfs:label xml:lang="en">Implementation</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textIntent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textIntent">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s Intent</rdfs:comment>
+        <rdfs:label xml:lang="en">Intent</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textKnownUses -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textKnownUses">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Examples of pattern&apos;s use (at least three)</rdfs:comment>
+        <rdfs:label xml:lang="en">Known uses</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textName">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s primary name</rdfs:comment>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textPDF -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textPDF">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">URL(s) of pattern’s PDF</rdfs:comment>
+        <rdfs:label xml:lang="en">PDF</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textProblem -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textProblem">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pattern’s Problem (forces that constrain the solution).</rdfs:comment>
+        <rdfs:label xml:lang="en">Problem</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReference -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReference">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A bibliographic description</rdfs:comment>
+        <rdfs:label xml:lang="en">Reference</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewContext -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewContext">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s context (review)</rdfs:comment>
+        <rdfs:label xml:lang="en">Context (review)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewProblem -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewProblem">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s problem (review)</rdfs:comment>
+        <rdfs:label xml:lang="en">Problem (review)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewSolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textReviewSolution">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Pattern’s solution (review)</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution (review)</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolution -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolution">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pattern’s solution</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolutionDynamics -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolutionDynamics">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dynamic aspects of the solution</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution dynamics</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolutionStructure -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textSolutionStructure">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The structure of the solution</rdfs:comment>
+        <rdfs:label xml:lang="en">Solution structure</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#textURL">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">URL(s) of pattern&apos;s webpage</rdfs:comment>
+        <rdfs:label xml:lang="en">URL</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AbuseOfWeakAlgorithmTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AbuseOfWeakAlgorithmTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorFunction -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorFunction">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AdvantageousIdentityAllocationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AdvantageousIdentityAllocationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentityAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AggressorRole -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AggressorRole">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ApplicationArchitecturalLayer -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ApplicationArchitecturalLayer">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AuthenticationBypassThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AuthenticationBypassThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BufferManipulationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BufferManipulationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BypassingControlsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BypassingControlsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CountermeasureDesignThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CAPECThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CAPECThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ClientComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ClientComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CodeInjectionThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CodeInjectionThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationArchitecturalLayer -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationArchitecturalLayer">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CAPECThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConfigurationAdministrationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConfigurationAdministrationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContentSpoofingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContentSpoofingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextParameter -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextParameter">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CorruptionTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CorruptionTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#StoredDataAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CountermeasureDesignThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CountermeasureDesignThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CovertNetworkChannelTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CovertNetworkChannelTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#DataInferenceTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#DataInferenceTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#EnvironmentManipulationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#EnvironmentManipulationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcavationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcavationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcessiveAllocationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcessiveAllocationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ResourceConsumption"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitationOfTightComponentCouplingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitationOfTightComponentCouplingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingBadPoliciesTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingBadPoliciesTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConfigurationAdministrationThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingConcurrencyFlawsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingConcurrencyFlawsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingVulnerableSecurityProtocolTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingVulnerableSecurityProtocolTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FloodingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FloodingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ResourceConsumption"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FootprintingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FootprintingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ForgingCryptographicCredentialsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ForgingCryptographicCredentialsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContextParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Group -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Group">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationalParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareFunction -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareFunction">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentityAttacksThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentityAttacksThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentityAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InjectionTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InjectionTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PassingIllegalDataThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InputDataManipulationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InputDataManipulationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InterceptionThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InterceptionThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InvokingUnauthorizedOperationsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InvokingUnauthorizedOperationsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LeveragingAuthorizationModelTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LeveragingAuthorizationModelTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CountermeasureDesignThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LossOfAccountabilityThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LossOfAccountabilityThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MalwareThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MalwareThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManInTheMiddleThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManInTheMiddleThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManipulationAPIThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManipulationAPIThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageAuthenticityViolationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageAuthenticityViolationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageFloodingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageFloodingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageIntegrityViolationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageIntegrityViolationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReplayTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReplayTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReuseTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReuseTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageSecrecyViolationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageSecrecyViolationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MisusePattern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MisusePattern">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasType"/>
+                        <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_MisusePattern"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationalParameter -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationalParameter">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OutputInformationDisclosureTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OutputInformationDisclosureTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PassingIllegalDataThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PassingIllegalDataThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PasswordAttacksTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PasswordAttacksTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CryptographyAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PlatformAndOperatingSystemLayer -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PlatformAndOperatingSystemLayer">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ArchitecturalLayer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PriviledgeEscalationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PriviledgeEscalationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authorization"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProbingVulnerabilityCheckingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProbingVulnerabilityCheckingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProcessOverflowAttackTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProcessOverflowAttackTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolAnalysisThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolAnalysisThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationsThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolFieldModificationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolFieldModificationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolStateExploitationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolStateExploitationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RepudiationTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RepudiationTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LossOfAccountabilityThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResourceExhaustionTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResourceExhaustionTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RoutePoisoningTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RoutePoisoningTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ScanningInformationGatheringTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ScanningInformationGatheringTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RemoteInformationInferenceThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommonParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityPattern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityPattern">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasType"/>
+                        <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_SecurityPattern"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ServerComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ServerComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionHijackingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionHijackingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionManipulationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionManipulationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_AccessControl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionStatePoisoningTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionStatePoisoningTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SharedDataManipulationThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SharedDataManipulationThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasSecurityObjective"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasThreatImpact"/>
+                <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareComponent -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareComponent">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareFunction -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareFunction">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CAPECThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SpoofingPrivilegedProcessesTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SpoofingPrivilegedProcessesTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#StoredDataAttacksThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#StoredDataAttacksThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TargetedProcessCrashingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TargetedProcessCrashingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Threat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Template -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Template">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationalParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Threat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Threat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatPattern -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatPattern">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Pattern"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#hasType"/>
+                        <owl:hasValue rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_ThreatPattern"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrackErasingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrackErasingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LossOfAccountabilityThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrafficAnalysisAndSniffingTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrafficAnalysisAndSniffingTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OrganizationalParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedAccessTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedAccessTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedModificationOfRightsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedModificationOfRightsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConfigurationAdministrationThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TaxonomyThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnsafeCodeExecutionTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnsafeCodeExecutionTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UncontrolledOperationsThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfAbnormalPacketSizesTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfAbnormalPacketSizesTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfDefaultCredentialsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfDefaultCredentialsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CountermeasureDesignThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfReservedProtocolPacketsTxThreat -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfReservedProtocolPacketsTxThreat">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#NetworkCommunicationsAttacksThreat"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Weakness -->
+
+    <owl:Class rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Weakness">
+        <rdfs:subClassOf rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_AccessControl -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_AccessControl">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Accountability -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Accountability">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authentication">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authorization -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Authorization">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Availability">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Confidentiality">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_Integrity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_NonRepudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SO_NonRepudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityObjective"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Denial_of_Service">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Elevation_of_Privilege">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Information_Disclosure">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Repudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Spoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE_Tampering">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#STRIDE"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_ClientLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_ClientLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ApplicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_DataLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_DataLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ApplicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_DistributionLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_DistributionLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_LogicLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_LogicLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ApplicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_NetworkLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_NetworkLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_PlatformAndOperatingSystem -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_PlatformAndOperatingSystem">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PlatformAndOperatingSystemLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_TransportLayer -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#al_TransportLayer">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CommunicationArchitecturalLayer"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_HumanLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_HumanLevel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_MechanismLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_MechanismLevel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_OrganizationalLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_OrganizationalLevel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_RegulatoryLevel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#cl_RegulatoryLevel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ConstraintLevel"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Actor -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Actor">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Hardware -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Hardware">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareComponent"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Software -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#component_Software">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareComponent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AccessControl -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AccessControl">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AssessmentAuthorizationAndMonitoring -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AssessmentAuthorizationAndMonitoring">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AuditAndAccountability -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AuditAndAccountability">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AwarenessAndTraining -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_AwarenessAndTraining">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ConfigurationManagement -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ConfigurationManagement">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ContingencyPlanning -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ContingencyPlanning">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_IdentificationAndAuthentication -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_IdentificationAndAuthentication">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_IncidentResponse -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_IncidentResponse">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_Maintenance -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_Maintenance">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_MediaProtection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_MediaProtection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_PersonnelSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_PersonnelSecurity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_PhysicalAndEnvironmentalProtection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_PhysicalAndEnvironmentalProtection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_Planning -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_Planning">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ProgramManagement -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_ProgramManagement">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_RiskAssessment -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_RiskAssessment">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndCommunicationsProtection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndCommunicationsProtection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndInformationIntegrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndInformationIntegrity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndServicesAcquisition -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#concern_SystemAndServicesAcquisition">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityConcern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_CloudComputing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_CloudComputing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_ECommerce -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_ECommerce">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_EdgeComputing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_EdgeComputing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_FogComputing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_FogComputing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_GridComputing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_GridComputing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_IaaS -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_IaaS">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_InternetOfThings -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_InternetOfThings">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_Military -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_Military">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_NFV -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_NFV">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdfs:comment xml:lang="en">Network Function Virtualization</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_PaaS -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_PaaS">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_SCADA -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_SCADA">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Domain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_SaaS -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#domain_SaaS">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CloudComputingDomain"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Actor -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Actor">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ActorFunction"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Hardware -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Hardware">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#HardwareFunction"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Software -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#function_Software">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SoftwareFunction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_ArchitectureAndDesign -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_ArchitectureAndDesign">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_BuildAndCompilation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_BuildAndCompilation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Deployment -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Deployment">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Implementation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Implementation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Installation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Installation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Operations -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Operations">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Requirements -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_Requirements">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_SystemConfiguration -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#lc_SystemConfiguration">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LifecycleStage"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Client -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Client">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AggressorRole"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Server -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#role_Server">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AggressorRole"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Avoidance -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Avoidance">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Detection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Detection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Deterrence -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Deterrence">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Forensics -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Forensics">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Mitigation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Mitigation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Prevention -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Prevention">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Recovery -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#rt_Recovery">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResponseType"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_CommunicationAndDataSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_CommunicationAndDataSecurity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_OperationalSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_OperationalSecurity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_PersonnelSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_PersonnelSecurity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_PhysicalSecurity -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#sl_PhysicalSecurity">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SecurityLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#template_GOF -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#template_GOF">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Template"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#template_POSA -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#template_POSA">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Template"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_AuthenticationBypass -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_AuthenticationBypass">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AuthenticationBypassThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_BruteForce -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_BruteForce">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_BufferManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_BufferManipulation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BufferManipulationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_CodeInjection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_CodeInjection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CodeInjectionThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ContentSpoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ContentSpoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ContentSpoofingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_EnvironmentManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_EnvironmentManipulation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#EnvironmentManipulationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Excavation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Excavation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcavationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ExcessiveAllocation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ExcessiveAllocation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExcessiveAllocationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Flooding -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Flooding">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FloodingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Footprinting -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Footprinting">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#FootprintingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+        <owl:sameAs rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_InformationGathering"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_IdentitySpoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_IdentitySpoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_InformationGathering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_InformationGathering"/>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_InputDataManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_InputDataManipulation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InputDataManipulationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Interception -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Interception">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InterceptionThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Malware -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_Malware">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MalwareThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ManInTheMiddle -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ManInTheMiddle">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManInTheMiddleThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ManipulationAPI -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ManipulationAPI">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ManipulationAPIThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_PriviledgeEscalation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_PriviledgeEscalation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PriviledgeEscalationThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ProtocolAnalysis -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_ProtocolAnalysis">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolAnalysisThreat"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_SessionManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_SessionManipulation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionManipulationThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_SharedDataManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_SharedDataManipulation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaStub"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SharedDataManipulationThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txAbuseOfWeakAlgorithm -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txAbuseOfWeakAlgorithm">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AbuseOfWeakAlgorithmTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txAdvantageousIdentityAllocation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txAdvantageousIdentityAllocation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#AdvantageousIdentityAllocationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txBypassingControls -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txBypassingControls">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#BypassingControlsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txCorruption -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txCorruption">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CorruptionTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txCovertNetworkChannel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txCovertNetworkChannel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#CovertNetworkChannelTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txDataInference -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txDataInference">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#DataInferenceTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitationOfTightComponentCoupling -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitationOfTightComponentCoupling">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitationOfTightComponentCouplingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingBadPolicies -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingBadPolicies">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingBadPoliciesTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingConcurrencyFlaws -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingConcurrencyFlaws">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingConcurrencyFlawsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingVulnerableSecurityProtocol -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txExploitingVulnerableSecurityProtocol">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ExploitingVulnerableSecurityProtocolTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txForgingCryptographicCredentials -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txForgingCryptographicCredentials">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ForgingCryptographicCredentialsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txIdentitySpoofing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txIdentitySpoofing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#IdentitySpoofingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txInjection -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txInjection">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InjectionTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txInvokingUnauthorizedOperations -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txInvokingUnauthorizedOperations">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#InvokingUnauthorizedOperationsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txLeveragingAuthorizationModel -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txLeveragingAuthorizationModel">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#LeveragingAuthorizationModelTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageAuthenticityViolation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageAuthenticityViolation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageAuthenticityViolationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageFlooding -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageFlooding">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageAuthenticityViolationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageIntegrityViolation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageIntegrityViolation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageIntegrityViolationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageReplay -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageReplay">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReplayTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageReuse -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageReuse">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageReuseTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageSecrecyViolation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txMessageSecrecyViolation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#MessageSecrecyViolationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txOutputInformationDisclosure -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txOutputInformationDisclosure">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#OutputInformationDisclosureTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txPasswordAttacks -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txPasswordAttacks">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#PasswordAttacksTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProbingVulnerabilityChecking -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProbingVulnerabilityChecking">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProbingVulnerabilityCheckingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProcessOverflowAttack -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProcessOverflowAttack">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProcessOverflowAttackTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProtocolFieldModification -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProtocolFieldModification">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolFieldModificationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProtocolStateExploitation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txProtocolStateExploitation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ProtocolStateExploitationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txRepudiation -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txRepudiation">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RepudiationTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txResourceExhaustion -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txResourceExhaustion">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ResourceExhaustionTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txRoutePoisoning -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txRoutePoisoning">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#RoutePoisoningTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txScanningInformationGathering -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txScanningInformationGathering">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ScanningInformationGatheringTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSessionHijacking -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSessionHijacking">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionHijackingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSessionStatePoisoning -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSessionStatePoisoning">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SessionStatePoisoningTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSpoofingPrivilegedProcesses -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txSpoofingPrivilegedProcesses">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SpoofingPrivilegedProcessesTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTargetedProcessCrashing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTargetedProcessCrashing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TargetedProcessCrashingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTrackErasing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTrackErasing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrackErasingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTrafficAnalysisAndSniffing -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txTrafficAnalysisAndSniffing">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#TrafficAnalysisAndSniffingTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnauthorizedAccess -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnauthorizedAccess">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedAccessTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnauthorizedModificationOfRights -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnauthorizedModificationOfRights">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnauthorizedModificationOfRightsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnsafeCodeExecution -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUnsafeCodeExecution">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UnsafeCodeExecutionTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfAbnormalPacketSizes -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfAbnormalPacketSizes">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfAbnormalPacketSizesTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfDefaultCredentials -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfDefaultCredentials">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfDefaultCredentialsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfReservedProtocolPackets -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#threat_txUseOfReservedProtocolPackets">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#UseOfReservedProtocolPacketsTxThreat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_AlterExecutionLogic -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_AlterExecutionLogic">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_BypassProtectionMechanism -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_BypassProtectionMechanism">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ExecuteArbitraryCode">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_GainPrivileges">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_HideActivities -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_HideActivities">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ModifyData">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ReadData">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ResourceConsumption -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_ResourceConsumption">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ti_UnreliableExecution">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#ThreatImpact"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_MisusePattern -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_MisusePattern">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_SecurityPattern -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_SecurityPattern">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_ThreatPattern -->
+
+    <owl:NamedIndividual rdf:about="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#type_ThreatPattern">
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#SchemaInstance"/>
+        <rdf:type rdf:resource="http://www.grsu.by/net/SecurityPatternCatalogNaiveSchema#Type"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

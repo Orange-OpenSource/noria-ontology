@@ -1,0 +1,12 @@
+pit,pit_code,pit_count,pit_importance,pit_name
+http://oops.linkeddata.es/data/cb1e9c38-6b13-48a8-8798-0b854466c820,P04,1,Minor,Creating unconnected ontology elements
+http://oops.linkeddata.es/data/7f0438d4-693a-45f2-b4c1-143416d62747,P08,145,Minor,Missing annotations
+http://oops.linkeddata.es/data/0e6ac866-c9ef-41d7-ae23-a05a5bef2eee,P11,745,Important,Missing domain or range in properties
+http://oops.linkeddata.es/data/456ceff1-d0bf-4bd1-9280-6c902f7e3b9f,P12,14,Important,Equivalent properties not explicitly declared
+http://oops.linkeddata.es/data/48082c56-fc81-4737-bc85-0cf2aacbd654,P13,171,Minor,Inverse relationships not explicitly declared
+http://oops.linkeddata.es/data/410ee3ea-0bd7-4872-9f8c-2cbf6cd22b35,P20,7,Minor,Misusing ontology annotations
+http://oops.linkeddata.es/data/7e77a957-0fe6-43f2-a2f8-4876724ffb6d,P22,1,Minor,Using different naming conventions in the ontology
+http://oops.linkeddata.es/data/32ab0046-ac3e-4cec-8643-ae6a05d72a12,P30,1,Important,Equivalent classes not explicitly declared
+http://oops.linkeddata.es/data/e985aeb3-2e13-4e29-8ecd-78387ffb6575,P32,2,Minor,Several classes with the same label
+http://oops.linkeddata.es/data/ceaa763e-3e3c-4d5a-ad11-f38ae2305de3,P34,7,Important,Untyped class
+http://oops.linkeddata.es/data/1de2738d-2fc6-4795-9588-842ceb235097,P35,1,Important,Untyped property

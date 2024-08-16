@@ -1,0 +1,10 @@
+<rdf:RDF
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:oops="http://www.oeg-upm.net/oops#" > 
+<rdf:Description rdf:about="http://www.oeg-upm.net/oops/unexpected_error">
+    <oops:hasTitle rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OOPS! something went wrong.</oops:hasTitle>
+    <oops:hasMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If you have entered a URI make sure that it is available on-line using, for example, Vapour or Hyperthing.</oops:hasMessage>
+    <oops:hasMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Make sure that your ontology RDF or OWL code is correct using an RDF validator as http://www.w3.org/RDF/Validator/ or an OWL validator as http://www.mygrid.org.uk/OWL/Validator.</oops:hasMessage>
+    <rdf:type rdf:resource="http://www.oeg-upm.net/oops#response"/>
+</rdf:Description>
+</rdf:RDF>
