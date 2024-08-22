@@ -1,0 +1,2616 @@
+# Copyright (c) 2022-2024 Orange. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+#     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+#     2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+#     3. All advertising materials mentioning features or use of this software must display the following acknowledgement:
+#     This product includes software developed by Orange.
+#     4. Neither the name of Orange nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY Orange "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Orange BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# === PREFIXES ================================================================
+
+# --- Basic ---
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+# --- Ontology management ---
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# --- Domain specific ---
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .  # Quantities, Units, Dimensions and Types (QUDT)
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .  #QUDT units
+@prefix time: <http://www.w3.org/2006/time#> .  # OWL-Time
+
+@prefix bot:  <https://w3id.org/bot#> .  # Building Topology Ontology
+@prefix gn: <https://www.geonames.org/ontology#> .  # GeoNames Ontology
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .  # WGS84 Geo Positioning
+
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .  # BPMN 2.0 Based Ontology for Business Process Representation
+@prefix org: <http://www.w3.org/ns/org#> .  # The Organization Ontology
+
+@prefix log: <https://w3id.org/sepses/ns/log#> .  # a.k.a. SLOGERT
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .  # Failure Mode and Effect Analysis combined with Anomaly Ontology (FOLIO)
+
+@prefix ssn: <http://www.w3.org/ns/ssn/>.  # Semantic Sensor Network (SSN) Ontology
+@prefix seas: <https://w3id.org/seas/>.  # Smart Energy Aware Systems (SEAS)
+@prefix pep: <https://w3id.org/pep/>.  # SEAS Procedure Execution ontology
+@prefix saref: <http://ontology.tno.nl/saref#>.  #SAREF smart building appliances ontology
+
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> . # Unified Cybersecurity Ontology (UCO)
+
+@prefix devopsprod: <http://w3id.org/devops-infra/product#> .  # DevOps-Infra, Ontology for the representation of the business offering of a company, including the offered services and microservices
+
+# --- NORIA ---
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@base <https://w3id.org/noria/ontology/> .
+
+# =============================================================================
+
+<https://w3id.org/noria/ontology/>
+	a voaf:Vocabulary, owl:Ontology ;
+	dcterms:title "The NORIA Ontology"@en ;
+    dcterms:description """The NORIA-O project is a data model for IT networks, events and operations information.
+The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
+The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
+
+Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
+Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
+Alignment holds for the following vocabulary releases:
+- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
+- [BOT](https://w3id.org/bot/) 0.3.2
+- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
+- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
+- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
+- [PEP](https://w3id.org/pep/) 1.1
+- [SEAS](https://w3id.org/seas/) 1.1
+- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
+- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
+"""@en ;
+    foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> ;
+    bibo:status <http://purl.org/ontology/bibo/status/accepted> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
+	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
+	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
+	dcterms:creator "Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)" ;  # Raphaël Troncy
+    dcterms:publisher <https://www.orange.com/> ;
+    dcterms:license <https://spdx.org/licenses/BSD-4-Clause> ;
+    vann:preferredNamespacePrefix "noria" ;
+    vann:preferredNamespaceUri "https://w3id.org/noria/ontology/" ;  # See https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html
+    dcterms:issued "2022-05-10"^^xsd:date ;
+	dcterms:modified "2024-08-22"^^xsd:date ;
+	skos:changeNote """Changes in v0.3:
+
+- Changed the ontology architecture from micro-architecture to single file.
+- Removed owl:imports for NORIA foundations.
+
+2024-03-15:
+
+- Changed bibo:status
+
+Changes in v0.4:
+
+- Modified base from <https://w3id.org/noria/> to <https://w3id.org/noria/ontology/>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
+- Fixed rdfs:range of noria:troubleTicketCriticity to <kos/TroubleTicket/trouble-category> for proper dereferencing.
+- Fixed rdfs:range of noria:alarmSeverity to <kos/Notification/Severity/PerceivedSeverity> for proper dereferencing.
+- Fixed rdfs:seeAlso of noria:Resource to <kos/Resource> for proper dereferencing.
+- Modified rdfs:seeAlso of noria:Locus and noria:Room for direct reference of the bot namespace.
+- Modified rdfs:range of noria:applicationModuleSlaLevel and noria:applicationModuleStatus
+"""@en ;
+	owl:versionInfo "v0.4" ;
+	owl:versionIRI <noria-0.4> ;
+	owl:priorVersion <noria-0.3> ;
+    rdfs:seeAlso <https://w3id.org/noria/doc/> ;
+.
+
+# =============================================================================
+# Abstract specs
+# =============================================================================
+
+noria:ManagedElement
+	a owl:Class ;
+	rdfs:label "ManagedElement"@en ;
+	rdfs:comment "Top abstract class of NORIA Cyber/Physical concepts for describing, managing and analyzing ICT systems."@en ;
+	vs:term_status "stable" ;
+	rdfs:subClassOf seas:FeatureOfInterest ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:Property
+	a owl:Class ;
+	rdfs:label "Property"@en ;
+	rdfs:comment "An abstract representation of qualifiable, quantifiable, observable or operable qualities of some Element."@en ;
+	vs:term_status "unstable" ;
+	rdfs:subClassOf seas:Property ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:elementProperty
+	a owl:ObjectProperty ;
+	rdfs:label "elementProperty"@en ;
+	rdfs:comment "An abstract representation of a relationship between some Element instance and some Property instance."@en ;
+	vs:term_status "unstable" ;
+	rdfs:subPropertyOf seas:hasProperty ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:elementDistinguishedName
+	a owl:DatatypeProperty ;
+	rdfs:label "elementDistinguishedName"@en ;
+	rdfs:comment "The Distinguished Name of the Element Instance (i.e. unique identifier)."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:elementManagedBy
+	a owl:ObjectProperty ;
+	rdfs:label "elementManagedBy" ;
+	rdfs:comment """The Agent or Owner of the Managed Element.
+
+Alignment:
+- *ORG*: the *elementManagedBy* property can range an `org:Organization` or `org:OrganizationalUnit` entity as the ORG data model defines these class as subClassOf `foaf:Agent` (see [org:Organization](https://www.w3.org/TR/vocab-org/#org:Organization)).
+"""@en ;
+	rdfs:domain noria:ManagedElement ;
+	rdfs:range foaf:Agent ;
+	vs:term_status "stable" ;
+	skos:changeNote """Introduced in v0.2.""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:StructuralElement
+	a owl:Class ;
+	rdfs:label "StructuralElement"@en ;
+	rdfs:comment "Abstract class for physical/logical ICT systems's assets and relations (a.k.a. *Structural facet*)."@en ;
+	skos:example "router xxx, virtual machine yyy, link zzz entities; is_a, connected_to or part_of properties"@en ;
+	rdfs:subClassOf noria:ManagedElement ;
+	vs:term_status "stable" ;
+	rdfs:subClassOf seas:System ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:StructuralObservable
+	a owl:Class ;
+	rdfs:label "StructuralObservable"@en ;
+	rdfs:comment "An abstract class for ICT systems's properties that should be defined as classes for extended description capability."@en ;
+	skos:example "Time context of the observable value"@en ;
+	rdfs:subClassOf noria:Property ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:structuralElementObservable
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf noria:elementProperty ;
+	rdfs:label "structuralElementObservable"@en ;
+	rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some StructuralObservable instance."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:structuralObservableOf
+	a owl:ObjectProperty ;
+	owl:inverseOf noria:structuralElementProperty ;
+	rdfs:label "structuralObservableOf"@en ;
+	rdfs:comment "Relates some `StructuralObservable` instance to some `StructuralElement` instance."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:structuralElementObservableData
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf noria:elementProperty ;
+	rdfs:label "structuralElementObservableData"@en ;
+	rdfs:comment "An abstract representation of a relationship between some StructuralElement instance and some literal data."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:structuralElementDistinguishedName
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf noria:elementDistinguishedName ;
+	rdfs:label "structuralElementDistinguishedName"@en ;
+	rdfs:comment "The Distinguished Name of the Structural Element Instance (i.e. unique identifier)."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:FunctionalElement
+	a owl:Class ;
+	rdfs:label "FunctionalElement"@en ;
+	rdfs:comment "Abstract class for services and broadcasting zones above the *Structural* facet (a.k.a. *Functional facet*)."@en ;
+	rdfs:subClassOf noria:ManagedElement ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:functionalElementDistinguishedName
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf noria:elementDistinguishedName ;
+	rdfs:label "functionalElementDistinguishedName"@en ;
+	rdfs:comment "The Distinguished Name of the Functional Element Instance (i.e. unique identifier)."@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:DynamicElement
+	a owl:Class ;
+	rdfs:label "DynamicElement"@en ;
+	rdfs:comment "Abstract class for time-related entities and their potential chaining (a.k.a. *Dynamic facet*)."@en ;
+	skos:example "An alarm with happens_on or followed_by properties";
+	rdfs:subClassOf noria:ManagedElement ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:eventRelatedElement
+	a owl:ObjectProperty ;
+	rdfs:label "eventRelatedElement" ;
+	rdfs:comment "The structural or functional element instance some event or time-dependant entity is related with."@en ;
+	rdfs:domain noria:DynamicElement ;
+	rdfs:range noria:StructuralElement ,
+	noria:FunctionalElement ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:eventRelatedParty
+	rdf:type owl:ObjectProperty ;
+	rdfs:label "eventRelatedParty" ;
+	rdfs:comment "Party playing a role (stakeholders) in the life cycle of a given event instance or time-dependant entity."@en ;
+	rdfs:domain noria:DynamicElement ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:ProceduralElement
+	a owl:Class ;
+	rdfs:label "ProceduralElement"@en ;
+	rdfs:comment "Abstract class for (predeﬁned/computed) operational process (a.k.a. *Procedural facet*)."@en ;
+	skos:example "Incident diagnosis procedure, cyber attack scenario, network route fail-over algorithm"@en ;
+	rdfs:subClassOf noria:ManagedElement ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Organization related
+# =============================================================================
+
+noria:CorporateUserIdentifier
+	a owl:Class ;
+	rdfs:label "CUid" ;
+	rdfs:comment """The Corporate User Identifier (CUid) is the unique identifier of a Person as a member of Organization (i.e. an Employee). It is also the main account of this Person for connecting to the organization's IT resources, including to its personal computer (PC).
+
+Alignment:
+- *FOAF*:
+  - The `foaf:accountName` allows for asserting the login identifier of an instance of this class.
+  - The `foaf:holdsAccount` property allows for relating an employee entity to an instance of this class.
+- *UCO*:
+  - A CUid is equivalent to a `observable:UserAccount`.
+  - The `observable:accountLogin` and `observable:accountIdentifier` can be used in parallel to `foaf:accountName` for asserting the the login identifier.
+  - The Person (`foaf:Agent`) holding this CUid is also a `observable:Contact`.
+"""@en ;
+	rdfs:subClassOf
+		foaf:OnlineAccount,
+		observable:UserAccount ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- alignment with foaf of the previously available noria:employeeId property.""";
+	rdfs:isDefinedBy noria: ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:agentWorkingHours
+	a owl:DatatypeProperty ;
+	rdfs:label "agentWorkingHours" ;
+	rdfs:comment "The Working Hours for reaching the Agent (Team, Employee, etc.)."@en ;
+	skos:example "8:00 am - 12:00 am / 1:00 pm - 5:30 pm (Mon --> Fri)"@en ;
+	skos:example "8H-12H/13H-17H30 (lun --> ven)"@fr ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range xsd:string ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamWorkingHours to agentWorkingHours.""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:agentPreferredContactMethod
+	a owl:ObjectProperty ;
+	rdfs:label "agentPreferredContactMethod" ;
+	rdfs:comment "The preferred contact method to reach the Agent (Team, Group, Employee)."@en ;
+	skos:example "Phone, e-mail"@en ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/org/agent-contact-method> ;
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from employeePreferredContactMethod to agentPreferredContactMethod.
+- adding rdfs:subPropertyOf observable:contactNote.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:agentInstructions
+	a owl:DatatypeProperty ;
+	rdfs:label "agentInstructions" ;
+	rdfs:comment "Instructions for involving the Agent (Team, Group, Employee)."@en ;
+	skos:example "Use the Ticketing system + hotline phone number for national L2 and L3 issues."@en ;
+	rdfs:domain foaf:Agent ;
+	rdfs:range xsd:string ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamInstructions to agentInstructions.
+- adding rdfs:subPropertyOf observable:contactNote.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Application related
+# =============================================================================
+
+noria:Application
+	a owl:Class ;
+	rdfs:label "Application" ;
+	rdfs:comment "An abstract system based on data processing and presentation."@en ;
+	skos:example """- RLOGS: Centralization of real time logs.
+- DMZ VoIP: shared management zone / platform for Voice over IP services.""" ;
+	vs:term_status "stable" ;
+	rdfs:subClassOf noria:FunctionalElement ;
+	rdfs:subClassOf
+		seas:System ,
+		observable:Application ;
+	rdfs:isDefinedBy noria:;
+.
+
+noria:applicationModelIdentifier
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationModelIdentifier" ;
+	rdfs:comment "Application model code."@en ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:string ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationNumericalIdentifier
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationNumericalIdentifier" ;
+	rdfs:comment "Application numerical identifier, the numerical identifier of the Application within the Information System."@en ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:int ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationShortIdentifier
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationShortIdentifier" ;
+	rdfs:comment "Application short identifier, a short string identifier of Application within the Information System."@en ;
+	rdfs:subPropertyOf noria:functionalElementDistinguishedName ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	rdfs:domain noria:Application ;
+	rdfs:range xsd:string ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationType
+	a owl:ObjectProperty ;
+	rdfs:label "applicationType" ;
+	rdfs:comment "The type of the Application."@en ;
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:domain noria:Application ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/application/type>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:applicationBusinessImportance
+	a owl:ObjectProperty ;
+	rdfs:label "applicationBusinessImportance" ;
+	rdfs:comment "The importance of the Application from the business impact perspective for risk assessment analysis and incident management prioritization."@en ;
+	rdfs:domain noria:Application ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/application/business-importance>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	vs:term_status "unstable" ;
+	skos:changeNote "Introduced in v0.2" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:applicationFunctionalDomain
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationFunctionalDomain" ;
+	rdfs:comment """The functional domain of the Application for describing the organization’s activities from a system point of view.
+
+Alignment:
+- *tmforum*: the `noria:applicationFunctionalDomain` is equivalent to the *Domain* concept of the ODA Functional Framework.
+"""@en ;
+	skos:example """- Market and Customer Relationship Management domain
+- Service Development, Management and Operations
+- Resource Development, Management and Operations""" ;
+	rdfs:domain noria:Application ;
+	vs:term_status "unstable" ;
+	skos:changeNote "Introduced in v0.2" ;
+	rdfs:isDefinedBy noria:,
+	<https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
+.
+
+noria:applicationFunctionalSubDomain
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationFunctionalSubDomain" ;
+	rdfs:comment """The functional sub-domain of the Application for describing the organization’s activities from a system point of view.
+
+Alignment:
+- *tmforum*: the `noria:applicationFunctionalSubDomain` is equivalent to *Aggregate Business Entities* (ABEs) and *Business Entities* (BEs) of the ODA Functional Framework.
+"""@en ;
+	skos:example """- Human Resource Management
+- Offer and Product Operational Analysis
+- Resource Repository Management""" ;
+	rdfs:domain noria:Application ;
+	vs:term_status "unstable" ;
+	skos:changeNote "Introduced in v0.2" ;
+	rdfs:isDefinedBy noria:,
+	<https://www.tmforum.org/oda/information-systems/information-framework-sid/> ;
+.
+
+# =============================================================================
+# Application module related
+# =============================================================================
+
+noria:ApplicationModule
+	a owl:Class ;
+	rdfs:label "ApplicationModule" ;
+	rdfs:comment "A specific and managed instance of an Application."@en ;
+	skos:example """- Development instance of the RLOGS (Centralization of real time logs) Application.
+- B2B instance of the DMZ VoIP (shared management zone / platform for Voice over IP services) Application.""" ;
+	rdfs:subClassOf noria:FunctionalElement ;
+	rdfs:subClassOf seas:System ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:applicationModuleOf
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleOf" ;
+	rdfs:comment "A child/parent relationship between a specific and managed instance of an Application (i.e. an Application Module) and the Application."@en ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:subPropertyOf seas:subSystemOf ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleName
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationModuleName" ;
+	rdfs:comment "The name of the Application module."@en ;
+	skos:example """CONCAT(
+    Application().applicationModelIdentifier(),
+    "_",
+    ApplicationModule().applicationModuleIdentifier()
+)"""@en ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf noria:functionalElementDistinguishedName ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleIdentifier
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationModuleIdentifier"@en ;
+	rdfs:comment "Application module code."@en ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleRelatedParty
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleRelatedParty" ;
+	rdfs:comment "Generic property for linking a party playing a role in the management of the Application Module."@en ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:subPropertyOf noria:elementManagedBy ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf noria:elementManagedBy.""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleAdministrationTeam
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleAdministrationTeam" ;
+	rdfs:comment "Administration team."@en ;
+	rdfs:comment "Entité exploitante."@fr ;
+	rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+	rdfs:range org:OrganizationalUnit ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleAdministrationLeader
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleAdministrationLeader" ;
+	rdfs:comment "Administration leader."@en ;
+	rdfs:comment "Responsable de l'entité exploitante."@fr ;
+	rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+	rdfs:range foaf:Agent ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of noria:Employee.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleSupportTeam
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleSupportTeam" ;
+	rdfs:comment "Level 2 Support Team."@en ;
+	rdfs:comment "Entité support : Soutien Applicatif Technique (SAT) - Exploitant N2."@fr ;
+	rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+	rdfs:range org:OrganizationalUnit ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleSupportLeader
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleSupportLeader" ;
+	rdfs:comment "Support leader."@en ;
+	rdfs:comment "Responsable de l'entité support."@fr ;
+	rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+	rdfs:range foaf:Agent ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of noria:Employee.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleSupportGroup
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleSupportGroup" ;
+	rdfs:comment "Level 1 support team."@en ;
+	rdfs:comment "Entité support: Point d'Entrée Interface Technique (PEIT) - Exploitant N1."@fr ;
+	rdfs:range org:OrganizationalUnit ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleHotlineGroup
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleHotlineGroup" ;
+	rdfs:comment "Hotline team."@en ;
+	rdfs:comment "Equipe d'astreinte applicative."@fr ;
+	rdfs:subPropertyOf noria:applicationModuleRelatedParty ;
+	rdfs:range org:OrganizationalUnit ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range org:OrganizationalUnit in place of noria:Team.
+""" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleSlaLevel
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleSlaLevel" ;
+	rdfs:comment "SLA level."@en ;
+	rdfs:comment "Niveau de service."@fr ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/application/sla-level>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleSlaLevelDate
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationModuleSlaLevelDate" ;
+	rdfs:comment "SLA Level date, the date at which the SLA Level has been set or updated."@en ;
+	rdfs:comment "Date du Niveau de service."@fr ;
+	rdfs:subPropertyOf time:inXSDDateTimeStamp ;
+	rdfs:domain noria:ApplicationModule ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleHotlineEnabled
+	a owl:DatatypeProperty ;
+	rdfs:label "applicationModuleHotlineEnabled" ;
+	rdfs:comment "Hotline enabled for issues on a given ApplicationModule."@en ;
+	rdfs:comment "Possibilité d'appel de l'astreinte applicative."@fr ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:range xsd:boolean ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: .
+
+noria:applicationModuleStatus
+	a owl:ObjectProperty ;
+	rdfs:label "applicationModuleStatus" ;
+	rdfs:comment "Status of the Application Module."@en ;
+	rdfs:comment "Etat de service du Module Applicatif."@fr ;
+	skos:example "In Production"@en ;
+	skos:example "En Production"@fr ;
+	rdfs:domain noria:ApplicationModule ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/application/status>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Network service related
+# =============================================================================
+
+noria:Service
+	a owl:Class ;
+	rdfs:label "Service"@en ;
+	rdfs:comment """Service is an abstract base class for defining the Service hierarchy, i.e. the composition of assets (a.k.a. asset chain, service function chain) for providing a end-to-end data path or processing for some specific Customer or purpose.
+
+Usage notes:
+- The `noria:Service` is loosely defined as per the way to group underpinning assets. The typical usage is to assert `noria:ApplicationModule` entities as `seas:subSystemOf` a given `noria:Service`.
+- The network topology related to a given `noria:Service` is inferred from the set of resources, network interfaces and network links included in each Application that is part of the Service.
+  We remark here that, although deterministic, the data path granularity calculus for some communication session (e.g. a time-bounded IP/http query with its response) depends on the specificity of the resources included in `ApplicationModule` instances.
+  For example, the resulting granularity for a "national IP backbone infrastructure" application instance will correspond to the [routing domain](https://en.wikipedia.org/wiki/Routing_domain).
+
+Alignment:
+- *SEAS*: A `noria:Service` allows for grouping components, hence it is a subclass of `seas:System`.
+- *DevOps-Infra*:
+  - The `noria:Service` is a concrete instance of a set of deployment models, hence it relates to `devopsprod:ServiceInstance`.
+  - A `noria:Service.serviceType(<kos/service/type/CustomerFacingService>)` relates to the `devopsprod:BusinessProductInstance` concept.
+- *tmforum*:
+  - The `noria:Service` is equivalent to the `Service` object from the *[TMF 638 - Service Inventory](https://github.com/tmforum-apis/TMF638_ServiceInventory)* API.
+  - Using the `noria:serviceType` relates to asserting the `CustomerFacingService` or `ResourceFacingService` Service subclasses notions of the *TMF 638 - Service Inventory* API (i.e. as either being possibly visible and usable by a Customer or not).
+- *IETF*: Assuming a group *Service Functions* (SFs), the `noria:Service` concept relates to the *Service Function Chain (SFC)* definition from the [RFC 7665: SFC Architecture](https://www.rfc-editor.org/rfc/rfc7665) (see also [ITU-T X.1045](https://handle.itu.int/11.1002/1000/14043) for complementary SFC definition).
+"""@en ;
+	skos:example "End-to-end data path for some specific customer"@fr ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- Further definition, notably with rdfs:seeAlso relationships.
+- Adding owl:equivalentClass devopsprod:ServiceInstance.
+""" ;
+	rdfs:subClassOf noria:FunctionalElement ;
+	rdfs:subClassOf seas:System ;
+	owl:equivalentClass devopsprod:ServiceInstance ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso
+		<https://github.com/tmforum-apis/TMF638_ServiceInventory> ,
+		<https://www.rfc-editor.org/rfc/rfc7665> ,
+		<https://handle.itu.int/11.1002/1000/14043> ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:serviceType
+	a owl:ObjectProperty ;
+	rdfs:label "serviceType" ;
+	rdfs:comment "The type of the Service."@en ;
+	rdfs:domain noria:Service ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/service/type>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Introduced in v0.2""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Documentation related
+# =============================================================================
+
+# --- Incident Management -----------------------------------------------------
+
+noria:TroubleTicket
+	a owl:Class ;
+	rdfs:label "TroubleTicket" ;
+	rdfs:comment """A trouble ticket represents a record used for reporting and managing the resolution of resource problems. Main trouble ticket attributes are its description, severity, type, priority, related dates (created, target resolution, resolution, etc.), state and related information (change reason, change date), related parties (originator, owner, pilot), notes, trouble causes and impacts.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicket is a described resource, hence DC terms apply:
+  - troubleTicketId <=> http://purl.org/dc/terms/identifier : Identifier of the trouble ticket.
+  - troubleTicketCreationDateTime <=> http://purl.org/dc/terms/created : The Date on which the TroubleTicket was created in the ticketing system.
+  - troubleTicketLastUpdate <=> http://purl.org/dc/terms/modified : The date and time that the TroubleTicket was last updated.
+  - troubleTicketName <=> http://purl.org/dc/terms/title : Name of the TroubleTicket, typically a short description provided by the user that create the ticket or complementary data
+  - troubleTicketDescription <=> http://purl.org/dc/terms/description : Extended description of the trouble or issue.
+  - troubleTicketNote <=> http://purl.org/dc/terms/hasPart : The TroubleTicketNote(s) that are associated to the TroubleTicket.
+  - troubleTicketAttachment <=> http://purl.org/dc/terms/hasPart : The DocumentAttachment(s) that are associated to the TroubleTicket.
+  - troubleTicketRelationshipParentOf <=> http://purl.org/dc/terms/hasPart : The TroubleTicket(s) this ticket is parent of (TicketRelationship).
+  - troubleTicketRelationshipChildOf <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this ticket is the child of (TicketRelationship).
+  - troubleTicketDuration <=> http://purl.org/dc/terms/extent (optional) : The overall duration of the incident management process, typically in ISO 8601 duration format. Can be useful for computing Mean Time To Repair (MTTR) values for a given `problemCategory`.
+  - troubleTicketCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicket/TroubleTicketNote.
+- *BBO*: a TroubleTicket is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicket is a DataObject.
+- *PEP*: a TroubleTicket is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
+    """@en ;
+	rdfs:subClassOf noria:DynamicElement ;
+	rdfs:subClassOf pep:ProcedureExecutionContainer ;
+	rdfs:subClassOf BBO:DocumentResource ;
+	owl:disjointWith noria:ChangeRequest ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso
+		<https://www.dublincore.org/specifications/dublin-core/abstract-model/> ,
+		<https://www.omg.org/spec/BPMN/2.0/PDF#G11.91167> ,
+		<https://wiki.en.it-processmaps.com/index.php/Incident_Management> ;
+.
+
+noria:TroubleTicketNote
+	a owl:Class ;
+	rdfs:label "TroubleTicketNote" ;
+	rdfs:comment """A trouble ticket note represents a record used for reporting and information sharing during the incident management process for a given Trouble Ticket.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a TroubleTicketNote is a described resource, hence DC terms apply:
+  - troubleTicketNoteDate <=> http://purl.org/dc/terms/created : The recording date of the TroubleTicketNote.
+  - troubleTicketNoteAuthor <=> http://purl.org/dc/terms/creator : The Author of the TroubleTicketNote.
+  - troubleTicketNoteText <=> http://purl.org/dc/terms/description : The content of the TroubleTicketNote.
+  - troubleTicketNoteForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this note is part of.
+  - troubleTicketNoteCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this TroubleTicketNote.
+- *BBO*: a TroubleTicketNote is a DocumentResource in the sense that it is the result of the Incident Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a TroubleTicketNote is a DataObject.
+- *PEP*: a TroubleTicketNote is a context for (potentially) many *CorrectiveMaintenanceAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`, which in turns enable to track the corresponding `EventRecord` through the `ldp:member` property.
+"""@en ;
+	skos:example """We shut interface ge-0-0-1 of Router1 in order to force route on Router2.
+2.6Gb traffic measured at 10:28.
+Customer has confirmed that the service is restored.""" ;
+	rdfs:subClassOf noria:DynamicElement ;
+	rdfs:subClassOf pep:ProcedureExecutionContainer ;
+	rdfs:subClassOf BBO:DocumentResource ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Change Management -------------------------------------------------------
+
+noria:ChangeRequest
+	a owl:Class ;
+	rdfs:label "ChangeRequest" ;
+	vs:term_status "stable" ;
+	rdfs:comment """A Change Request represents a record used for reporting and managing change activities on services and resources. It is a key artefact to the Change Management process. Change Management process is to respond to the customer’s changing business requirements while maximizing value and reducing incidents, disruption and network.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a ChangeRequest is a described resource, hence DC terms apply:
+  - changeRequestId <=> http://purl.org/dc/terms/identifier : Identifier of the ChangeRequest.
+  - changeRequestCreationDateTime <=> http://purl.org/dc/terms/created : The Date and time on which the ChangeRequest was created in the system.
+  - changeRequestLastUpdate <=> http://purl.org/dc/terms/modified : The date and time on which the ChangeRequest was last updated.
+  - changeRequestDescription <=> http://purl.org/dc/terms/description : Extended description of the change to be made.
+  - changeRequestNote <=> http://purl.org/dc/terms/hasPart : A list of customer or internal comments.
+  - changeRequestAttachment <=> http://purl.org/dc/terms/hasPart : DocumentAttachment(s) that are associated to the ChangeRequest.
+  - changeRequestDuration <=> http://purl.org/dc/terms/extent (optional)
+  - changeRequestRelatedParty <=> http://purl.org/dc/terms/contributor : Party playing a role in the ChangeRequest, whether it be an unqualified role (i.e. direct usage of dcterms:contributor) or a qualified role (i.e. sub-properties such as noria:changeRequestInitiatorParty).
+  - changeRequestCorrelatedNotifications <=> http://purl.org/dc/terms/relation : EventRecord(s) instances or identifiers that are considered to be correlated to this ChangeRequest.
+- *PEP*: a ChangeRequest is a context for (potentially) many *ChangeAction* to occur; hence it relates to a `pep:ProcedureExecutionContainer`.
+- *BBO*: a ChangeRequest is a DocumentResource in the sense that it is the result of the Change Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, a ChangeRequest is a DataObject.
+"""@en ;
+	rdfs:subClassOf noria:DynamicElement ;
+	rdfs:subClassOf BBO:DocumentResource ;
+	rdfs:subClassOf pep:ProcedureExecutionContainer ;
+	owl:disjointWith noria:TroubleTicket ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Common ------------------------------------------------------------------
+
+noria:DocumentAttachment
+	a owl:Class ;
+	rdfs:label "DocumentAttachment" ;
+	rdfs:comment """A file attachment.
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a DocumentAttachment is a described resource, hence DC terms apply:
+  - troubleTicketAttachmentForTicket <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.
+  - changeRequestAttachment <=> http://purl.org/dc/terms/isPartOf : The TroubleTicket this file is part of.
+- *BBO*: a DocumentAttachment is a DocumentResource in the sense that it is the result of the Incident Management Process (IMP) or Change Management Process (CMP) and can be used as an input for another activity. From the BPMN 2.0 perspective, a DocumentAttachment is a DataObject.
+    """@en ;
+	skos:example "Picture of broken device, scanning of a bill or charge, network diagram, operation plan, location map." ;
+	rdfs:subClassOf noria:DynamicElement ;
+	rdfs:subClassOf BBO:DocumentResource ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Common properties -------------------------------------------------------
+
+noria:documentStatusHistory
+	a owl:ObjectProperty ;
+	rdfs:label "documentStatusHistory" ;
+	rdfs:comment "The status change history of the document as recorded by the system's logging feature."@en ;
+	skos:example """EventRecord
+    .loggingTime("2019-01-23T11:58:00Z")
+    .logOriginatingManagementSystem(</object/APP_MyOSS>)
+    .references(</document/TT_2019-01-23_Resource1>)
+    .title("InProgress")
+    .type </kos/Notification/EventType/stateChange>""";
+	rdfs:domain noria:TroubleTicket ,
+	noria:ChangeRequest ;
+	rdfs:range noria:EventRecord ;
+	rdfs:subPropertyOf dcterms:references ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:documentExternalId
+	a owl:DatatypeProperty ;
+	rdfs:label "documentExternalId" ;
+	rdfs:comment "ID given by the requestor to facilitate the relationship set up and searches afterwards."@en ;
+	skos:example "Customer reference, Identifier coming from an external system, etc."@en ;
+	rdfs:domain noria:TroubleTicket ,
+	noria:ChangeRequest ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:documentHRef
+	a owl:DatatypeProperty ;
+	rdfs:label "documentHRef" ;
+	rdfs:comment "Hyperlink to the TroubleTicket or ChangeRequest entity in the originating information system."@en ;
+	rdfs:domain noria:TroubleTicket ,
+	noria:ChangeRequest ;
+	rdfs:range xsd:anyURI ;
+	rdfs:subPropertyOf dcterms:source ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- TroubleTicket related properties ----------------------------------------
+
+noria:troubleTicketSeverity
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketSeverity" ;
+	rdfs:comment """The criticity of the incident.
+
+The classification (severity) of the Incident may be defined in accordance with Service Level Agreement (SLA) requirements.
+The thresholds of Incident resolution depend on standards defined per service type.
+When the thresholds are exceeded, specific process of escalation may be activated."""@en ;
+	skos:example "Minor, Major, Blocking, etc."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/severity>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketType
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketType" ;
+	rdfs:comment "The ticket type."@en ;
+	skos:example "Failure, Long period assistance, Assistance, Installation, Maintenance, Parametrization, etc."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/type>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketCriticity
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketCriticity"@en ;
+	rdfs:comment "The ticket criticity from the customer impact perspective."@en ;
+	skos:example "Interrupted service, Corrupted service, Working backup, etc."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/trouble-category>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketPriority
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketPriority"@en ;
+	rdfs:comment "The trouble management priority."@en ;
+	skos:example "P1, P2, P3, P4" ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/priority>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketOrigin
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketOrigin" ;
+	rdfs:comment "The person or group family at the origin of the creation of the Trouble Ticket."@en ;
+	skos:example "Customer, Supervision, Internal, Carrier, User, Partners" ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/origin>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketTrigger
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketTrigger" ;
+	rdfs:comment "The EventRecord at the origin of the creation of the Trouble Ticket."@en ;
+	skos:example "EventRecord(<event/LOG_srvz01.dfg0f873c811_C015FWR080_2020-11-25>)" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range noria:EventRecord ;
+	rdfs:subPropertyOf dcterms:source ;  # TODO: solve Widoco rendering issue when using `rdfs:subPropertyOf dcterms:source` as this statement prevents rdfs:comment and skos:example to be displayed.
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketUrgency
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketUrgency" ;
+	rdfs:comment "The priority level of the incident."@en ;
+	skos:example "Immediate Intervention, Deferred Intervention, (State of) Emergency, No intervention, etc." ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/urgency>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketSupervisionTool
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketSupervisionTool" ;
+	rdfs:comment "Supervision tool which detected the problem."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:source ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketCategory
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketCategory"@en ;
+	rdfs:comment "The *initial* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
+	skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/trouble-category>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:seeAlso noria:problemCategory ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:problemCategory
+	a owl:ObjectProperty ;
+	rdfs:label "problemCategory"@en ;
+	rdfs:comment "The *final* nature (for product ticket class) or technical impact (for resource ticket class) of the incident category of any Trouble Ticket or Incident Ticket."@en ;
+	skos:example "Isolated customer site, Total breakdown, Working backup, Downgrading equipment, Inaccessible destination, etc." ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/trouble-category>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:seeAlso noria:troubleTicketCategory ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketCause
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketCause"@en ;
+	rdfs:comment "The cause(s) defined for the trouble, in plain text."@en ;
+	skos:example """SSH authentication failure due to loss of sync to NTP server and internal clock drift.""" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:subPropertyOf dcterms:description ;  # HACK: comment to override Widoco rendering issue of the Abstract, see https://github.com/dgarijo/Widoco/issues/530
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:problemResponsibility
+	a owl:ObjectProperty ;
+	rdfs:label "problemResponsibility"@en ;
+	rdfs:comment "The *final* area of responsibility identified for the incident."@en ;
+	skos:example "Customer, Managed access equipment on customer's premises, Managed backbone networks, Managed specific networks, Contract application-hosting services, Ill-defined, etc." ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/problemResponsibility>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:seeAlso noria:troubleTicketCause ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketDetectionDateTime
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketDetectionDateTime" ;
+	rdfs:comment "The date on which the trouble was discovered."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketTargetRestorationDateTime
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketTargetRestorationDateTime" ;
+	rdfs:comment "The Customer initial restoration date Estimated Time to Restore (ETR)."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketPlannedRestorationDateTime
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketPlannedRestorationDateTime" ;
+	rdfs:comment "Confirmed to customer planned restoration date Actual Time to Restore (ATR)."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketCommittedRestorationDateTime
+	a owl:DatatypeProperty ;
+	rdfs:label "troubleTicketCommittedRestorationDateTime" ;
+	rdfs:comment "The Customer Commitment Deadline Date (calculated on product information)."@en ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:subPropertyOf dcterms:date ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketIsNotificationEnable
+	a owl:DatatypeProperty  ;
+	rdfs:label "troubleTicketIsNotificationEnable" ;
+	rdfs:comment "The *enable* or *disable* external notification on trouble ticket events."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range xsd:boolean ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketStatusCurrent
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketStatusCurrent" ;
+	rdfs:comment "The current activity status of the trouble ticket."@en ;
+	skos:example "Initialised, InProgress, Frozen, Restored, Resolved, Closed" ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/status>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketRelatedParty
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketRelatedParty" ;
+	rdfs:comment "The related party(ies) that are associated to the ticket."@en ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range foaf:Agent ;
+	rdfs:subPropertyOf noria:eventRelatedParty ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketPartyIntervention
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketPartyIntervention"@en ;
+	rdfs:comment "The history of groups activation and responsibility transfer."@en ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketRelatedService
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketRelatedService" ;
+	rdfs:comment "The *Application* or *Service* entity on which trouble ticket has been created."@en ;
+	skos:example """- TroubleTicket.troubleTicketImpacts("syslog-ng")
+  Application("syslog-ng").applicationType(<kos/application/type/service-platform>)
+
+- TroubleTicket.troubleTicketImpacts("Corporate Internet access Infrastructure")
+  Application("Corporate Internet access Infrastructure").applicationType(<kos/application/type/infrastructure>)
+""" ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range noria:Application,
+	noria:ApplicationModule,
+	noria:Service ;
+	rdfs:subPropertyOf noria:eventRelatedElement ;
+	rdfs:subPropertyOf dcterms:relation ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketRelatedResource
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketRelatedResource" ;
+	rdfs:comment "The Resource entity on which the trouble ticket has been created."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:range noria:Resource ;
+	rdfs:subPropertyOf noria:eventRelatedElement ;
+	rdfs:subPropertyOf dcterms:relation ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketImpacts
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketImpacts"@en ;
+	rdfs:comment "A list of resources or services (applications) impacted by the trouble."@en ;
+	skos:example """TroubleTicket.troubleTicketImpacts({Application [*], Resource [*]})""" ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:subPropertyOf dcterms:relation ;
+	rdfs:seeAlso
+		noria:troubleTicketRelatedResource ,
+		noria:troubleTicketRelatedService ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketCharacteristic
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketCharacteristic" ;
+	rdfs:comment "A list of Characteristics of the ticket (TroubleTicketCharacteristic [*]). The Trouble ticket specific characteristics"@en ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketFreezeItem
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketFreezeItem"@en ;
+	rdfs:comment "The ticket freeze period history."@en ;
+	skos:example "A list of `noria:EventRecord` specifically describing the freeze periods for the given `noria:TroubleTicket`.";
+	vs:term_status "unstable" ;
+	rdfs:domain noria:TroubleTicket ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso noria:documentStatusHistory ;
+.
+
+# --- TroubleTicketNote related -----------------------------------------------
+
+noria:troubleTicketNoteCommentType
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketNoteCommentType" ;
+	rdfs:comment "The comment provenance type and/or disclosure rules family."@en ;
+	skos:example "Customer, Group, Internal, System, etc."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicketNote ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/commentType>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketNoteOperationType
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketNoteOperationType" ;
+	rdfs:comment "The operation type of the note." ;
+	skos:example "Inward customer comments, Local customer call back, Tests and measurements, Diagnosis, etc."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:TroubleTicketNote ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/TroubleTicket/operationType>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:troubleTicketNoteCorrelatedExecution
+	a owl:ObjectProperty ;
+	rdfs:label "troubleTicketNoteCorrelatedExecution" ;
+	rdfs:comment """The correlated *ProcedureExecutionContainer* corresponding to the corrective maintenance actions depicted in the Trouble Ticket Note (i.e. the set of `EventRecord` about interactions with the system and as notified by the system).
+
+From a practical perspective, relating a `noria:TroubleTicketNote` to a `pep:ProcedureExecutionContainer` is akin to show off the materialization of a corrective maintenance action from the technical perspective.
+Note that for actions undoubtedly related to a given trouble ticket note (i.e. that can be asserted without mining for execution context candidates), one can avoid using `troubleTicketNoteCorrelatedExecution` by directly relating the note to `EventRecord` with `ldp:member` as `TroubleTicket` and `TroubleTicketNote` are themselves subclasses of `pep:ProcedureExecutionContainer`.
+"""@en ;
+	rdfs:domain noria:TroubleTicketNote ;
+	rdfs:range pep:ProcedureExecutionContainer ;
+	rdfs:subPropertyOf dcterms:relation ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding the troubleTicketNoteCorrelatedExecution property.
+""";
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- ChangeRequest related ---------------------------------------------------
+
+noria:changeRequestPlannedStartTime
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestPlannedStartTime" ;
+	rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestPlannedEndTime
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestPlannedEndTime" ;
+	rdfs:comment "Date and time on which is planned the end of the implementation of the Change Request. It is displayed only before the Change Request implementation is completed."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestActualStartTime
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestActualStartTime" ;
+	rdfs:comment "Date and time on which the Change Request implementation has started. It is displayed only after the Change Request implementation has started actually."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestActualEndTime
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestActualEndTime" ;
+	rdfs:comment "Date and time on which the Change Request implementation has been completed. It is displayed only after the Change Request implementation has been completed actually."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:date ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestCategory
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestCategory" ;
+	rdfs:comment "Nature of the Change Request"@en ;
+	skos:example "Internal intervention, Third party intervention, Customer intervention, Change requested by customer"@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/ChangeRequest/category>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestType
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestType" ;
+	rdfs:comment "The type of the request describes the a priori impact and risk level of the Change Request."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/ChangeRequest/type>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestChangeCause
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestChangeCause" ;
+	rdfs:comment "Cause of (reason for) the Change Request."@en ;
+	skos:example "Configuration, Preventative maintenance, Software upgrade, Network extension, etc."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/ChangeRequest/cause>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestImpact
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestImpact" ;
+	rdfs:comment "Set of physical/logical entities on which the Change Request is carried-out."@en ;
+	skos:example "Resource(s), Application(s), Service(s)"@en;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range noria:Resource,
+	noria:Application,
+	noria:ApplicationModule,
+	noria:Service ;
+	rdfs:subPropertyOf noria:eventRelatedElement,
+	dcterms:relation ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestOutageDuration
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestOutageDuration" ;
+	rdfs:comment "Expected duration of the outage, if any involved by the Change Request type."@en ;
+	vs:term_status "stable" ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:duration ;
+	rdfs:subPropertyOf dcterms:extent ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestStatusCurrent
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestStatusCurrent" ;
+	rdfs:comment "The current status of the Change Request."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/ChangeRequest/status>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestSpecification
+	a owl:ObjectProperty ;
+	rdfs:label "changeRequestSpecification" ;
+	rdfs:comment "An item of the standard operation plan catalog for recurring activities."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/ChangeRequest/specification>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	rdfs:subPropertyOf dcterms:type ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestInitiatorParty
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+	rdfs:label "changeRequestInitiatorParty" ;
+	rdfs:comment "The agent initiating the Change Request."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range foaf:Agent ;
+	rdfs:subPropertyOf dcterms:contributor ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestPilotParty
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+	rdfs:label "changeRequestPilotParty" ;
+	rdfs:comment "The pilot of the Change Request."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range foaf:Agent ;
+	rdfs:subPropertyOf dcterms:contributor ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestActorParty
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf noria:changeRequestRelatedParty ;
+	rdfs:label "changeRequestActorParty" ;
+	rdfs:comment "The actor of the Change Request."@en ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range foaf:Agent ;
+	rdfs:subPropertyOf dcterms:contributor ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:changeRequestIsRegulated
+	a owl:DatatypeProperty ;
+	rdfs:label "changeRequestIsRegulated" ;
+	rdfs:comment "If *true*, the Change Request is subject to special regulations."@en ;
+	vs:term_status "unstable" ;
+	rdfs:domain noria:ChangeRequest ;
+	rdfs:range xsd:boolean ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# === RCA objects =============================================================
+
+noria:AnomalyPattern
+	a owl:Class ;
+	rdfs:label "AnomalyPattern" ;
+	rdfs:comment "An abstract class for grouping observables and events that, when satisfied by the existence of some instance/value, represents the occurrence of a (complex) fault/failure mode."@en ;
+	rdfs:subClassOf noria:ProceduralObject ;
+	rdfs:subClassOf folio:FailureMode ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- Renamed AnomalyPattern from AnomalyMode.
+- Adding rdfs:subClassOf folio:FailureMode.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# === Operations related ======================================================
+
+noria:OperationPlan
+	a owl:Class ;
+	rdfs:label "OperationPlan" ;
+	rdfs:comment "An abstract class representing a formal set of operations to be carried out in a standardized/controlled way."@en ;
+	skos:example "A system upgrade procedure, a network traffic fail-over activation, the control method for qualifying some system fault."@en ;
+	rdfs:subClassOf noria:ProceduralObject ;
+	rdfs:subClassOf folio:ControlMethod,
+	pep:Procedure ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf folio:ControlMethod.
+""" ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Action to Procedure -----------------------------------------------------
+
+noria:actionCorrelatedOperationPlan
+	a owl:ObjectProperty ;
+	rdfs:label "actionCorrelatedOperationPlan" ;
+	rdfs:comment "The Operation Plan (procedure) guiding the execution of the given Action."@en ;
+	rdfs:domain
+		noria:CorrectiveMaintenanceAction,
+		noria:ChangeAction ;
+	rdfs:range noria:OperationPlan ;
+	rdfs:subPropertyOf pep:usedProcedure ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# === Diagnosis and Change related ============================================
+
+noria:ActionPreCondition
+	a owl:Class ;
+	rdfs:subClassOf noria:ProceduralObject ;
+	rdfs:label "ActionPreCondition" ;
+	rdfs:comment """Set of Pre Conditions or Hypothesis enabling/leading to the potential execution of some OperationPlan."""@en ;
+	skos:example "In an Incident Management context: when in situation X, shut link may help"@en ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:ActionPostCondition
+	a owl:Class ;
+	rdfs:subClassOf noria:ProceduralObject ;
+	rdfs:label "ActionPostCondition" ;
+	rdfs:comment """Set of Post Conditions or Potential outcomes that the execution of some OperationPlan may satisfy/lead to/confirm/solve.
+
+From the *ChangeRequest* perspective this enables to declare what to observe in order to confirm that the Procedure reached its goal; from the *TroubleTicket* perspective this enables to capitalize on expectations and outcomes for a given Procedure."""@en ;
+	skos:example """In an Incident Management context, the materialization to expect, such as:
+- 'service restored',
+- 'traffic down',
+- 'Customer or a probe with that traffic coming up after some CLI command'.""" ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hoare_logic> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Procedure to Hypothesis/Goal --------------------------------------------
+
+noria:operationPlanPreCondition
+	a owl:ObjectProperty ;
+	rdfs:label "operationPlanPreCondition" ;
+	rdfs:comment """The ActionPreCondition to check/that would be checked whenever the OperationPlan will be executed/is executed.
+
+Alignment:
+- *PEP*: OperationPlan (Procedures) may be linked to some description of the input, hence `operationPlanPreCondition` is a kind of `pep:hasInput`.
+- *BBO*: From the BPMN perspective, the `operationPlanPreCondition` is the description of what may activate the realization of a given Task, hence it is a kind of `BBO:has_activationCondition`.
+"""@en ;
+	rdfs:domain noria:OperationPlan ;
+	rdfs:range noria:ActionPreCondition ;
+	rdfs:subPropertyOf pep:hasInput ,
+	BBO:has_activationCondition ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- Adding pep:hasInput.
+- Adding rdfs:subPropertyOf BBO::has_activationCondition.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:operationPlanPostCondition
+	a owl:ObjectProperty ;
+	rdfs:label "operationPlanPostCondition" ;
+	rdfs:comment """The ActionPostCondition to check/that would be observed whenever the OperationPlan is carried out.
+
+Alignment:
+- *PEP*: OperationPlan (Procedures) may be linked to some description of the output, hence `operationPlanPostCondition` is a kind of `pep:hasOutput`.
+- *BBO*: From the BPMN perspective, the `operationPlanPostCondition` is the description of what should be observed to after the realization of a given Task, hence it is a kind of `BBO:has_completionCondition`.
+"""@en ;
+	rdfs:domain noria:OperationPlan ;
+	rdfs:range noria:ActionPostCondition ;
+	rdfs:subPropertyOf pep:hasOutput ,
+	BBO:has_completionCondition ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- Adding pep:hasOutput.
+- Adding rdfs:subPropertyOf BBO::has_completionCondition.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Location related
+# =============================================================================
+
+noria:Room
+	a owl:Class ;
+	rdfs:label "Room" ;
+	rdfs:comment """A part of the physical world or a virtual world whose 3D spatial extent is bounded actually or theoretically, and provides for certain functions within the zone it is contained in.
+
+Alignment:
+- *BOT*: A Room is a specialization of a `bot:Space` for common sense understanding.
+"""@en ;
+	skos:example "Server room 314"@en ;
+	skos:example "SALLE STOCKAGE RESEAU 314"@fr ;
+	rdfs:subClassOf bot:Space ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso bot:Space ;
+.
+
+noria:Locus
+	a owl:Class ;
+	rdfs:label "Locus" ;
+	rdfs:comment """A uniquely identified space for Resources within a given Room.
+
+Alignment:
+- *BOT*:
+  - The relationship to the Locus of a Room is available with the `bot:containsZone` property.
+  - Approximating the geographical coordinates of a Locus is feasible through transitive inference over the `bot:hasZeroPoint` of the parent `bot:Site` (considering the GeoNames database this would to a `(bot:Site)=[bot:hasZeroPoint]=>(gn:Feature)` path towards `wgs84_pos:lat` or `wgs84_pos:long` values).
+- *ORG*: Note that, at instanciation time, `bot:Site` entities may also be `org:Site` (see https://www.w3.org/TR/vocab-org/#org:Site) in order to allow for an Organization (including teams, persons, manufacturers) to be localized (e.g. see `org:basedAt`), and hence allow for intervention distance/time calculus or threat calculus with respect to a given Locus.
+"""@en ;
+	skos:example "Line:L, Column:6, in Room:Server room 314."@en ;
+	skos:example "Ligne:L, Colonne:6, en Salle:SALLE STOCKAGE RESEAU 314."@fr ;
+	skos:changeNote "Introduced in v0.2" ;
+	rdfs:subClassOf bot:Space ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso bot:Space ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:locusLine
+	a owl:DatatypeProperty ;
+	rdfs:label "locusLine" ;
+	rdfs:comment "The line identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
+	skos:example "Line:L, in Room:Server room 314."@en ;
+	rdfs:domain noria:Locus ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Addition in v0.2." ;
+.
+
+noria:locusRow
+	a owl:DatatypeProperty ;
+	rdfs:label "locusRow" ;
+	rdfs:comment "The row identifier in a `noria:Room` for a Locus defined by Cartesian coordinates."@en ;
+	skos:example "Column:6, in Room:Server room 314."@en ;
+	rdfs:domain noria:Locus ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Addition in v0.2." ;
+.
+
+# -----------------------------------------------------------------------------
+
+noria:siteId
+	a owl:DatatypeProperty ;
+	rdfs:label "siteId" ;
+	rdfs:comment "A unique identifier of a Site."@en ;
+	rdfs:domain bot:Site ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
+.
+
+noria:siteType
+	a owl:DatatypeProperty ;
+	rdfs:label "siteType" ;
+	rdfs:comment "The type of a Site."@en ;
+	skos:example "building, data center, rack";
+	vs:term_status "unstable" ;
+	rdfs:domain bot:Site ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
+.
+
+noria:sitePrincipalAddress
+	a owl:DatatypeProperty ;
+	rdfs:label "sitePrincipalAddress" ;
+	rdfs:comment "Street address of a Site."@en ;
+	rdfs:domain bot:Site ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
+.
+
+noria:sitePrincipalAddressPostalCode
+	a owl:DatatypeProperty ;
+	rdfs:label "sitePrincipalAddressPostalCode" ;
+	rdfs:comment """Postal Code for a Site.
+
+Alignment:
+- *GeoNames*: *ADM2*, *ADM3* or *ADM4* annotations may correspond to this property, depending on the considered country."""@en ;
+	rdfs:domain bot:Site ;
+	rdfs:subPropertyOf noria:sitePrincipalAddress ;
+	rdfs:subPropertyOf gn:postalCode ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
+.
+
+noria:sitePrincipalAddressCityName
+	a owl:DatatypeProperty ;
+	rdfs:label "sitePrincipalAddressCityName" ;
+	rdfs:comment """City Name for a Site.
+
+Alignment:
+- *GeoNames*: a `P` class `gn:Feature` (city, village, etc.) may correspond to this property."""@en ;
+	rdfs:subPropertyOf noria:sitePrincipalAddress ;
+	vs:term_status "unstable" ;
+	rdfs:domain bot:Site ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote "Change in v0.2: rdfs:range moved from noria:Site to bot:Site." ;
+.
+
+noria:sitePrincipalAddressCountry
+	a owl:DatatypeProperty ;
+	rdfs:label "sitePrincipalAddressCountry" ;
+	rdfs:comment """Country name or code for a Site.
+
+Alignment:
+- *GeoNames*:
+  - a `A` class `gn:Feature` (country, state, region, etc.) may correspond to this property.
+  - prefer ISO 3166 values for easier matching with `gn:countryCode`.
+"""@en ;
+	rdfs:domain bot:Site ;
+	rdfs:subPropertyOf noria:sitePrincipalAddress ;
+	rdfs:subPropertyOf gn:countryCode ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:sitePrincipalAddressStreet
+	a owl:DatatypeProperty ;
+	rdfs:label "sitePrincipalAddressStreet" ;
+	rdfs:comment "Street for a Site."@en ;
+	rdfs:domain bot:Site ;
+	rdfs:subPropertyOf noria:sitePrincipalAddress ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Notification related
+# =============================================================================
+
+# === General Event definitions ===============================================
+
+noria:EventRecord
+	a owl:Class ;
+	rdfs:label "EventRecord" ;
+	rdfs:comment """This managed object represents the information stored in the log as a result of receiving notifications or incoming event reports.
+
+In that sense it is an abstract object with basic properties (e.g. event type, logging time, provenance system, message) to interpret in the context of its properties and relationships.
+For example, an *EventRecord* instance `log1` originating from the managed resource `R1` and describing a network interface state change on the Resource is fetched from a syslog-ng platform `Mon1` (i.e. the originating management system).
+A related *EventRecord* instance `alarm1` with `noria:alarmSeverity = Critical` and originating managed resource `R1` is triggered by a Network Monitoring System `NMS1` (i.e. the originating management system) for presentation to the Technical Support Center.
+
+Considering possible combinations of properties' objects and values, a `noria:EventRecord` allows for describing:
+- both informational and alarm notifications (this rely on `skos:ConceptScheme` over the `dcterms:type` of the `noria:EventRecord`),
+- notifications that affect both the network infrastructure (e.g. network interface down), network applications/services (e.g. timeout, k-out-of-n) and the Operation Support System (OSS) itself (e.g. updating a `noria:TroubleTicketNote`),
+- notifications originating from both onboard signaling (e.g. [SNMP Trap](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol)), probes (e.g. [NIDS](https://en.wikipedia.org/wiki/Intrusion_detection_system)), the monitoring system (e.g. threshold overrun, business rules) and inference engines (e.g. NORIA-AD).
+
+Alignment:
+- *DCMI*: from the DCMI Abstract Model perspective, a EventRecord is a described resource, hence DC terms apply:
+  - *logRecordId* <=> http://purl.org/dc/terms/identifier : Identifier of notification or log record, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-logRecordId>.
+  - *logInformation* <=> http://purl.org/dc/terms/description : Additional information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalInformation>.
+  - *logType* <=> http://purl.org/dc/terms/type : The Type of the Event (e.g. General Operation Alarm, State Change, etc.), as defined by the NORIA `kos/Notification/EventType` concept scheme.
+  - *alarmCorrelatedNotifications* <=> http://purl.org/dc/terms/relation : EventRecord instances or identifiers that are considered to be correlated to this EventRecord, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-correlatedNotifications>.
+  - *alarmOwner* <=> http://purl.org/dc/terms/mediator : The Support team member who acknowledged an Alarm Event Record.
+  - *alarmProbableCause* <=> http://purl.org/dc/terms/conformsTo : The asserted or inferred cause of the Alarm Event Record, as defined by the NORIA `kos/Notification/ProbableCause` and `kos/Notification/SecurityAlarmCause` concept schemes.
+    Asserting the Alarm cause is equivalent to directly connecting the Alarm, as a fault (issue, incident) artefact, to some phenomenon interpretation.
+    Inferring the Alarm cause is equivalent to guessing the phenomenon origin through Root Cause Analysis (RCA) or some probabilistic approach.
+- *BBO*: an EventRecord is a `BBO:DocumentResource` in the sense that it is the result of the Event Management process and can be used as an input for another activity. From the BPMN 2.0 perspective, an EventRecord is a `DataObject`.
+- *PEP*: an EventRecord is an artefact of the realization of a `pep:Procedure`, hence it is a specialization of a `pep:ProcedureExecution` for the NORIA context.
+- *SLOGERT*: an EventRecord is equivalent to a `log:Event`.
+"""@en ;
+	skos:example """- A network router event with
+  loggingTime=`2022-01-01T17:12:00,259Z` and
+  logText=`LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/1, changed state to up`.
+- A configuration change event on network router with
+  pep:hasCommand='no shutdown' and
+  logText='SYS-5-CONFIG_I: Configured from console by vty2 (10.34.195.36)'
+  and logOriginatingManagedObject=<object/NE_R1>.
+"""@en ;
+	skos:changeNote """Changes in v0.2:
+- EventRecord introduced, replacing noria:EventLog.
+- Removing many related properties to the benefit of direct instanciation with dcterms properties.
+- Adding rdfs:subClassOf BBO:DocumentResource.
+- Adding rdfs:subClassOf pep:ProcedureExecution.
+- Adding rdfs:subClassOf log:Event.
+""" ;
+	rdfs:subClassOf noria:DynamicElement ;
+	rdfs:subClassOf BBO:DocumentResource ,
+					pep:ProcedureExecution ,
+					observable:EventRecord ,
+					log:Event ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy
+		<https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-eventLogRecord> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Common properties -------------------------------------------------------
+
+noria:logOriginatingManagedObject
+	a owl:ObjectProperty ;
+	rdfs:label "logOriginatingManagedObject" ;
+	rdfs:comment "The Managed Object entity at the origin of the Log record. This includes information about the service provider associated with the service request that caused a security alarm."@en ;
+	skos:example "A named Resource, Application, Security Alarm Detector, etc."@en ;
+	rdfs:domain noria:EventRecord ;
+	rdfs:range noria:Resource ,
+	noria:Application ;
+	vs:term_status "stable" ;
+	rdfs:subPropertyOf noria:eventRelatedElement ;
+	rdfs:subPropertyOf dcterms:creator ,
+	prov:wasAttributedTo ,
+	pep:madeBy ,
+	folio:happenedAt ,
+	log:hasSourceHost ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Adding rdfs:subPropertyOf folio:happenedAt.
+- Adding rdfs:subPropertyOf log:hasSourceHost.
+- Adding reference to ITU-T X721 SecurityAlarmDetector.
+- Adding reference to ITU-T X721 serviceProvider.
+- Merging the noria:serviceProvider.
+""" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-managedObjectInstance> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-SecurityAlarmDetector> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceProvider> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:logOriginatingManagementSystem
+	a owl:ObjectProperty ;
+	rdfs:label "logOriginatingManagementSystem" ;
+	rdfs:comment "The Management System that receives, processes and forwards the Log record."@en ;
+	skos:example "A named instance of Network Management System (NMS), Security Information and Event Monitoring system (SIEM), etc."@en ;
+	rdfs:domain noria:EventRecord ;
+	rdfs:range noria:Application ;
+	rdfs:subPropertyOf noria:eventRelatedElement ;
+	rdfs:subPropertyOf dcterms:creator ;
+	rdfs:subPropertyOf prov:wasAttributedTo ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Adding rdfs:subPropertyOf noria:eventRelatedElement.
+""" ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:logOriginatingAgent
+	a owl:ObjectProperty ;
+	rdfs:label "logOriginatingAgent" ;
+	rdfs:comment "The Agent at the origin of the Log record whenever it represents some action carried out on the ICT system. This includes information about the service user associated with the service request that caused a security alarm."@en ;
+	skos:example "A employee or maintenance bot that carried-out a change or corrective maintenance action. A service user that carried-out SQL Injection."@en ;
+	rdfs:subPropertyOf noria:eventRelatedParty ,
+	pep:madeBy ;
+	rdfs:domain noria:EventRecord ;
+	rdfs:range foaf:Agent ;
+	rdfs:subPropertyOf dcterms:creator ;
+	rdfs:subPropertyOf prov:wasAttributedTo ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- rdfs:range foaf:Agent in place of rdfs:range noria:Employee.
+- Adding rdfs:subPropertyOf dcterms:creator.
+- Adding rdfs:subPropertyOf prov:wasAttributedTo.
+- Merging the noria:alarmServiceUser.
+""" ;
+	rdfs:isDefinedBy
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-sourceIndicator> ,
+		<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-serviceUser> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:logText
+	a owl:DatatypeProperty ;
+	rdfs:label "logText" ;
+	rdfs:comment "Textual information describing the logged event." ;
+	# HACK: discarding this property lead to the following comment in the noria:EventRecord alignment => - *logText* <=> http://purl.org/dc/terms/title : Textual information describing the logged event, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText>.
+	rdfs:domain noria:EventRecord ;
+	rdfs:range xsd:string ;
+#	rdfs:subPropertyOf dcterms:title ;  # TODO: using dcterms:title entails Widoco rendering issue of the ontology name, see https://github.com/dgarijo/Widoco/issues/530
+	rdfs:subPropertyOf pep:hasSimpleResult ;
+	rdfs:subPropertyOf log:msg ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.3:
+- Removed rdfs:subPropertyOf dcterms:title (useless and Widoco rendering issue).
+""" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-additionalText> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:loggingTime
+	a owl:DatatypeProperty ;
+	rdfs:label "loggingTime" ;
+	rdfs:comment "The Date on which the log record was created in the system." ;
+	# Discarding this property lead to the following comment in the noria:EventRecord alignment => - *loggingTime* <=> http://purl.org/dc/terms/created : The Date on which the log record was created in the system, as defined by <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime>.
+	rdfs:domain noria:EventRecord ;
+	rdfs:range xsd:dateTime ;
+	rdfs:subPropertyOf dcterms:created ,
+	log:time ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf dcterms:created.
+- Adding rdfs:subPropertyOf log:time.
+""" ;
+	rdfs:isDefinedBy <https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-loggingTime> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Alarm related properties ------------------------------------------------
+
+noria:alarmSeverity
+	a owl:ObjectProperty ;
+	rdfs:label "alarmSeverity" ;
+	rdfs:comment "Indication of how it is perceived that the capability of the managed object has been affected, or how serious are the service affecting conditions (including for security alarms)."@en ;
+	skos:example "Critical, Major, Minor, Warning."@en;
+	rdfs:domain noria:EventRecord ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Notification/Severity/PerceivedSeverity>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ] ;
+	rdfs:subPropertyOf dcterms:type ,
+	folio:hasCriticality ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- Changed owl:hasValue restriction to <Notification/Severity/PerceivedSeverity> in place of <Notification/PerceivedSeverity>.
+- Adding rdfs:subPropertyOf dcterms:type.
+- Adding rdfs:subPropertyOf folio:hasCriticality.
+- Merging the noria:securityAlarmSeverity.
+""" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-perceivedSeverity>,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-securityAlarmSeverity> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:alarmProposedRepairAction
+	a owl:ObjectProperty ;
+	rdfs:label "alarmProposedRepairAction" ;
+	rdfs:comment """This parameter, when present, is used if the cause is known and the system being managed can suggest one or more solutions.
+This parameter is a set of possibilities specified by the object class definer.
+"""@en ;
+	skos:example "Switch to standby equipment, retry to connect, replace media, etc."@en ;
+	rdfs:domain noria:EventRecord ;  # TODO: add constraint to Notifications of the OperationalAlarm type
+	rdfs:range pep:Procedure ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-proposedRepairActions> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:alarmMonitoredAttribute
+	a owl:ObjectProperty ;
+	rdfs:label "alarmMonitoredAttribute" ;
+	rdfs:comment """The Monitored attributes parameter, when present, defines one or more attributes of the managed object and their corresponding values at the time of the alarm.
+Managed object definers may specify the set of attributes which are of interest, if any.
+This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm.
+"""@en ;
+	rdfs:domain noria:EventRecord ;  # TODO: add constraint to Notifications of the OperationalAlarm type
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy <https://www.itu.int/rec/T-REC-X.733-199202-I/> ,
+	<https://www.itu.int/ITU-T/formal-language/itu-t/x/x721/1992/x721.html#-monitoredAttributes> ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:alarmMitigatedBy
+	a owl:ObjectProperty ;
+	rdfs:label "alarmMitigatedBy" ;
+	rdfs:comment """The ProcedureExecutionContainer (i.e. the set of Procedure Execution(s)) that led to clear the alarm and/or solve the issue.
+
+This allows, for example, the timely reporting of changing conditions prevalent at the time of the alarm."""@en ;
+	skos:example """ProcedureExecutionContainer(x)
+    .ldp:member EventRecord(y)
+        .hasCommand='ip address 10.1.5.1 255.255.255.0'
+        .hasResult='SYS-5-CONFIG_I: Configured from console by vty2 (10.34.195.36)'
+""" ;
+	rdfs:domain noria:EventRecord ;
+	rdfs:range pep:ProcedureExecutionContainer ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Observables
+# =============================================================================
+
+# --- noria:Resource domain ------------------------------------------------
+
+noria:virtualServerStatus
+	a owl:ObjectProperty ;
+	rdfs:label "virtualServerStatus" ;
+	rdfs:comment "The operational status of the Virtual Server."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Resource/OperationalState>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf noria:structuralElementObservable ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- noria:NetworkInterface domain ------------------------------------------------
+
+noria:networkInterfaceAdministrativeStatus
+	a owl:ObjectProperty ;
+	rdfs:label "networkInterfaceAdministrativeStatus" ;
+	rdfs:comment "The administrative status of the Network Interface."@en ;
+	skos:example "up, down" ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Resource/AdministrativeState>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf noria:structuralElementObservable ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceOperationalStatus
+	a owl:ObjectProperty ;
+	rdfs:label "networkInterfaceOperationalStatus" ;
+	rdfs:comment "The operational status of the Network Interface."@en ;
+	skos:example "up, down" ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Resource/OperationalState>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	rdfs:subPropertyOf noria:structuralElementObservable ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceRoutingPriorityMetric
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceRoutingPriorityMetric" ;
+	rdfs:comment "The metric value associated to the Network Interface for some routing protocol."@en ;
+	skos:example "IS-IS route priority=122" ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceLaserTxOpticalPower
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceLaserTxOpticalPower" ;
+	rdfs:comment "The emitted optical power measure of the Network Interface, in dBm."@en ;
+	skos:example "Tx = -2.13 dBm";
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceLaserRxOpticalPower
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceLaserRxOpticalPower" ;
+	rdfs:comment "The received optical power measure of the Network Interface, in dBm."@en ;
+	skos:example "Rx = -3.58 dBm";
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceLaserRxOpticalPowerAverage
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceLaserRxOpticalPowerAverage" ;
+	rdfs:comment "The average received optical power of the Network Interface, in dBm."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceLaserRxHighPowerWarningThreshold
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceLaserRxHighPowerWarningThreshold" ;
+	rdfs:comment "The high received power notification threshold."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceLaserRxLowPowerWarningThreshold
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceLaserRxLowPowerWarningThreshold" ;
+	rdfs:comment "The low received power notification threshold."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:int ;
+	rdfs:subPropertyOf noria:structuralElementObservableData ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# =============================================================================
+# Structural objects
+# =============================================================================
+
+noria:Resource
+	a owl:Class ;
+	rdfs:label "Resource" ;
+	rdfs:comment """General resource record of the Communication Device kind from the logistics park. It is a managed entity that can be either Physical or Virtual.
+
+Alignment:
+- *SEAS*: Whenever a Resource individual is an assembly of other resources (e.g. a server rack) or is part of an assembly (e.g. a server blade), the Resource individual can also be declared as a `seas:System` in order to benefit of the `seas:subSystemOf` relation.
+  For example, Resources may be grouped in some `noria:Service` class for providing both an end-to-end analysis of the data path (i.e. Communication Devices + Connections) and an abstract object linked to some end user (e.g. Customer).
+- *BOT*: A `noria:Resource` is a sub-class of `bot:Element` for setting instances in the context of a physical environment (e.g. in a building).
+- *SLOGERT*: A `noria:Resource` is equivalent to a `log:Host`.
+- *UCO*: A `noria:Resource` is equivalent to an UCO's observable `Device`.
+"""@en ;
+	skos:altLabel "ICT resource."@en ;
+	skos:altLabel "Elément structurant informatique et télécoms."@fr ;
+	rdfs:seeAlso <kos/Resource> ;
+	rdfs:subClassOf noria:StructuralElement ;
+	rdfs:subClassOf
+		seas:System,
+		seas:CommunicationDevice,
+		bot:Element ,
+		observable:Device ,
+		log:Host ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf bot:Element.
+- Adding rdfs:subClassOf observable:Device.
+- Adding rdfs:subClassOf log:Host.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- Connection related objects ----------------------------------------------
+
+noria:NetworkInterface
+	a owl:Class ;
+	rdfs:label "NetworkInterface" ;
+	rdfs:comment """A Network Interface of some Resource (e.g. server, router, virtual routing and forwarding (VRF) instance), and of some type (e.g. physical, virtual).
+
+Usage notes:
+- The name of the Network Interface (aka. networkInterfaceName, such as `ge-0/0/0.3013` or `ae52.3028`) can be set with the `rdfs:label` property.
+"""@en ;
+	rdfs:subClassOf noria:StructuralElement ;
+	rdfs:subClassOf
+		seas:CommunicationConnectionPoint,
+		observable:NetworkInterface ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subClassOf observable:NetworkInterface.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:NetworkLink
+	a owl:Class ;
+	rdfs:label "NetworkLink" ;
+	rdfs:comment """A physical or logical Link between Resources.
+
+Usage notes:
+- The organizational unit in charge of the Network Link (i.e. the Support team or Owner of the Network Link) can be set with the `noria:resourceManagedBy` property.
+"""@en ;
+	skos:example "Optical fiber, L2TP connection, etc."@en ;
+	vs:term_status "stable" ;
+	rdfs:subClassOf noria:StructuralElement ;
+	rdfs:subClassOf seas:CommunicationConnection ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# === Structural Property objects ==============================================
+
+noria:ProductModel
+	a owl:Class ;
+	rdfs:label "ProductModel" ;
+	rdfs:comment "The Product Model of some Resource as per the Manufacturer's naming."@en ;
+	vs:term_status "stable" ;
+	rdfs:subClassOf noria:StructuralProperty ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- General usage -----------------------------------------------------------
+
+noria:resourceManagedBy
+	a owl:ObjectProperty ;
+	rdfs:label "resourceManagedBy" ;
+	rdfs:comment "The Support team or Owner of the Network Element (IT Resource)."@en ;
+	skos:example """- Resource("DNS server").resourceManagedBy("DNS admin team")
+- NetworkLink("WAN Paris-Papeete").resourceManagedBy("International backbone support team")""";
+	rdfs:subPropertyOf noria:elementManagedBy ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- rdfs:range moved from noria:Team and noria:Organization to foaf:Agent.
+- Removing rdfs:range foaf:Agent as it is already defined by noria:elementManagedBy.
+- Removing rdfs:domain noria:Resource for noria:Resource and noria:NetworkLink compatibility.""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:agentManagesResource
+	a owl:ObjectProperty ;
+	owl:inverseOf noria:resourceManagedBy ;
+	rdfs:label "agentManagesResource" ;
+	rdfs:comment """The Network Element (IT Resource) the Agent is responsible of (supervises).
+
+Alignment:
+- *FOAF*: A team may be interested into following the state of some resources, hence this property is semantically akin to `foaf:topic_interest`.
+"""@en ;
+	rdfs:domain foaf:Agent ;
+	rdfs:subPropertyOf foaf:topic_interest ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- rdfs:domain moved from noria:Employee to foaf:Agent.
+- name and label moved from teamManagesResource to agentManagesResource.
+- Removing rdfs:range noria:Resource for noria:Resource and noria:NetworkLink compatibility.""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- noria:Resource domain ---------------------------------------------------
+
+noria:resourceLogisticId
+	a owl:DatatypeProperty ;
+	rdfs:label "resourceLogisticId" ;
+	rdfs:comment "The logistic UID of the Resource (a.k.a. asset tag)."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceHostName
+	a owl:DatatypeProperty ;
+	rdfs:label "resourceHostName" ;
+	rdfs:comment "The hostname (nodename) of the Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf noria:structuralElementDistinguishedName ;
+	rdfs:subPropertyOf
+		dcterms:identifier,
+		log:host ,
+		observable:hostname ;
+	vs:term_status "stable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:subPropertyOf log:host.
+- Adding rdfs:subPropertyOf observable:hostname.
+""" ;
+	rdfs:isDefinedBy noria: ;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Hostname> ;
+.
+
+noria:resourceProductModel
+	a owl:ObjectProperty ;
+	rdfs:label "resourceProductModel" ;
+	rdfs:comment "The product model of the Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:ProductModel ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceType
+	a owl:ObjectProperty ;
+	rdfs:label "resourceType" ;
+	rdfs:comment "The type of the Network Element Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Resource/type>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceSerialNumber
+	a owl:DatatypeProperty ;
+	rdfs:label "resourceSerialNumber" ;
+	rdfs:comment "The serial number of the Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceUsageState
+	a owl:ObjectProperty ;
+	rdfs:label "resourceUsageState" ;
+	rdfs:comment "The production state of the Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range [ owl:intersectionOf ( skos:Concept
+									  [ rdf:type owl:Restriction ;
+										owl:onProperty skos:inScheme ;
+										owl:hasValue <kos/Resource/LifecycleState>
+									  ]
+									) ;
+				 rdf:type owl:Class
+	  ];
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceInstallationDate
+	a owl:DatatypeProperty ;
+	rdfs:label "resourceInstallationDate" ;
+	rdfs:comment "The installation date of the Resource."@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range xsd:dateTime ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceForApplication
+	a owl:ObjectProperty ;
+	rdfs:label "resourceForApplication" ;
+	rdfs:comment "The Application this Resource is contributing to, whatever the Application type."@en ;
+	skos:example "Corporate Internet access Infrastructure, Clock synchronization Service"@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:Application ;
+	rdfs:subPropertyOf seas:subSystemOf ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:locatedAtLocus
+	a owl:ObjectProperty ;
+	rdfs:label "locatedAtLocus" ;
+	rdfs:comment """A uniquely identified space of the Resource within a given Room.
+
+Alignment:
+- *UCO*: This property enables linking a concrete `Resource` instance to some location, hence it relates to `observable:location`.
+- *BOT*: This property is akin to the inverse of `bot:hasElement`.
+"""@en ;
+	skos:example "Line: L, Column:6, in Room:Server room 314."@en ;
+	skos:example "Ligne:L, Colonne:6, en Salle:SALLE STOCKAGE RESEAU 314."@fr ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:Locus ;
+	rdfs:subPropertyOf observable:location ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Changes in v0.2:
+- Adding rdfs:range noria:Locus.
+- Adding rdfs:subPropertyOf observable:location.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceManagementIPAddress
+	a owl:ObjectProperty ;
+	rdfs:label "resourceManagementIPAddress" ;
+	rdfs:comment "Specifies the IP address for remote management of the Resource, if relevant."@en ;
+	skos:example """- IPv4: 192.168.1.25.
+- IPv6: 2001:0db8:0000:0000:0000:8a2e:0370:7334"""@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:subPropertyOf observable:ipAddress ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Introduced in v0.2""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:clusterController
+	a owl:ObjectProperty ;
+	rdfs:label "clusterController" ;
+	rdfs:comment "Relates a Resource that is part of a cluster with the cluster controller."@en ;
+	skos:example """Resource("cluster-01").clusterController("virtual-center-01")""" ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:Resource ;
+	rdfs:subPropertyOf seas:subSystemOf ;
+	vs:term_status "unstable" ;
+	skos:changeNote """Introduced in v0.2""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- noria:ProductModel domain ---------------------------------------------------
+
+noria:productManufacturedBy
+	a owl:ObjectProperty ;
+	rdfs:label "productManufacturedBy" ;
+	rdfs:comment "The Manufacturer of the Product Model."@en ;
+	rdfs:domain noria:ProductModel ;
+	rdfs:range org:Organization ;
+	vs:term_status "stable" ;
+	skos:changeNote """Change in v0.2:
+- property name and label changed from noria:manufacturedBy to noria:productManufacturedBy.
+- rdfs:range moved from noria:Manufacturer to org:Organization.
+""" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- noria:NetworkInterface domain --------------------------------------------
+
+noria:networkInterfaceDescription
+	a owl:DatatypeProperty ;
+	rdfs:label "networkInterfaceDescription" ;
+	rdfs:comment "A human-readable/editable text that describes the network interface. The information included in the description depends on the capabilities of the Resource's operating system."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range xsd:string ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceType
+	a owl:ObjectProperty ;
+	rdfs:label "networkInterfaceType" ;
+	rdfs:comment "The type of the Network Interface."@en ;
+	skos:example "physical, subinterface, virtual"@en ;
+	rdfs:domain noria:NetworkInterface;
+	# TODO: define a controlled vocabulary for networkInterfaceType and link it with a restricted rdfs:range
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceOf
+	a owl:ObjectProperty ;
+	rdfs:label "networkInterfaceOf" ;
+	rdfs:comment "The Resource the Network Interface is part-of."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range noria:Resource ;
+	vs:term_status "stable" ;
+	rdfs:subPropertyOf seas:connectionPointOf ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkInterfaceConnects
+	a owl:ObjectProperty ;
+	rdfs:label "networkInterfaceConnects" ;
+	rdfs:comment "The Network Link the Network Interface is attached-to."@en ;
+	rdfs:domain noria:NetworkInterface ;
+	rdfs:range noria:NetworkLink ;
+	vs:term_status "stable" ;
+	rdfs:subPropertyOf seas:connectsSystemAt ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# --- noria:NetworkLink domain ------------------------------------------------
+
+noria:networkLinkId
+	a owl:DatatypeProperty ;
+	rdfs:label "networkLinkId" ;
+	rdfs:comment "The UID of the NetworkLink."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf dcterms:identifier ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkTerminationResource
+	a owl:ObjectProperty ;
+	rdfs:label "networkLinkTerminationResource" ;
+	rdfs:comment "Link termination Resource, the Resource at some end fo the Network Link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range noria:Resource ;
+	vs:term_status "stable" ;
+	rdfs:subPropertyOf seas:connectsSystem ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkTerminationResourceOrigin
+	a owl:ObjectProperty ;
+	rdfs:label "networkLinkTerminationResourceOrigin" ;
+	rdfs:comment "Link termination Resource, the Resource at the origin of a Network Link for a unidirectional link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range noria:Resource ;
+	vs:term_status "unstable" ;
+	rdfs:subPropertyOf noria:networkLinkTerminationResource ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkTerminationResourceDestination
+	a owl:ObjectProperty ;
+	rdfs:label "networkLinkTerminationResourceDestination" ;
+	rdfs:comment "Link termination Resource, the Resource at the destination of a Network Link for a unidirectional link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range noria:Resource ;
+	vs:term_status "unstable" ;
+	rdfs:subPropertyOf noria:networkLinkTerminationResource ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkInstallationDate
+	a owl:DatatypeProperty ;
+	rdfs:label "networkLinkInstallationDate" ;
+	rdfs:comment "The installation date of the NetworkLink."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range xsd:dateTime ;
+	vs:term_status "stable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+noria:networkLinkType
+	a owl:DatatypeProperty ;
+	rdfs:label "networkLinkType" ;
+	rdfs:comment "A description of the type of the Network Link."@en ;
+	rdfs:domain noria:NetworkLink ;
+	rdfs:range xsd:string ;
+	# TODO: further define the <kos/NetworkLink/type> SKOS scheme for networkLinkType and link it with a restricted rdfs:range, this entails changing this property type to owl:ObjectProperty
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+.
+
+# === EOF =====================================================================
