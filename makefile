@@ -16,9 +16,15 @@ SRC_FOLDER=src
 PYTHON_BIN=/usr/bin/python3
 export PYTHONPATH := ./:${SRC_FOLDER}:$(PYTHONPATH)
 
-WIDOCO_BIN=./lib/widoco/widoco-1.4.21-jar-with-dependencies_JDK-17.jar
-# WIDOCO_BIN=./lib/widoco/java-17-widoco-1.4.17-jar-with-dependencies.jar
-# WIDOCO_BIN=./lib/widoco/widoco-1.4.19-jar-with-dependencies_JDK-17.jar
+#WIDOCO_BIN=./lib/widoco/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+#WIDOCO_BIN=./lib/widoco/widoco-1.4.21-jar-with-dependencies_JDK-17.jar
+#WIDOCO_BIN=./lib/widoco/widoco-1.4.20-jar-with-dependencies_JDK-17.jar
+#WIDOCO_BIN=./lib/widoco/widoco-1.4.19-jar-with-dependencies_JDK-17.jar
+# WIDOCO releases above 1.4.17 break the rendering of the markdown in rdfs:comment for classes definitions
+# ... so it is better using the 1.4.17 release for the sake of the documentation readability
+# until the issue is solved on the Widoco side, although the 1.4.17 release fails in generating
+# the DESCRIPTION SECTION.
+WIDOCO_BIN=./lib/widoco/java-17-widoco-1.4.17-jar-with-dependencies.jar
 
 SKOSPLAY_BIN=./lib/skos-play/skos-play-cli-0.9.1-onejar.jar
 

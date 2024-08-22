@@ -13,38 +13,39 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="https://w3id.org/noria/ontology/">
-        <owl:versionIRI rdf:resource="https://w3id.org/noria/ontology/noria-0.3"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/noria/ontology/noria-0.4"/>
         <terms:creator>Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)</terms:creator>
         <terms:creator>Raphaël Troncy (https://orcid.org/0000-0003-0457-1436)</terms:creator>
         <terms:creator>Yoan Chabot (https://orcid.org/0000-0001-5639-1504)</terms:creator>
-        <terms:description xml:lang="en">The NORIA-O project is a data model for IT networks, events and operations information.
-The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
-The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
-
-Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
-Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
-Alignment holds for the following vocabulary releases:
-- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
-- [BOT](https://w3id.org/bot/) 0.3.2
-- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
-- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
-- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
-- [PEP](https://w3id.org/pep/) 1.1
-- [SEAS](https://w3id.org/seas/) 1.1
-- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
-- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
-</terms:description>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-05-10</terms:issued>
         <terms:license rdf:resource="https://spdx.org/licenses/BSD-4-Clause"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-06-06</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-08-22</terms:modified>
         <terms:publisher rdf:resource="https://www.orange.com/"/>
         <terms:title xml:lang="en">The NORIA Ontology</terms:title>
         <bibo:status rdf:resource="http://purl.org/ontology/bibo/status/accepted"/>
         <vann:preferredNamespacePrefix>noria</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://w3id.org/noria/ontology/</vann:preferredNamespaceUri>
         <rdfs:seeAlso rdf:resource="https://w3id.org/noria/doc/"/>
-        <owl:priorVersion rdf:resource="https://w3id.org/noria/ontology/noria-0.2"/>
-        <owl:versionInfo>v0.3</owl:versionInfo>
+        <owl:priorVersion rdf:resource="https://w3id.org/noria/ontology/noria-0.3"/>
+        <owl:versionInfo>v0.4</owl:versionInfo>
+        <skos:changeNote xml:lang="en">Changes in v0.3:
+
+- Changed the ontology architecture from micro-architecture to single file.
+- Removed owl:imports for NORIA foundations.
+
+2024-03-15:
+
+- Changed bibo:status
+
+Changes in v0.4:
+
+- Modified base from &lt;https://w3id.org/noria/&gt; to &lt;https://w3id.org/noria/ontology/&gt;, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
+- Fixed rdfs:range of noria:troubleTicketCriticity to &lt;kos/TroubleTicket/trouble-category&gt; for proper dereferencing.
+- Fixed rdfs:range of noria:alarmSeverity to &lt;kos/Notification/Severity/PerceivedSeverity&gt; for proper dereferencing.
+- Fixed rdfs:seeAlso of noria:Resource to &lt;kos/Resource&gt; for proper dereferencing.
+- Modified rdfs:seeAlso of noria:Locus and noria:Room for direct reference of the bot namespace.
+- Modified rdfs:range of noria:applicationModuleSlaLevel and noria:applicationModuleStatus
+</skos:changeNote>
         <foaf:depiction rdf:resource="https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png"/>
     </owl:Ontology>
     
@@ -59,13 +60,6 @@ Alignment holds for the following vocabulary releases:
      -->
 
 
-    
-
-
-    <!-- http://purl.org/dc/terms/description -->
-
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
     
 
 
@@ -325,7 +319,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/org/agent-contact-method"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/org/agent-contact-method"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -415,7 +409,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/Notification/Severity/PerceivedSeverity"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Notification/Severity/PerceivedSeverity"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -449,7 +443,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/application/business-importance"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/application/business-importance"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -558,7 +552,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/application/sla-level"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/application/sla-level"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -583,7 +577,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/application/status"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/application/status"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -664,7 +658,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/application/type"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/application/type"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -705,7 +699,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/ChangeRequest/category"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/ChangeRequest/category"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -731,7 +725,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/ChangeRequest/cause"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/ChangeRequest/cause"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -816,7 +810,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/ChangeRequest/specification"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/ChangeRequest/specification"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -840,7 +834,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/ChangeRequest/status"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/ChangeRequest/status"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -865,7 +859,7 @@ This parameter is a set of possibilities specified by the object class definer.
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/ChangeRequest/type"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/ChangeRequest/type"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1100,7 +1094,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/Resource/AdministrativeState"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Resource/AdministrativeState"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1206,7 +1200,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/Resource/OperationalState"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Resource/OperationalState"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1255,6 +1249,36 @@ Alignment:
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
         <rdfs:label>networkLinkTerminationResource</rdfs:label>
         <ns:term_status>stable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/networkLinkTerminationResourceDestination -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/noria/ontology/networkLinkTerminationResourceDestination">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/noria/ontology/networkLinkTerminationResource"/>
+        <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/NetworkLink"/>
+        <rdfs:range rdf:resource="https://w3id.org/noria/ontology/Resource"/>
+        <rdfs:comment xml:lang="en">Link termination Resource, the Resource at the destination of a Network Link for a unidirectional link.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
+        <rdfs:label>networkLinkTerminationResourceDestination</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/networkLinkTerminationResourceOrigin -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/noria/ontology/networkLinkTerminationResourceOrigin">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/noria/ontology/networkLinkTerminationResource"/>
+        <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/NetworkLink"/>
+        <rdfs:range rdf:resource="https://w3id.org/noria/ontology/Resource"/>
+        <rdfs:comment xml:lang="en">Link termination Resource, the Resource at the origin of a Network Link for a unidirectional link.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
+        <rdfs:label>networkLinkTerminationResourceOrigin</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
 
@@ -1321,7 +1345,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/trouble-category"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/trouble-category"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1348,7 +1372,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/problemResponsibility"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/problemResponsibility"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1458,7 +1482,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/Resource/type"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Resource/type"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1482,7 +1506,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/Resource/LifecycleState"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Resource/LifecycleState"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1507,7 +1531,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/service/type"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/service/type"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1575,7 +1599,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/trouble-category"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/trouble-category"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1615,7 +1639,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/category"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/trouble-category"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1673,7 +1697,7 @@ Alignment:
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/commentType"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/commentType"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1721,7 +1745,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/operationType"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/operationType"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1747,7 +1771,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/origin"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/origin"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1786,7 +1810,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/priority"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/priority"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1867,7 +1891,7 @@ Note that for actions undoubtedly related to a given trouble ticket note (i.e. t
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/severity"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/severity"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1896,7 +1920,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/status"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/status"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1932,7 +1956,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/type"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/type"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1958,7 +1982,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/TroubleTicket/urgency"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/TroubleTicket/urgency"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1984,7 +2008,7 @@ When the thresholds are exceeded, specific process of escalation may be activate
                     <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                        <owl:hasValue rdf:resource="https://w3id.org/noria/kos/Resource/OperationalState"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/noria/ontology/kos/Resource/OperationalState"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2104,6 +2128,13 @@ When the thresholds are exceeded, specific process of escalation may be activate
 
 
     <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/date"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description"/>
     
 
 
@@ -2872,6 +2903,7 @@ Alignment:
 
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/noria/ontology/troubleTicketCause">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/description"/>
         <rdfs:domain rdf:resource="https://w3id.org/noria/ontology/TroubleTicket"/>
         <rdfs:comment xml:lang="en">The cause(s) defined for the trouble, in plain text.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
@@ -3582,7 +3614,7 @@ Alignment:
 </rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/noria/ontology/"/>
         <rdfs:label>Resource</rdfs:label>
-        <rdfs:seeAlso rdf:resource="https://w3id.org/noria/kos/Resource/"/>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/noria/ontology/kos/Resource"/>
         <ns:term_status>stable</ns:term_status>
         <skos:altLabel xml:lang="fr">Elément structurant informatique et télécoms.</skos:altLabel>
         <skos:altLabel xml:lang="en">ICT resource.</skos:altLabel>
@@ -3850,201 +3882,211 @@ Customer has confirmed that the service is restored.</skos:example>
     
 
 
-    <!-- https://w3id.org/noria/Notification/Severity/PerceivedSeverity -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/Notification/Severity/PerceivedSeverity"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/ChangeRequest/category -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/ChangeRequest/category"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/ChangeRequest/cause -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/ChangeRequest/cause"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/ChangeRequest/specification -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/ChangeRequest/specification"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/ChangeRequest/status -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/ChangeRequest/status"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/ChangeRequest/type -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/ChangeRequest/type"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/Resource/AdministrativeState -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/Resource/AdministrativeState"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/Resource/LifecycleState -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/Resource/LifecycleState"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/Resource/OperationalState -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/Resource/OperationalState"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/Resource/type -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/Resource/type"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/category -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/category"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/commentType -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/commentType"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/operationType -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/operationType"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/origin -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/origin"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/priority -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/priority"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/problemResponsibility -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/problemResponsibility"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/severity -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/severity"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/status -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/status"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/trouble-category -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/trouble-category"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/type -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/type"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/TroubleTicket/urgency -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/TroubleTicket/urgency"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/application/business-importance -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/application/business-importance"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/application/sla-level -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/application/sla-level"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/application/status -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/application/status"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/application/type -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/application/type"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/org/agent-contact-method -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/org/agent-contact-method"/>
-    
-
-
-    <!-- https://w3id.org/noria/kos/service/type -->
-
-
-    <owl:NamedIndividual rdf:about="https://w3id.org/noria/kos/service/type"/>
-    
-
-
     <!-- https://w3id.org/noria/ontology/ -->
 
 
     <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/">
         <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+        <terms:description xml:lang="en">The NORIA-O project is a data model for IT networks, events and operations information.
+The ontology is developed using web technologies (e.g. RDF, OWL, SKOS) and is intended as a structure for realizing an IT Service Management (ITSM) Knowledge Graph (KG) for Anomaly Detection (AD) and Risk Management applications.
+The model has been developed in collaboration with operational teams, and in connection with third parties linked vocabularies.
+
+Alignment with third parties vocabularies is implemented on a per class or per property basis when relevant (e.g. with `rdfs:subClassOf`, `owl:equivalentClass`).
+Directions for direct instanciation of these vocabularies are provided for cases where implementing a class/property alignment is redundant.
+Alignment holds for the following vocabulary releases:
+- [BBO](https://hal.archives-ouvertes.fr/hal-02365012/) 1.0.0
+- [BOT](https://w3id.org/bot/) 0.3.2
+- [DevOps-Infra](https://oeg-upm.github.io/devops-infra/) 1.0.0
+- [FOLIO](https://github.com/IBCNServices/Folio-Ontology) 1.0.0
+- [ORG](https://www.w3.org/TR/vocab-org/) 0.8
+- [PEP](https://w3id.org/pep/) 1.1
+- [SEAS](https://w3id.org/seas/) 1.1
+- [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
+- [UCO](https://github.com/ucoProject/uco) Release-0.8.0
+</terms:description>
     </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/ChangeRequest/category -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/ChangeRequest/category"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/ChangeRequest/cause -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/ChangeRequest/cause"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/ChangeRequest/specification -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/ChangeRequest/specification"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/ChangeRequest/status -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/ChangeRequest/status"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/ChangeRequest/type -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/ChangeRequest/type"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/Notification/Severity/PerceivedSeverity -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/Notification/Severity/PerceivedSeverity"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/Resource/AdministrativeState -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/Resource/AdministrativeState"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/Resource/LifecycleState -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/Resource/LifecycleState"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/Resource/OperationalState -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/Resource/OperationalState"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/Resource/type -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/Resource/type"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/commentType -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/commentType"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/operationType -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/operationType"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/origin -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/origin"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/priority -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/priority"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/problemResponsibility -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/problemResponsibility"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/severity -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/severity"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/status -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/status"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/trouble-category -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/trouble-category"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/type -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/type"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/TroubleTicket/urgency -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/TroubleTicket/urgency"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/application/business-importance -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/application/business-importance"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/application/sla-level -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/application/sla-level"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/application/status -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/application/status"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/application/type -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/application/type"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/org/agent-contact-method -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/org/agent-contact-method"/>
+    
+
+
+    <!-- https://w3id.org/noria/ontology/kos/service/type -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/noria/ontology/kos/service/type"/>
     
 
 
