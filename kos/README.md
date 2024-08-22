@@ -39,7 +39,7 @@ Using this approach rely on rewriting rules defined at the [perma-id/w3id.org](h
 A vocabulary instance uses the following metadata within the top `skos:ConceptSchemeConcept` (provided as an example):
 
 ```turtle
-@base <https://w3id.org/noria/kos/> .
+@base <https://w3id.org/noria/ontology/kos/> .
 
 <voc-name>
   a skos:ConceptScheme;
@@ -56,7 +56,7 @@ A vocabulary instance uses the following metadata within the top `skos:ConceptSc
   dcterms:type <https://nkos.dublincore.org/#thesaurus> ;
   dcterms:issued "2022-05-10"^^xsd:date ;
   dcterms:modified "2022-12-15"^^xsd:date ;
-  skos:changeNote """Changes in 2022-12-15:
+  skos:changeNote """Changes in 2024-08-22:
   - Added this
   - Changed that"""@en ;
 .
