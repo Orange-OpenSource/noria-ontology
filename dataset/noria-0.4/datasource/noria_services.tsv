@@ -1,0 +1,6 @@
+Service	Component	Type
+DBAccess	APP01_M01	CustomerFacingService
+DBAccess	INF01_M01	CustomerFacingService
+DBAccess	PFS01_M01	CustomerFacingService
+TimeServer	PFS02_M01	ResourceFacingService
+TimeServer	INF01_M01	ResourceFacingService

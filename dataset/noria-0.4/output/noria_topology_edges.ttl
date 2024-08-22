@@ -1,0 +1,166 @@
+@prefix BBO: <https://www.irit.fr/recherches/MELODI/ontologies/BBO#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix crml: <http://semweb.mmlab.be/ns/crml#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix folio: <http://IBCNServices.github.io/Folio-Ontology/Folio.owl#> .
+@prefix formats: <https://www.w3.org/ns/formats/> .
+@prefix gn: <https://www.geonames.org/ontology#> .
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#> .
+@prefix idlab-fn: <http://example.com/idlab/function/> .
+@prefix log: <https://w3id.org/sepses/ns/log#> .
+@prefix noria: <https://w3id.org/noria/ontology/> .
+@prefix noria-fno: <http://example.org/noria/functions/> .
+@prefix observable: <https://unifiedcyberontology.org/ontology/uco/observable#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pep: <https://w3id.org/pep/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix qudt: <http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#> .
+@prefix qudt-unit: <http://data.qudt.org/qudt/owl/1.0.0/unit.owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rmlt: <http://semweb.mmlab.be/ns/rml-target#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix saref: <http://ontology.tno.nl/saref#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix seas: <https://w3id.org/seas/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix voc: <https://w3id.org/noria/kos/> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/noria/object/NL_TOY_as1_pe_1_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_as1_pe_1_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_1_2> .
+
+<https://w3id.org/noria/object/NL_TOY_as1_pe_2_1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_as1_pe_2_1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_2_1> .
+
+<https://w3id.org/noria/object/NL_TOY_as2_srv1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_as2_srv1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as2>,
+    <https://w3id.org/noria/object/RES_TOY_srv1> .
+
+<https://w3id.org/noria/object/NL_TOY_as3_srv2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_as3_srv2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as3>,
+    <https://w3id.org/noria/object/RES_TOY_srv2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_1_1_pe_1_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_1_1_pe_1_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_1_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_1_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_1_1_pe_2_1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_1_1_pe_2_1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_1_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_2_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_1_1_pe_3_1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_1_1_pe_3_1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_1_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_1_2_pe_2_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_1_2_pe_2_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_1_2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_2_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_1_2_pe_3_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_1_2_pe_3_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_1_2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_2_1_pe_2_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_2_1_pe_2_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_2_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_2_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_2_1_pe_4_1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_2_1_pe_4_1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_2_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_2_2_pe_4_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_2_2_pe_4_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_2_2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_3_1_as3> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_3_1_as3";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as3>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_3_1_pe_3_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_3_1_pe_3_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_3_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_3_1_pe_4_1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_3_1_pe_4_1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_3_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_3_2_as2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_3_2_as2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_3_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_3_2_pe_4_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_3_2_pe_4_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_3_2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_4_1_as2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_4_1_as2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as2>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_1> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_4_1_pe_4_2> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_4_1_pe_4_2";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_pe_4_1>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_2> .
+
+<https://w3id.org/noria/object/NL_TOY_pe_4_2_as3> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_pe_4_2_as3";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as3>,
+    <https://w3id.org/noria/object/RES_TOY_pe_4_2> .
+
+<https://w3id.org/noria/object/NL_TOY_term1_as1> a noria:NetworkLink;
+  prov:wasDerivedFrom "noria-ontology-toy-example";
+  noria:networkLinkId "NL_TOY_term1_as1";
+  noria:networkLinkTerminationResource <https://w3id.org/noria/object/RES_TOY_as1>,
+    <https://w3id.org/noria/object/RES_TOY_term1> .

@@ -1,0 +1,10 @@
+LastName	FirstName	employeeId	employeeMailBox	teamId
+LName01	FName01	LF001	lname.fname@example.org	Support01
+LName02	FName02	LF002	lname.fname@example.org	Support01
+LName03	FName03	LF003	lname.fname@example.org	Support02
+LName04	FName04	LF004	lname.fname@example.org	Support02
+LName05	FName05	LF005	lname.fname@example.org	Support03
+LName06	FName06	LF006	lname.fname@example.org	Support03
+LName07	FName07	LF007	lname.fname@example.org	Support03
+LName08	FName08	LF008	lname.fname@example.org	Support03
+LName09	FName09	LF009	lname.fname@example.org	Mgmt01

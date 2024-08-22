@@ -1,0 +1,17 @@
+Code	Hostname	Manufacturer	Model	Nature	SupportTeam	ApplicationCode	Container	Site	Building	Storey	Room	Row	Col
+term1	term1	ACME_Inc.	LapX60	server	Support01	APP01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+srv1	srv1	ACME_Inc.	SrvX80	server	Support02	PFS01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+srv2	srv2	ACME_Inc.	SrvX80	server	Support03	PFS02	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+as1	as1	ACME_Inc.	SwC200	network-element	Support01	APP01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+as2	as2	ACME_Inc.	SwC200	network-element	Support02	PFS01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+as3	as3	ACME_Inc.	SwC200	network-element	Support03	PFS02	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+pe_1_1	pe_1_1	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+pe_1_2	pe_1_2	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+pe_2_1	pe_2_1	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+pe_2_2	pe_2_2	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_01	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+pe_3_1	pe_3_1	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+pe_3_2	pe_3_2	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+pe_4_1	pe_4_1	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+pe_4_2	pe_4_2	ACME_Inc.	RtrZ60	network-element	Support03	INF01	rack_02	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8
+rack_01	rack_01	ACME_Inc.	R8080	rack	Support04	TEDC01	""	DC01	DC01_B01	DC01_B01_S01	DC01_B01_S01_R01	A	1
+rack_02	rack_02	ACME_Inc.	R8080	rack	Support04	TEDC02	""	DC02	DC02_B03	DC02_B03_SM03	DC02_B03_SM03_R02	G	8

@@ -1,0 +1,3 @@
+id,Module,Component,Function,Failure Mode,Failure Effect,I,Failure Cause,O,Control Method,D,RPN,Containment Action,Responsible Module,Preferred Action
+1,NetworkLink,NetworkLink,Connects endpoints of the network,OpticalLinkContinuityLoss,EndpointLostConnection,,OpticalLinkCutOrUnpluggedOrDirty,,Check Tx/Rx optical power on both termination points + OTDR measurement.,,,"Replace the fiber link, clean the fiber connectors, reroute traffic.",N/a ,Replace the fiber
+1,Resource,Resource,Provides data processing functions,EndpointLostConnection,ServiceImpairement,,OpticalLinkContinuityLoss,,Check network connectivity,,,Activate fail over system,N/a ,Replace the fiber
