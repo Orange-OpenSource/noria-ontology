@@ -62,3 +62,6 @@ preferred-citation:
   journal: "Semantic Web - 21st International Conference, ESWC 2024, Hersonissos, Crete, Greece, May 26 - 30, 2024, Proceedings"
   title: "NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems"
   year: 2024
+  identifiers:
+    - type: doi
+      value: 10.1007/978-3-031-60635-9_2

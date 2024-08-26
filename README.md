@@ -11,7 +11,8 @@ Cite:
   title     = {NORIA-O: an Ontology for Anomaly Detection and Incident Management in ICT Systems},
   author    = {{Lionel Tailhardat} and {Yoan Chabot} and {Rapha\"el Troncy}},
   booktitle = {Semantic Web - 21st International Conference, ESWC 2024, Hersonissos, Crete, Greece, May 26 - 30, 2024, Proceedings},
-  year      = {2024}
+  year      = {2024},
+  doi       = {10.1007/978-3-031-60635-9_2}
 }
 ```
 
