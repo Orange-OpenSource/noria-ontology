@@ -82,7 +82,7 @@ Alignment holds for the following vocabulary releases:
 - [SLOGERT](https://sepses.ifs.tuwien.ac.at/ns/log/index-en.html) 1.1.0
 - [UCO](https://github.com/ucoProject/uco) Release-0.8.0
 """@en ;
-    foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.2/noria-ontology-UC.png> ;
+    foaf:depiction <https://github.com/Orange-OpenSource/noria-ontology/raw/master/dataset/noria-0.4/noria-ontology-UC.png> ;
     bibo:status <http://purl.org/ontology/bibo/status/accepted> ;  # https://www.dublincore.org/specifications/bibo/bibo/bibo.rdf.xml#
 	dcterms:creator "Lionel Tailhardat (https://orcid.org/0000-0001-5887-899X)" ;  # Lionel Tailhardat
 	dcterms:creator "Yoan Chabot (https://orcid.org/0000-0001-5639-1504)" ;  # Yoan Chabot
@@ -110,6 +110,10 @@ Changes in v0.4:
 - Fixed rdfs:seeAlso of noria:Resource to <kos/Resource> for proper dereferencing.
 - Modified rdfs:seeAlso of noria:Locus and noria:Room for direct reference of the bot namespace.
 - Modified rdfs:range of noria:applicationModuleSlaLevel and noria:applicationModuleStatus
+
+Changes in v0.4.1:
+
+- Added noria:resourceForApplicationModule
 """@en ;
 	owl:versionInfo "v0.4" ;
 	owl:versionIRI <noria-0.4> ;
@@ -2435,6 +2439,19 @@ noria:resourceForApplication
 	rdfs:subPropertyOf seas:subSystemOf ;
 	vs:term_status "stable" ;
 	rdfs:isDefinedBy noria: ;
+.
+
+noria:resourceForApplicationModule
+	a owl:ObjectProperty ;
+	rdfs:label "resourceForApplicationModule" ;
+	rdfs:comment "The Application Module this Resource is contributing to."@en ;
+	skos:example "5G Mobile network (core production), 5G Mobile network (core testing)"@en ;
+	rdfs:domain noria:Resource ;
+	rdfs:range noria:ApplicationModule ;
+	rdfs:subPropertyOf seas:subSystemOf ;
+	vs:term_status "unstable" ;
+	rdfs:isDefinedBy noria: ;
+	skos:changeNote """Added in v0.4.1.""" ;
 .
 
 noria:locatedAtLocus
