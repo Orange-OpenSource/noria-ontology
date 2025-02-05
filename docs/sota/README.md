@@ -18,7 +18,7 @@ This work has been published in:
 
 The main components of this repository are the following ones:
 
-* List of data models: the [noria-sota-ontology.xlsx](noria-sota-ontology.xlsx) file
+* List of data models: the [./noria-sota-ontology.xlsx](noria-sota-ontology.xlsx) file
 * Dataset of data models: sub-folders in [./dm-rdf](./dm-rdf)
 
 ### Browse and/or edit the list of data models
