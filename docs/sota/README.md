@@ -6,11 +6,11 @@ This work has been published in:
 
 ```bibtex
 @misc{LTailhardat-noria-sota-2025,
-  title        = {Anomaly Detection using Knowledge Graphs: A Survey for Network Management and Cybersecurity Application},
-  author       = {{Lionel Tailhardat} and {Yoan Chabot} and {Raphael Troncy}},
-  year         = {2025},
-  howpublished = {\url{https://hal.science/hal-04930539}},
-  note         = {RefId: hal-04930539}
+  title        = "Anomaly Detection using Knowledge Graphs: A Survey for Network Management and Cybersecurity Application,
+  author       = "Lionel Tailhardat and Yoan Chabot and Raphael Troncy",
+  year         = "2025",
+  howpublished = "\url{https://hal.science/hal-04930539}",
+  note         = "RefId: hal-04930539"
 }
 ```
 
