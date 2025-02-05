@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Orange. All rights reserved.
+# Copyright (c) 2022-2025 Orange. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -75,7 +75,7 @@
 <LS_Topology_NetworkLink>
     rml:source "datasource/noria_topology.graphml" ;
     rml:referenceFormulation ql:XPath ;
-    rml:iterator "/:graphml/:graph/:edge" ;
+    rml:iterator "/graphml/graph/edge" ;
     rdfs:comment "This Logical Source defines an XPath iterator to 'edge' nodes from a NORIA GraphML file assuming the presence of a default 'xmlns' in the XML specs. (note the empty ':' in front of XPath nodes).";
 .
 
