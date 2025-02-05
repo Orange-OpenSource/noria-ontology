@@ -27,13 +27,13 @@ We provide a direct access to the NORIA-O resources with the **noria** [w3id.org
 
 Based on this identifier, the following links apply for direct access to the NORIA-O featured topics:
 
-| NORIA-O | Link |
-| --- | --- |
-| Ontologies | https://w3id.org/noria/ontology/ |
-| Documentation | https://w3id.org/noria/doc/ |
-| Vocabularies | https://w3id.org/noria/kos/ |
-| Competency Questions | https://w3id.org/noria/cqs/ |
-| Authoring Tests | https://w3id.org/noria/evaluation/ |
+| NORIA-O              | Link                               |
+|----------------------|------------------------------------|
+| Ontologies           | https://w3id.org/noria/ontology/   |
+| Documentation        | https://w3id.org/noria/doc/        |
+| Vocabularies         | https://w3id.org/noria/kos/        |
+| Competency Questions | https://w3id.org/noria/cqs/        |
+| Authoring Tests      | https://w3id.org/noria/evaluation/ |
 
 See also the *Repository Structure* for navigating into this repository:
 ```
@@ -48,7 +48,7 @@ noria-ontology
 
 ## Copyright
 
-Copyright (c) 2020-2024, Orange / EURECOM. All rights reserved.
+Copyright (c) 2020-2025, Orange / EURECOM. All rights reserved.
 
 ## License
 

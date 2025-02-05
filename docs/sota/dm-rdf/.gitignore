@@ -1,3 +1,8 @@
-# Temporary files
+# Temporary files - general
 *.log
 catalog-v001.xml
+
+# Temporary files - stats
+/to-oops.xml
+/to-oops-generated.xml
+/from-oops.xml

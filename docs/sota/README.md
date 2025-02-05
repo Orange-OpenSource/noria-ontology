@@ -5,12 +5,12 @@ This folder contains the **NORIA-O SotA resources**: a state of the art (SotA) o
 This work has been published in:
 
 ```bibtex
-@phdthesis{LTailhardat-noria-thesis-2024,
-  author  = "Lionel Tailhardat",
-  title   = "Anomaly Detection using Knowledge Graphs and Synergistic Reasoning: Application to Network Management and Cyber Security",
-  school  = "EURECOM, Sorbonne University",
-  address = "France",
-  year    = 2024
+@misc{LTailhardat-noria-sota-2025,
+  title        = {Anomaly Detection using Knowledge Graphs: A Survey for Network Management and Cybersecurity Application},
+  author       = {{Lionel Tailhardat} and {Yoan Chabot} and {Raphael Troncy}},
+  year         = {2025},
+  howpublished = {\url{https://hal.science/hal-04930539}},
+  note         = {RefId: hal-04930539}
 }
 ```
 
@@ -18,7 +18,7 @@ This work has been published in:
 
 The main components of this repository are the following ones:
 
-* List of data models: the [noria-sota-ontology.xlsx](noria-sota-ontology.xlsx) file
+* List of data models: the [./noria-sota-ontology.xlsx](noria-sota-ontology.xlsx) file
 * Dataset of data models: sub-folders in [./dm-rdf](./dm-rdf)
 
 ### Browse and/or edit the list of data models

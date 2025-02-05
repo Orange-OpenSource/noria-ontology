@@ -1,163 +1,10 @@
 group,pit,pit_code,pit_count,pit_importance,pit_name
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/c589c65a-74fb-42be-bf5a-a2474bb4bf26,P04,15,Minor,Creating unconnected ontology elements
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/50411aff-b655-4e13-8cae-b9f8ee8e36fb,P08,30,Minor,Missing annotations
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/ab6cc3c1-c780-4b4a-8bfd-fd36e1ce6239,P10,1,Important,Missing disjointness
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/d9216b85-991b-419c-a439-0a22bc0040e0,P11,48,Important,Missing domain or range in properties
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/38149acb-749d-4eb1-b3cf-835d7695c53a,P13,46,Minor,Inverse relationships not explicitly declared
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/c8d0bbac-36ae-4ff4-bc72-6108badcab04,P30,1,Important,Equivalent classes not explicitly declared
-./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/d4c8ca8a-d5b2-4653-bf52-2e6d99a485f8,P34,1,Important,Untyped class
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/a9298c17-64bb-4dd8-a990-26b7ba6a1e6e,P04,2,Minor,Creating unconnected ontology elements
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/8dcec6b3-3f11-495f-9043-698365d503ba,P07,1,Minor,Merging different concepts in the same class
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/61c3cc6c-2d3e-43e7-9cd2-8bed3c75176d,P08,88,Minor,Missing annotations
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/4689bc65-ded5-4565-a89a-74558ffb2466,P10,1,Important,Missing disjointness
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/4d0e48b4-6583-4b31-a57e-1c6f78185586,P13,10,Minor,Inverse relationships not explicitly declared
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/0ef75cf9-b0ff-4879-8db4-d1a7c3ed1274,P19,10,Critical,Defining multiple domains or ranges in properties
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/d1417244-f1b3-4cad-b5e6-fc6ea3a2fdd7,P22,1,Minor,Using different naming conventions in the ontology
-./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/3e0bdc77-983e-4965-9ef7-e602fd3158f4,P30,1,Important,Equivalent classes not explicitly declared
-./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/f257f8ed-2a66-4cb3-902f-63a11a5f4250,P11,12,Important,Missing domain or range in properties
-./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/1cdd05b0-9106-47fa-9507-35907814254a,P13,22,Minor,Inverse relationships not explicitly declared
-./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/2c56d32d-ba9d-4d92-9a29-8aa6f0b766bd,P24,2,Important,Using recursive definitions
-./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/c5e3c86b-1ae1-4587-9759-e28f232310cd,P30,1,Important,Equivalent classes not explicitly declared
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/ff97e002-45cf-4fa5-bd2d-501f10df14a3,P08,144,Minor,Missing annotations
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/9a34226f-c5b7-4220-9869-3f05ff593110,P10,1,Important,Missing disjointness
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/064a02cb-ca6a-421a-be97-a9986afcbd8b,P11,7,Important,Missing domain or range in properties
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/c8dd2bac-b027-4fae-8ed4-2d06d299b253,P13,24,Minor,Inverse relationships not explicitly declared
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/25374b8f-09b7-4f70-a67a-a8f951c2d89e,P19,16,Critical,Defining multiple domains or ranges in properties
-./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/81529366-d79b-4eba-8af9-618da110c8ef,P34,1,Important,Untyped class
-./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/c1363b88-bfbe-4a5e-8319-7f2efac43d3a,P08,23,Minor,Missing annotations
-./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/68819745-c8a1-42e1-a1f5-8453cf2a33d8,P11,2,Important,Missing domain or range in properties
-./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/50e2222b-1a96-44f9-9b5a-d108cda8f571,P13,42,Minor,Inverse relationships not explicitly declared
-./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/97ea93e8-9739-43e7-b9da-b3e7ec908086,P19,2,Critical,Defining multiple domains or ranges in properties
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/68ed445c-5188-4d4e-b27e-e968a65ef971,P04,4,Minor,Creating unconnected ontology elements
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/48c7aec3-3ba4-4955-a5d3-91d01579bf8f,P08,17,Minor,Missing annotations
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/d53afb1c-29be-444f-8a6c-011abb86e024,P10,1,Important,Missing disjointness
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/2bb1c22e-0a95-463a-9840-cec523e61625,P11,56,Important,Missing domain or range in properties
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/3594e652-e8e3-4c64-ac37-165f05be6693,P13,19,Minor,Inverse relationships not explicitly declared
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/24e1e4f6-5b87-4632-ba61-b520f4b88b45,P22,1,Minor,Using different naming conventions in the ontology
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/a80415be-aa8b-4430-89f4-381086b52f12,P24,2,Important,Using recursive definitions
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/d863f92c-f392-45bf-9abd-87ff0089c235,P30,3,Important,Equivalent classes not explicitly declared
-./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/14223dd2-3e79-4c3b-a746-93e9102386c9,P34,9,Important,Untyped class
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/72839f84-182f-499e-b634-3afb4f0a5982,P04,4,Minor,Creating unconnected ontology elements
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/8c0540fe-2742-408e-b179-4fe4545a2551,P08,98,Minor,Missing annotations
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/3d478e1a-b952-4bf8-a507-210894fc8ac6,P11,75,Important,Missing domain or range in properties
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/1bfc7aa6-da36-4a4d-9649-422a3b5c948e,P13,67,Minor,Inverse relationships not explicitly declared
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/5ffb1aef-bb48-436c-9d53-a7404101892d,P22,1,Minor,Using different naming conventions in the ontology
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/0e11c8c6-6f6f-49fe-a241-ae89241993ce,P24,3,Important,Using recursive definitions
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/6210a64a-59f1-4c81-86c4-af569ca8bf5c,P33,1,Minor,Creating a property chain with just one property
-./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/02370f65-80ab-4d57-a6a9-fcf6e08b2a17,P34,1,Important,Untyped class
-./PEP/oops-stats.csv,http://oops.linkeddata.es/data/5ac8f742-2871-4aaf-8676-5e96d01090b2,P04,2,Minor,Creating unconnected ontology elements
-./PEP/oops-stats.csv,http://oops.linkeddata.es/data/cf2a0fd4-73d5-4efc-bbed-e4ffda7488ea,P08,2,Minor,Missing annotations
-./PEP/oops-stats.csv,http://oops.linkeddata.es/data/daaf2394-52fe-4be8-980b-da9bf93e03df,P11,6,Important,Missing domain or range in properties
-./PEP/oops-stats.csv,http://oops.linkeddata.es/data/19d020ba-247f-4605-9855-6beddf14616c,P13,7,Minor,Inverse relationships not explicitly declared
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/338614d6-d629-4e61-9eac-254579155c50,P07,5,Minor,Merging different concepts in the same class
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/888eec18-22bb-4857-98c9-47362765d163,P08,507,Minor,Missing annotations
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/9d8cb5ee-878d-439e-a997-c6ae00f5d709,P10,1,Important,Missing disjointness
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/7d6f1379-a559-4a34-869a-1683badd87f0,P11,4,Important,Missing domain or range in properties
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/b6d43255-ed1e-4724-bf05-768f03fb46bc,P13,23,Minor,Inverse relationships not explicitly declared
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/d5c59721-8c97-4873-97a3-38b11e02d726,P22,1,Minor,Using different naming conventions in the ontology
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/04df2fb5-7773-4311-a96d-6b94a69bd70a,P24,1,Important,Using recursive definitions
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/4efa19e2-2b35-49b0-b452-43d9d1500ce5,P30,11,Important,Equivalent classes not explicitly declared
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/98bc2b5e-f460-4b0d-8ba0-fb09255e9b7c,P32,48,Minor,Several classes with the same label
-./OM/oops-stats.csv,http://oops.linkeddata.es/data/1f18997c-b6bb-44fe-9d1f-f1d7809d93fc,P34,10,Important,Untyped class
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/b9a39b99-9191-451d-bc93-25c2c91eae81,P04,2,Minor,Creating unconnected ontology elements
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/f3f2b5cd-a5cb-4c34-a542-530e448af022,P07,2,Minor,Merging different concepts in the same class
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/c9004875-080a-4acd-a47b-67bc8cb9c780,P08,1802,Minor,Missing annotations
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/45a56984-4de9-4dc5-a1eb-f5802335d608,P11,224,Important,Missing domain or range in properties
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/2bfb1783-6651-40a2-8c69-2a9f27f9115b,P13,128,Minor,Inverse relationships not explicitly declared
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/bca896a8-8325-4695-bc7a-8b18b6c66c90,P22,1,Minor,Using different naming conventions in the ontology
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/dd4fdd62-3d79-4328-beb7-27f5f4d06afb,P24,6,Important,Using recursive definitions
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/63ba17aa-3754-4231-bf75-0c38512ac664,P25,1,Important,Defining a relationship as inverse to itself
-./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/5fb7f454-9646-4e4e-8997-f2b645ea03b5,P30,7,Important,Equivalent classes not explicitly declared
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/4e202ed5-9175-4b07-b01d-ca920d981d9d,P03,1,Critical,"Creating the relationship &quot;is&quot; instead of using &quot;rdfs:subClassOf&quot;, &quot;rdf:type&quot; or &quot;owl:sameAs&quot;"
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/5715ac7b-8516-4f29-a4eb-4dc493e79496,P04,1,Minor,Creating unconnected ontology elements
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/14432867-95e5-43a7-98c2-40433936db83,P08,680,Minor,Missing annotations
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/2f7fc2e7-7eea-4aa1-9eaf-f52fce03bc86,P11,180,Important,Missing domain or range in properties
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/e41ce110-b8f3-4b55-9ef3-302edfa6cb9b,P12,1,Important,Equivalent properties not explicitly declared
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/312e9379-c65f-4085-b1ec-20c673d0b246,P13,112,Minor,Inverse relationships not explicitly declared
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/e4beecdc-fde4-4038-bfb8-da5f1040011b,P22,1,Minor,Using different naming conventions in the ontology
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/24e81afa-c868-4017-9d7d-0c6efe1b0f3a,P24,5,Important,Using recursive definitions
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/3dad4a26-d114-4d8d-9069-2c4a92c84df1,P25,2,Important,Defining a relationship as inverse to itself
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/6ecedbfe-2015-4d0b-8b2b-1c0407e73156,P26,1,Important,Defining inverse relationships for a symmetric one
-./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/fa16f9c5-d4f2-4e88-af89-c245a7084c1e,P30,7,Important,Equivalent classes not explicitly declared
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/91301ade-2fcd-4082-8de1-33ae809de4ea,P04,16,Minor,Creating unconnected ontology elements
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/6f7072c7-8825-4f84-8d77-fbf1cc2d5843,P08,3,Minor,Missing annotations
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/4f64d70b-cc63-4bbb-886b-b0db20ba8d70,P10,1,Important,Missing disjointness
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/33681e01-0596-4028-9842-38ea1200471d,P11,23,Important,Missing domain or range in properties
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/6713ccd4-04f6-4c15-884e-d7cf039173bd,P13,3,Minor,Inverse relationships not explicitly declared
-./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/3164c13f-7aae-4451-808f-45268a244297,P30,1,Important,Equivalent classes not explicitly declared
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/6fbfc129-5a80-4ceb-94e1-8442e0893ad2,P04,20,Minor,Creating unconnected ontology elements
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/7d92884e-2557-48db-97f3-da3bf208872b,P08,20,Minor,Missing annotations
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/4b3ca610-ec11-44be-8fb4-97d09c674788,P10,1,Important,Missing disjointness
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/af45e61f-7485-4824-8f24-b8a5542efc59,P11,38,Important,Missing domain or range in properties
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/c073451f-a107-4722-ab4c-1b347f2492fc,P13,3,Minor,Inverse relationships not explicitly declared
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/72c3bcd2-6487-4749-9e16-8519380338f7,P24,1,Important,Using recursive definitions
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/23d4d7f8-869c-4f0b-a193-f92d63f2a9ef,P30,2,Important,Equivalent classes not explicitly declared
-./SSN/oops-stats.csv,http://oops.linkeddata.es/data/44fd0194-6abc-4ab2-b5dc-7d743902d74b,P34,9,Important,Untyped class
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/2f496c9a-6534-473e-8af4-ee71c68225f5,P02,2,Minor,Creating synonyms as classes
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/e1652634-392d-4919-9694-5104734dbac1,P04,3,Minor,Creating unconnected ontology elements
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/f835d88a-98e0-4cd4-af2e-041f29863b06,P08,198,Minor,Missing annotations
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/d942a848-2d07-4075-a70b-a54daa243139,P11,33,Important,Missing domain or range in properties
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/270b4d0e-6b79-419d-9151-cddf127ebf10,P12,8,Important,Equivalent properties not explicitly declared
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/16f43f81-5396-4aee-9c07-40c75eabc26f,P13,76,Minor,Inverse relationships not explicitly declared
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/cdfc8858-dc22-4730-9845-52b52a8104ac,P22,1,Minor,Using different naming conventions in the ontology
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/64a00b22-108a-4dd6-83c8-1ad6825673da,P24,4,Important,Using recursive definitions
-./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/63436ff4-92ce-43c9-96c2-59c0fd33c7cb,P31,1,Critical,Defining wrong equivalent classes
-./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/6a421f8b-edb6-4330-8586-357242b55907,P08,58,Minor,Missing annotations
-./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/e359c719-fdd3-4c0b-ae54-bc5ac4d4daf4,P11,6,Important,Missing domain or range in properties
-./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/5942d867-befb-4d00-a905-b13edbccedbc,P13,4,Minor,Inverse relationships not explicitly declared
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/b0b8fe73-2296-4eb2-8f80-b8f8cfe93c93,P04,2,Minor,Creating unconnected ontology elements
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/57bb36e6-c31f-422d-a1e7-874b21d5449c,P08,99,Minor,Missing annotations
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/29e6d4d2-e416-43f2-9038-a680796e25db,P11,32,Important,Missing domain or range in properties
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/b4effd2c-7b21-4c72-8e98-bdf547f9f1ac,P13,14,Minor,Inverse relationships not explicitly declared
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/395f6ea3-fb0c-4518-bb35-dbc0afb8683f,P19,1,Critical,Defining multiple domains or ranges in properties
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/7764adc2-6cdb-4a4d-aae2-f954a176e586,P22,1,Minor,Using different naming conventions in the ontology
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/219abb99-2844-4166-92e6-1112ab18d960,P29,1,Critical,Defining wrong transitive relationships
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/7a079363-2e20-4fef-87cc-90212a18cdb0,P30,1,Important,Equivalent classes not explicitly declared
-./GEO/oops-stats.csv,http://oops.linkeddata.es/data/d29d3561-923d-4dfc-bf45-820fbd40debe,P34,7,Important,Untyped class
-./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/baff8e8c-e07c-435b-83f6-392951f0f200,P04,2,Minor,Creating unconnected ontology elements
-./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/c6a30401-f510-4966-a86a-80a6741c6908,P08,62,Minor,Missing annotations
-./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/b940577c-a957-47b0-9efa-44d37f8c4d3c,P11,7,Important,Missing domain or range in properties
-./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/af8e7a27-fc21-47be-ac17-1ef0a460ecae,P13,58,Minor,Inverse relationships not explicitly declared
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/704cf01a-4dd3-4f78-91ea-ad94ef2c61d2,P08,32,Minor,Missing annotations
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/6d3c8d28-cfa7-4cb1-b56c-4e50d3a0195d,P10,1,Important,Missing disjointness
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e438e662-0401-4ae2-9850-aa6a6c698565,P11,27,Important,Missing domain or range in properties
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/45f6e9e8-4515-4383-a416-96fca4b5e91d,P13,20,Minor,Inverse relationships not explicitly declared
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e8c8a3cb-88ed-4903-910f-5edd4be59e3f,P24,6,Important,Using recursive definitions
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/83237e07-7a97-4c08-9393-ed55e93aade5,P25,6,Important,Defining a relationship as inverse to itself
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/f070cf75-fbee-4b75-9390-c91d172dd3bc,P26,6,Important,Defining inverse relationships for a symmetric one
-./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e6eaa4c4-264c-4675-85af-9ad3d178d6a5,P30,1,Important,Equivalent classes not explicitly declared
-./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/d1827f1f-b06f-40e5-8fa0-97cda3a1747d,P04,3,Minor,Creating unconnected ontology elements
-./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/a40d1381-0cdb-4101-925b-73b53ef49651,P08,25,Minor,Missing annotations
-./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/e8fafc54-ade0-479e-95f5-ded1a1f862fc,P10,1,Important,Missing disjointness
-./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/19c68d66-0fa7-4988-8de9-f0e3ce2c415f,P13,4,Minor,Inverse relationships not explicitly declared
-./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/b35bc9f3-2247-4988-a7c1-320e01244c03,P08,13,Minor,Missing annotations
-./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/16a21089-51e0-459f-b283-656a58e1ed8a,P10,1,Important,Missing disjointness
-./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/7c66f3cc-a2ce-4385-b990-5a56815f3b77,P11,3,Important,Missing domain or range in properties
-./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/ea67fd60-5eea-4331-b70e-ed98d3d805cf,P13,6,Minor,Inverse relationships not explicitly declared
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/1625f05d-e5e1-4c0d-93f6-b23e2e0b3162,P02,1,Minor,Creating synonyms as classes
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/ecc9785e-ac3f-4277-8f41-fe00b0c3f00b,P08,42,Minor,Missing annotations
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/999c20c0-806c-40a1-a98a-c65a9872690f,P10,1,Important,Missing disjointness
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/00379b97-47fa-440b-9c82-2881a0a4577f,P11,2,Important,Missing domain or range in properties
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/99465f62-238f-44cc-a6dc-fcee348ca72c,P13,9,Minor,Inverse relationships not explicitly declared
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/7f5d37d4-75df-419d-b042-339027e55e9d,P19,1,Critical,Defining multiple domains or ranges in properties
-./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/7ed06f27-434b-4100-b667-146e67ce7cc7,P31,1,Critical,Defining wrong equivalent classes
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/08227718-d277-4340-acb6-63073cfd7e17,P05,4,Critical,Defining wrong inverse relationships
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/c15cd5f8-ad08-4178-861a-8a20019e2691,P08,209,Minor,Missing annotations
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/544c248f-e913-44f3-959c-7e9ab13e42f1,P11,16,Important,Missing domain or range in properties
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/3fea06ff-24b3-4e66-b6cb-d2636f890626,P12,8,Important,Equivalent properties not explicitly declared
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/00bf75cc-2747-44a1-83fc-85f2833b9e3c,P13,36,Minor,Inverse relationships not explicitly declared
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/7d055a90-2a61-4716-a167-f7987ff7a465,P22,1,Minor,Using different naming conventions in the ontology
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/11a704e7-f682-44bb-a434-973c41e822a5,P27,3,Critical,Defining wrong equivalent properties
-./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/9d17aa6c-6d53-4b62-a45e-e3c75d039b0b,P30,2,Important,Equivalent classes not explicitly declared
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/3bb060e4-874f-4a44-95dc-dd4c3154cb2b,P04,2,Minor,Creating unconnected ontology elements
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/27447e27-1c39-4adb-ad68-d7b2361b48bb,P07,24,Minor,Merging different concepts in the same class
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/33080c33-a4e9-4b59-af33-8fcad06de1d5,P08,57,Minor,Missing annotations
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/e9627725-3212-4148-93cd-63e25329bdee,P11,9,Important,Missing domain or range in properties
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/ab0b9531-5632-4949-be0f-eda7a1db8029,P13,21,Minor,Inverse relationships not explicitly declared
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/1fda9aa5-4874-4118-afd6-1681bcf8f121,P19,1,Critical,Defining multiple domains or ranges in properties
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/ffe2b002-37a5-44da-9cfa-fb927449cf2c,P21,4,Minor,Using a miscellaneous class
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/d8b5da3d-52f3-4ec1-bfd6-7b084736f242,P30,3,Important,Equivalent classes not explicitly declared
-./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/fcb3fc20-c556-40d1-b3da-0d5af23681b3,P32,4,Minor,Several classes with the same label
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/83cce300-231f-43e8-9254-ac1b99c96a8c,P04,3,Minor,Creating unconnected ontology elements
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/e2edfe89-206d-45c5-aa66-b07011a8dc0d,P08,3,Minor,Missing annotations
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/bb5123cb-0de8-4eab-8883-9a277e9baba3,P11,7,Important,Missing domain or range in properties
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/a85f894c-6ddb-43c3-b2f3-0a2215f32abe,P13,12,Minor,Inverse relationships not explicitly declared
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/57495054-4a07-4901-826d-16fdc15aae01,P20,1,Minor,Misusing ontology annotations
+./BOT/oops-stats.csv,http://oops.linkeddata.es/data/0a29d652-8318-461f-8203-8040f6a508b6,P30,1,Important,Equivalent classes not explicitly declared
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/b363152b-fbdb-473d-8b78-6deaa9657dcf,P04,24,Minor,Creating unconnected ontology elements
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/2f4d9907-cba0-4fe4-b738-1eaef6775199,P08,194,Minor,Missing annotations
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/7cc5da7e-6522-4be5-9931-e3f7152371b3,P11,228,Important,Missing domain or range in properties
@@ -167,52 +14,58 @@ group,pit,pit_code,pit_count,pit_importance,pit_name
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/b0005df5-8e65-46be-b2f7-1a1560dd03a7,P24,4,Important,Using recursive definitions
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/1485df3d-c484-4fca-8a0b-21faeaf9c8ad,P25,1,Important,Defining a relationship as inverse to itself
 ./QUDT/oops-stats.csv,http://oops.linkeddata.es/data/081c0ede-699b-4568-96dc-699233c567b7,P26,1,Important,Defining inverse relationships for a symmetric one
-./FOAF/oops-stats.csv,http://oops.linkeddata.es/data/dee7c2f7-525a-43bd-a0f4-7c109c4d237b,P34,8,Important,Untyped class
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/d386be06-dd38-4db9-b428-672906d74cc7,P08,61,Minor,Missing annotations
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/14b3064b-d444-44f2-ba36-00a789ae24d4,P10,1,Important,Missing disjointness
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/eb99b97b-42ef-440b-97bc-fa8d0ff660e0,P11,56,Important,Missing domain or range in properties
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/ac71ba32-79ba-4c8a-8d16-1928ce0456fa,P12,1,Important,Equivalent properties not explicitly declared
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/e5b47d87-b0e5-4671-b1ad-568e460d1400,P13,15,Minor,Inverse relationships not explicitly declared
-./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/b387d10d-2ee9-4d09-ad5a-453bc3b348a0,P20,3,Minor,Misusing ontology annotations
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/7e5b9ad3-25c6-4432-b150-e519da26dc93,P04,3,Minor,Creating unconnected ontology elements
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/7c45cff3-2562-4d2a-a139-1ebb7eacca0f,P07,1,Minor,Merging different concepts in the same class
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/d8877e2e-b5fa-4f35-a8bb-ce53e2f7abf4,P08,172,Minor,Missing annotations
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/28c43cc4-4309-4728-9645-41824b96fd09,P11,2,Important,Missing domain or range in properties
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/f99be4d9-61fa-4a5f-99dd-22196f1fe8be,P13,36,Minor,Inverse relationships not explicitly declared
-./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/db839018-e6fb-4262-8e52-ede79d75e9ac,P22,1,Minor,Using different naming conventions in the ontology
-./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/69819859-35b1-4be4-86bd-44299e2037cf,P10,1,Important,Missing disjointness
-./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/1730c5c1-a6b9-4a2f-aa4a-4b020352ee0c,P11,4,Important,Missing domain or range in properties
-./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/e42585e7-e1ca-4a93-badd-3565ec4b944c,P13,22,Minor,Inverse relationships not explicitly declared
-./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/51875a5a-3696-47e1-ae05-6faf3211a416,P34,1,Important,Untyped class
-./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/80c261db-2286-4aab-af33-2c9edbb278aa,P35,1,Important,Untyped property
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/1a26fe84-3882-4869-94a2-0ef92b0a133e,P04,3,Minor,Creating unconnected ontology elements
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/fbfd0472-7f4c-4db4-8a39-58e59e77bd44,P07,11,Minor,Merging different concepts in the same class
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/364c8711-2447-4f02-8372-e5c065e159f7,P08,956,Minor,Missing annotations
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/9324a221-b818-43a8-9ec3-8557b488e5e8,P11,12,Important,Missing domain or range in properties
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/c262ebd6-9269-4d11-a0a3-b8e19798396e,P13,12,Minor,Inverse relationships not explicitly declared
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/5f4b31cf-72ab-4684-8dfb-f58f1bfe8986,P20,1,Minor,Misusing ontology annotations
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/547944a7-8743-45ec-b1b1-61b3583f035b,P21,1,Minor,Using a miscellaneous class
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/b7a3654a-b392-41ca-b2a5-5788c66b1037,P22,1,Minor,Using different naming conventions in the ontology
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/e266863d-7a52-4c94-857a-080adcc4751c,P30,4,Important,Equivalent classes not explicitly declared
-./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/86c5f103-f677-4efd-9ca5-7a7c45909b64,P31,1,Critical,Defining wrong equivalent classes
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/a958252a-2852-457e-8786-3da2b03e92f8,P04,5,Minor,Creating unconnected ontology elements
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/1ce5147f-6976-45f9-9d5e-eefedacb509b,P08,257,Minor,Missing annotations
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/1509e54a-0ccc-4059-9143-595cb20223f2,P10,1,Important,Missing disjointness
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/1148d741-28ba-473d-9241-8f19f1c9e8e3,P11,2,Important,Missing domain or range in properties
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/f0c4f859-523f-467c-b3d5-52a82ec8344a,P12,37,Important,Equivalent properties not explicitly declared
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/60a07821-1580-486e-ac13-884de5965d10,P13,44,Minor,Inverse relationships not explicitly declared
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/a5f0e6a7-b79a-4e5a-a01d-838e3a94f0e6,P19,15,Critical,Defining multiple domains or ranges in properties
+./ICS-SEC/oops-stats.csv,http://oops.linkeddata.es/data/bdb8a6fd-f435-427f-92a9-c27613d9027e,P22,1,Minor,Using different naming conventions in the ontology
+./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/e4649eab-d748-4669-aefb-8d1ed6e93d3b,P04,10,Minor,Creating unconnected ontology elements
+./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/bd26fe1b-249f-4a0d-bd52-295ee05572b3,P08,144,Minor,Missing annotations
+./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/4d78434d-1ece-42d6-bb8d-bbb414847259,P10,1,Important,Missing disjointness
+./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/97f43e64-0e8f-4a7f-9f35-4074175fc9fa,P11,46,Important,Missing domain or range in properties
+./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/9c1a214c-6e28-4633-9d3c-93f8da86e8b9,P13,20,Minor,Inverse relationships not explicitly declared
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/68ed445c-5188-4d4e-b27e-e968a65ef971,P04,4,Minor,Creating unconnected ontology elements
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/48c7aec3-3ba4-4955-a5d3-91d01579bf8f,P08,17,Minor,Missing annotations
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/d53afb1c-29be-444f-8a6c-011abb86e024,P10,1,Important,Missing disjointness
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/2bb1c22e-0a95-463a-9840-cec523e61625,P11,56,Important,Missing domain or range in properties
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/3594e652-e8e3-4c64-ac37-165f05be6693,P13,19,Minor,Inverse relationships not explicitly declared
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/24e1e4f6-5b87-4632-ba61-b520f4b88b45,P22,1,Minor,Using different naming conventions in the ontology
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/a80415be-aa8b-4430-89f4-381086b52f12,P24,2,Important,Using recursive definitions
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/d863f92c-f392-45bf-9abd-87ff0089c235,P30,3,Important,Equivalent classes not explicitly declared
+./FOLIO/oops-stats.csv,http://oops.linkeddata.es/data/14223dd2-3e79-4c3b-a746-93e9102386c9,P34,9,Important,Untyped class
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/0cf14fb4-5160-468a-bbdd-32c0d8fa3d95,P04,2,Minor,Creating unconnected ontology elements
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/987c48a0-c105-439b-87a1-ffeb4bf3892a,P08,6,Minor,Missing annotations
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/765dcec0-9652-4ef6-aadf-190689d9aa68,P10,1,Important,Missing disjointness
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/ed825050-70dc-4b8e-81ab-42b2abebefa2,P11,13,Important,Missing domain or range in properties
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/228267ac-3422-4b7b-a959-ea406c299fbc,P34,67,Important,Untyped class
 ./SEAS-COMMUNICATION/oops-stats.csv,http://oops.linkeddata.es/data/0256e777-3e1c-4268-8eba-57defec8179d,P35,1,Important,Untyped property
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/cb67b43f-90ed-47b0-8520-cb98382eb51f,P04,6,Minor,Creating unconnected ontology elements
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/6d678016-0d52-424c-b0ec-5462a8b94270,P08,291,Minor,Missing annotations
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/86db0d88-7657-476c-b467-6bac1a2d8591,P10,1,Important,Missing disjointness
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/efbea74f-b1f5-4f16-ac16-0d36069c7f7b,P11,9,Important,Missing domain or range in properties
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/91266089-3d6e-470e-9458-f78c1955c441,P13,77,Minor,Inverse relationships not explicitly declared
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/dea943e8-af3a-481c-ac8e-597778df7b9a,P22,1,Minor,Using different naming conventions in the ontology
-./mIO/oops-stats.csv,http://oops.linkeddata.es/data/33be03c2-2287-4ae6-83be-55bf8558abb1,P24,1,Important,Using recursive definitions
-./CASE/oops-stats.csv,http://oops.linkeddata.es/data/5f8979ea-4369-4155-9328-f25ca0278caa,P04,5,Minor,Creating unconnected ontology elements
-./CASE/oops-stats.csv,http://oops.linkeddata.es/data/f8d9b0aa-ce5d-479e-b13d-b38f56c2400f,P08,6,Minor,Missing annotations
-./CASE/oops-stats.csv,http://oops.linkeddata.es/data/6aca56da-24c4-4200-bc0d-ef55002dff4f,P10,1,Important,Missing disjointness
-./CASE/oops-stats.csv,http://oops.linkeddata.es/data/015cc691-2384-4e7e-9ae8-f93675371e30,P11,8,Important,Missing domain or range in properties
-./CASE/oops-stats.csv,http://oops.linkeddata.es/data/1c99e530-2f67-42a7-8194-bfb70e7ad7e0,P13,3,Minor,Inverse relationships not explicitly declared
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/b056d009-f62d-4392-a79a-4d5f22aec214,P04,1,Minor,Creating unconnected ontology elements
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/33a66168-f3df-4b14-8120-70fed1a39479,P05,1,Critical,Defining wrong inverse relationships
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/b2a32ba8-1c14-45c1-ad9b-58e64b09a254,P08,113,Minor,Missing annotations
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/0786c0b4-e9a1-4bd6-8034-1147b148d886,P11,19,Important,Missing domain or range in properties
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/9904b977-0577-457f-b332-351463e44308,P13,67,Minor,Inverse relationships not explicitly declared
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/2e88b951-a621-4d5a-9968-47086cd2677e,P20,1,Minor,Misusing ontology annotations
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/3bc2bd50-b7fc-4896-9a88-aa0bc3e69547,P22,1,Minor,Using different naming conventions in the ontology
+./BBO/oops-stats.csv,http://oops.linkeddata.es/data/a33d466b-68e1-497f-a90e-017188c1435f,P30,2,Important,Equivalent classes not explicitly declared
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/1625f05d-e5e1-4c0d-93f6-b23e2e0b3162,P02,1,Minor,Creating synonyms as classes
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/ecc9785e-ac3f-4277-8f41-fe00b0c3f00b,P08,42,Minor,Missing annotations
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/999c20c0-806c-40a1-a98a-c65a9872690f,P10,1,Important,Missing disjointness
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/00379b97-47fa-440b-9c82-2881a0a4577f,P11,2,Important,Missing domain or range in properties
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/99465f62-238f-44cc-a6dc-fcee348ca72c,P13,9,Minor,Inverse relationships not explicitly declared
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/7f5d37d4-75df-419d-b042-339027e55e9d,P19,1,Critical,Defining multiple domains or ranges in properties
+./iot-lite/oops-stats.csv,http://oops.linkeddata.es/data/7ed06f27-434b-4100-b667-146e67ce7cc7,P31,1,Critical,Defining wrong equivalent classes
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/b9a39b99-9191-451d-bc93-25c2c91eae81,P04,2,Minor,Creating unconnected ontology elements
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/f3f2b5cd-a5cb-4c34-a542-530e448af022,P07,2,Minor,Merging different concepts in the same class
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/c9004875-080a-4acd-a47b-67bc8cb9c780,P08,1802,Minor,Missing annotations
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/45a56984-4de9-4dc5-a1eb-f5802335d608,P11,224,Important,Missing domain or range in properties
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/2bfb1783-6651-40a2-8c69-2a9f27f9115b,P13,128,Minor,Inverse relationships not explicitly declared
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/bca896a8-8325-4695-bc7a-8b18b6c66c90,P22,1,Minor,Using different naming conventions in the ontology
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/dd4fdd62-3d79-4328-beb7-27f5f4d06afb,P24,6,Important,Using recursive definitions
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/63ba17aa-3754-4231-bf75-0c38512ac664,P25,1,Important,Defining a relationship as inverse to itself
+./D3FEND/oops-stats.csv,http://oops.linkeddata.es/data/5fb7f454-9646-4e4e-8997-f2b645ea03b5,P30,7,Important,Equivalent classes not explicitly declared
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/cb1e9c38-6b13-48a8-8798-0b854466c820,P04,1,Minor,Creating unconnected ontology elements
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/7f0438d4-693a-45f2-b4c1-143416d62747,P08,145,Minor,Missing annotations
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/0e6ac866-c9ef-41d7-ae23-a05a5bef2eee,P11,745,Important,Missing domain or range in properties
@@ -224,32 +77,44 @@ group,pit,pit_code,pit_count,pit_importance,pit_name
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/e985aeb3-2e13-4e29-8ecd-78387ffb6575,P32,2,Minor,Several classes with the same label
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/ceaa763e-3e3c-4d5a-ad11-f38ae2305de3,P34,7,Important,Untyped class
 ./UCO/oops-stats.csv,http://oops.linkeddata.es/data/1de2738d-2fc6-4795-9588-842ceb235097,P35,1,Important,Untyped property
-./INDL/oops-stats.csv,http://oops.linkeddata.es/data/dd6354c1-1bd1-4458-a56b-ad9c4795bc86,P08,71,Minor,Missing annotations
-./INDL/oops-stats.csv,http://oops.linkeddata.es/data/d3b1356e-e6f0-41ad-aca6-76bdde0ba9f3,P10,1,Important,Missing disjointness
-./INDL/oops-stats.csv,http://oops.linkeddata.es/data/b51105a3-3b0f-4478-83b0-03d338d10b6a,P11,7,Important,Missing domain or range in properties
-./INDL/oops-stats.csv,http://oops.linkeddata.es/data/b9640fbf-c8b4-4f37-91b7-bc7821828ccd,P12,1,Important,Equivalent properties not explicitly declared
-./INDL/oops-stats.csv,http://oops.linkeddata.es/data/de9cb07b-4e9f-4326-9c8c-959e0ce4585e,P13,25,Minor,Inverse relationships not explicitly declared
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/b0b8fe73-2296-4eb2-8f80-b8f8cfe93c93,P04,2,Minor,Creating unconnected ontology elements
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/57bb36e6-c31f-422d-a1e7-874b21d5449c,P08,99,Minor,Missing annotations
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/29e6d4d2-e416-43f2-9038-a680796e25db,P11,32,Important,Missing domain or range in properties
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/b4effd2c-7b21-4c72-8e98-bdf547f9f1ac,P13,14,Minor,Inverse relationships not explicitly declared
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/395f6ea3-fb0c-4518-bb35-dbc0afb8683f,P19,1,Critical,Defining multiple domains or ranges in properties
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/7764adc2-6cdb-4a4d-aae2-f954a176e586,P22,1,Minor,Using different naming conventions in the ontology
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/219abb99-2844-4166-92e6-1112ab18d960,P29,1,Critical,Defining wrong transitive relationships
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/7a079363-2e20-4fef-87cc-90212a18cdb0,P30,1,Important,Equivalent classes not explicitly declared
+./GEO/oops-stats.csv,http://oops.linkeddata.es/data/d29d3561-923d-4dfc-bf45-820fbd40debe,P34,7,Important,Untyped class
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/3bb060e4-874f-4a44-95dc-dd4c3154cb2b,P04,2,Minor,Creating unconnected ontology elements
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/27447e27-1c39-4adb-ad68-d7b2361b48bb,P07,24,Minor,Merging different concepts in the same class
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/33080c33-a4e9-4b59-af33-8fcad06de1d5,P08,57,Minor,Missing annotations
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/e9627725-3212-4148-93cd-63e25329bdee,P11,9,Important,Missing domain or range in properties
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/ab0b9531-5632-4949-be0f-eda7a1db8029,P13,21,Minor,Inverse relationships not explicitly declared
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/1fda9aa5-4874-4118-afd6-1681bcf8f121,P19,1,Critical,Defining multiple domains or ranges in properties
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/ffe2b002-37a5-44da-9cfa-fb927449cf2c,P21,4,Minor,Using a miscellaneous class
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/d8b5da3d-52f3-4ec1-bfd6-7b084736f242,P30,3,Important,Equivalent classes not explicitly declared
+./HELIS/oops-stats.csv,http://oops.linkeddata.es/data/fcb3fc20-c556-40d1-b3da-0d5af23681b3,P32,4,Minor,Several classes with the same label
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/d386be06-dd38-4db9-b428-672906d74cc7,P08,61,Minor,Missing annotations
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/14b3064b-d444-44f2-ba36-00a789ae24d4,P10,1,Important,Missing disjointness
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/eb99b97b-42ef-440b-97bc-fa8d0ff660e0,P11,56,Important,Missing domain or range in properties
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/ac71ba32-79ba-4c8a-8d16-1928ce0456fa,P12,1,Important,Equivalent properties not explicitly declared
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/e5b47d87-b0e5-4671-b1ad-568e460d1400,P13,15,Minor,Inverse relationships not explicitly declared
+./SLOGERT-LOG/oops-stats.csv,http://oops.linkeddata.es/data/b387d10d-2ee9-4d09-ad5a-453bc3b348a0,P20,3,Minor,Misusing ontology annotations
+./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/d1827f1f-b06f-40e5-8fa0-97cda3a1747d,P04,3,Minor,Creating unconnected ontology elements
+./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/a40d1381-0cdb-4101-925b-73b53ef49651,P08,25,Minor,Missing annotations
+./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/e8fafc54-ade0-479e-95f5-ded1a1f862fc,P10,1,Important,Missing disjointness
+./EMOCA/oops-stats.csv,http://oops.linkeddata.es/data/19c68d66-0fa7-4988-8de9-f0e3ce2c415f,P13,4,Minor,Inverse relationships not explicitly declared
+./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/f257f8ed-2a66-4cb3-902f-63a11a5f4250,P11,12,Important,Missing domain or range in properties
+./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/1cdd05b0-9106-47fa-9507-35907814254a,P13,22,Minor,Inverse relationships not explicitly declared
+./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/2c56d32d-ba9d-4d92-9a29-8aa6f0b766bd,P24,2,Important,Using recursive definitions
+./SAREF/oops-stats.csv,http://oops.linkeddata.es/data/c5e3c86b-1ae1-4587-9759-e28f232310cd,P30,1,Important,Equivalent classes not explicitly declared
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/cd6ca719-bf6e-4954-8372-2c299fb2f61a,P08,16,Minor,Missing annotations
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/a4861ca6-ad44-4986-9756-38fb9f41ac49,P11,27,Important,Missing domain or range in properties
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/0d79c392-1331-4f59-bcbf-1a61030c0d2c,P12,1,Important,Equivalent properties not explicitly declared
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/5ee5083e-a805-408b-a415-3107b315047f,P13,20,Minor,Inverse relationships not explicitly declared
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/6fc7087a-71f5-4aa3-8c1f-1fbd3d7e0457,P34,5,Important,Untyped class
 ./GEONAMES/oops-stats.csv,http://oops.linkeddata.es/data/cfc0cf7b-2ddf-40eb-bd69-b2991b29849b,P35,1,Important,Untyped property
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/83cce300-231f-43e8-9254-ac1b99c96a8c,P04,3,Minor,Creating unconnected ontology elements
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/e2edfe89-206d-45c5-aa66-b07011a8dc0d,P08,3,Minor,Missing annotations
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/bb5123cb-0de8-4eab-8883-9a277e9baba3,P11,7,Important,Missing domain or range in properties
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/a85f894c-6ddb-43c3-b2f3-0a2215f32abe,P13,12,Minor,Inverse relationships not explicitly declared
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/57495054-4a07-4901-826d-16fdc15aae01,P20,1,Minor,Misusing ontology annotations
-./BOT/oops-stats.csv,http://oops.linkeddata.es/data/0a29d652-8318-461f-8203-8040f6a508b6,P30,1,Important,Equivalent classes not explicitly declared
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/d4546a7e-b4e6-4941-927d-3fb796cbbeab,P04,2,Minor,Creating unconnected ontology elements
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/cc67326c-6fbc-4154-80ef-205def2fbc39,P08,14,Minor,Missing annotations
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/0652e628-ba4f-4c42-887a-b3772f80f108,P10,1,Important,Missing disjointness
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/7811d94d-da81-43ff-bbe9-26b86e76d620,P11,2,Important,Missing domain or range in properties
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/5d3e81f8-f9c0-4cf7-b416-5cb42b3697f9,P13,3,Minor,Inverse relationships not explicitly declared
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/5c919f4e-b9e2-449a-ac8f-04cb84fcd8eb,P34,1,Important,Untyped class
-./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/068b491a-5ba9-497f-919b-de247512dd16,P38,1,Important,No OWL ontology declaration
-./OWL-Time/oops-stats.csv,http://oops.linkeddata.es/data/b1899d42-95f7-4766-95d9-430abebcc4eb,P11,6,Important,Missing domain or range in properties
-./OWL-Time/oops-stats.csv,http://oops.linkeddata.es/data/bf15ac92-f7da-48ed-8471-5405d54c0250,P13,20,Minor,Inverse relationships not explicitly declared
 ./ICAS/oops-stats.csv,http://oops.linkeddata.es/data/f2a04d3a-ed31-44b3-bf27-982394692afe,P04,25,Minor,Creating unconnected ontology elements
 ./ICAS/oops-stats.csv,http://oops.linkeddata.es/data/03539cdf-8f92-4269-8992-07f8ddc4d857,P05,11,Critical,Defining wrong inverse relationships
 ./ICAS/oops-stats.csv,http://oops.linkeddata.es/data/b7c3d086-afbf-49dc-82f7-cea4ce57558a,P07,1,Minor,Merging different concepts in the same class
@@ -272,33 +137,52 @@ group,pit,pit_code,pit_count,pit_importance,pit_name
 ./EventOntology/oops-stats.csv,http://oops.linkeddata.es/data/6650c5f6-a144-4fac-a5f3-f5e4410980b2,P22,1,Minor,Using different naming conventions in the ontology
 ./EventOntology/oops-stats.csv,http://oops.linkeddata.es/data/bb4e8254-ed3e-4e33-81ab-5338a5be893c,P24,2,Important,Using recursive definitions
 ./EventOntology/oops-stats.csv,http://oops.linkeddata.es/data/13b9741e-9eb3-40c8-a986-f2d3b43074ee,P30,1,Important,Equivalent classes not explicitly declared
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/338614d6-d629-4e61-9eac-254579155c50,P07,5,Minor,Merging different concepts in the same class
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/888eec18-22bb-4857-98c9-47362765d163,P08,507,Minor,Missing annotations
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/9d8cb5ee-878d-439e-a997-c6ae00f5d709,P10,1,Important,Missing disjointness
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/7d6f1379-a559-4a34-869a-1683badd87f0,P11,4,Important,Missing domain or range in properties
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/b6d43255-ed1e-4724-bf05-768f03fb46bc,P13,23,Minor,Inverse relationships not explicitly declared
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/d5c59721-8c97-4873-97a3-38b11e02d726,P22,1,Minor,Using different naming conventions in the ontology
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/04df2fb5-7773-4311-a96d-6b94a69bd70a,P24,1,Important,Using recursive definitions
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/4efa19e2-2b35-49b0-b452-43d9d1500ce5,P30,11,Important,Equivalent classes not explicitly declared
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/98bc2b5e-f460-4b0d-8ba0-fb09255e9b7c,P32,48,Minor,Several classes with the same label
+./OM/oops-stats.csv,http://oops.linkeddata.es/data/1f18997c-b6bb-44fe-9d1f-f1d7809d93fc,P34,10,Important,Untyped class
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/91301ade-2fcd-4082-8de1-33ae809de4ea,P04,16,Minor,Creating unconnected ontology elements
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/6f7072c7-8825-4f84-8d77-fbf1cc2d5843,P08,3,Minor,Missing annotations
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/4f64d70b-cc63-4bbb-886b-b0db20ba8d70,P10,1,Important,Missing disjointness
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/33681e01-0596-4028-9842-38ea1200471d,P11,23,Important,Missing domain or range in properties
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/6713ccd4-04f6-4c15-884e-d7cf039173bd,P13,3,Minor,Inverse relationships not explicitly declared
+./SOSA/oops-stats.csv,http://oops.linkeddata.es/data/3164c13f-7aae-4451-808f-45268a244297,P30,1,Important,Equivalent classes not explicitly declared
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/2f496c9a-6534-473e-8af4-ee71c68225f5,P02,2,Minor,Creating synonyms as classes
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/e1652634-392d-4919-9694-5104734dbac1,P04,3,Minor,Creating unconnected ontology elements
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/f835d88a-98e0-4cd4-af2e-041f29863b06,P08,198,Minor,Missing annotations
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/d942a848-2d07-4075-a70b-a54daa243139,P11,33,Important,Missing domain or range in properties
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/270b4d0e-6b79-419d-9151-cddf127ebf10,P12,8,Important,Equivalent properties not explicitly declared
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/16f43f81-5396-4aee-9c07-40c75eabc26f,P13,76,Minor,Inverse relationships not explicitly declared
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/cdfc8858-dc22-4730-9845-52b52a8104ac,P22,1,Minor,Using different naming conventions in the ontology
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/64a00b22-108a-4dd6-83c8-1ad6825673da,P24,4,Important,Using recursive definitions
+./OWL-S/oops-stats.csv,http://oops.linkeddata.es/data/63436ff4-92ce-43c9-96c2-59c0fd33c7cb,P31,1,Critical,Defining wrong equivalent classes
+./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/c1363b88-bfbe-4a5e-8319-7f2efac43d3a,P08,23,Minor,Missing annotations
+./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/68819745-c8a1-42e1-a1f5-8453cf2a33d8,P11,2,Important,Missing domain or range in properties
+./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/50e2222b-1a96-44f9-9b5a-d108cda8f571,P13,42,Minor,Inverse relationships not explicitly declared
+./PROV-O/oops-stats.csv,http://oops.linkeddata.es/data/97ea93e8-9739-43e7-b9da-b3e7ec908086,P19,2,Critical,Defining multiple domains or ranges in properties
+./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/baff8e8c-e07c-435b-83f6-392951f0f200,P04,2,Minor,Creating unconnected ontology elements
+./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/c6a30401-f510-4966-a86a-80a6741c6908,P08,62,Minor,Missing annotations
+./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/b940577c-a957-47b0-9efa-44d37f8c4d3c,P11,7,Important,Missing domain or range in properties
+./OGC-GEOSPARQL/oops-stats.csv,http://oops.linkeddata.es/data/af8e7a27-fc21-47be-ac17-1ef0a460ecae,P13,58,Minor,Inverse relationships not explicitly declared
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/49918b2b-7469-4e53-ba80-e214b0e16cc8,P08,50,Minor,Missing annotations
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/02d413da-facd-415f-a841-966a8fe3a277,P11,73,Important,Missing domain or range in properties
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/5d8be512-9158-45e2-a52f-cc7f917328e0,P12,11,Important,Equivalent properties not explicitly declared
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/4c30c53c-172d-44f1-a36f-849821d73102,P13,104,Minor,Inverse relationships not explicitly declared
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/228b6632-7fa0-4bfb-a122-e66a78787757,P24,8,Important,Using recursive definitions
 ./DEVOPSINFRA/oops-stats.csv,http://oops.linkeddata.es/data/b21c3ef9-441e-49c0-8beb-af04845da4c0,P34,1,Important,Untyped class
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/095bcea1-3358-42a1-8a54-6357e6045e67,P04,2,Minor,Creating unconnected ontology elements
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/eb843d17-5f11-4dfe-9633-a6668808f586,P07,2,Minor,Merging different concepts in the same class
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/1dfbf33f-97c4-4022-bf42-fa94e3710e87,P08,155,Minor,Missing annotations
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/8f62f0fa-2dd1-4f0b-a761-28d99896e28c,P10,1,Important,Missing disjointness
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/e012c78c-9912-4325-bf6a-9b2bb643853d,P11,72,Important,Missing domain or range in properties
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/90fc84b2-58ce-49b6-806a-0639cd074737,P13,26,Minor,Inverse relationships not explicitly declared
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/e3029c8f-0d03-4650-af10-ba850d9edc78,P20,1,Minor,Misusing ontology annotations
-./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/0af4d987-369f-4535-9862-5876fa719da3,P22,1,Minor,Using different naming conventions in the ontology
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/b056d009-f62d-4392-a79a-4d5f22aec214,P04,1,Minor,Creating unconnected ontology elements
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/33a66168-f3df-4b14-8120-70fed1a39479,P05,1,Critical,Defining wrong inverse relationships
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/b2a32ba8-1c14-45c1-ad9b-58e64b09a254,P08,113,Minor,Missing annotations
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/0786c0b4-e9a1-4bd6-8034-1147b148d886,P11,19,Important,Missing domain or range in properties
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/9904b977-0577-457f-b332-351463e44308,P13,67,Minor,Inverse relationships not explicitly declared
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/2e88b951-a621-4d5a-9968-47086cd2677e,P20,1,Minor,Misusing ontology annotations
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/3bc2bd50-b7fc-4896-9a88-aa0bc3e69547,P22,1,Minor,Using different naming conventions in the ontology
-./BBO/oops-stats.csv,http://oops.linkeddata.es/data/a33d466b-68e1-497f-a90e-017188c1435f,P30,2,Important,Equivalent classes not explicitly declared
-./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/e4649eab-d748-4669-aefb-8d1ed6e93d3b,P04,10,Minor,Creating unconnected ontology elements
-./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/bd26fe1b-249f-4a0d-bd52-295ee05572b3,P08,144,Minor,Missing annotations
-./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/4d78434d-1ece-42d6-bb8d-bbb414847259,P10,1,Important,Missing disjointness
-./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/97f43e64-0e8f-4a7f-9f35-4074175fc9fa,P11,46,Important,Missing domain or range in properties
-./OWASP-ODTM/oops-stats.csv,http://oops.linkeddata.es/data/9c1a214c-6e28-4633-9d3c-93f8da86e8b9,P13,20,Minor,Inverse relationships not explicitly declared
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/c589c65a-74fb-42be-bf5a-a2474bb4bf26,P04,15,Minor,Creating unconnected ontology elements
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/50411aff-b655-4e13-8cae-b9f8ee8e36fb,P08,30,Minor,Missing annotations
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/ab6cc3c1-c780-4b4a-8bfd-fd36e1ce6239,P10,1,Important,Missing disjointness
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/d9216b85-991b-419c-a439-0a22bc0040e0,P11,48,Important,Missing domain or range in properties
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/38149acb-749d-4eb1-b3cf-835d7695c53a,P13,46,Minor,Inverse relationships not explicitly declared
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/c8d0bbac-36ae-4ff4-bc72-6108badcab04,P30,1,Important,Equivalent classes not explicitly declared
+./RAMI/oops-stats.csv,http://oops.linkeddata.es/data/d4c8ca8a-d5b2-4653-bf52-2e6d99a485f8,P34,1,Important,Untyped class
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/48f06a02-38c3-47d0-b104-01e645c0644a,P04,2,Minor,Creating unconnected ontology elements
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/a69cdee2-46cc-4e8c-8f72-f5b1b2c7e32d,P08,246,Minor,Missing annotations
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/c8a1cab0-b9e2-49c3-9b1d-956a5ef8f9af,P11,89,Important,Missing domain or range in properties
@@ -307,3 +191,127 @@ group,pit,pit_code,pit_count,pit_importance,pit_name
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/0f15f06e-9bd6-47ca-98b6-057e647eb2ae,P30,4,Important,Equivalent classes not explicitly declared
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/f19cab5e-f417-4ac7-98a9-35325885c5e3,P34,11,Important,Untyped class
 ./GIST/oops-stats.csv,http://oops.linkeddata.es/data/51ad36a9-f76e-4f61-b962-658a6577c4a3,P35,1,Important,Untyped property
+./CASE/oops-stats.csv,http://oops.linkeddata.es/data/5f8979ea-4369-4155-9328-f25ca0278caa,P04,5,Minor,Creating unconnected ontology elements
+./CASE/oops-stats.csv,http://oops.linkeddata.es/data/f8d9b0aa-ce5d-479e-b13d-b38f56c2400f,P08,6,Minor,Missing annotations
+./CASE/oops-stats.csv,http://oops.linkeddata.es/data/6aca56da-24c4-4200-bc0d-ef55002dff4f,P10,1,Important,Missing disjointness
+./CASE/oops-stats.csv,http://oops.linkeddata.es/data/015cc691-2384-4e7e-9ae8-f93675371e30,P11,8,Important,Missing domain or range in properties
+./CASE/oops-stats.csv,http://oops.linkeddata.es/data/1c99e530-2f67-42a7-8194-bfb70e7ad7e0,P13,3,Minor,Inverse relationships not explicitly declared
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/704cf01a-4dd3-4f78-91ea-ad94ef2c61d2,P08,32,Minor,Missing annotations
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/6d3c8d28-cfa7-4cb1-b56c-4e50d3a0195d,P10,1,Important,Missing disjointness
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e438e662-0401-4ae2-9850-aa6a6c698565,P11,27,Important,Missing domain or range in properties
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/45f6e9e8-4515-4383-a416-96fca4b5e91d,P13,20,Minor,Inverse relationships not explicitly declared
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e8c8a3cb-88ed-4903-910f-5edd4be59e3f,P24,6,Important,Using recursive definitions
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/83237e07-7a97-4c08-9393-ed55e93aade5,P25,6,Important,Defining a relationship as inverse to itself
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/f070cf75-fbee-4b75-9390-c91d172dd3bc,P26,6,Important,Defining inverse relationships for a symmetric one
+./FARO/oops-stats.csv,http://oops.linkeddata.es/data/e6eaa4c4-264c-4675-85af-9ad3d178d6a5,P30,1,Important,Equivalent classes not explicitly declared
+./PEP/oops-stats.csv,http://oops.linkeddata.es/data/5ac8f742-2871-4aaf-8676-5e96d01090b2,P04,2,Minor,Creating unconnected ontology elements
+./PEP/oops-stats.csv,http://oops.linkeddata.es/data/cf2a0fd4-73d5-4efc-bbed-e4ffda7488ea,P08,2,Minor,Missing annotations
+./PEP/oops-stats.csv,http://oops.linkeddata.es/data/daaf2394-52fe-4be8-980b-da9bf93e03df,P11,6,Important,Missing domain or range in properties
+./PEP/oops-stats.csv,http://oops.linkeddata.es/data/19d020ba-247f-4605-9855-6beddf14616c,P13,7,Minor,Inverse relationships not explicitly declared
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/1a26fe84-3882-4869-94a2-0ef92b0a133e,P04,3,Minor,Creating unconnected ontology elements
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/fbfd0472-7f4c-4db4-8a39-58e59e77bd44,P07,11,Minor,Merging different concepts in the same class
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/364c8711-2447-4f02-8372-e5c065e159f7,P08,956,Minor,Missing annotations
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/9324a221-b818-43a8-9ec3-8557b488e5e8,P11,12,Important,Missing domain or range in properties
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/c262ebd6-9269-4d11-a0a3-b8e19798396e,P13,12,Minor,Inverse relationships not explicitly declared
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/5f4b31cf-72ab-4684-8dfb-f58f1bfe8986,P20,1,Minor,Misusing ontology annotations
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/547944a7-8743-45ec-b1b1-61b3583f035b,P21,1,Minor,Using a miscellaneous class
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/b7a3654a-b392-41ca-b2a5-5788c66b1037,P22,1,Minor,Using different naming conventions in the ontology
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/e266863d-7a52-4c94-857a-080adcc4751c,P30,4,Important,Equivalent classes not explicitly declared
+./DogOnt/oops-stats.csv,http://oops.linkeddata.es/data/86c5f103-f677-4efd-9ca5-7a7c45909b64,P31,1,Critical,Defining wrong equivalent classes
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/a9298c17-64bb-4dd8-a990-26b7ba6a1e6e,P04,2,Minor,Creating unconnected ontology elements
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/8dcec6b3-3f11-495f-9043-698365d503ba,P07,1,Minor,Merging different concepts in the same class
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/61c3cc6c-2d3e-43e7-9cd2-8bed3c75176d,P08,88,Minor,Missing annotations
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/4689bc65-ded5-4565-a89a-74558ffb2466,P10,1,Important,Missing disjointness
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/4d0e48b4-6583-4b31-a57e-1c6f78185586,P13,10,Minor,Inverse relationships not explicitly declared
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/0ef75cf9-b0ff-4879-8db4-d1a7c3ed1274,P19,10,Critical,Defining multiple domains or ranges in properties
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/d1417244-f1b3-4cad-b5e6-fc6ea3a2fdd7,P22,1,Minor,Using different naming conventions in the ontology
+./MALONT/oops-stats.csv,http://oops.linkeddata.es/data/3e0bdc77-983e-4965-9ef7-e602fd3158f4,P30,1,Important,Equivalent classes not explicitly declared
+./INDL/oops-stats.csv,http://oops.linkeddata.es/data/dd6354c1-1bd1-4458-a56b-ad9c4795bc86,P08,71,Minor,Missing annotations
+./INDL/oops-stats.csv,http://oops.linkeddata.es/data/d3b1356e-e6f0-41ad-aca6-76bdde0ba9f3,P10,1,Important,Missing disjointness
+./INDL/oops-stats.csv,http://oops.linkeddata.es/data/b51105a3-3b0f-4478-83b0-03d338d10b6a,P11,7,Important,Missing domain or range in properties
+./INDL/oops-stats.csv,http://oops.linkeddata.es/data/b9640fbf-c8b4-4f37-91b7-bc7821828ccd,P12,1,Important,Equivalent properties not explicitly declared
+./INDL/oops-stats.csv,http://oops.linkeddata.es/data/de9cb07b-4e9f-4326-9c8c-959e0ce4585e,P13,25,Minor,Inverse relationships not explicitly declared
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/72839f84-182f-499e-b634-3afb4f0a5982,P04,4,Minor,Creating unconnected ontology elements
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/8c0540fe-2742-408e-b179-4fe4545a2551,P08,98,Minor,Missing annotations
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/3d478e1a-b952-4bf8-a507-210894fc8ac6,P11,75,Important,Missing domain or range in properties
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/1bfc7aa6-da36-4a4d-9649-422a3b5c948e,P13,67,Minor,Inverse relationships not explicitly declared
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/5ffb1aef-bb48-436c-9d53-a7404101892d,P22,1,Minor,Using different naming conventions in the ontology
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/0e11c8c6-6f6f-49fe-a241-ae89241993ce,P24,3,Important,Using recursive definitions
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/6210a64a-59f1-4c81-86c4-af569ca8bf5c,P33,1,Minor,Creating a property chain with just one property
+./ActivityOntology/oops-stats.csv,http://oops.linkeddata.es/data/02370f65-80ab-4d57-a6a9-fcf6e08b2a17,P34,1,Important,Untyped class
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/7e5b9ad3-25c6-4432-b150-e519da26dc93,P04,3,Minor,Creating unconnected ontology elements
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/7c45cff3-2562-4d2a-a139-1ebb7eacca0f,P07,1,Minor,Merging different concepts in the same class
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/d8877e2e-b5fa-4f35-a8bb-ce53e2f7abf4,P08,172,Minor,Missing annotations
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/28c43cc4-4309-4728-9645-41824b96fd09,P11,2,Important,Missing domain or range in properties
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/f99be4d9-61fa-4a5f-99dd-22196f1fe8be,P13,36,Minor,Inverse relationships not explicitly declared
+./TOCO/oops-stats.csv,http://oops.linkeddata.es/data/db839018-e6fb-4262-8e52-ede79d75e9ac,P22,1,Minor,Using different naming conventions in the ontology
+./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/69819859-35b1-4be4-86bd-44299e2037cf,P10,1,Important,Missing disjointness
+./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/1730c5c1-a6b9-4a2f-aa4a-4b020352ee0c,P11,4,Important,Missing domain or range in properties
+./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/e42585e7-e1ca-4a93-badd-3565ec4b944c,P13,22,Minor,Inverse relationships not explicitly declared
+./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/51875a5a-3696-47e1-ae05-6faf3211a416,P34,1,Important,Untyped class
+./HTTP/oops-stats.csv,http://oops.linkeddata.es/data/80c261db-2286-4aab-af33-2c9edbb278aa,P35,1,Important,Untyped property
+./OWL-Time/oops-stats.csv,http://oops.linkeddata.es/data/b1899d42-95f7-4766-95d9-430abebcc4eb,P11,6,Important,Missing domain or range in properties
+./OWL-Time/oops-stats.csv,http://oops.linkeddata.es/data/bf15ac92-f7da-48ed-8471-5405d54c0250,P13,20,Minor,Inverse relationships not explicitly declared
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/6fbfc129-5a80-4ceb-94e1-8442e0893ad2,P04,20,Minor,Creating unconnected ontology elements
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/7d92884e-2557-48db-97f3-da3bf208872b,P08,20,Minor,Missing annotations
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/4b3ca610-ec11-44be-8fb4-97d09c674788,P10,1,Important,Missing disjointness
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/af45e61f-7485-4824-8f24-b8a5542efc59,P11,38,Important,Missing domain or range in properties
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/c073451f-a107-4722-ab4c-1b347f2492fc,P13,3,Minor,Inverse relationships not explicitly declared
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/72c3bcd2-6487-4749-9e16-8519380338f7,P24,1,Important,Using recursive definitions
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/23d4d7f8-869c-4f0b-a193-f92d63f2a9ef,P30,2,Important,Equivalent classes not explicitly declared
+./SSN/oops-stats.csv,http://oops.linkeddata.es/data/44fd0194-6abc-4ab2-b5dc-7d743902d74b,P34,9,Important,Untyped class
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/095bcea1-3358-42a1-8a54-6357e6045e67,P04,2,Minor,Creating unconnected ontology elements
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/eb843d17-5f11-4dfe-9633-a6668808f586,P07,2,Minor,Merging different concepts in the same class
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/1dfbf33f-97c4-4022-bf42-fa94e3710e87,P08,155,Minor,Missing annotations
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/8f62f0fa-2dd1-4f0b-a761-28d99896e28c,P10,1,Important,Missing disjointness
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/e012c78c-9912-4325-bf6a-9b2bb643853d,P11,72,Important,Missing domain or range in properties
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/90fc84b2-58ce-49b6-806a-0639cd074737,P13,26,Minor,Inverse relationships not explicitly declared
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/e3029c8f-0d03-4650-af10-ba850d9edc78,P20,1,Minor,Misusing ontology annotations
+./ACCT/oops-stats.csv,http://oops.linkeddata.es/data/0af4d987-369f-4535-9862-5876fa719da3,P22,1,Minor,Using different naming conventions in the ontology
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/08227718-d277-4340-acb6-63073cfd7e17,P05,4,Critical,Defining wrong inverse relationships
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/c15cd5f8-ad08-4178-861a-8a20019e2691,P08,209,Minor,Missing annotations
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/544c248f-e913-44f3-959c-7e9ab13e42f1,P11,16,Important,Missing domain or range in properties
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/3fea06ff-24b3-4e66-b6cb-d2636f890626,P12,8,Important,Equivalent properties not explicitly declared
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/00bf75cc-2747-44a1-83fc-85f2833b9e3c,P13,36,Minor,Inverse relationships not explicitly declared
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/7d055a90-2a61-4716-a167-f7987ff7a465,P22,1,Minor,Using different naming conventions in the ontology
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/11a704e7-f682-44bb-a434-973c41e822a5,P27,3,Critical,Defining wrong equivalent properties
+./BOnSAI/oops-stats.csv,http://oops.linkeddata.es/data/9d17aa6c-6d53-4b62-a45e-e3c75d039b0b,P30,2,Important,Equivalent classes not explicitly declared
+./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/6a421f8b-edb6-4330-8586-357242b55907,P08,58,Minor,Missing annotations
+./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/e359c719-fdd3-4c0b-ae54-bc5ac4d4daf4,P11,6,Important,Missing domain or range in properties
+./MINING-MINDS/oops-stats.csv,http://oops.linkeddata.es/data/5942d867-befb-4d00-a905-b13edbccedbc,P13,4,Minor,Inverse relationships not explicitly declared
+./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/b35bc9f3-2247-4988-a7c1-320e01244c03,P08,13,Minor,Missing annotations
+./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/16a21089-51e0-459f-b283-656a58e1ed8a,P10,1,Important,Missing disjointness
+./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/7c66f3cc-a2ce-4385-b990-5a56815f3b77,P11,3,Important,Missing domain or range in properties
+./SLOGERT-LOGEX/oops-stats.csv,http://oops.linkeddata.es/data/ea67fd60-5eea-4331-b70e-ed98d3d805cf,P13,6,Minor,Inverse relationships not explicitly declared
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/cb67b43f-90ed-47b0-8520-cb98382eb51f,P04,6,Minor,Creating unconnected ontology elements
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/6d678016-0d52-424c-b0ec-5462a8b94270,P08,291,Minor,Missing annotations
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/86db0d88-7657-476c-b467-6bac1a2d8591,P10,1,Important,Missing disjointness
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/efbea74f-b1f5-4f16-ac16-0d36069c7f7b,P11,9,Important,Missing domain or range in properties
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/91266089-3d6e-470e-9458-f78c1955c441,P13,77,Minor,Inverse relationships not explicitly declared
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/dea943e8-af3a-481c-ac8e-597778df7b9a,P22,1,Minor,Using different naming conventions in the ontology
+./mIO/oops-stats.csv,http://oops.linkeddata.es/data/33be03c2-2287-4ae6-83be-55bf8558abb1,P24,1,Important,Using recursive definitions
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/ff97e002-45cf-4fa5-bd2d-501f10df14a3,P08,144,Minor,Missing annotations
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/9a34226f-c5b7-4220-9869-3f05ff593110,P10,1,Important,Missing disjointness
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/064a02cb-ca6a-421a-be97-a9986afcbd8b,P11,7,Important,Missing domain or range in properties
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/c8dd2bac-b027-4fae-8ed4-2d06d299b253,P13,24,Minor,Inverse relationships not explicitly declared
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/25374b8f-09b7-4f70-a67a-a8f951c2d89e,P19,16,Critical,Defining multiple domains or ranges in properties
+./ORD2I/oops-stats.csv,http://oops.linkeddata.es/data/81529366-d79b-4eba-8af9-618da110c8ef,P34,1,Important,Untyped class
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/4e202ed5-9175-4b07-b01d-ca920d981d9d,P03,1,Critical,"Creating the relationship &quot;is&quot; instead of using &quot;rdfs:subClassOf&quot;, &quot;rdf:type&quot; or &quot;owl:sameAs&quot;"
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/5715ac7b-8516-4f29-a4eb-4dc493e79496,P04,1,Minor,Creating unconnected ontology elements
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/14432867-95e5-43a7-98c2-40433936db83,P08,680,Minor,Missing annotations
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/2f7fc2e7-7eea-4aa1-9eaf-f52fce03bc86,P11,180,Important,Missing domain or range in properties
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/e41ce110-b8f3-4b55-9ef3-302edfa6cb9b,P12,1,Important,Equivalent properties not explicitly declared
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/312e9379-c65f-4085-b1ec-20c673d0b246,P13,112,Minor,Inverse relationships not explicitly declared
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/e4beecdc-fde4-4038-bfb8-da5f1040011b,P22,1,Minor,Using different naming conventions in the ontology
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/24e81afa-c868-4017-9d7d-0c6efe1b0f3a,P24,5,Important,Using recursive definitions
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/3dad4a26-d114-4d8d-9069-2c4a92c84df1,P25,2,Important,Defining a relationship as inverse to itself
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/6ecedbfe-2015-4d0b-8b2b-1c0407e73156,P26,1,Important,Defining inverse relationships for a symmetric one
+./ForensicOntology/oops-stats.csv,http://oops.linkeddata.es/data/fa16f9c5-d4f2-4e88-af89-c245a7084c1e,P30,7,Important,Equivalent classes not explicitly declared
+./FOAF/oops-stats.csv,http://oops.linkeddata.es/data/dee7c2f7-525a-43bd-a0f4-7c109c4d237b,P34,8,Important,Untyped class
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/d4546a7e-b4e6-4941-927d-3fb796cbbeab,P04,2,Minor,Creating unconnected ontology elements
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/cc67326c-6fbc-4154-80ef-205def2fbc39,P08,14,Minor,Missing annotations
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/0652e628-ba4f-4c42-887a-b3772f80f108,P10,1,Important,Missing disjointness
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/7811d94d-da81-43ff-bbe9-26b86e76d620,P11,2,Important,Missing domain or range in properties
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/5d3e81f8-f9c0-4cf7-b416-5cb42b3697f9,P13,3,Minor,Inverse relationships not explicitly declared
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/5c919f4e-b9e2-449a-ac8f-04cb84fcd8eb,P34,1,Important,Untyped class
+./EventKG/oops-stats.csv,http://oops.linkeddata.es/data/068b491a-5ba9-497f-919b-de247512dd16,P38,1,Important,No OWL ontology declaration

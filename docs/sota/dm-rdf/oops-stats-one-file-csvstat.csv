@@ -2,11 +2,11 @@
 
 	Type of data:          Text
 	Contains null values:  False
-	Unique values:         45
+	Unique values:         46
 	Longest value:         35 characters
 	Most common values:    ./ICAS/oops-stats.csv (15x)
-	                       ./ForensicOntology/oops-stats.csv (11x)
 	                       ./UCO/oops-stats.csv (11x)
+	                       ./ForensicOntology/oops-stats.csv (11x)
 	                       ./OM/oops-stats.csv (10x)
 	                       ./DogOnt/oops-stats.csv (10x)
 
@@ -14,13 +14,13 @@
 
 	Type of data:          Text
 	Contains null values:  False
-	Unique values:         308
+	Unique values:         316
 	Longest value:         67 characters
-	Most common values:    http://oops.linkeddata.es/data/c589c65a-74fb-42be-bf5a-a2474bb4bf26 (1x)
-	                       http://oops.linkeddata.es/data/50411aff-b655-4e13-8cae-b9f8ee8e36fb (1x)
-	                       http://oops.linkeddata.es/data/ab6cc3c1-c780-4b4a-8bfd-fd36e1ce6239 (1x)
-	                       http://oops.linkeddata.es/data/d9216b85-991b-419c-a439-0a22bc0040e0 (1x)
-	                       http://oops.linkeddata.es/data/38149acb-749d-4eb1-b3cf-835d7695c53a (1x)
+	Most common values:    http://oops.linkeddata.es/data/83cce300-231f-43e8-9254-ac1b99c96a8c (1x)
+	                       http://oops.linkeddata.es/data/e2edfe89-206d-45c5-aa66-b07011a8dc0d (1x)
+	                       http://oops.linkeddata.es/data/bb5123cb-0de8-4eab-8883-9a277e9baba3 (1x)
+	                       http://oops.linkeddata.es/data/a85f894c-6ddb-43c3-b2f3-0a2215f32abe (1x)
+	                       http://oops.linkeddata.es/data/57495054-4a07-4901-826d-16fdc15aae01 (1x)
 
   3. "pit_code"
 
@@ -28,25 +28,25 @@
 	Contains null values:  False
 	Unique values:         26
 	Longest value:         3 characters
-	Most common values:    P13 (43x)
-	                       P11 (42x)
-	                       P08 (41x)
-	                       P04 (29x)
-	                       P10 (20x)
+	Most common values:    P13 (44x)
+	                       P11 (43x)
+	                       P08 (42x)
+	                       P04 (30x)
+	                       P10 (21x)
 
   4. "pit_count"
 
 	Type of data:          Number
 	Contains null values:  False
-	Unique values:         76
+	Unique values:         79
 	Smallest value:        1
 	Largest value:         1 802
-	Sum:                   12 178
-	Mean:                  39,539
+	Sum:                   12 540
+	Mean:                  39,684
 	Median:                5
-	StDev:                 138,648
-	Most common values:    1 (94x)
-	                       2 (29x)
+	StDev:                 137,495
+	Most common values:    1 (96x)
+	                       2 (30x)
 	                       3 (17x)
 	                       4 (13x)
 	                       6 (11x)
@@ -57,9 +57,9 @@
 	Contains null values:  False
 	Unique values:         3
 	Longest value:         9 characters
-	Most common values:    Minor (156x)
-	                       Important (135x)
-	                       Critical (17x)
+	Most common values:    Minor (160x)
+	                       Important (138x)
+	                       Critical (18x)
 
   6. "pit_name"
 
@@ -67,10 +67,10 @@
 	Contains null values:  False
 	Unique values:         26
 	Longest value:         133 characters
-	Most common values:    Inverse relationships not explicitly declared (43x)
-	                       Missing domain or range in properties (42x)
-	                       Missing annotations (41x)
-	                       Creating unconnected ontology elements (29x)
-	                       Missing disjointness (20x)
+	Most common values:    Inverse relationships not explicitly declared (44x)
+	                       Missing domain or range in properties (43x)
+	                       Missing annotations (42x)
+	                       Creating unconnected ontology elements (30x)
+	                       Missing disjointness (21x)
 
-Row count: 308
+Row count: 316
