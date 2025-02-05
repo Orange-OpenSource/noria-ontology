@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Orange. All rights reserved.
+# Copyright (c) 2022-2025 Orange. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -138,10 +138,6 @@
     rr:predicateObjectMap [ rr:predicate org:classification ;
                             rr:objectMap <OM_NORIA_teamClassification> ;
       ];
-
-#    rr:predicateObjectMap [ rr:predicate noria:teamManager;
-#                            rr:objectMap <OM_Marine_EDS_Manager> ;
-#      ];
 .
 
 <MP_NORIA_CUid>
@@ -199,7 +195,7 @@
     rr:constant "https://w3id.org/noria/agent/ORG_orange-france" ;
 .
 <SM_NORIA_TeamCode>
-    rr:template "https://w3id.org/noria/agent/TM_TOY_{teamId}" ;
+    rr:template "https://w3id.org/noria/agent/TEAM_TOY_{teamId}" ;
 .
 <SM_NORIA_UserConnexionCode>
     rr:template "https://w3id.org/noria/agent/CUID_TOY_{employeeId}" ;
