@@ -51,6 +51,8 @@ Changes in v0.4:
 - Modified base URI from <https://w3id.org/noria/kos/> to <https://w3id.org/noria/ontology/kos/>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
 - Modified the URI of the "noria-kos" ConceptScheme from <https://w3id.org/noria/kos> to <https://w3id.org/noria/ontology/kos>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
 - Added spine-leaf and firewall concepts for the noria:resourceType property, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/15
+- Added standardization links for the vnf concept.
+- Added details to the org/org-classification/manufacturer concept.
 """@en ;
 .
 
@@ -1947,10 +1949,15 @@ Therefore we take X.733 for baseline with respect to its anteriority and map oth
 
 <org/org-classification/manufacturer>
 	a skos:Concept;
+	skos:definition "Une organisation assumant une activité de fabrication d'un certain produit."@fr ;
 	skos:definition "An organization assuming a manufacturing activity of some product."@en ;
 	skos:inScheme <org/org-classification> ;
 	skos:notation "manufacturer";
-	skos:prefLabel "Manufacturer"@en .
+	skos:prefLabel "Manufacturer"@en ;
+	skos:prefLabel "Fabricant"@fr ;
+	skos:altLabel "Constructeur"@fr ;
+	rdfs:isDefinedBy <https://vitrinelinguistique.oqlf.gouv.qc.ca/fiche-gdt/fiche/8359129/fabricant> ;
+.
 
 # -----------------------------------------------------------------------------
 
@@ -2279,7 +2286,6 @@ The leaf layer consists of access switches that aggregate traffic from servers a
 	skos:inScheme <Resource/type> ;
 	skos:notation "network-element-leaf";
 	skos:broader <Resource/type/network-element> ;
-	skos:related <Resource/type/network-element-spine> ;
 	skos:prefLabel "Leaf switch"@en ;
 	skos:prefLabel "Commutateur feuille"@fr ;
 	skos:altLabel "Leaf node"@en ;
@@ -2308,7 +2314,6 @@ Spine switches interconnect all leaf switches in a full-mesh topology."""@en;
 	skos:inScheme <Resource/type> ;
 	skos:notation "network-element-spine";
 	skos:broader <Resource/type/network-element> ;
-	skos:related <Resource/type/network-element-leaf> ;
 	skos:prefLabel "Spine switch"@en ;
 	skos:prefLabel "Commutateur spine"@fr ;
 	skos:altLabel "Spine node"@en ;
