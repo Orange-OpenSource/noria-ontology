@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2024 Orange. All rights reserved.
+# Copyright (c) 2022-2025 Orange. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -40,7 +40,7 @@
 	dcterms:title "The NORIA-O vocabulary" ;
 	dcterms:type <http://purl.org/nkos/terms/thesaurus> ;
 	dcterms:issued "2022-01-01"^^xsd:date ;
-	dcterms:modified "2024-08-22"^^xsd:date ;
+	dcterms:modified "2025-04-08"^^xsd:date ;
 	skos:changeNote """Changes in v0.3:
 
 - Changed the vocabulary architecture from micro-architecture to single file.
@@ -50,6 +50,7 @@ Changes in v0.4:
 
 - Modified base URI from <https://w3id.org/noria/kos/> to <https://w3id.org/noria/ontology/kos/>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
 - Modified the URI of the "noria-kos" ConceptScheme from <https://w3id.org/noria/kos> to <https://w3id.org/noria/ontology/kos>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
+- Added spine-leaf concepts for the noria:resourceType property, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/15
 """@en ;
 .
 
@@ -2265,6 +2266,23 @@ These two points make the difference between Resource and Product."""@en;
 	skos:prefLabel "Elément réseau"@fr;
 	skos:altLabel "Network"@en;
 	skos:altLabel "Réseau"@fr;
+.
+
+<Resource/type/network-element-leaf>
+	a skos:Concept;
+	skos:definition """Equipement réseau 'feuille' (leaf) au sein d'une architecture en deux niveaux 'spine-leaf'.
+Une architecture spine-leaf est une architecture de réseau de centre de données qui se compose de deux couches de commutation.
+La couche 'feuille' se compose de commutateurs d'accès qui agrègent le trafic des serveurs et se connectent directement à la couche 'spine' ou au coeur du réseau."""@fr;
+	skos:definition """A 'leaf' network element in a 2-tier spine-leaf architecture.
+A spine-leaf architecture is data center network topology that consists of two switching layers.
+The leaf layer consists of access switches that aggregate traffic from servers and connect directly into the spine or network core."""@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "network-element-leaf";
+	skos:broader <Resource/type/network-element> ;
+	skos:prefLabel "Leaf node"@en;
+	skos:prefLabel "Noeud feuille"@fr;
+	skos:altLabel "Leaf"@en;
+	skos:altLabel "Feuille"@fr;
 .
 
 <Resource/type/vnf>
