@@ -50,7 +50,7 @@ Changes in v0.4:
 
 - Modified base URI from <https://w3id.org/noria/kos/> to <https://w3id.org/noria/ontology/kos/>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
 - Modified the URI of the "noria-kos" ConceptScheme from <https://w3id.org/noria/kos> to <https://w3id.org/noria/ontology/kos>, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/5
-- Added spine-leaf concepts for the noria:resourceType property, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/15
+- Added spine-leaf and firewall concepts for the noria:resourceType property, relates to https://github.com/Orange-OpenSource/noria-ontology/issues/15
 """@en ;
 .
 
@@ -2279,21 +2279,66 @@ The leaf layer consists of access switches that aggregate traffic from servers a
 	skos:inScheme <Resource/type> ;
 	skos:notation "network-element-leaf";
 	skos:broader <Resource/type/network-element> ;
-	skos:prefLabel "Leaf node"@en;
-	skos:prefLabel "Noeud feuille"@fr;
-	skos:altLabel "Leaf"@en;
-	skos:altLabel "Feuille"@fr;
+	skos:related <Resource/type/network-element-spine> ;
+	skos:prefLabel "Leaf switch"@en ;
+	skos:prefLabel "Commutateur feuille"@fr ;
+	skos:altLabel "Leaf node"@en ;
+	rdfs:seeAlso <https://www.hpe.com/us/en/what-is/spine-leaf-architecture.html> ;
+.
+
+<Resource/type/network-element-border-leaf>
+	a skos:Concept;
+	skos:definition """Equipement réseau 'feuille' (leaf), au sein d'une architecture en deux niveaux 'spine-leaf', qui fournit une connectivité routée entre l'environnement contrôlé de commutation et le reste du réseau du centre de données."""@fr;
+	skos:definition """A 'leaf' network element, in a 2-tier spine-leaf architecture, that provides routed connectivity between the controller-based switching fabric and the rest of the datacenter network."""@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "network-element-border-leaf" ;
+	skos:broader <Resource/type/network-element-leaf> ;
+	skos:prefLabel "Border leaf node"@en ;
+	rdfs:seeAlso <https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_kb-aci-stretched-fabric.html> ;
+.
+
+<Resource/type/network-element-spine>
+	a skos:Concept;
+	skos:definition """Equipement réseau 'spine' au sein d'une architecture en deux niveaux 'spine-leaf'.
+Une architecture spine-leaf est une architecture de réseau de centre de données qui se compose de deux couches de commutation.
+Les commutateurs 'spine' interconnectent l'ensemble des commutateurs 'leaf' en formant un réseau maillé complet."""@fr;
+	skos:definition """A 'spine' network element in a 2-tier spine-leaf architecture.
+A spine-leaf architecture is data center network topology that consists of two switching layers.
+Spine switches interconnect all leaf switches in a full-mesh topology."""@en;
+	skos:inScheme <Resource/type> ;
+	skos:notation "network-element-spine";
+	skos:broader <Resource/type/network-element> ;
+	skos:related <Resource/type/network-element-leaf> ;
+	skos:prefLabel "Spine switch"@en ;
+	skos:prefLabel "Commutateur spine"@fr ;
+	skos:altLabel "Spine node"@en ;
+	skos:altLabel "Spine"@en ;
+	rdfs:seeAlso <https://www.hpe.com/us/en/what-is/spine-leaf-architecture.html> ;
 .
 
 <Resource/type/vnf>
 	a skos:Concept;
-	skos:definition "Equipement réseau virtuel. Ce type d'équipement réseau est rattaché à un équipement physique."@fr;
-	skos:definition "Instance of a software implementation of Network Function that can be deployed in a virtualized infrastructure. See ETSI 'NFV Terminology for Main Concepts in NFV' Oct 2013."@en;
+	skos:definition "Equipement réseau virtuel. Ce type d'équipement réseau est rattaché à un équipement physique."@fr ;
+	skos:definition "Instance of a software implementation of Network Function that can be deployed in a virtualized infrastructure."@en ;
 	skos:inScheme <Resource/type> ;
-	skos:notation "vnf";
-	skos:prefLabel "Virtualized Network Function"@en;
-	skos:prefLabel "Fonction de réseau virtualisée"@fr;
-	skos:altLabel "Réseau virtuel"@fr;
+	skos:notation "vnf" ;
+	skos:prefLabel "Virtualized Network Function"@en ;
+	skos:prefLabel "Fonction de réseau virtualisée"@fr ;
+	skos:altLabel "Réseau virtuel"@fr ;
+	rdfs:isDefinedBy <https://www.etsi.org/deliver/etsi_gr/NFV/001_099/003/01.09.01_60/gr_NFV003v010901p.pdf> ;
+	rdfs:seeAlso <https://www.redhat.com/en/topics/cloud-native-apps/vnf-and-cnf-whats-the-difference> ;
+.
+
+<Resource/type/network-element/firewall>
+	a skos:Concept;
+	skos:definition """Système de sécurité réseau qui surveille et contrôle le trafic réseau entrant et sortant en fonction de règles de sécurité prédéterminées."""@fr ;
+	skos:definition """Network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules."""@en ;
+	skos:broader <Resource/type/network-element> ;
+	skos:broader <Resource/type/vnf> ;
+	skos:notation "firewall";
+	skos:prefLabel "Firewall"@en ;
+	skos:prefLabel "Pare-feu"@fr ;
+	rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q80998> ;
 .
 
 <Resource/type/storage>
