@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2024 Orange. All rights reserved.
+# Copyright (c) 2022-2025 Orange. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 #     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -36,7 +36,32 @@ help:	## Show this help.
 	# Get lines with double dash comments and display it
 	@fgrep -h "## " $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/## //'
 
-check-ontology:	## Check syntax of ontology files
+
+# --- INSTALL ----------------------------------------------------------
+
+install-ontodev-robot:
+	@echo -e "\033[35m > Install ontodev-robot  \033[0m - Need Internet access, see https://github.com/ontodev/robot/ and http://robot.obolibrary.org/"
+	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
+	@curl -L \
+	  --proxy ${PROXY_SRV}:${PROXY_PORT} \
+	  -o ./lib/ontodev-robot/robot.jar \
+	  --create-dirs \
+	  https://github.com/ontodev/robot/releases/download/v1.9.7/robot.jar
+	@echo -e "\033[35m > Done  \033[0m"
+
+install-qskos:
+	@echo -e "\033[35m > Install qSKOS \033[0m - Need Internet access, see https://github.com/cmader/qSKOS"
+	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
+	@curl -L \
+	  --proxy ${PROXY_SRV}:${PROXY_PORT} \
+	  -o ./lib/qskos/qSKOS-cmd.jar \
+	  --create-dirs \
+	  https://github.com/cmader/qSKOS/releases/download/v2.0.4/qSKOS-cmd.jar
+	@echo -e "\033[35m > Done  \033[0m"
+
+# --- CHECK ------------------------------------------------------------
+
+check-ontology-syntax:	## Check syntax of ontology files
 	@echo -e "\033[35m > Check turtle syntax  \033[0m - requires TurtleValidator: npm install -g turtle-validator (see https://github.com/IDLabResearch/TurtleValidator)"
 	@find kos/ -type f -name *.ttl -printf "\n%f\n" -exec /usr/local/bin/ttl {} \;
 	@find ontology/ -type f -name *.ttl -printf "\n%f\n" -exec /usr/local/bin/ttl {} \;
@@ -44,14 +69,14 @@ check-ontology:	## Check syntax of ontology files
 
 check-skos:	## Check quality of SKOS files
 	@echo -e "\033[35m > Run qSkos \033[0m (see https://github.com/cmader/qSKOS , requires Internet connection)"
+	@echo -e "PROXY_SRV = ${PROXY_SRV} / PROXY_PORT = ${PROXY_PORT}"
 	@find kos/ -type f -name *.ttl \
 	  -printf "\n%f\n" \
 	  -exec java \
 		  -Dhttp.proxyHost=${PROXY_SRV} \
 		  -Dhttp.proxyPort=${PROXY_PORT} \
 		  -jar lib/qskos/qSKOS-cmd.jar \
-			analyze \
-			-dc bl,mil \
+			summarize \
 			{} \
 			-o doc/qskos/{}.qskos.txt \;
 	@echo -e "\033[35m > Done  \033[0m"
@@ -65,6 +90,8 @@ check-filesystem:	## Check project's filesystem content for clean commit and sha
 	@echo -e "\033[35m > Find files with long filenames  \033[0m"
 	@! find | egrep '/[^/]{100,}$$'
 	@echo -e "\033[35m > Done  \033[0m"
+
+# --- DOC --------------------------------------------------------------
 
 doc-widoco:	## Compile documentation (this task relies on both local and remote files)
 
